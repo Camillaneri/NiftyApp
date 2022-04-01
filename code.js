@@ -1,4 +1,5 @@
 function test(){
+
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
         method: 'POST',
         headers: {
@@ -15,7 +16,6 @@ function test(){
         }),
       })
       .then((res) => res.json())
-      .then((res))
       .then((result) => console.log(result));
 }
 
