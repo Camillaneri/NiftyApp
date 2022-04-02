@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Worksheet</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- Optional JavaScript; choose one of the two! -->
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <style>
+    body{
+        background-color: whitesmoke;
+        
+            }
+    .vcenter-item{
+        display: flex;
+        align-items: center;
+    }
+    /* Some custom styles to beautify this example */
+    .wrapper{
+
+        padding:  160px 0px;
+    }
+    #centralBox{
+        background-color: white;
+
+        max-height: 500px!important;
+       
+    }
+
+    .mainBox{
+        padding: 100px 0;
+        height: 100%;
+    }
+
+    #getData {
+        min-height: 150px;
+        
+    }
+
+    .getDataheader  {
+        
+        padding-bottom: 0.5em;
+        
+    }
+
+    .getDatabox{
+        
+        width: 20%;
+        min-height: fit-content;
+        margin: 0;
+    }
+    
+    img{
+
+        width: auto;
+
+    }
+
+    .mainBoxcontainer{
+        height: 100%;
+        background-color: white!important;
+    }
+
+
+    .dropboxes{
+        background: white;
+    }
+
+    .card{
+        background-color: whitesmoke;
+    }
+
+    .description{
+        height: 80%;
+    }
+
+
+
+</style>
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        <nav class="navbar py-4 navbar-dark bg-dark fixed-top">
+            <span class="container">
+                <span class="navbar-text"> NiftyEValue</span> 
+                <span class="navbar-text align-self-end">Warm Up</spandes>
+            </span>
+        </nav>
+
+        <div class="container mainBox center">     
+            <div class="row">         
+                <div class="col-4 g-3 ">            
+                     <div class="card border bg-light">
+                         <img src="https://ipfs.pixura.io/ipfs/QmPR8zrhpzvJuswEaDrKCuLKiHDd9ZUwAb1TwdCc2vHoyn/IMG_5676.JPG" class="img" alt="...">
+                    </div>
+                </div>
+                <div class="col g-3"> 
+                    <div class="mainBoxcontainer p-3">
+                        <div class="description">              
+                            <h4>Rank items by similarity</h4>                
+                            <p class="lead">Given the reference image drag and drop in order of similarity (from 1 to 5)the images below</p>      
+                        </div>                              
+                        <div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">                      
+                                <button class="btn btn-success px-4 me-md-2" type="button" onclick="getHome()">Next</button>                  
+                            </div>
+                        </div>
+                    </div>    
+                </div>     
+            </div>     
+            <div class="row dropboxes p-3 my-3">         
+                <div class="g-3 getDatabox">   
+                    <header class="getDataheader text-center"><h5>Firts place </h5></header>          
+                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                               
+                    </div>                         
+                </div>          
+                <div class="g-3 getDatabox">  
+                    <header class="getDataheader text-center"><h5>Second place</h5></header>              
+                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    </div>                         
+                </div>          
+                <div class="g-3 getDatabox">             
+                    <header class="getDataheader text-center"><h5>Third place</h5></header>   
+                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    </div>                         
+                </div>          
+                <div class="g-3 getDatabox">             
+                    <header class="getDataheader text-center"><h5>Fourth place</h5></header>   
+                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    </div>                         
+                </div>                  
+                <div class="g-3 getDatabox">             
+                    <header class="getDataheader text-center"><h5>Fifth place</h5></header>   
+                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    </div>                         
+                </div>              
+            </div>      
+            <div class="row ">             
+                <div class="col g-3">                 
+                    <img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">             
+                </div>             
+                <div class="col g-3">                 
+                    <img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmWagoueso5cASH21caYFXgrtYjkJTukR6vAyAa6TkB9dA/2020-04-0918-37-53.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">             
+                </div>             
+                <div class="col g-3">                 
+                    <img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmR51gPMefM8hBJhhnTrmsNcoAXNBBPoqv3RFmXtVdvC6G/fraud8.png" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">             
+                </div>             
+                <div class="col g-3">                 
+                    <img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmUjZZ4BDdV4tBBJUBngApsmbK6JZzWQa2MpoAaFQvCLYK/FloatingPoints.png" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">             
+                </div>             
+                <div class="col g-3">                 
+                    <img id="dragData5" src="https://ipfs.pixura.io/ipfs/QmaZwNFAiR8MTihX8gP2tPqPjocj5vc27WkYfFxAoYbz5J/A1.jpg" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">             
+                </div>     
+            </div> 
+
+<!-- Needs to be fixed: videos not working -->
+
+
+        <footer class="mt-auto  py-4 bg-dark text-white-50 fixed-bottom">
+            <div class="container text-center">
+            <small>Copyright &copy; Your Website</small>
+            </div>
+      </footer>    
+    </body>
+    <script>
+        //scripts for functionalities 
+        function allowDrop(even) {
+        even.preventDefault();
+    }
+ 
+    function drag(even) {
+        even.dataTransfer.setData("text", even.target.id);
+    }
+ 
+    function drop(even) {
+        even.preventDefault();
+        var fetchData = even.dataTransfer.getData("text");
+        even.target.appendChild(document.getElementById(fetchData));
+        
+    }
+    </script>
+</html>
