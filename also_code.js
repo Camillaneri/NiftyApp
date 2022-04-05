@@ -15,7 +15,7 @@ function loadImages(){
         body: JSON.stringify({
           query: `
           {
-              artworks(limit: 20){
+              artworks(limit: 6){
               url
             }
           }
