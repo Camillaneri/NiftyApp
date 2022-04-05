@@ -129,13 +129,11 @@ function ContractDash() {
 
 //ADD WARMUP IMAGES
 
-const container = document.querySelector('.container');
+
 
 const URL = 'https://dog.ceo/api/breeds/image/random'
 
 function loadImages(){
-   
-    
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
     method: 'POST',
     headers: {
@@ -163,7 +161,22 @@ function loadImages(){
     console.log(typeof dict_path);
     const img =  document.createElement('img');
     img.src = newStr;
-    container.appendChild(img);
+    // class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"
+    img.id = "dragData1"+i
+    img.className ="img-thumbnail"
+    img.draggable = "true"
+    img.ondragstart = "drag(event)"
+    console.log(img)
+    //<div class="col g-3"> 
+    const div =  document.createElement('div');
+    div.className ="g-3"
+    div.classList.add("col")
+    console.log(div);
+    div.appendChild(img);
+    container = document.getElementById('coso');
+    console.log(container);
+    container.appendChild(div);
+    console.log(container)
     i++;
     console.log(img);}}
 )  
