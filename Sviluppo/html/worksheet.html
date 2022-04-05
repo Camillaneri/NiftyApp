@@ -10,115 +10,8 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-body{
-    background-color: whitesmoke;
-    height: 100vh;
-        }
-.vcenter-item{
-    display: flex;
-    align-items: center;
-}
-/* Some custom styles to beautify this example */
-.wrapper{
-
-    padding:  160px 0px;
-}
-#centralBox{
-    background-color: white;
-    max-height: 500px!important;
-   
-}
-
-.mainBox{
-    padding: 100px 0;
-    height: 100%;
-}
-
-#getData {
-    min-height: 150px;
-}
-
-.getDataheader  {
-    
-    padding-bottom: 0.5em;
-    
-}
-
-.getDatabox{
-    width: 20%;
-    min-height: fit-content;
-    margin: 0;
-}
-
-img{
-
-    width: auto;
-
-}
-
-.mainBoxcontainer{
-    height: 100%;
-    background-color: white!important;
-}
-
-
-.dropboxes{
-    background: white;
-}
-
-.card{
-    background-color: whitesmoke;
-}
-
-.description{
-    height: 70%;
-}
-
-#dashboard{
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-
-}
-
-#getDataDash{
-    min-height: 200px;
-
-
-   
-}
-
-#DashHeader{
-    width: 24%;
-}
-
-
-#galleryBack{
-    background-color: none;
-}
-
-#TaskBox{
-    background: white ;
-}
-#QueryForm{
-    background: white ;
-}
-#Gallery{
-    background: white ;
-    height: fit-content;
-}
-
-.scrollable{
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-#DislikedImg, #LikedImg{
-    min-height: 70px;
-}
-
-</style>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
 </head>
 <body class="d-flex flex-column vh-100 overflow-hidden">
     <nav class="navbar py-4 navbar-dark bg-dark position-top">
@@ -129,38 +22,28 @@ img{
     </nav>
 
     <div class="row wrapper p-0 overflow-hidden" id="changeMe"> 
-        <div class="col-lg-3 col-3 bg-dark text-light h-100" id="dashboard">
+        <div class="col-3 bg-dark text-light h-100" id="dashboard">
          
-                <div class="position-fixed bg-dark p-3" id="DashHeader">
-                   <p> Dashboard</p>
-                </div>
+            <div class="position-absolute bg-dark p-3 container-fluid" id="DashHeader">
+                <span> Dashboard</span>
+                <button class="btn btn-dark expand" type="button"id="Expand" onclick="ExpandDash()">
+                    <i class="bi bi-arrows-angle-expand"></i>
+                </button><button class="btn btn-dark expand d-none" type="button" id="Contract" onclick="ContractDash()">
+                    <i class="bi bi-arrows-angle-contract"></i>
+                </button>
+
+            </div>
     
-           
-            <div class="px-5 mt-4 pt-4">
-                <div class="my-4 getDataboxDash border rounded border-light">            
-                    <div id="getDataDash"ondrop="drop(event)"ondragover="allowDrop(event)"  >                 
-                    </div>                         
-                </div>   
-                <div class="my-4 getDataboxDash border rounded border-light">            
-                    <div id="getDataDash"ondrop="drop(event)"ondragover="allowDrop(event)"  >                 
-                    </div>                         
-                </div>   
-                <div class="my-4 getDataboxDash border rounded border-light">            
-                    <div id="getDataDash"ondrop="drop(event)"ondragover="allowDrop(event)"  >                 
-                    </div>                         
-                </div>   
-                <div class="my-4 getDataboxDash border rounded border-light">            
-                    <div id="getDataDash"ondrop="drop(event)"ondragover="allowDrop(event)"  >                 
-                    </div>                         
-                </div> 
-                <div class="my-4 getDataboxDash border rounded border-light">            
-                    <div id="getDataDash"ondrop="drop(event)"ondragover="allowDrop(event)"  >                 
-                    </div>                         
-                </div>              
-            </div>      
+            <div class="px-3 mt-4 pt-4 position-relative" id="imagesGrid">
+                
+                <div class="my-4 position-relative getDataboxDash border rounded border-light p-0" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)"  >                 
+                    <button class="btn btn-light position-absolute d-none ClearBtn" id="clearBtn"><i class="bi bi-x-lg"></i></button>
+                </div>                         
+            </div> 
+
         
             <footer class="text-center  px-3" >
-                <button class="btn btn-success w-100" type="button" onclick="ExpandDash()">Next</button>
+                <button class="btn btn-success w-100" type="button" onclick="getHome()">Next</button>
             </footer>
         </div>
         <div class="col p-4" id="galleryBack">
@@ -169,7 +52,7 @@ img{
                 <p class="lead">Given the reference image drag and drop in order of similarity (from 1 to 5)the images below</p>      
             </div>
 
-            <div class="mb-2" id="QueryForm">              
+            <div class="mb-2 " id="QueryForm">              
                 <div class="input-group">
                     <span class="input-group-text border-0" id="search-addon">
                         <i class="bi-search"></i>
@@ -216,23 +99,36 @@ img{
                 </div>
 
             </div> 
-            <div class="row mx-1">                     
-                <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                
-            </div>
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
-        
-                    
+                <div id="Gallery">
+                <div class="row mx-1">                     
+                    <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                </div>
+                <div class="row mx-1">                     
+                    <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                </div>
+                <div class="row mx-1">                     
+                    <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                </div>
+                <div class="row mx-1">                     
+                    <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                </div>
+            </div>  
         </div>
     </div>
 
-    <footer class="mt-auto  py-4 bg-dark text-white-50 position-bottom">
+    <footer class="mt-auto  py-4 bg-dark text-white-50 position-bottom" id="MainFooter">
         <div class="container text-center">
         <small>Copyright &copy; Your Website</small>
         </div>
@@ -249,29 +145,6 @@ img{
 
 
             //scripts for functionalities 
-            function allowDrop(even) {
-        even.preventDefault();
-        col.log("")
-    }
- 
-    function drag(even) {
-        even.dataTransfer.setData("text", even.target.id);
-    }
- 
-    function drop(even) {
-        var fetchData = even.dataTransfer.getData("text");
-        even.target.appendChild(document.getElementById(fetchData));
-
-        
-    }
-
-    //expand clumns 
-
-    function ExpandDash(){
-        
-
-    }
-
 
 </script>
 </html>
