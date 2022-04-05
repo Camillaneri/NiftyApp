@@ -91,6 +91,7 @@ function loadImages(){
         console.log(typeof dict_path);
         const img =  document.createElement('img');
         img.src = newStr;
+        img.id = "dragData"+i
         container.appendChild(img);
         i++;
         console.log(img);}}
