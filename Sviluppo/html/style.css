@@ -1,0 +1,116 @@
+body{
+    background-color: whitesmoke!important;
+
+        }
+.vcenter-item{
+    display: flex;
+    align-items: center;
+}
+/* Some custom styles to beautify this example */
+.wrapper{
+
+    padding:  160px 0px;
+}
+#centralBox{
+    background-color: white;
+    max-height: 500px!important;
+   
+}
+
+.mainBox{
+    padding: 150px 0;
+    height: 100%;
+}
+
+#getData {
+    min-height: 150px;
+}
+
+.getDataheader  {
+    
+    padding-bottom: 0.5em;
+    
+}
+
+.getDatabox{
+    width: 20%!important;
+    min-height: fit-content;
+    margin: 0;
+}
+
+img{
+
+    width: auto;
+
+}
+
+.mainBoxcontainer{
+    height: 100%;
+    background-color: white!important;
+}
+
+
+.dropboxes{
+    background: white;
+}
+
+.card{
+    background-color: whitesmoke;
+}
+
+.description{
+    height: 70%;
+}
+
+#dashboard{
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+
+#getDataDash{
+    min-height: 200px;
+
+
+   
+}
+
+#DashHeader{
+    width: 24%;
+    z-index: 2;
+}
+
+
+#galleryBack{
+    height: 100%!important;
+    background-color: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#TaskBox{
+    background: white ;
+}
+#QueryForm{
+    background: white ;
+}
+#Gallery{
+    height: 54%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.scrollable{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#DislikedImg, #LikedImg{
+    min-height: 70px;
+}
+
+.expand{
+    float: right!important;
+}
+

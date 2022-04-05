@@ -7,80 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
         <!-- Optional JavaScript; choose one of the two! -->
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <style>
-    body{
-        background-color: whitesmoke;
-        
-            }
-    .vcenter-item{
-        display: flex;
-        align-items: center;
-    }
-    /* Some custom styles to beautify this example */
-    .wrapper{
-
-        padding:  160px 0px;
-    }
-    #centralBox{
-        background-color: white;
-
-        max-height: 500px!important;
-       
-    }
-
-    .mainBox{
-        padding: 100px 0;
-        height: 100%;
-    }
-
-    #getData {
-        min-height: 150px;
-        
-    }
-
-    .getDataheader  {
-        
-        padding-bottom: 0.5em;
-        
-    }
-
-    .getDatabox{
-        
-        width: 20%;
-        min-height: fit-content;
-        margin: 0;
-    }
-    
-    img{
-
-        width: auto;
-
-    }
-
-    .mainBoxcontainer{
-        height: 100%;
-        background-color: white!important;
-    }
-
-
-    .dropboxes{
-        background: white;
-    }
-
-    .card{
-        background-color: whitesmoke;
-    }
-
-    .description{
-        height: 80%;
-    }
-
-
-
-</style>
+  
     </head>
     <body class="d-flex flex-column min-vh-100">
         <nav class="navbar py-4 navbar-dark bg-dark fixed-top">
@@ -90,8 +21,11 @@
             </span>
         </nav>
 
-        <div class="container mainBox center">     
-            <div class="row">         
+        <div class="container mainBox center"> 
+            <div class="col wrapper vcenter-item" id="changeMe">
+                
+            </div>    
+            <!-- <div class="row">         
                 <div class="col-4 g-3 ">            
                      <div class="card border bg-light">
                          <img src="https://ipfs.pixura.io/ipfs/QmPR8zrhpzvJuswEaDrKCuLKiHDd9ZUwAb1TwdCc2vHoyn/IMG_5676.JPG" class="img" alt="...">
@@ -115,28 +49,28 @@
             <div class="row dropboxes p-3 my-3">         
                 <div class="g-3 getDatabox">   
                     <header class="getDataheader text-center"><h5>Firts place </h5></header>          
-                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    <div id="getData"ondrop="dropcopy(event)"ondragover="allowDrop(event)" class="card text-center" >                 
                                
                     </div>                         
                 </div>          
                 <div class="g-3 getDatabox">  
                     <header class="getDataheader text-center"><h5>Second place</h5></header>              
-                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    <div id="getData"ondrop="dropcopy(event)"ondragover="allowDrop(event)" class="card text-center" >                 
                     </div>                         
                 </div>          
                 <div class="g-3 getDatabox">             
                     <header class="getDataheader text-center"><h5>Third place</h5></header>   
-                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    <div id="getData"ondrop="dropcopy(event)"ondragover="allowDrop(event)" class="card text-center" >                 
                     </div>                         
                 </div>          
                 <div class="g-3 getDatabox">             
                     <header class="getDataheader text-center"><h5>Fourth place</h5></header>   
-                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    <div id="getData"ondrop="dropcopy(event)"ondragover="allowDrop(event)" class="card text-center" >                 
                     </div>                         
                 </div>                  
                 <div class="g-3 getDatabox">             
                     <header class="getDataheader text-center"><h5>Fifth place</h5></header>   
-                    <div id="getData"ondrop="drop(event)"ondragover="allowDrop(event)" class="card text-center" >                 
+                    <div id="getData"ondrop="dropcopy(event)"ondragover="allowDrop(event)" class="card text-center" >                 
                     </div>                         
                 </div>              
             </div>      
@@ -155,7 +89,7 @@
                 </div>             
                 <div class="col g-3">                 
                     <img id="dragData5" src="https://ipfs.pixura.io/ipfs/QmaZwNFAiR8MTihX8gP2tPqPjocj5vc27WkYfFxAoYbz5J/A1.jpg" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">             
-                </div>     
+                </div>      -->
             </div> 
 
 <!-- Needs to be fixed: videos not working -->
@@ -169,9 +103,10 @@
     </body>
     <script>
         //scripts for functionalities 
-        function allowDrop(even) {
-        even.preventDefault();
-    }
+    function allowDrop(ev){
+    ev.preventDefault();
+}
+
  
     function drag(even) {
         even.dataTransfer.setData("text", even.target.id);
@@ -183,5 +118,16 @@
         even.target.appendChild(document.getElementById(fetchData));
         
     }
+
+    function dropcopy(even)
+                    {
+                    ev.preventDefault();
+                    var data=even.dataTransfer.getData("text");
+                    var copyimg = document.createElement("img");
+                    var original = document.getElementById(data);
+                    copyimg.src = original.src;
+                    even.target.appendChild(copyimg);
+
+                    }
     </script>
 </html>
