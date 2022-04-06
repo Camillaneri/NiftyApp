@@ -13,6 +13,57 @@ function getHome() {
 //GET WARMUP FUNCTION
 function getWarmup() {
     document.getElementById("changeMe").outerHTML = '<div class="container mainBox center" id="changeMe">    <div class="row">        <div class="col-4 g-3 ">            <div class="card border bg-light">                <img src="https://ipfs.pixura.io/ipfs/QmPR8zrhpzvJuswEaDrKCuLKiHDd9ZUwAb1TwdCc2vHoyn/IMG_5676.JPG" class="img" alt="...">            </div>        </div>        <div class="col g-3">            <div class="mainBoxcontainer p-3">                <div class="description">                    <h4>Rank items by similarity</h4>                    <p class="lead">Given the reference image drag and drop in order of similarity (from 1 to 5)the images below</p>                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                        <button class="btn btn-success px-4 me-md-2" type="button" onclick="getTask()">Next</button>                    </div>                </div>            </div>        </div>    </div>    <div class="row dropboxes p-3 my-3">        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Firts place </h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Second place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Third place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fourth place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fifth place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>    </div>    <div class="row" id="coso">          </div>';
+    function loadImages(){
+        fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `
+          {
+              artworks(limit: 6){
+              url
+            }
+          }
+            `
+        }),
+      })
+    .then(response=>response.json())
+    .then((result) =>{  
+        const myJSON = JSON.stringify(result);
+        r_json = JSON.parse(myJSON);
+        let i=0;
+        while(i < 10){
+        dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
+        newStr0 = dict_path.replace('"', '');
+        newStr = newStr0.replace('"', '');
+        console.log(typeof dict_path);
+        const img =  document.createElement('img');
+        img.src = newStr;
+        //img class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"
+        img.id = "dragData1"+i
+        img.className ="img-thumbnail"
+        img.draggable = "true"
+        img.ondragstart = "drag(event)"
+        console.log(img)
+        //<div class="col g-3"> 
+        const div =  document.createElement('div');
+        div.className ="g-3"
+        div.classList.add("col")
+        console.log(div);
+        div.appendChild(img);
+        container = document.getElementById('coso');
+        console.log(container);
+        container.appendChild(div);
+        console.log(container)
+        i++;
+        console.log(img);}}
+    )  
+    }
+    
+    loadImages();
+    
 };
 
 //GET TASK FUNCTION
@@ -131,55 +182,6 @@ function ContractDash() {
 
 
 
-const URL = 'https://dog.ceo/api/breeds/image/random'
 
-function loadImages(){
-    fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: `
-      {
-          artworks(limit: 6){
-          url
-        }
-      }
-        `
-    }),
-  })
-.then(response=>response.json())
-.then((result) =>{  
-    const myJSON = JSON.stringify(result);
-    r_json = JSON.parse(myJSON);
-    let i=0;
-    while(i < 10){
-    dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
-    newStr0 = dict_path.replace('"', '');
-    newStr = newStr0.replace('"', '');
-    console.log(typeof dict_path);
-    const img =  document.createElement('img');
-    img.src = newStr;
-    // class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"
-    img.id = "dragData1"+i
-    img.className ="img-thumbnail"
-    img.draggable = "true"
-    img.ondragstart = "drag(event)"
-    console.log(img)
-    //<div class="col g-3"> 
-    const div =  document.createElement('div');
-    div.className ="g-3"
-    div.classList.add("col")
-    console.log(div);
-    div.appendChild(img);
-    container = document.getElementById('coso');
-    console.log(container);
-    container.appendChild(div);
-    console.log(container)
-    i++;
-    console.log(img);}}
-)  
-}
 
-loadImages();
+
