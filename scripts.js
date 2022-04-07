@@ -128,11 +128,11 @@ function dropcopy(ev) {
     if (document.getElementById('dashboard').classList.contains('col-6')) {
         console.log("col-6")
         var x = document.getElementById('imagesGrid').innerHTML
-        x += '<div class="my-4 position-relative getDataboxDash border rounded border-light p-0 col-5 mx-3" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)"  ><button class="btn btn-light position-absolute d-none ClearBtn" id="clearBtn"><i class="bi bi-x-lg"></i></button></div> ';
+        x += '<div class="my-4 position-relative getDataboxDash border rounded border-light p-0 col-5 mx-3" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)"  ><button class="btn btn-light position-absolute onclick="clearImg(event)" d-none ClearBtn" id="clearBtn"><i class="bi bi-x-lg"></i></button></div> ';
         document.getElementById('imagesGrid').innerHTML = x
     } else {
         var x = document.getElementById('imagesGrid').innerHTML
-        x += '<div class="my-4 position-relative getDataboxDash border rounded border-light p-0" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)" ><button class="btn btn-light position-absolute d-none ClearBtn" id="clearBtn"><i class="bi bi-x-lg"></i></button> </div> ';
+        x += '<div class="my-4 position-relative getDataboxDash border rounded border-light p-0" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)" ><button class="btn btn-light position-absolute d-none ClearBtn" onclick="clearImg(event)" id="clearBtn"><i class="bi bi-x-lg"></i></button> </div> ';
         document.getElementById('imagesGrid').innerHTML = x
     }
     
@@ -205,7 +205,9 @@ function ContractDash() {
     if (document.getElementById('LikesBox').children.length < 3) {
         var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild;
         console.log(AddMe.getAttribute('src'))
-        document.getElementById("LikesBox").innerHTML += '<div class="position-relative col-3 p-0 GalleryItem"><img src="'+AddMe.getAttribute('src')+'" class="img-thumbnail" alt="..."></div>'
+        if(AddMe.src == null){return;
+        }
+        document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0 GalleryItem'><button class='btn btn-light position-absolute ClearBtn' onclick='clearImg(event)'id='clearBtn'><i class='bi bi-x-lg'></i></button><img src='"+AddMe.src+"' class='img-thumbnail'></div>"
         
     } else {
        alert('Maximum number of liked images reched, please delete at least one image from the box to add a new one')
@@ -220,17 +222,21 @@ function ContractDash() {
     if (document.getElementById('DislikesBox').children.length < 3) {
         var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild;             
         console.log(AddMe.getAttribute('src'))
-        document.getElementById("DislikesBox").innerHTML += '<div class="position-relative col-3 p-0 GalleryItem"><img src="'+AddMe.getAttribute('src')+'" class="img-thumbnail" alt="..."></div>'
+        if(AddMe.src == null){return;
+        }
+        document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0 GalleryItem'><button class='btn btn-light position-absolute ClearBtn' onclick='clearImg(event)' id='clearBtn'><i class='bi bi-x-lg'></i></button><img src='"+AddMe.src+"' class='img-thumbnail'></div>"
         
     } else {
        alert('Maximum number of liked images reched, please delete at least one image from the box before you add a new one')
     }
 
-
  }
 
 
-
+function clearImg(event){
+    event.target.parentElement.parentElement.outerHTML = " "
+    console.log(event.target.parentElement)
+}
 
 
 
