@@ -55,49 +55,135 @@
 
             <div class="mb-2 " id="QueryForm">              
                 <div class="input-group">              
-                    <div class="px-2 col border-end"> 
-                        <span class="row ">
+                    <div class="px-2 col border-end" > 
+                        <span class="row " >
                             <i class="bi bi-hand-thumbs-up py-2">  Likes</i>
                         </span>
-                        <span class="row" id="DislikedImg"><p>Images here</p></span>
+                        <div class="row mx-1" id="LikesBox">
+                       
+                        </div>
                     </div> 
                     <div class="px-2 col"> 
-                        <span class="row ">
+                        <span class="row horizontal-scroll">
                             <i class="bi bi-hand-thumbs-down py-2">  Dislikes</i>
                         </span>
-                        <span class="row" id="DislikedImg"><p>Images here</p></span>
+                        <div class="row mx-1" id="DislikesBox">
+                       
+                        </div>
                     </div> 
                 </div>
 
-                <div class="input-group">
-                    <button class="col btn btn-success w-100" type="button" onclick="sendQuery()">Apply</button>                    
-                    <button class="col btn btn-success w-100" type="button" onclick="resetQuery()">Reset</button>
+                <div class="row mx-1 py-2">
+                    <button class="mx-1 col btn btn-success w-100" type="button" onclick="sendQuery()">Apply</button>                    
+                    <button class="mx-1 col btn btn-success w-100" type="button" onclick="resetQuery()">Reset</button>
                 </div>
 
             </div> 
                 <div class="row mx-1" id="Gallery">
                                  
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+
+                        <img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
  
                       
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData5" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData6" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData7" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData8" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData5" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData6" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData7" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData8" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
      
                    
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData9" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData10" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData11" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData12" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData9" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData10" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData11" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData12" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
                          
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData13" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData14" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData15" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0 GalleryItem"><img id="dragData16" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData13" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData14" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData15" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <div class="col-2 m-1 position-absolute">
+                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                        </div>
+                        <img id="dragData16" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
                 </div>
             </div>  
         </div>

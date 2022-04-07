@@ -107,7 +107,7 @@ img{
 }
 
 #DislikedImg, #LikedImg{
-    min-height: 70px;
+    min-height: 170px;
 }
 
 .expand{
@@ -121,4 +121,9 @@ img{
 
 #imagesGrid{
     margin: 30% 0;
+}
+
+#LikeBtn, #DislikeBtn{
+    background: white!important;
+    border-radius: 0px!important;
 }

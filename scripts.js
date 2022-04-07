@@ -197,7 +197,37 @@ function ContractDash() {
 //ADD WARMUP IMAGES
 
 
+//add max 3 liked images
 
 
+async function AddLiked(event) {
+    event.preventDefault();
+    if (document.getElementById('LikesBox').children.length < 3) {
+        var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild.src;
+        console.log(AddMe)
+        document.getElementById("LikesBox").innerHTML += '<div class="position-relative col-3 p-0 GalleryItem"><img src="'+AddMe+'" class="img-thumbnail" alt="..."></div>'
+        
+    } else {
+       alert('Maximum number of liked images reched, please delete at least one image from the box to add a new one')
+    }
+
+};
+
+
+//add max 3 disliked images
+
+async function AddDisliked(event) {
+    event.preventDefault();
+    
+    if (document.getElementById('DislikesBox').children.length < 3) {
+        var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild.src;
+        console.log(AddMe)
+        document.getElementById("DislikesBox").innerHTML += '<div class="position-relative col-3 p-0 GalleryItem"><img src="'+AddMe+'" class="img-thumbnail" alt="..."></div>'
+        
+    } else {
+       alert('Maximum number of liked images reched, please delete at least one image from the box before you add a new one')
+    }
+
+};
 
 
