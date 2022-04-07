@@ -41,6 +41,7 @@ function getWarmup() {
         console.log(typeof dict_path);
         const img =  document.createElement('img');
         img.src = newStr;
+        console.log(newStr)
         //img class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"
         img.id = "dragData1"+i
         img.className ="img-thumbnail"
@@ -200,14 +201,12 @@ function ContractDash() {
 //add max 3 liked images
 
 
- function AddLiked(event) {
-    event.preventDefault();
 
-    
+ function AddLiked(event) {
     if (document.getElementById('LikesBox').children.length < 3) {
-        var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild.src;
-        console.log(AddMe)
-        document.getElementById("LikesBox").innerHTML += '<div class="position-relative col-3 p-0 GalleryItem"><img src="'+AddMe+'" class="img-thumbnail" alt="..."></div>'
+        var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild;
+        console.log(AddMe.getAttribute('src'))
+        document.getElementById("LikesBox").innerHTML += '<div class="position-relative col-3 p-0 GalleryItem"><img src="'+AddMe.getAttribute('src')+'" class="img-thumbnail" alt="..."></div>'
         
     } else {
        alert('Maximum number of liked images reched, please delete at least one image from the box to add a new one')
@@ -219,17 +218,16 @@ function ContractDash() {
 //add max 3 disliked images
 
  function AddDisliked(event) {
-    event.preventDefault();
-    
     if (document.getElementById('DislikesBox').children.length < 3) {
-        var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild.src;
-        console.log(AddMe)
-        document.getElementById("DislikesBox").innerHTML += '<div class="position-relative col-3 p-0 GalleryItem"><img src="'+AddMe+'" class="img-thumbnail" alt="..."></div>'
+        var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild;             
+        console.log(AddMe.getAttribute('src'))
+        document.getElementById("DislikesBox").innerHTML += '<div class="position-relative col-3 p-0 GalleryItem"><img src="'+AddMe.getAttribute('src')+'" class="img-thumbnail" alt="..."></div>'
         
     } else {
        alert('Maximum number of liked images reched, please delete at least one image from the box before you add a new one')
     }
 
-};
+
+ }
 
 

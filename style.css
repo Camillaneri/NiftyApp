@@ -106,8 +106,8 @@ img{
     overflow-y: auto;
 }
 
-#DislikedImg, #LikedImg{
-    min-height: 170px;
+#likesBox, #DislikesBox{
+    min-height: 140px;
 }
 
 .expand{
