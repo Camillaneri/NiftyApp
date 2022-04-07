@@ -1,7 +1,7 @@
 
 //GET PRE SURVEY FUNCTION
 function getPresur() {
-    document.getElementById("changeMe").innerHTML = '<div class="container bg-light p-3 border rounded-3 overflow-scroll" id="centralBox"> <h1 class="display-3 p-3 ">Presurvey</h1><form class="container overflow-scroll"> <div class="p-3"> <label for="PresurveyInput1" class="form-label">Expertise level on art</label> <input type="range" class="form-range" min="0" max="5" step="1" id="artExp"></div> <div class="p-3"> <label for="PresurveyInput2" class="form-label">Expertise level on NFTs </label> <input type="range" class="form-range" min="0" max="5" step="1" id="nftExp"> </div> <div class="p-3"><label for="PresurveyInput3" class="form-label">Education in art </label> <select class="form-select form-select-sm-3 mt-3" aria-label=".form-select-sm example"> <option selected >Open this select menu</option>  <option value="1">Formal training in applied arts</option> <option value="2">Bachelor of Fine Arts</option> <option value="3">Master of Fine Arts	</option> <option value="4">Master of Applied Arts	</option>  <option value="5">Some art education but no degree</option> </select> </div> <div class="p-3"> <label for="PresurveyInput4" class="form-label">Education in finance</label><select class="form-select form-select-sm-3 mt-3" aria-label=".form-select-sm example"> <option selected >Open this select menu</option> <option value="1">Some education on finance but no degree</option>  <option value="2">Bachelor of Finance</option> <option value="3">Master of Finance</option><option value="4">Master of Finance</option>  </select>  </div>  <div class="p-3"><label for="PresurveyInput5" class="form-label">Average time spent on multimedia applications  </label> <div class="form-check"> <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt1" checked> <label class="form-check-label" for="RadioTimeArt1"> 0-10 hours </label> </div> <div class="form-check"> <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt2" ><label class="form-check-label" for="RadioTimeArt2"> 10-20 hours</label></div>    <div class="form-check"><input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt3" ><label class="form-check-label" for="RadioTimeArt3">20-30 hours </label></div> <div class="form-check"> <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt4" ><label class="form-check-label" for="RadioTimeArt4">+30 hours </label> </div>  </div> <div class="p-3"> <label for="PresurveyInput5" class="form-label">It is hard for me to take a decision</label><div class="form-check"> <input class="form-check-input" type="radio" name="Decision" id="Decision1"checked><label class="form-check-label" for="Decision1">Strongly Disagree</label> </div><div class="form-check"> <input class="form-check-input" type="radio" name="Decision" id="Decision2" > <label class="form-check-label" for="Decision2">Disagree</label> </div> <div class="form-check"><input class="form-check-input" type="radio" name="Decision" id="Decision3" > <label class="form-check-label" for="Decision3"> I do not know </label> </div> <div class="form-check"> <input class="form-check-input" type="radio" name="Decision" id="Decision4" > <label class="form-check-label" for="Decision4">Agree  </label> </div> <div class="form-check"><input class="form-check-input" type="radio" name="Decision" id="Decision5" > <label class="form-check-label" for="Decision5">Strongly Agree </label></div> </div> <div class="p-3"> <label for="PresurveyInput5" class="form-label">I get bored easily</label>   <div class="form-check"><input class="form-check-input" type="radio" name="Bore" id="Bore1"checked> <label class="form-check-label" for="Bore1">   Strongly Disagree  </label> </div> <div class="form-check"><input class="form-check-input" type="radio" name="Bore" id="Bore2" ><label class="form-check-label" for="Bore2"> Disagree </label> </div> <div class="form-check"> <input class="form-check-input" type="radio" name="Bore" id="Bore3" > <label class="form-check-label" for="Bore3">I do not know </label> </div> <div class="form-check"><input class="form-check-input" type="radio" name="Bore" id="Bore4" ><label class="form-check-label" for="Bore4">Agree</label></div><div class="form-check"> <input class="form-check-input" type="radio" name="Bore" id="Bore5" > <label class="form-check-label" for="Bore5"> Strongly Agree </label></div> </div> <div class="p-3"><label for="PresurveyInput5" class="form-label">I ame a curios person</label><div class="form-check"> <input class="form-check-input" type="radio" name="Curios" id="Curios1"checked><label class="form-check-label" for="Curios1">Strongly Disagree </label></div> <div class="form-check"><input class="form-check-input" type="radio" name="Curios" id="Curios2" ><label class="form-check-label" for="Curios2">Disagree </label></div> <div class="form-check"><input class="form-check-input" type="radio" name="Curios" id="Curios3" > <label class="form-check-label" for="Curios3">I do not know  </label> </div> <div class="form-check"> <input class="form-check-input" type="radio" name="Curios" id="Curios4" > <label class="form-check-label" for="Curios4"> Agree </label></div><div class="form-check"> <input class="form-check-input" type="radio" name="Curios" id="Curios5" > <label class="form-check-label" for="Curios5"> Strongly Agree </label></div> </div> </form><div class="d-grid gap-2 d-md-flex justify-content-md-end">  <button class="btn btn-success px-4 me-md-2" type="button" onclick="getWarmup()">Next</button> </div></div>';
+    document.getElementById("changeMe").innerHTML = '<div class="container bg-light p-3 border rounded-3 overflow-scroll" id="centralBox"> <h1 class="display-3 p-3 ">Presurvey</h1><form class="container overflow-scroll"> <div class="p-3"> <label for="PresurveyInput1" class="form-label">Expertise level on art</label> <input type="range" class="form-range" min="0" max="5" step="1" id="artExp"></div> <div class="p-3"> <label for="PresurveyInput2" class="form-label">Expertise level on NFTs </label> <input type="range" class="form-range" min="0" max="5" step="1" id="nftExp"> </div> <div class="p-3"><label for="PresurveyInput3" class="form-label">Education in art </label> <select class="form-select form-select-sm-3 mt-3" aria-label=".form-select-sm example"> <option selected >Open this select menu</option>  <option value="1">Formal training in applied arts</option> <option value="2">Bachelor of Fine Arts</option> <option value="3">Master of Fine Arts	</option> <option value="4">Master of Applied Arts	</option>  <option value="5">Some art education but no degree</option> </select> </div> <div class="p-3"> <label for="PresurveyInput4" class="form-label">Education in finance</label><select class="form-select form-select-sm-3 mt-3" aria-label=".form-select-sm example"> <option selected >Open this select menu</option> <option value="1">Some education on finance but no degree</option>  <option value="2">Bachelor of Finance</option> <option value="3">Master of Finance</option><option value="4">Master of Finance</option>  </select>  </div>  <div class="p-3"><label for="PresurveyInput5" class="form-label">Average time spent on multimedia applications  </label> <div class="form-check"> <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt1" checked> <label class="form-check-label" for="RadioTimeArt1"> 0-10 hours </label> </div> <div class="form-check"> <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt2" ><label class="form-check-label" for="RadioTimeArt2"> 10-20 hours</label></div>    <div class="form-check"><input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt3" ><label class="form-check-label" for="RadioTimeArt3">20-30 hours </label></div> <div class="form-check"> <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt4" ><label class="form-check-label" for="RadioTimeArt4">+30 hours </label> </div>  </div> <div class="p-3"> <label for="PresurveyInput5" class="form-label">It is hard for me to take a decision</label><div class="form-check"> <input class="form-check-input" type="radio" name="Decision" id="Decision1"checked><label class="form-check-label" for="Decision1">Strongly Disagree</label> </div><div class="form-check"> <input class="form-check-input" type="radio" name="Decision" id="Decision2" > <label class="form-check-label" for="Decision2">Disagree</label> </div> <div class="form-check"><input class="form-check-input" type="radio" name="Decision" id="Decision3" > <label class="form-check-label" for="Decision3"> I do not know </label> </div> <div class="form-check"> <input class="form-check-input" type="radio" name="Decision" id="Decision4" > <label class="form-check-label" for="Decision4">Agree  </label> </div> <div class="form-check"><input class="form-check-input" type="radio" name="Decision" id="Decision5" > <label class="form-check-label" for="Decision5">Strongly Agree </label></div> </div> <div class="p-3"> <label for="PresurveyInput5" class="form-label">I get bored easily</label>   <div class="form-check"><input class="form-check-input" type="radio" name="Bore" id="Bore1"checked> <label class="form-check-label" for="Bore1">   Strongly Disagree  </label> </div> <div class="form-check"><input class="form-check-input" type="radio" name="Bore" id="Bore2" ><label class="form-check-label" for="Bore2"> Disagree </label> </div> <div class="form-check"> <input class="form-check-input" type="radio" name="Bore" id="Bore3" > <label class="form-check-label" for="Bore3">I do not know </label> </div> <div class="form-check"><input class="form-check-input" type="radio" name="Bore" id="Bore4" ><label class="form-check-label" for="Bore4">Agree</label></div><div class="form-check"> <input class="form-check-input" type="radio" name="Bore" id="Bore5" > <label class="form-check-label" for="Bore5"> Strongly Agree </label></div> </div> <div class="p-3"><label for="PresurveyInput5" class="form-label">I am a curious person</label><div class="form-check"> <input class="form-check-input" type="radio" name="Curios" id="Curios1"checked><label class="form-check-label" for="Curios1">Strongly Disagree </label></div> <div class="form-check"><input class="form-check-input" type="radio" name="Curios" id="Curios2" ><label class="form-check-label" for="Curios2">Disagree </label></div> <div class="form-check"><input class="form-check-input" type="radio" name="Curios" id="Curios3" > <label class="form-check-label" for="Curios3">I do not know  </label> </div> <div class="form-check"> <input class="form-check-input" type="radio" name="Curios" id="Curios4" > <label class="form-check-label" for="Curios4"> Agree </label></div><div class="form-check"> <input class="form-check-input" type="radio" name="Curios" id="Curios5" > <label class="form-check-label" for="Curios5"> Strongly Agree </label></div> </div> </form><div class="d-grid gap-2 d-md-flex justify-content-md-end">  <button class="btn btn-success px-4 me-md-2" type="button" onclick="getWarmup()">Next</button> </div></div>';
 };
 
 //GET HOME FUNCTION
@@ -12,7 +12,58 @@ function getHome() {
 
 //GET WARMUP FUNCTION
 function getWarmup() {
-    document.getElementById("changeMe").outerHTML = '<div class="container mainBox center" id="changeMe">    <div class="row">        <div class="col-4 g-3 ">            <div class="card border bg-light">                <img src="https://ipfs.pixura.io/ipfs/QmPR8zrhpzvJuswEaDrKCuLKiHDd9ZUwAb1TwdCc2vHoyn/IMG_5676.JPG" class="img" alt="...">            </div>        </div>        <div class="col g-3">            <div class="mainBoxcontainer p-3">                <div class="description">                    <h4>Rank items by similarity</h4>                    <p class="lead">Given the reference image drag and drop in order of similarity (from 1 to 5)the images below</p>                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                        <button class="btn btn-success px-4 me-md-2" type="button" onclick="getTask()">Next</button>                    </div>                </div>            </div>        </div>    </div>    <div class="row dropboxes p-3 my-3">        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Firts place </h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Second place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Third place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fourth place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fifth place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>    </div>    <div class="row ">        <div class="col g-3">            <img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable= “true” ondragstart="drag(event)">        </div>        <div class="col g-3">            <img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmWagoueso5cASH21caYFXgrtYjkJTukR6vAyAa6TkB9dA/2020-04-0918-37-53.gif" class="img-thumbnail" alt="..." draggable= “true” ondragstart="drag(event)">        </div>        <div class="col g-3">            <img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmR51gPMefM8hBJhhnTrmsNcoAXNBBPoqv3RFmXtVdvC6G/fraud8.png" class="img-thumbnail" alt="..." draggable= “true” ondragstart="drag(event)">        </div>        <div class="col g-3">            <img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmUjZZ4BDdV4tBBJUBngApsmbK6JZzWQa2MpoAaFQvCLYK/FloatingPoints.png" class="img-thumbnail" alt="..." draggable= “true” ondragstart="drag(event)">        </div>        <div class="col g-3">            <img id="dragData5" src="https://ipfs.pixura.io/ipfs/QmaZwNFAiR8MTihX8gP2tPqPjocj5vc27WkYfFxAoYbz5J/A1.jpg" class="img-thumbnail" alt="..." draggable= “true” ondragstart="drag(event)">        </div>    </div>';
+    document.getElementById("changeMe").outerHTML = '<div class="container mainBox center" id="changeMe">    <div class="row">        <div class="col-4 g-3 ">            <div class="card border bg-light">                <img src="https://ipfs.pixura.io/ipfs/QmPR8zrhpzvJuswEaDrKCuLKiHDd9ZUwAb1TwdCc2vHoyn/IMG_5676.JPG" class="img" alt="...">            </div>        </div>        <div class="col g-3">            <div class="mainBoxcontainer p-3">                <div class="description">                    <h4>Rank items by similarity</h4>                    <p class="lead">Given the reference image drag and drop in order of similarity (from 1 to 5)the images below</p>                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                        <button class="btn btn-success px-4 me-md-2" type="button" onclick="getTask()">Next</button>                    </div>                </div>            </div>        </div>    </div>    <div class="row dropboxes p-3 my-3">        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Firts place </h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Second place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Third place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fourth place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fifth place</h5></header>            <div id="getData" ondrop="dropcopy(event)" ondragover="allowDrop(event)" class="card text-center" >            </div>        </div>    </div>    <div class="row" id="coso">          </div>';
+    function loadImages(){
+        fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `
+          {
+              artworks(limit: 6){
+              url
+            }
+          }
+            `
+        }),
+      })
+    .then(response=>response.json())
+    .then((result) =>{  
+        const myJSON = JSON.stringify(result);
+        r_json = JSON.parse(myJSON);
+        let i=0;
+        while(i < 10){
+        dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
+        newStr0 = dict_path.replace('"', '');
+        newStr = newStr0.replace('"', '');
+        console.log(typeof dict_path);
+        const img =  document.createElement('img');
+        img.src = newStr;
+        //img class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"
+        img.id = "dragData1"+i
+        img.className ="img-thumbnail"
+        img.draggable = "true"
+        img.ondragstart = "drag(event)"
+        console.log(img)
+        //<div class="col g-3"> 
+        const div =  document.createElement('div');
+        div.className ="g-3"
+        div.classList.add("col")
+        console.log(div);
+        div.appendChild(img);
+        container = document.getElementById('coso');
+        console.log(container);
+        container.appendChild(div);
+        console.log(container)
+        i++;
+        console.log(img);}}
+    )  
+    }
+    
+    loadImages();
+    
 };
 
 //GET TASK FUNCTION
@@ -129,44 +180,8 @@ function ContractDash() {
 
 //ADD WARMUP IMAGES
 
-const container = document.querySelector('.container');
 
-const URL = 'https://dog.ceo/api/breeds/image/random'
 
-function loadImages(){
-   
-    
-    fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: `
-      {
-          artworks(limit: 6){
-          url
-        }
-      }
-        `
-    }),
-  })
-.then(response=>response.json())
-.then((result) =>{  
-    const myJSON = JSON.stringify(result);
-    r_json = JSON.parse(myJSON);
-    let i=0;
-    while(i < 10){
-    dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
-    newStr0 = dict_path.replace('"', '');
-    newStr = newStr0.replace('"', '');
-    console.log(typeof dict_path);
-    const img =  document.createElement('img');
-    img.src = newStr;
-    container.appendChild(img);
-    i++;
-    console.log(img);}}
-)  
-}
 
-loadImages();
+
+
