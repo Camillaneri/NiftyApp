@@ -200,8 +200,10 @@ function ContractDash() {
 //add max 3 liked images
 
 
-async function AddLiked(event) {
+ function AddLiked(event) {
     event.preventDefault();
+
+    
     if (document.getElementById('LikesBox').children.length < 3) {
         var AddMe = event.target.parentElement.parentElement.parentElement.lastElementChild.src;
         console.log(AddMe)
@@ -216,7 +218,7 @@ async function AddLiked(event) {
 
 //add max 3 disliked images
 
-async function AddDisliked(event) {
+ function AddDisliked(event) {
     event.preventDefault();
     
     if (document.getElementById('DislikesBox').children.length < 3) {
