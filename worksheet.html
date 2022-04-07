@@ -17,7 +17,7 @@
     <nav class="navbar py-4 navbar-dark bg-dark position-top">
         <span class="container-fluid">
             <span class="navbar-text"> NiftyEValue</span> 
-            <span class="navbar-text align-self-end">Warm Up</spandes>
+            <span class="navbar-text align-self-end" id="pageName">Warm Up</spandes>
         </span>
     </nav>
 
@@ -34,7 +34,7 @@
 
             </div>
     
-            <div class="px-3 mt-4 pt-4 position-relative" id="imagesGrid">
+            <div class="px-3 position-relative" id="imagesGrid">
                 
                 <div class="my-4 position-relative getDataboxDash border rounded border-light p-0" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)"  >                 
                     <button class="btn btn-light position-absolute d-none ClearBtn" id="clearBtn"><i class="bi bi-x-lg"></i></button>
@@ -42,9 +42,10 @@
             </div> 
 
         
-            <footer class="text-center  px-3" >
-                <button class="btn btn-success w-100" type="button" onclick="getHome()">Next</button>
-            </footer>
+            <div class="container-fluid d-flex position-absolute px-3 bg-dark" id="dashFooter" >
+                <button class="mx-1 col btn btn-success w-50" type="button" onclick="getHome()">Next</button>
+                <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">Reset</button>
+            </div>
         </div>
         <div class="col p-4" id="galleryBack">
             <div class="p-4 mb-2" id="TaskBox">              
@@ -53,13 +54,6 @@
             </div>
 
             <div class="mb-2 " id="QueryForm">              
-                <div class="input-group">
-                    <span class="input-group-text border-0" id="search-addon">
-                        <i class="bi-search"></i>
-                    </span>
-                    <input type="search" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                </div>
-
                 <div class="input-group">              
                     <div class="px-2 col border-end"> 
                         <span class="row ">
@@ -76,53 +70,34 @@
                 </div>
 
                 <div class="input-group">
-                    <span class="input-group-text border-0" id="search-addon">
-                        <i class="bi-search"></i>
-                    </span>
-                    <input type="search" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                    <span class="input-group-text border-0" id="search-addon">
-                        <i class="bi-search"></i>
-                    </span>
-                    <input type="search" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                    <span class="input-group-text border-0" id="search-addon">
-                        <i class="bi-search"></i>
-                    </span>
-                    <input type="search" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                </div>
-                
-                
-                <div class="input-group p-2 m-0">
-                    
-                    <span class="input-text px-2"><i class="bi bi-tag">Price 0</i></span>
-                    <span class="col"><input type="range" class="form-range" id="price"></span>
-                    <span class="input-text px-2">1000000</span>
+                    <button class="col btn btn-success w-100" type="button" onclick="sendQuery()">Apply</button>                    
+                    <button class="col btn btn-success w-100" type="button" onclick="resetQuery()">Reset</button>
                 </div>
 
             </div> 
-                <div id="Gallery">
-                <div class="row mx-1">                     
-                    <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                </div>
-                <div class="row mx-1">                     
-                    <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                </div>
-                <div class="row mx-1">                     
-                    <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                </div>
-                <div class="row mx-1">                     
-                    <div class="col-3 p-0"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="col-3 p-0"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                <div class="row mx-1" id="Gallery">
+                                 
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+ 
+                      
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData5" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData6" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData7" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData8" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+     
+                   
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData9" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData10" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData11" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData12" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                         
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData13" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData14" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData15" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                    <div class="col-3 p-0 GalleryItem"><img id="dragData16" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
                 </div>
             </div>  
         </div>

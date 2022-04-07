@@ -76,7 +76,7 @@ img{
    
 }
 
-#DashHeader{
+#DashHeader, #dashFooter{
     width: 24%;
     z-index: 2;
 }
@@ -96,7 +96,7 @@ img{
     background: white ;
 }
 #Gallery{
-    height: 54%;
+    height: 60%;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -114,3 +114,11 @@ img{
     float: right!important;
 }
 
+#dashFooter{
+    bottom: 68px;
+    padding: 1%;
+}
+
+#imagesGrid{
+    margin: 30% 0;
+}

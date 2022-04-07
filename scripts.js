@@ -118,6 +118,12 @@ function dropcopy(ev) {
     ev.target.appendChild(copyimg);
     ev.target.innerHTML
     ev.target.classList.remove("border")
+    var items = document.querySelectorAll('.ClearBtn');
+    for (const item of items) {
+        
+        if (item.classList)
+            item.classList.remove('d-none');
+    }
 
     if (document.getElementById('dashboard').classList.contains('col-6')) {
         console.log("col-6")
@@ -129,12 +135,7 @@ function dropcopy(ev) {
         x += '<div class="my-4 position-relative getDataboxDash border rounded border-light p-0" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)" ><button class="btn btn-light position-absolute d-none ClearBtn" id="clearBtn"><i class="bi bi-x-lg"></i></button> </div> ';
         document.getElementById('imagesGrid').innerHTML = x
     }
-    var items = document.querySelectorAll('.ClearBtn');
-    console.log(boxes)
-    for (const item of items) {
-        if (item.classList)
-            item.classList.remove('d-none');
-    }
+    
 
 
 
@@ -148,7 +149,14 @@ function ExpandDash() {
     console.log("got");
     document.getElementById("dashboard").classList.add("col-6");
     document.getElementById("dashboard").classList.remove("col-3");
+    var boxes = document.querySelectorAll('.GalleryItem');
+    console.log(boxes)
+    for (const box of boxes) {
+        box.classList.add('col-4');
+        box.classList.remove('col-3');
+    }
     document.getElementById("DashHeader").classList.add("w-50");
+    document.getElementById("dashFooter").classList.add("w-50");
     var boxes = document.querySelectorAll('.getDataboxDash');
     console.log(boxes)
     for (const box of boxes) {
@@ -156,6 +164,7 @@ function ExpandDash() {
         box.classList.add('mx-3');
     }
     document.getElementById("imagesGrid").classList.add("row")
+    document.getElementById("imagesGrid").style.margin = "10% 0"
     document.getElementById("Contract").classList.remove("d-none")
     document.getElementById("Expand").classList.add("d-none")
 
@@ -165,14 +174,21 @@ function ContractDash() {
     console.log("got");
     document.getElementById("dashboard").classList.remove("col-6");
     document.getElementById("dashboard").classList.add("col-3");
-    document.getElementById("DashHeader").classList.remove("w-50");
-    var boxes = document.querySelectorAll('.getDataboxDash');
+    var boxes = document.querySelectorAll('.GalleryItem');
     console.log(boxes)
+    for (const box of boxes) {
+        box.classList.add('col-3');
+        box.classList.remove('col-4');
+    }
+    document.getElementById("DashHeader").classList.remove("w-50");
+    document.getElementById("dashFooter").classList.remove("w-50");
+    var boxes = document.querySelectorAll('.getDataboxDash');
     for (const box of boxes) {
         box.classList.remove('col-5');
         box.classList.remove('mx-3');
     }
     document.getElementById("imagesGrid").classList.remove("row")
+    document.getElementById("imagesGrid").style.margin =" 30% 0"
     document.getElementById("Contract").classList.add("d-none")
     document.getElementById("Expand").classList.remove("d-none")
 
