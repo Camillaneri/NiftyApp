@@ -95,7 +95,7 @@ img{
     background: white ;
 }
 #Gallery{
-    height: 60%;
+    height: 22%;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -122,7 +122,12 @@ img{
     margin: 30% 0;
 }
 
-#LikeBtn, #DislikeBtn{
+#imgBtn{
     background: white!important;
     border-radius: 0px!important;
+    height: 40px;
+    width: 40px;
+}
+#imgBtn:hover{
+    background: rgb(213, 212, 212)!important;
 }

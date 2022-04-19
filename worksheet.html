@@ -16,14 +16,16 @@
     <script src="scripts.js"></script>
 </head>
 <body class="d-flex flex-column vh-100 overflow-hidden">
+    <!-- Navbar -->
     <nav class="navbar py-4 navbar-dark bg-dark position-top">
         <span class="container-fluid">
             <span class="navbar-text"> NiftyEValue</span> 
             <span class="navbar-text align-self-end" id="pageName">Warm Up</spandes>
         </span>
     </nav>
-
+    <!-- mainbody -->
     <div class="row wrapper p-0 overflow-hidden" id="changeMe"> 
+        <!-- Dashboard -->
         <div class="col-3 bg-dark text-light h-100" id="dashboard">
          
             <div class="position-absolute bg-dark p-3 container-fluid" id="DashHeader">
@@ -37,10 +39,9 @@
             </div>
     
             <div class="px-3 position-relative" id="imagesGrid">
-                
                 <div class="my-4 position-relative getDataboxDash border rounded border-light p-0" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)"  >                 
-                    <button class="btn btn-light position-absolute d-none ClearBtn" id="clearBtn"><i class="bi bi-x-lg"></i></button>
-                </div>                         
+                    <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;">
+                </div>                       
             </div> 
 
         
@@ -49,6 +50,7 @@
                 <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">Reset</button>
             </div>
         </div>
+        <!-- Gallery -->
         <div class="col p-4" id="galleryBack">
             <div class="p-4 mb-2" id="TaskBox">              
                 <h4>Rank items by similarity</h4>                
@@ -62,7 +64,6 @@
                             <i class="bi bi-hand-thumbs-up py-2">  Likes</i>
                         </span>
                         <div class="row mx-1" id="LikesBox">
-                       
                         </div>
                     </div> 
                     <div class="px-2 col"> 
@@ -83,109 +84,170 @@
             </div> 
                 <div class="row mx-1" id="Gallery">
                                  
-                    <div class="position-relative col-3 p-0 GalleryItem">
-                        <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                    <div class="position-relative col-3 p-0" id="item1">
+                        <div class="col-2 position-absolute">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
                         </div>
-
                         <img id="dragData3" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
                     </div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
-                        <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                    <div class="position-relative col-3 p-0 "  id="item2">
+                        <div class="col-2 position-absolute">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData2" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem"  id="item3">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData1" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item4">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                        <img id="dragData4" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
  
                       
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item5">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData5" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData5" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item6">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData6" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData6" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem"  id="item7">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData7" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData7" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item8">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData8" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                        <img id="dragData8" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
      
                    
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item9">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData9" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData9" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item10">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData10" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData10" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item11">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData11" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData11" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item12">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData12" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                        <img id="dragData12" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
                          
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item13">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData13" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData13" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item14">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData14" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData14" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item15">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData15" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
-                    <div class="position-relative col-3 p-0 GalleryItem">
+                        <img id="dragData15" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>             
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item16">
                         <div class="col-2 m-1 position-absolute">
-                            <button class="btn btn-light p-1 " id="LikeBtn" onclick="AddLiked(event)"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <button class="btn btn-light p-1 " id="DislikeBtn"  onclick="AddDisliked(event)"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
                         </div>
-                        <img id="dragData16" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)"></div>             
+                        <img id="dragData16" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>   
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item17">
+                        <div class="col-2 m-1 position-absolute">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
+                        </div>
+                        <img id="dragData17" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>   
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item18">
+                        <div class="col-2 m-1 position-absolute">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
+                        </div>
+                        <img id="dragData18" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>     
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item19">
+                        <div class="col-2 m-1 position-absolute">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
+                        </div>
+                        <img id="dragData19" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>       
+                    <div class="position-relative col-3 p-0 GalleryItem" id="item20">
+                        <div class="col-2 m-1 position-absolute">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddLiked(event)" value="&#xF407;">
+                            <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;">
+
+                        </div>
+                        <img id="dragData20" src="https://ipfs.pixura.io/ipfs/QmW3XevHttaTBQ9CwVYtTE8e92kpmCJW4FysGncSfPDBee/screaminSkull-final-opt.gif" class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(event)">
+                    </div>       
                 </div>
             </div>  
         </div>
