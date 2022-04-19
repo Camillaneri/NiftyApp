@@ -16,8 +16,7 @@ function getWarmup() {
     document.getElementById("changeMe").outerHTML = '<div class="container mainBox center" id="changeMe">    <div class="row">        <div class="col-4 g-3 ">            <div class="card border bg-light">                <img src="https://ipfs.pixura.io/ipfs/QmPR8zrhpzvJuswEaDrKCuLKiHDd9ZUwAb1TwdCc2vHoyn/IMG_5676.JPG" class="img" alt="...">            </div>        </div>        <div class="col g-3">            <div class="mainBoxcontainer p-3">                <div class="description">                    <h4>Rank items by similarity</h4>                    <p class="lead">Given the reference image drag and drop in order of similarity (from 1 to 5)the images below</p>                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                        <button class="btn btn-success px-4 me-md-2" type="button" onclick="getTask()">Next</button>                    </div>                </div>            </div>        </div>    </div>    <div class="row dropboxes p-3 my-3">        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Firts place </h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Second place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Third place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fourth place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fifth place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>    </div>    <div class="row" id="coso">          </div>';
     
     // GET FIRST WARM UP IMAGE
-
-    function getImg(){
+    function loadoneImages(){
         fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
         method: 'POST',
         headers: {
@@ -26,15 +25,54 @@ function getWarmup() {
         body: JSON.stringify({
           query: `
           {
-              artworks(limit: 1){
+              artworks(limit: 50){
               url
             }
           }
             `
         }),
+      })
+    .then(response=>response.json())
+    .then((result) =>{  
+        const myJSON = JSON.stringify(result);
+        r_json = JSON.parse(myJSON);
+        let i=0;
+        var lista = [];
+        while(i < 50){
+        dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
+        newStr0 = dict_path.replace('"', '');
+        newStr = newStr0.replace('"', '');
+        console.log(newStr);
+        lista.push(newStr);
+        console.log(lista)
+        i++;
+        }
+        console.log(lista)
+        //let random_n = Math.floor(Math.random() * 50);
+        lista_pop = lista.pop();
+        console.log(lista_pop);
+        if (lista_pop != ""){
+        //const img =  document.createElement('img');
+        //img.src = lista[random_n];
+            const img =  document.createElement('img');
+            img.src = lista_pop;
+            ciccio = document.getElementsByClassName("card border bg-light");
 
-
+            ciccio2 = ciccio.appendChild(img);
+            console.log(ciccio2);
+        }
+        //img class="card border bg-light""
+       }
+        ) 
     }
+    
+    loadoneImages();
+    
+   
+
+    
+
+
 
     //GET SIMILAR IMAGES 
     
@@ -91,6 +129,7 @@ function getWarmup() {
     loadImages();
     
 };
+             
 
 //GET TASK FUNCTION
 function getTask() {
