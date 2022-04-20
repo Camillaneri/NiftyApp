@@ -13,7 +13,6 @@ body{
 }
 #centralBox{
     background-color: white;
-    max-height: 500px!important;
    
 }
 
@@ -96,8 +95,6 @@ img{
 }
 #Gallery{
     height: 22%;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
 .scrollable{
@@ -130,4 +127,14 @@ img{
 }
 #imgBtn:hover{
     background: rgb(213, 212, 212)!important;
+}
+
+.col.wrapper.vcenter-item{
+    padding-bottom: 80px !important;
+}
+
+.mt-auto.py-4.bg-dark.text-white-50{
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
 }
