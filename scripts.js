@@ -13,10 +13,13 @@ function getHome() {
 
 //GET WARMUP FUNCTION
 function getWarmup() {
-    document.getElementById("changeMe").outerHTML = '<div class="container mainBox center" id="changeMe">    <div class="row">        <div class="col-4 g-3 ">            <div class="card border bg-light">                <img src="https://ipfs.pixura.io/ipfs/QmPR8zrhpzvJuswEaDrKCuLKiHDd9ZUwAb1TwdCc2vHoyn/IMG_5676.JPG" class="img" alt="...">            </div>        </div>        <div class="col g-3">            <div class="mainBoxcontainer p-3">                <div class="description">                    <h4>Rank items by similarity</h4>                    <p class="lead">Given the reference image drag and drop in order of similarity (from 1 to 5)the images below</p>                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                        <button class="btn btn-success px-4 me-md-2" type="button" onclick="getTask()">Next</button>                    </div>                </div>            </div>        </div>    </div>    <div class="row dropboxes p-3 my-3">        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Firts place </h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Second place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Third place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fourth place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fifth place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>    </div>    <div class="row" id="coso">          </div>';
+    document.getElementById("changeMe").outerHTML = '<div class="container mainBox center" id="changeMe">    <div class="row">        <div class="col-4 g-3 ">            <div class="card border bg-light">                <img id="sample" src="https://ipfs.pixura.io/ipfs/QmPR8zrhpzvJuswEaDrKCuLKiHDd9ZUwAb1TwdCc2vHoyn/IMG_5676.JPG" class="img" alt="...">            </div>        </div>        <div class="col g-3">            <div class="mainBoxcontainer p-3">                <div class="description">                    <h4>Rank items by similarity</h4>                    <p class="lead">Given the reference image drag and drop in order of similarity (from 1 to 5)the images below</p>                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                        <button class="btn btn-success px-4 me-md-2" type="button" onclick="getTask()">Next</button>                    </div>                </div>            </div>        </div>    </div>    <div class="row dropboxes p-3 my-3">        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Firts place </h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Second place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Third place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fourth place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>        <div class="g-3 getDatabox">            <header class="getDataheader text-center"><h5>Fifth place</h5></header>            <div id="getData" ondrop="dropcopy(ev)" ondragover="allowDrop(ev)" class="card text-center" >            </div>        </div>    </div>    <div class="row" id="coso">          </div>';
     
     // GET FIRST WARM UP IMAGE
-    function loadoneImages(){
+    
+    
+    
+    function loadoneImages(random_n){  //random-n mi permette di cambiare l'elemento in modo recursiovo se non mi piace la url
         fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
         method: 'POST',
         headers: {
@@ -25,7 +28,7 @@ function getWarmup() {
         body: JSON.stringify({
           query: `
           {
-              artworks(limit: 50){
+              artworks(limit: 10){
               url
             }
           }
@@ -34,43 +37,41 @@ function getWarmup() {
       })
     .then(response=>response.json())
     .then((result) =>{  
+        console.log(result);
         const myJSON = JSON.stringify(result);
+        console.log(myJSON);
         r_json = JSON.parse(myJSON);
+        console.log(r_json);
         let i=0;
         var lista = [];
-        while(i < 50){
-        dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
+        console.log(typeof lista);
+        for(i = 0; i < 10; i++) //loop che crea la lista
+        {
+        dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);//estraggo le url dal json
+        console.log(dict_path);
         newStr0 = dict_path.replace('"', '');
-        newStr = newStr0.replace('"', '');
+        newStr = newStr0.replace('"', '');//tolgo le virgolette()
         console.log(newStr);
-        lista.push(newStr);
-        console.log(lista)
-        i++;
+        if(newStr0 != ""){ // evito gli elementi vuoti
+            lista[i]= newStr;
+            }
         }
-        console.log(lista)
-        //let random_n = Math.floor(Math.random() * 50);
-        lista_pop = lista.pop();
-        console.log(lista_pop);
-        if (lista_pop != ""){
-        //const img =  document.createElement('img');
-        //img.src = lista[random_n];
-            const img =  document.createElement('img');
-            img.src = lista_pop;
-            ciccio = document.getElementsByClassName("card border bg-light");
+        console.log(lista);
+        
+        lista_pop = lista[random_n];//random-n è un numero random che inizializzo con la call della funzione
 
-            ciccio2 = ciccio.appendChild(img);
-            console.log(ciccio2);
+        console.log(random_n);
+        if (lista_pop.includes("https://") && !lista_pop.includes(".mp4") && !lista_pop.includes(".gif")){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+        document.getElementById("sample").src=lista_pop;
         }
-        //img class="card border bg-light""
+        else{
+            random-n + 1;//se la url non mi piace cambio il numero
+        }
        }
         ) 
     }
-    
-    loadoneImages();
-    
-   
 
-    
+    loadoneImages( Math.floor(Math.random() * 10));//questo è random_n
 
 
 
@@ -101,28 +102,29 @@ function getWarmup() {
         dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
         newStr0 = dict_path.replace('"', '');
         newStr = newStr0.replace('"', '');
-        console.log(typeof dict_path);
+        //console.log(typeof dict_path);
         const img =  document.createElement('img');
         img.src = newStr;
-        console.log(newStr)
+        //console.log(newStr)
         //img class="img-thumbnail" alt="..." draggable = “true” ondragstart="drag(ev)"
         img.id = "dragData1"+i
         img.className ="img-thumbnail"
         img.draggable = "true"
         img.ondragstart = "drag(ev)"
-        console.log(img)
+       //console.log(img)
         //<div class="col g-3"> 
         const div =  document.createElement('div');
         div.className ="g-3"
         div.classList.add("col")
-        console.log(div);
+        //console.log(div);
         div.appendChild(img);
         container = document.getElementById('coso');
-        console.log(container);
+        //console.log(container);
         container.appendChild(div);
-        console.log(container)
+        //console.log(container)
         i++;
-        console.log(img);}}
+        //console.log(img)
+        ;}}
     )  
     }
     
