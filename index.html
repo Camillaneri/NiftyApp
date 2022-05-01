@@ -14,39 +14,68 @@
         <!-- Optional JavaScript; choose one of the two! -->
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="scripts.js"></script>
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column vh-100">
+
+        <!-- Navbar -->
         <nav class="navbar py-4 navbar-dark bg-dark fixed-top" id="MainNav">
             <span class="container-fluid">
-                <span class="navbar-text">NiftyEValue</span> 
-                <span class="navbar-text align-self-end" id="pageName">home</spandes>
+                <span class="navbar-text"> NiftyEValue</span> 
+                <span class="navbar-text align-self-end" id="pageName">Home</spandes>
             </span>
         </nav>
 
-        <div class="col wrapper vcenter-item" id="changeMe">
-                <div class="container p-3 border rounded-3 overflow-scroll" id="centralBox">
-                    <div class="text-center p-3">
-                        <h1 class="display-3 p-3 ">Welcome on NiftyEValue</h1>
-                        <p class="lead p-3">A brief explanation of what is NiftyEValue, why we are doing this study and what kind of task the user has to complete.</p> 
-                        <p class=" p-3">[Description of how we deal with data] </p> 
-                    </div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
-                        <button class="btn btn-success px-4 me-md-2" type="button" onclick="getPresur()">Next</button> 
+        <!-- Main body -->
+        <div class="col wrapper vcenter-item overflow-hidden">
+            <div class="container px-3  pb-3 border bg-light rounded-3 overflow-scroll" id="centralBox">
+                <h1 class="display-3 py-3 h-25 sticky-top" id="headerTitle">Welcome on NiftyEValue</h1>
+                <p class="lead p-3">Hello Stranger! </p>
+                <p class="p-3">
+                    You landed on the evaluation app of <span class="lead">NiftyValue</span>.
+                </p>
+                <p class="p-3">
+                    Fist of all, our team would like to thank you for the time you are going to dedicate to our little experiment and we really hope you will enjoy exploring some cool crypto art with us!
+                </p>
+                <p class="p-3"> 
+                    Here you will perform some art related task. A brief tutorial will be available there, explaing the main functionalities of <span class="lead">NityEValue</span>.</br>
+                    You will also be completely free to restart the tasks and end them whenever you are satisfied with your results.  
+                </p>
+                <p class="p-3">
+                    In the next sections we will ask you some information about yourself and your experience with this app.
+                    </br>
+                    Please, note that everything is anonymous, and we are not asking you any sensible data that will make you reachable by us or any other party.
+                </p> 
+                <p class="p-3">
+                    The data we are collecting consists in:
+                </p>
+                <ul>
+                    <li>The answers you will give in the surveys.</li>
+                    <li>Some behavoiural data on your experience during the task, that will be automatically collected.</li>
+                </ul>   
+                <p class="p-3">
+                    All this data will be stored in our server and protected by us with our life. 
+                </p>
+                <div class="p-3">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" value="" id="enableNext">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        Got it pal!
+                        </label> 
                     </div>
                 </div>
+            </div>
+            <div class=" container py-3 px-0"> 
+                <button onclick="location.href='PreSsurvey.html'" type="button"  class="btn btn-success px-4 float-end w-25">
+                    Let's start!
+                </button> 
+            </div>        
         </div> 
 
+        <!-- Footer -->
         <footer class="mt-auto  py-4 bg-dark text-white-50 fixed-bottom" id="MainFooter">
             <div class="container text-center">
             <small>Copyright &copy; Your Website</small>
             </div>
       </footer>    
     </body>
-    <script>
- 
-
-
-
-    </script>
 </html>
