@@ -61,18 +61,11 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
           console.log('slice',similars.slice(1,6))
           // document.getElementById('similarImg'+id).src = myurl['url']
          
+          //popola diverse div
           for(item in similars.slice(1,6)){
             console.log('item is', similars[item])
             focused = similars[item]
             console.log('mediatype is',focused['media_type'])
-            switch(focused['media_type']){
-              case 'mjpeg':
-              case 'png':
-              case 'gif':
-        
-                document.getElementById('similarBox'+item).innerHTML = ''
-                document.getElementById('similarBox'+item).innerHTML = '<img id="similarImg'+item+'" src="" >'
-            } 
             document.getElementById('similarImg'+item).src = focused['url']
             
 
