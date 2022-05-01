@@ -1,19 +1,19 @@
 body{
     background-color: whitesmoke!important;
+    padding: 0 5%;
 
         }
 .vcenter-item{
-    display: flex;
     align-items: center;
 }
 /* Some custom styles to beautify this example */
 .wrapper{
 
-    padding:  160px 0px;
+    padding:  130px 0px;
 }
 #centralBox{
     background-color: white;
-    max-height: 500px!important;
+    height: 95%!important;
    
 }
 
@@ -23,7 +23,9 @@ body{
 }
 
 #getData {
-    min-height: 150px;
+    min-height: 300px;
+    margin: 2%;
+    
 }
 
 .getDataheader  {
@@ -33,14 +35,14 @@ body{
 }
 
 .getDatabox{
-    width: 20%!important;
     min-height: fit-content;
     margin: 0;
+    background-color: whitesmoke;
 }
 
 img{
 
-    width: auto;
+    width: 100%;
 
 }
 
@@ -69,44 +71,23 @@ img{
 
 }
 
-#getDataDash{
+.DataDash{
     min-height: 200px;
 
 
    
 }
 
-#DashHeader, #dashFooter{
-    width: 24%;
-    z-index: 2;
-}
-
 
 #galleryBack{
-    background-color: none;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-#TaskBox{
-    background: white ;
-}
-#QueryForm{
-    background: white ;
-}
-#Gallery{
-    height: 22%;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
 
-.scrollable{
-    overflow-x: hidden;
-    overflow-y: auto;
-}
 
 #likesBox, #DislikesBox{
-    min-height: 140px;
+    min-height: 100px;
 }
 
 .expand{
@@ -119,7 +100,8 @@ img{
 }
 
 #imagesGrid{
-    margin: 30% 0;
+    margin: 6rem 0;
+    padding: 0 10%;
 }
 
 #imgBtn{
@@ -131,3 +113,169 @@ img{
 #imgBtn:hover{
     background: rgb(213, 212, 212)!important;
 }
+
+/* OVERFLOWS */
+
+.overflowX{
+    overflow-x: auto;
+}
+
+.overflowY{
+    overflow-y: auto;
+}
+
+/*BACKGROUNDS*/
+#headerTitle{
+background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 54%, rgba(248,249,250,0.9178265056022409) 74%, rgba(248,249,250,0) 100%);
+}
+
+.bg-white{
+    background-color: white!important;
+}
+/*Paddings*/
+
+.pt-10 {
+    padding-top: 100px;
+}
+
+.pb-10 {
+    padding-bottom: 100px;
+}
+
+/*Z-index*/
+.z-1{
+    z-index: 1;
+}
+
+/*borders*/
+
+.border-dot{
+    border: 1px solid rgba(212, 212, 212, 0.918);
+    background-color:  rgba(212, 212, 212, 0.918);
+    color: white;
+    padding: 0.2em;
+    border-radius: 30%;
+}
+
+/*heights*/
+.h-content{
+    height: fit-content;
+}
+
+.h-10{
+    height: 10%!important;
+}
+.h-25{
+    height: 25%!important;
+}
+.h-40{
+    min-height: 400px!important;
+}
+
+.h-60{
+    height: 60%!important;
+}
+
+.vh-60{
+    height: 60vh!important;
+}
+
+
+.h-90{
+    height: 90%!important;
+}
+
+
+
+/*widths*/
+.w-49{
+    width: 49%!important;
+}
+.w-content{
+    width: fit-content;
+}
+
+.w-min-content{
+    width: min-content!important;
+}
+
+/*positioning*/
+
+.absolute-bottom {
+    bottom: 0!important;
+}
+
+/*special buttons*/
+
+#addImg{
+    background-color: rgba(212, 212, 212, 0.918) ;
+    width: 3em;
+    height: 3em;
+    color: white;
+    display: none;
+
+}
+
+#similarBox:hover > #addImg{
+    display: block;
+}
+
+#addImg:hover{
+    background-color: rgba(117, 218, 147, 0.918) ;
+  
+
+}
+
+.a-top{
+    vertical-align:top; 
+}
+
+
+
+/*code for gallery grid*/
+
+
+ 
+  
+  div#dvSource.row {
+    display: -ms-flexbox; /* IE10 */
+    overflow-x: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 3px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+
+  .column div img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+
+  @media screen and (max-width: 800px) {
+    .column {
+      -ms-flex: 50%;
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      -ms-flex: 100%;
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+
