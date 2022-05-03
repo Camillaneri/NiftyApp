@@ -8,6 +8,13 @@ const removeEmptyOrNull = (obj) => {
 
 
 function getWarmUpData() {
+
+query =  `{
+  artworks_by_pk(id: 200){
+    url
+    media_type
+  }}
+` 
 fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   method: 'POST',
   headers: {
@@ -15,7 +22,7 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   },
   body: JSON.stringify({
     query: ` {
-      artworks{
+      artworks_by_pk(id: [num]{
       id 
       url
       media_type
