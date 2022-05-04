@@ -3,8 +3,7 @@
 
 
 //GET SIMILAR IMAGES 
-
-function loadImages(i){
+function fill_task_dash(){
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
     method: 'POST',
     headers: {
@@ -13,8 +12,9 @@ function loadImages(i){
     body: JSON.stringify({
       query: `
       {
-          artworks(limit: 21){
+          artworks(limit: 20){
           url
+          id
         }
       }
         `
@@ -24,31 +24,42 @@ function loadImages(i){
 .then((result) =>{  
     const myJSON = JSON.stringify(result);
     r_json = JSON.parse(myJSON);
-    while(i <= 21){
+    let i=1;
+    while(i <= 20){
+
     dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
     newStr0 = dict_path.replace('"', '');
-    newStr = newStr0.replace('"', '');
+    img_url = newStr0.replace('"', '');//get url
 
-    /////// HERE START REUSABLE STUFF///////
+
+    dict_path1 = JSON.stringify(r_json['data']['artworks'][i]['id']);
+    newStr01 = dict_path1.replace('"', '');
+    img_id = newStr01.replace('"', '');//get id
+
+    //console.log(img_id)
+    //console.log(img_url)
     get_img = document.getElementById('dragData'+i+'')
-    if (newStr.includes("https://") && !newStr.includes(".mp4") && !newStr.includes(".gif")){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
-        get_img.src = newStr;
+    
+    if (img_url.includes("https://") && !img_url.includes(".mp4") && !img_url.includes(".gif") && img_url != "" && img_id !=""){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+        get_img.src = img_url;
+        get_img.id = img_id;
         }
     else{
         get_img.src = "images/wooops.jpg";
+        
 
     }
-        i ++
-    }
+    i++;
+}
     
-    }
+    ;}
 )  
 }
 
-loadImages(1);
+fill_task_dash();
 
-;
-     
+
+
 
 
 // IMAGE DRAG AND COPYDRAG
@@ -197,26 +208,29 @@ function clearImg(ev){
 
 
 
-function Apply_like_dislike(event){ //start 
-    likebox = document.getElementsByClassName("LikesBox"); //.children[1]; //.id;
+function Apply_like_dislike(){ //start 
+    likebox = document.getElementById("LikesBox").children[0].children[1]; //.children[1]; //.id;
     console.log(likebox);
-    //liked_ids = likebox.childred;
+
+    var num_liked = document.getElementById("LikesBox").childElementCount;
+    console.log(num_liked);
     
-    var num_liked = event.target.parentElement.previousElementSibling.children[0].children[1].childElementCount; 
+ 
     ids = []
     
-    for(let i = 0; i < num_liked; i++){
-    var img_id = event.target.parentElement.previousElementSibling.children[0].children[1].children[i].children[1].id;
+    for(let i = 0; i <= num_liked; i++){
+    var img_id = document.getElementById("LikesBox").children[i].children[0];
+    console.log(img_id)
     ids.push(img_id)
     }
     
-    var num_dsliked = event.target.parentElement.previousElementSibling.children[1].children[1].childElementCount;
+    var num_dsliked = document.getElementById("DislikesBox").childElementCount;
     console.log(num_dsliked)
-    
+
     d_ids = []
     
-    for(let i = 0; i < num_liked; i++){
-        var imgds_id = event.target.parentElement.previousElementSibling.children[1].children[1].children[i].children[1].id;
+    for(let i = 0; i < num_dsliked; i++){
+        var img_id = document.getElementById("DislikesBox").children[i].children[0];
         d_ids.push(imgds_id)
     
         }
@@ -224,14 +238,22 @@ function Apply_like_dislike(event){ //start
     liked_ids = ids.join();
     console.log(liked_ids);
     
+    
     disliked_ids = d_ids.join();
     console.log(disliked_ids);
     
+    
     request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+liked_ids+"&artworks_neg="+disliked_ids+""; //if its more than one they have to be numbers separated by comma without spaces
     console.log(request);
+    ids = fetch(request)
+    .then((response) => response.json())
+    .then((responseJSON) => {
+      biglist = responseJSON['recs']
+     console.log(biglist)}
+    )
+}
     
-    
-    fetch(request)
+        /*fetch(request)
     .then(data => data.json())
     console.log(data)
     .then(response=>response.json())
@@ -240,7 +262,7 @@ function Apply_like_dislike(event){ //start
         const myJSON = JSON.stringify(result);
         r_json = JSON.parse(myJSON);})
         console.log(myJSON)
-        /*
+    
         let i=0;
         while(i < 10){
         dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
@@ -298,5 +320,4 @@ function Apply_like_dislike(event){ //start
     })*/
     
     
-    }
     
