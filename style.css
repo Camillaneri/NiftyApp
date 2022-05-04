@@ -1,6 +1,6 @@
 body{
     background-color: whitesmoke!important;
-    padding: 0 5%;
+    font-size: 28px!important;
 
         }
 .vcenter-item{
@@ -14,6 +14,7 @@ body{
 #centralBox{
     background-color: white;
     height: 95%!important;
+    
    
 }
 
@@ -43,6 +44,8 @@ body{
 img{
 
     width: 100%;
+    color-rendering: optimizespeed;
+    shape-rendering: optimizespeed;
 
 }
 
@@ -132,6 +135,16 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
 .bg-white{
     background-color: white!important;
 }
+
+.bgdark50{
+    background-color: rgba(0, 0, 0, 0.50)!important;
+}
+
+/* font colors */
+
+.white{
+    color: white!important;
+}
 /*Paddings*/
 
 .pt-10 {
@@ -146,6 +159,9 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
 .z-1{
     z-index: 1;
 }
+.z-2000{
+    z-index: 2000;
+}
 
 /*borders*/
 
@@ -157,6 +173,9 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
     border-radius: 30%;
 }
 
+.br1{
+    border-radius: 1em ;
+}
 /*heights*/
 .h-content{
     height: fit-content;
@@ -260,7 +279,24 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
     padding: 0 4px;
   }
   
+  /* tutorial boxes */
+  #tutorial1{
+      top: 50%;
+      left: 10%;
+      display: block;
+  }
 
+  #tutorial2{
+    top: 60%;
+    left: 30%;
+    display: none;
+}
+
+#tutorial3{
+    top: 40%;
+    left: 30%;
+    display: none;
+}
   @media screen and (max-width: 800px) {
     .column {
       -ms-flex: 50%;
