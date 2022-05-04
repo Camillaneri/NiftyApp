@@ -118,3 +118,7 @@ function clearImg(ev){
  ev.target.parentElement.children[2].src = ''
  ev.target.parentElement.children[0].classList.add('d-none')
 }
+
+
+
+
