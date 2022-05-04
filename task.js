@@ -1,3 +1,53 @@
+
+
+
+
+//GET SIMILAR IMAGES 
+
+function loadImages(i){
+    fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+      {
+          artworks(limit: 20){
+          url
+        }
+      }
+        `
+    }),
+  })
+.then(response=>response.json())
+.then((result) =>{  
+    const myJSON = JSON.stringify(result);
+    r_json = JSON.parse(myJSON);
+    while(i <= 30){
+    dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
+    newStr0 = dict_path.replace('"', '');
+    newStr = newStr0.replace('"', '');
+
+    /////// HERE START REUSABLE STUFF///////
+    
+    if (newStr.includes("https://") && !newStr.includes(".mp4") && !newStr.includes(".gif")){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+        get_img = document.getElementById('dragData'+i+'')
+        get_img.src = newStr;
+        }
+        i ++
+    }
+    
+    }
+)  
+}
+
+loadImages(1);
+
+;
+     
+
+
 // IMAGE DRAG AND COPYDRAG
 
 function allowDrop(ev) {
