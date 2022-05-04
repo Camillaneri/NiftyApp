@@ -170,10 +170,11 @@ function AddLiked(ev) {
     if (document.getElementById('LikesBox').children.length < 3 ){
 
         var AddMe = ev.target.parentElement.nextElementSibling.src;
+        var Addid = ev.target.parentElement.nextElementSibling.id;
         console.log(AddMe);
 
-        document.getElementById
-        document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img src='"+AddMe+"' class='img-thumbnail'></div>"
+        
+        document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
 
     } else {
        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
@@ -184,11 +185,12 @@ function AddLiked(ev) {
 function AddDisliked(ev) {
     if (document.getElementById('DislikesBox').children.length < 3) {
         var AddMe = ev.target.parentElement.nextElementSibling.src;
+        var Addid = ev.target.parentElement.nextElementSibling.id;
 
         console.log(AddMe);
 
         document.getElementById
-        document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img src='"+AddMe+"' class='img-thumbnail'></div>"
+        document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
 
     } else {
        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
@@ -208,10 +210,9 @@ function clearImg(ev){
 
 
 
-function Apply_like_dislike(){ //start 
-    likebox = document.getElementById("LikesBox").children[0].children[1]; //.children[1]; //.id;
-    console.log(likebox);
 
+function Apply_like_dislike(){ //start 
+    
     var num_liked = document.getElementById("LikesBox").childElementCount;
     console.log(num_liked);
     
@@ -219,10 +220,12 @@ function Apply_like_dislike(){ //start
     ids = []
     
     for(let i = 0; i <= num_liked; i++){
-    var img_id = document.getElementById("LikesBox").children[i].children[0];
+    var img_id = document.getElementById("LikesBox").children[i].children[1].id;
     console.log(img_id)
     ids.push(img_id)
     }
+
+    console.log(ids)
     
     var num_dsliked = document.getElementById("DislikesBox").childElementCount;
     console.log(num_dsliked)
@@ -230,7 +233,7 @@ function Apply_like_dislike(){ //start
     d_ids = []
     
     for(let i = 0; i < num_dsliked; i++){
-        var img_id = document.getElementById("DislikesBox").children[i].children[0];
+        var img_id = document.getElementById("DislikesBox").children[i].children[1].id;
         d_ids.push(imgds_id)
     
         }
