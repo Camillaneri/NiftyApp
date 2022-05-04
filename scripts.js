@@ -323,10 +323,11 @@ function AddLiked(ev) {
     if (document.getElementById('LikesBox').children.length < 3 ){
 
         var AddMe = ev.target.parentElement.nextElementSibling.src;
+        var Addid = ev.target.parentElement.nextElementSibling.id;
         console.log(AddMe);
 
         
-        document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img src='"+AddMe+"' class='img-thumbnail'></div>"
+        document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
 
     } else {
        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
@@ -337,11 +338,12 @@ function AddLiked(ev) {
 function AddDisliked(ev) {
     if (document.getElementById('DislikesBox').children.length < 3) {
         var AddMe = ev.target.parentElement.nextElementSibling.src;
+        var Addid = ev.target.parentElement.nextElementSibling.id;
 
         console.log(AddMe);
 
         document.getElementById
-        document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img src='"+AddMe+"' class='img-thumbnail'></div>"
+        document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
 
     } else {
        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
@@ -499,21 +501,81 @@ likebox = document.getElementsByClassName("LikesBox"); //.children[1]; //.id;
 console.log(likebox);
 //liked_ids = likebox.childred;
 
-var AddMe = event.target.parentElement.previousElementSibling.firstChild; //.src;
-console.log(AddMe);
+var num_liked = event.target.parentElement.previousElementSibling.children[0].children[1].childElementCount; 
+ids = []
 
-console.log(liked_ids)
-console.log(typeof liked_ids)
-disliked_ids = document.getElementsByClassName("DislikesBox").children.id;//don't kow if it is an array
+for(let i = 0; i < num_liked; i++){
+var img_id = event.target.parentElement.previousElementSibling.children[0].children[1].children[i].children[1].id;
+ids.push(img_id)
+}
 
-request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+liked_ids+"&artworks_neg="+disliked_ids+ //if its more than one they have to be numbers separated by comma without spaces
+var num_dsliked = event.target.parentElement.previousElementSibling.children[1].children[1].childElementCount;
+console.log(num_dsliked)
 
-fetch(request, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },//will it work without body?
-  })
+d_ids = []
+
+for(let i = 0; i < num_liked; i++){
+    var imgds_id = event.target.parentElement.previousElementSibling.children[1].children[1].children[i].children[1].id;
+    d_ids.push(imgds_id)
+
+    }
+
+liked_ids = ids.join();
+console.log(liked_ids);
+
+disliked_ids = d_ids.join();
+console.log(disliked_ids);
+
+request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+liked_ids+"&artworks_neg="+disliked_ids+""; //if its more than one they have to be numbers separated by comma without spaces
+console.log(request);
+
+
+fetch(request)
+.then(data => data.json())
+console.log(data)
+.then(response=>response.json())
+console.log(response)
+.then((result) =>{  
+    const myJSON = JSON.stringify(result);
+    r_json = JSON.parse(myJSON);})
+    console.log(myJSON)
+    /*
+    let i=0;
+    while(i < 10){
+    dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
+    newStr0 = dict_path.replace('"', '');
+    newStr = newStr0.replace('"', '');
+
+
+
+var url = request
+
+var result =[]
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+
+xhr.onreadystatechange = function() {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      response1 = xhr.responseText;
+      response_list = response1.split(" ");
+      for (let i = 0; i < response_list.length; i++)
+      result.push(response_list[i])
+      console.log(response1);
+      console.log(response_list);
+      console.log(result);
+      }
+   
+   
+};
+xhr.send();
+
+
+console.log(result)
+result = xhr.responseText;
+console.log(result);
+impure_array = result.split(" ");
+console.log(impure_array)
 .then(response=>response.json())
 .then((result) =>{  
     //console.log(result);
@@ -532,7 +594,7 @@ fetch(request, {
     img.id = new_ids;//put id and url in img
     }
 
-})
+})*/
 
 
 }
