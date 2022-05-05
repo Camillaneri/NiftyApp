@@ -219,7 +219,7 @@ function Apply_like_dislike(){ //start
  
     ids = []
     
-    for(let i = 0; i <= num_liked; i++){
+    for(let i = 0; i < num_liked; i++){
     var img_id = document.getElementById("LikesBox").children[i].children[1].id;
     console.log(img_id)
     ids.push(img_id)
@@ -233,7 +233,7 @@ function Apply_like_dislike(){ //start
     d_ids = []
     
     for(let i = 0; i < num_dsliked; i++){
-        var img_id = document.getElementById("DislikesBox").children[i].children[1].id;
+        var imgds_id = document.getElementById("DislikesBox").children[i].children[1].id;
         d_ids.push(imgds_id)
     
         }
