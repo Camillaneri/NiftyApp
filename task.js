@@ -213,36 +213,36 @@ function clearImg(ev){
 
 function Apply_like_dislike(){ //start 
     
-    var num_liked = document.getElementById("LikesBox").childElementCount;
+    var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
     console.log(num_liked);
     
  
     ids = []
     
     for(let i = 0; i < num_liked; i++){
-    var img_id = document.getElementById("LikesBox").children[i].children[1].id;
+    var img_id = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
     console.log(img_id)
     ids.push(img_id)
     }
 
     console.log(ids)
     
-    var num_dsliked = document.getElementById("DislikesBox").childElementCount;
+    var num_dsliked = document.getElementById("DislikesBox").childElementCount; //n of disliked elements
     console.log(num_dsliked)
 
     d_ids = []
     
     for(let i = 0; i < num_dsliked; i++){
-        var imgds_id = document.getElementById("DislikesBox").children[i].children[1].id;
+        var imgds_id = document.getElementById("DislikesBox").children[i].children[1].id; //id of disliked elements
         d_ids.push(imgds_id)
     
         }
     
-    liked_ids = ids.join();
+    liked_ids = ids.join(); //string of liked to put in request
     console.log(liked_ids);
     
     
-    disliked_ids = d_ids.join();
+    disliked_ids = d_ids.join(); //string of disliked to put in request
     console.log(disliked_ids);
     
     
@@ -252,8 +252,44 @@ function Apply_like_dislike(){ //start
     .then((response) => response.json())
     .then((responseJSON) => {
       biglist = responseJSON['recs']
-     console.log(biglist)}
+
+      console.log(biglist)//list of 100 similar artwoks
+
+      for(let x = 0; x < 5 ; x++){
+      Refquery =  `{
+        artworks_by_pk(id: `+biglist[x]+` ){
+          id
+          url
+          media_type
+        }}
+      ` 
+      // fetch first image
+      fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/json',
+        },
+        body: JSON.stringify({
+          query: Refquery
+        }),
+      })
+      .then((res) => res.json())
+      .then((result) =>{ 
+        
+        dict = result['data']['artworks_by_pk']
+        art_media = dict['media_type']
+        art_id = dict['id']
+        art_url = dict['url']
+
+        
+        console.log(art_media)
+        console.log(art_id)
+        console.log(art_url)
+      }
+     }
+     
     )
+    
 }
     
         /*fetch(request)
