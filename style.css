@@ -313,5 +313,7 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
   }
 
 #MainFooter{
-    
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
 }
