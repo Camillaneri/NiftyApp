@@ -27,10 +27,10 @@
         </nav>
 
         <!-- Main body -->
-        <div class="row wrapper w-100 h-100 p-0" >
+        <div class="row wrapper w-100 p-0" >
             <!-- Dashboard -->
-            <div class="col-3 bg-dark text-light h-100 p-0" id="dashboard"> 
-                <div class="position-absolute bg-dark p-3 container-fluid z-1 w-25" id="DashHeader">
+            <div class="col-3 bg-dark text-light -0" id="dashboard"> 
+                <div class="position-absolute bg-dark p-3 container-fluid z-1" id="DashHeader">
                     <span> Dashboard</span>
                     <button class="btn btn-dark expand" type="button"id="Expand" onclick="ExpandDash()"> 
                         <i class="bi bi-arrows-angle-expand"></i>
@@ -43,40 +43,40 @@
                     <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;">
-                        
                     </div>
-                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 d-none DataDash" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;">
-                        <img src="">
                     </div>
-                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 d-none DataDash" id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;">
-                        <img src="">
                     </div>
-                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 d-none DataDash" id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;">
-                        <img src="">
                     </div>
-                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 d-none DataDash" id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;">
-                        <img src="">
+                    </div>
+                    <div class="container-fluid d-flex px-3 bg-dark z-1" id="dashFooter" > 
+                        <button class="mx-1 col btn btn-success w-50" type="button" onclick="loadTaskImages()">
+                            Next
+                        </button>
+                        <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">
+                            Reset
+                        </button> 
                     </div>
                 </div>
-                <div class="container-fluid d-flex position-absolute px-3 bg-dark z-1 w-25" id="dashFooter" > 
-                    <button class="mx-1 col btn btn-success w-50" type="button" onclick="loadTaskImages()">
-                        Next
-                    </button>
-                    <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">
-                        Reset
-                    </button> 
-                </div>
+                
             </div>
             <!-- Main section -->
-            <div class="col-9 p-4 h-100" id="mainBody">
+            <div class="col-9 p-4 id="mainBody">
                 <div class="p-2 mb-2 bg-white">
-                    <h4>Rank items by similarity</h4>
+                    <h4>Task</h4>
                     <p class="lead">
-                        Given the reference image drag and drop in order of similarity (from 1 to 5)the images below
+                        Browse the art and put in the dashboard some stuff you like!
                     </p>
                 </div> 
                 <div class="p-2 mb-2 bg-white">   
@@ -113,7 +113,7 @@
                 </div> 
 
                 <!-- Gallery -->
-                <div class="row h-60 mt-3" id="dvSource"> 
+                <div class="row mt-3" id="dvSource"> 
 
                     <div class="column">
                         <div id="drag1"  draggable="true" ondragstart="drag(event)"  class="position-relative "  > 

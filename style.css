@@ -74,7 +74,7 @@ img{
 }
 
 .DataDash{
-    min-height: 200px;
+    min-height: 8em;
 
 
    
@@ -104,6 +104,8 @@ img{
 #imagesGrid{
     margin: 6rem 0;
     padding: 0 10%;
+    
+    
 }
 
 #imgBtn{
@@ -316,4 +318,8 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
+}
+
+#DashHeader{
+    width: fit-content;
 }

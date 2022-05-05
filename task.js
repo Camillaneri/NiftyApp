@@ -12,7 +12,7 @@ function fill_task_dash(){
     body: JSON.stringify({
       query: `
       {
-          artworks(limit: 20){
+          artworks(limit: 25){
           url
           id
         }
@@ -28,6 +28,8 @@ function fill_task_dash(){
     while(i <= 20){
 
     dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
+
+
     newStr0 = dict_path.replace('"', '');
     img_url = newStr0.replace('"', '');//get url
 
@@ -38,10 +40,13 @@ function fill_task_dash(){
 
     //console.log(img_id)
     //console.log(img_url)
+    
     get_img = document.getElementById('dragData'+i+'')
     
-    if (img_url.includes("https://") && !img_url.includes(".mp4") && !img_url.includes(".gif") && img_url != "" && img_id !=""){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+    if (img_url.includes("https://") && !img_url.includes(".mp4") && !img_url.includes(".gif") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
         get_img.src = img_url;
+        console.log(i)
+        console.log(get_img.src)
         get_img.id = img_id;
         }
     else{
