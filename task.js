@@ -253,9 +253,9 @@ function Apply_like_dislike(){ //start
     .then((responseJSON) => {
       biglist = responseJSON['recs']
 
-      console.log(biglist)//list of 100 similar artwoks
+      console.log(biglist)//list of 100 similar artwoks ids
 
-      for(let x = 0; x < 5 ; x++){
+      for(let x = 0; x < 20 ; x++){
       Refquery =  `{
         artworks_by_pk(id: `+biglist[x]+` ){
           id
@@ -263,7 +263,7 @@ function Apply_like_dislike(){ //start
           media_type
         }}
       ` 
-      // fetch first image
+      //fetch url and mediatype for every artwork
       fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
         method: 'POST',
         headers: {
@@ -278,19 +278,35 @@ function Apply_like_dislike(){ //start
         
         dict = result['data']['artworks_by_pk']
         art_media = dict['media_type']
-        art_id = dict['id']
+        art_id = biglist[x]
         art_url = dict['url']
 
+        get_img_element = document.getElementsByClassName('w-10')[x] //put them into the image elements
+        console.log(get_img_element)
+    
+        if (art_url.includes("https://") && !art_url.includes(".mp4") && !art_url.includes(".gif") && art_url != "" && art_id !=""){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+            get_img_element.src = art_url;
+            get_img_element.id = art_id;
+            }
+        else{
+            get_img_element.src = "images/wooops1.jpg";
+        
+        }
+
+      
         
         console.log(art_media)
         console.log(art_id)
         console.log(art_url)
       }
-     }
-     
+      
     )
     
 }
+     
+}
+    )
+}  
     
         /*fetch(request)
     .then(data => data.json())
@@ -356,7 +372,5 @@ function Apply_like_dislike(){ //start
         img.id = new_ids;//put id and url in img
         }
     
-    })*/
-    
-    
-    
+    })
+    */
