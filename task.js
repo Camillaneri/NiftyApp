@@ -12,11 +12,13 @@ function fill_task_dash(){
     body: JSON.stringify({
       query: `
       {
-          artworks(limit: 25){
+        artwork_metrics(where: {media_type: {_in: ["gif", "jpg", "mjpeg", "png"]}}, limit: 21) {
           url
-          id
+          artwork_id
+          media_type
         }
       }
+      
         `
     }),
   })
@@ -27,14 +29,14 @@ function fill_task_dash(){
     let i=1;
     while(i <= 20){
 
-    dict_path = JSON.stringify(r_json['data']['artworks'][i]['url']);
+    dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['url']);
 
 
     newStr0 = dict_path.replace('"', '');
     img_url = newStr0.replace('"', '');//get url
 
 
-    dict_path1 = JSON.stringify(r_json['data']['artworks'][i]['id']);
+    dict_path1 = JSON.stringify(r_json['data']['artwork_metrics'][i]['artwork_id']);
     newStr01 = dict_path1.replace('"', '');
     img_id = newStr01.replace('"', '');//get id
 
@@ -43,10 +45,8 @@ function fill_task_dash(){
     
     get_img = document.getElementById('dragData'+i+'')
     
-    if (img_url.includes("https://") && !img_url.includes(".mp4") && !img_url.includes(".gif") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+    if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
         get_img.src = img_url;
-        console.log(i)
-        console.log(get_img.src)
         get_img.id = img_id;
         }
     else{
@@ -103,7 +103,7 @@ function dropcopy(ev) {
     }
 
     if (document.getElementById('dashboard').classList.contains('col-6')) {
-        console.log("col-6")
+        
         var x = document.getElementById('imagesGrid').innerHTML
         x += '<div class="my-4 position-relative getDataboxDash border rounded border-light p-0 col-5 mx-3 " id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)"> <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;"> </div> ';
         document.getElementById('imagesGrid').innerHTML = x
@@ -176,7 +176,7 @@ function AddLiked(ev) {
 
         var AddMe = ev.target.parentElement.nextElementSibling.src;
         var Addid = ev.target.parentElement.nextElementSibling.id;
-        console.log(AddMe);
+        //console.log(AddMe);
 
         
         document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
@@ -192,7 +192,7 @@ function AddDisliked(ev) {
         var AddMe = ev.target.parentElement.nextElementSibling.src;
         var Addid = ev.target.parentElement.nextElementSibling.id;
 
-        console.log(AddMe);
+        //console.log(AddMe);
 
         document.getElementById
         document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
@@ -218,6 +218,12 @@ function clearImg(ev){
 
 function Apply_like_dislike(){ //start 
     
+    for(let y = 0; y < 21; y++){
+        get1_img_element = document.getElementsByClassName('w-10')[y];
+        console.log(get1_img_element)
+        //get1_img_element.src = "images/wooops1.jpg";
+    }
+
     var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
     console.log(num_liked);
     
@@ -226,7 +232,6 @@ function Apply_like_dislike(){ //start
     
     for(let i = 0; i < num_liked; i++){
     var img_id = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
-    console.log(img_id)
     ids.push(img_id)
     }
 
@@ -234,6 +239,7 @@ function Apply_like_dislike(){ //start
     
     var num_dsliked = document.getElementById("DislikesBox").childElementCount; //n of disliked elements
     console.log(num_dsliked)
+    
 
     d_ids = []
     
@@ -259,14 +265,17 @@ function Apply_like_dislike(){ //start
       biglist = responseJSON['recs']
 
       console.log(biglist)//list of 100 similar artwoks ids
-
-      for(let x = 0; x < 20 ; x++){
-      Refquery =  `{
-        artworks_by_pk(id: `+biglist[x]+` ){
-          id
+      biglist_str = biglist.join();
+      console.log(biglist_str)
+      Refquery =  `
+      {
+        artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_in: [`+biglist_str+ `] }}, limit: 100) {
           url
+          artwork_id
           media_type
-        }}
+        }
+      }
+          
       ` 
       //fetch url and mediatype for every artwork
       fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
@@ -280,16 +289,21 @@ function Apply_like_dislike(){ //start
       })
       .then((res) => res.json())
       .then((result) =>{ 
-        
-        dict = result['data']['artworks_by_pk']
+        for(let x = 0; x <= 20 ; x++){
+        console.log(result)
+        dict = result['data']['artwork_metrics'][x]
+        console.log(dict)
         art_media = dict['media_type']
-        art_id = biglist[x]
+        console.log(art_media )
+        art_id = dict['artwork_id']
+        console.log(art_id)
         art_url = dict['url']
+        console.log(art_url)
 
         get_img_element = document.getElementsByClassName('w-10')[x] //put them into the image elements
         console.log(get_img_element)
     
-        if (art_url.includes("https://") && !art_url.includes(".mp4") && !art_url.includes(".gif") && art_url != "" && art_id !=""){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+        if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
             get_img_element.src = art_url;
             get_img_element.id = art_id;
             }
@@ -297,7 +311,7 @@ function Apply_like_dislike(){ //start
             get_img_element.src = "images/wooops1.jpg";
         
         }
-
+    }
       
         
         console.log(art_media)
@@ -309,7 +323,7 @@ function Apply_like_dislike(){ //start
     
 }
      
-}
+
     )
 }  
     
