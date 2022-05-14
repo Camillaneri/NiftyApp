@@ -14,6 +14,7 @@ function fill_task_dash(){
       {
         artwork_metrics(where: {media_type: {_in: ["gif", "jpg", "mjpeg", "png"]}}, limit: 21) {
           url
+          preview
           artwork_id
           media_type
         }
@@ -27,9 +28,9 @@ function fill_task_dash(){
     const myJSON = JSON.stringify(result);
     r_json = JSON.parse(myJSON);
     let i=1;
-    while(i <= 20){
+    for(let i = 0; i <= 20; i++){
 
-    dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['url']);
+    dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['preview']);
 
 
     newStr0 = dict_path.replace('"', '');
@@ -43,7 +44,7 @@ function fill_task_dash(){
     //console.log(img_id)
     //console.log(img_url)
     
-    get_img = document.getElementById('dragData'+i+'')
+    get_img = document.getElementsByClassName('w-10')[i]
     
     if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
         get_img.src = img_url;
@@ -51,10 +52,14 @@ function fill_task_dash(){
         }
     else{
         get_img.src = "images/wooops.jpg";
-        
+    }
+    //for the reset button
+    if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
+        document.getElementById('LikesBox').innerHTML = "";
+        document.getElementById('DislikesBox').innerHTML = "";
 
     }
-    i++;
+    
 }
     
     ;}
@@ -76,7 +81,7 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("Text", ev.target.id);
-};
+};copyimg
 
 function drop(ev) {
     ev.preventDefault();
@@ -124,8 +129,13 @@ function dropcopy(ev) {
 function ExpandDash() {
     console.log("got");
     document.getElementById("dashboard").classList.add("col-6");
+    console.log(document.getElementById("dashboard").classList);
     document.getElementById("dashboard").classList.remove("col-3");
-    var boxes = document.querySelectorAll('');
+    if (document.getElementById("dashboard").classList.contains("col-6")){
+    document.getElementById("Expand").innerHTML = '<button class="btn btn-dark expand" type="button" id="Expand" onclick="ContractDash()"> <i class="bi bi-arrows-angle-expand"></i></button>';
+    console.log(document.getElementById("Expand").innerHTML)
+    }
+    /*var boxes = document.querySelectorAll('');
     console.log(boxes)
     for (const box of boxes) {
         box.classList.add('col-4');
@@ -142,15 +152,19 @@ function ExpandDash() {
     document.getElementById("imagesGrid").classList.add("row")
     document.getElementById("imagesGrid").style.margin = "10% 0"
     document.getElementById("Contract").classList.remove("d-none")
-    document.getElementById("Expand").classList.add("d-none")
+    document.getElementById("Expand").classList.add("d-none")*/
 
 };
 
 function ContractDash() {
-    console.log("got");
-    document.getElementById("dashboard").classList.remove("col-6");
+    console.log("oki");
+    console.log(document.getElementById("dashboard").classList);
     document.getElementById("dashboard").classList.add("col-3");
-    var boxes = document.querySelectorAll('');
+    console.log(document.getElementById("dashboard").classList);
+    document.getElementById("dashboard").classList.remove("col-6");
+    console.log(document.getElementById("dashboard").classList);
+    
+    /*var boxes = document.querySelectorAll('');
     console.log(boxes)
     for (const box of boxes) {
         box.classList.add('col-3');
@@ -166,7 +180,7 @@ function ContractDash() {
     document.getElementById("imagesGrid").classList.remove("row")
     document.getElementById("imagesGrid").style.margin =" 30% 0"
     document.getElementById("Contract").classList.add("d-none")
-    document.getElementById("Expand").classList.remove("d-none")
+    document.getElementById("Expand").classList.remove("d-none")*/
 
 };
 
@@ -177,7 +191,12 @@ function AddLiked(ev) {
         var AddMe = ev.target.parentElement.nextElementSibling.src;
         var Addid = ev.target.parentElement.nextElementSibling.id;
         //console.log(AddMe);
-
+        check_likd = []
+        if(check_likd.includes("Addid")){
+            check_likd.push(Addid)
+        } else{
+            alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
+        }
         
         document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
 
@@ -220,12 +239,12 @@ function Apply_like_dislike(){ //start
     
     for(let y = 0; y < 21; y++){
         get1_img_element = document.getElementsByClassName('w-10')[y];
-        console.log(get1_img_element)
+        
         //get1_img_element.src = "images/wooops1.jpg";
     }
 
     var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
-    console.log(num_liked);
+  
     
  
     ids = []
@@ -235,10 +254,10 @@ function Apply_like_dislike(){ //start
     ids.push(img_id)
     }
 
-    console.log(ids)
+    
     
     var num_dsliked = document.getElementById("DislikesBox").childElementCount; //n of disliked elements
-    console.log(num_dsliked)
+    
     
 
     d_ids = []
@@ -250,29 +269,30 @@ function Apply_like_dislike(){ //start
         }
     
     liked_ids = ids.join(); //string of liked to put in request
-    console.log(liked_ids);
+    
     
     
     disliked_ids = d_ids.join(); //string of disliked to put in request
-    console.log(disliked_ids);
+  
     
     
     request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+liked_ids+"&artworks_neg="+disliked_ids+""; //if its more than one they have to be numbers separated by comma without spaces
-    console.log(request);
+   
     ids = fetch(request)
     .then((response) => response.json())
     .then((responseJSON) => {
       biglist = responseJSON['recs']
 
-      console.log(biglist)//list of 100 similar artwoks ids
+      //list of 100 similar artwoks ids
       biglist_str = biglist.join();
-      console.log(biglist_str)
+      
       Refquery =  `
       {
-        artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_in: [`+biglist_str+ `] }}, limit: 100) {
+        artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_in: [`+biglist_str+ `] }}, limit: 20) {
           url
           artwork_id
           media_type
+          preview
         }
       }
           
@@ -289,23 +309,26 @@ function Apply_like_dislike(){ //start
       })
       .then((res) => res.json())
       .then((result) =>{ 
-        for(let x = 0; x <= 20 ; x++){
-        console.log(result)
+        dict1 = result['data']['artwork_metrics'];
+        
+        for(let x = 0; x <= dict1.length ; x++){
         dict = result['data']['artwork_metrics'][x]
-        console.log(dict)
         art_media = dict['media_type']
-        console.log(art_media )
         art_id = dict['artwork_id']
-        console.log(art_id)
-        art_url = dict['url']
-        console.log(art_url)
-
+        art_url = dict['preview']
+        art_high_res = dict['url']
+        
         get_img_element = document.getElementsByClassName('w-10')[x] //put them into the image elements
-        console.log(get_img_element)
+       
+        
     
         if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+            
             get_img_element.src = art_url;
+            
             get_img_element.id = art_id;
+            console.log(get_img_element.naturalWidth + 'x' + get_img_element.naturalHeight)
+            console.log(get_img_element.width + 'x' + get_img_element.height)
             }
         else{
             get_img_element.src = "images/wooops1.jpg";
@@ -314,9 +337,6 @@ function Apply_like_dislike(){ //start
     }
       
         
-        console.log(art_media)
-        console.log(art_id)
-        console.log(art_url)
       }
       
     )

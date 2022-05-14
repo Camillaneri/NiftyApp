@@ -45,6 +45,9 @@ img{
     width: 100%;
     color-rendering: optimizespeed;
     shape-rendering: optimizespeed;
+    image-resolution: from-image;
+    image-resolution: 72dpi;
+    image-resolution: from-image 72dpi;
 
 }
 

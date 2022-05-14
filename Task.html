@@ -35,9 +35,6 @@
                     <button class="btn btn-dark expand" type="button"id="Expand" onclick="ExpandDash()"> 
                         <i class="bi bi-arrows-angle-expand"></i>
                     </button>
-                    <button class="btn btn-dark expand d-none" type="button" id="Contract" onclick="ContractDash()">
-                        <i class="bi bi-arrows-angle-contract"></i> 
-                    </button> 
                 </div>
                 <div class="px-1 position-relative" id="imagesGrid"> 
                     <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -106,7 +103,7 @@
                         <button class="mx-1 col btn btn-success w-100" type="button" onclick="Apply_like_dislike()">
                             Apply
                         </button>   
-                        <button class="mx-1 col btn btn-success w-100" type="button" onclick="resetQuery()">
+                        <button class="mx-1 col btn btn-success w-100" type="button" onclick="fill_task_dash()">
                             Reset
                         </button> 
                     </div>
@@ -122,7 +119,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="AddDisliked(event)" value="&#xF405;"> 
                                 
                             </div> 
-                            <img id="dragData1" src="" class="" alt="...">
+                            <img id="dragData1" src="" class="w-10" alt="...">
                         </div> 
     
                         <div class="position-relative "  id="drag2"  draggable="true" ondragstart="drag(event)" > 
