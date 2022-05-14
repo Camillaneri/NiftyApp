@@ -185,19 +185,33 @@ function ContractDash() {
 };
 
 //ADD IMAGES TO QUERY
-function AddLiked(ev) {
-    if (document.getElementById('LikesBox').children.length < 3 ){
+/*function AddLiked(ev) {
+    num_likd = document.getElementById('LikesBox').children.length
+    
+    if (num_likd < 3 ){
 
         var AddMe = ev.target.parentElement.nextElementSibling.src;
         var Addid = ev.target.parentElement.nextElementSibling.id;
         //console.log(AddMe);
-        check_likd = []
-        if(check_likd.includes("Addid")){
-            check_likd.push(Addid)
-        } else{
-            alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
-        }
         
+        ids = []
+        console.log()
+        if (num_likd > 0){
+            console.log(num_likd)
+        for(let i = 0; i < num_likd; i++){
+            var img_id = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
+            console.log(num_likd)
+            console.log(ids)
+        if(ids.includes("Addid")){
+            alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
+        }else{
+            ids.push(img_id)
+            console.log(ids)
+        }
+    }
+        }
+
+    
         document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
 
     } else {
@@ -220,7 +234,47 @@ function AddDisliked(ev) {
        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
     }
 
+};*/
+//ADD IMAGES TO QUERY
+
+function AddLiked_Disliked(ev) {
+
+    if(ev.target.id = 'imgBtnlike'){
+
+    num_likd = document.getElementById('LikesBox').children.length
+    
+    if (num_likd < 3 ){
+
+        var AddMe = ev.target.parentElement.nextElementSibling.src;
+        
+        var Addid = ev.target.parentElement.nextElementSibling.id;
+        //console.log(AddMe);
+    
+        document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
+
+    } else {
+       alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
+    }
+}else if ((ev.target.id = 'imgBtndislike')){
+
+    if (document.getElementById('DislikesBox').children.length < 3) {
+        var AddMe = ev.target.parentElement.nextElementSibling.src;
+        
+        var Addid = ev.target.parentElement.nextElementSibling.id;
+
+        //console.log(AddMe);
+
+        
+        document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
+        console.log( document.getElementById("DislikesBox").innerHTML)
+    } else {
+       alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
+    }
+}
+
 };
+
+
 
 //CLEAR IMGS from fields
 function clearImg(ev){
