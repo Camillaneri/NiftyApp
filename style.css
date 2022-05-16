@@ -326,3 +326,16 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
 #DashHeader{
     width: fit-content;
 }
+
+#displayimg{
+    
+    left: 25%;
+    display:none;
+
+}
+#closeimg{
+    right: 0%
+}
+.seeme{
+    display:block !important;
+}
