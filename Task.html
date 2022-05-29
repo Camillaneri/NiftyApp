@@ -21,7 +21,7 @@
         <script src="task.js"></script>
         <script src="TaskTutorial.js"></script>   
     </head>
-    <body class="d-flex flex-column vh-100" onload="fill_task_dash()">
+    <body class="d-flex flex-column" onload="fill_task_dash()">
 
         <!-- Navbar -->
         <nav class="navbar py-4 navbar-dark bg-dark position-top" id="MainNav">
@@ -32,15 +32,17 @@
         </nav>
 
         <!-- Display img-->
+        <div class="row wrapper w-100 p-0 bgdark50">
             <div class="col-3 bg-dark text-light -0" id="square">
                 <div class="position-absolute w-50 white bg-dark z-2000 p-3 br1" id="displayimg">
                     <button type="button" class="btn btn-success" id="closeimg" onclick="closeimg()">x</button>
                     <img id="displayed" src="" class="w-15" alt="...">
                 </div>
             </div>
+        </div>
         <!-- tutorial -->
 
-         <div class="position-absolute bgdark50 h-100 w-100" id="tutorials">
+         <div class="position-absolute bgdark50 w-100" id="tutorials">
             <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial1">
                 <h1>Tutorial 1/3</h1>
                 <p>Welcome to the second task</p>

@@ -1,4 +1,4 @@
-function loadWarmUp(){
+/*function loadWarmUp(){
   function getRef() {
     console.log('START LOADING')
     IDnum = Math.floor(Math.random() * 50000) + 1
@@ -101,5 +101,133 @@ function loadWarmUp(){
        
   
       )
-    }
+    }*/
+
+
+
      
+function loadWarmUp(){
+ 
+    IDnum = Math.floor(Math.random() * 50000)
+    console.log(" a "+IDnum)
+
+  
+
+  console.log(IDnum)
+    Refquery =  `
+    {
+      artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+IDnum+` }}) {
+        url
+        artwork_id
+      }
+    }
+        
+    ` 
+    console.log(Refquery)
+    //fetch url and mediatype for every artwork
+    fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/json',
+      },
+      body: JSON.stringify({
+        query: Refquery
+      }),
+    })
+    .then((res) => res.json())
+    .then((result) =>{ 
+      dict1 = result['data']['artwork_metrics'];
+      console.log(result)
+      refimg = document.getElementById("reference")
+      console.log(refimg)
+      
+      dict = result['data']['artwork_metrics'][0]
+      if(dict == null){
+        console.log("preso1!")
+        loadWarmUp()
+      }
+      console.log(dict)
+      console.log(result['data']['artwork_metrics'].length)
+      art_id = IDnum
+      art_high_res = dict['url']
+      if(art_high_res == null){
+        console.log("preso!")
+        loadWarmUp()
+      }
+
+      console.log("controllo "+art_high_res)
+
+     
+      
+      if (art_high_res != null && art_high_res != "" && art_id !="" && art_id != null && art_high_res.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+        refimg.src = art_high_res;
+            }
+        else{
+            get_img_element.src = "images/wooops1.jpg";
+        }
+      refimg.src = art_high_res;
+     
+
+      console.log(IDnum)
+      request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+IDnum+"&artworks_neg=''"; //if its more than one they have to be numbers separated by comma without spaces
+        console.log(request)
+      ids = fetch(request)
+      .then((response) => response.json())
+      .then((responseJSON) => {
+        biglist = responseJSON['recs']
+        console.log(biglist)
+        
+        //list of 100 similar artwoks ids
+        biglist_str = biglist.join();
+        
+        Refquery1 =  `
+        {
+          artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_in: [`+biglist_str+ `] }}) {
+            artwork_id
+            media_type
+            preview
+          }
+        }
+            
+        ` 
+        console.log(Refquery1)
+        //fetch url and mediatype for every artwork
+        fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/json',
+          },
+          body: JSON.stringify({
+            query: Refquery1
+          }),
+        })
+        .then((res) => res.json())
+        .then((result) =>{ 
+          console.log(result)
+          dict1 = result['data']['artwork_metrics'];
+          
+          for(let x = 0; x <= 5 ; x++){
+          dict = result['data']['artwork_metrics'][x]
+          art_media = dict['media_type']
+          art_id = dict['artwork_id']
+          art_url = dict['preview']
+          get_img_element = document.getElementById('WUimg') //put them into the image elements
+            console.log(get_img_element)
+        
+    
+        if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+            
+            get_img_element.src = art_url;
+            
+            get_img_element.id = art_id;
+        
+            }
+        else{
+            get_img_element.src = "images/wooops1.jpg";
+        
+        }
+          
+          }})})})
+
+        }
+        
