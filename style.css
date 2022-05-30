@@ -349,3 +349,8 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
 html {
     min-height: 100vh;
 }
+
+
+#similarImg0 {
+    height: 15em;
+  }
