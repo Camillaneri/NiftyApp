@@ -342,8 +342,10 @@ background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 
 }
 
 #tutorials{
+   position: fixed;
    height: 100vh;
    overflow: auto;
+   
 }
 
 html {
