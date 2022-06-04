@@ -12,8 +12,9 @@ body{
     padding:  130px 0px;
 }
 #centralBox{
-    background-color: white;
-    height: 95%!important;
+    background-color: #00FFC1;
+    height: 60vh;
+    
     
    
 }
@@ -134,7 +135,7 @@ img{
 
 /*BACKGROUNDS*/
 #headerTitle{
-background: linear-gradient(180deg, rgba(248,249,250,1) 0%, rgba(248,249,250,1) 54%, rgba(248,249,250,0.9178265056022409) 74%, rgba(248,249,250,0) 100%);
+padding-top: 15vh;
 }
 
 .bg-white{
@@ -356,3 +357,33 @@ html {
 #similarImg0 {
     height: 15em;
   }
+
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 2s all ease;
+  }
+.reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+#wrap{
+    background-color: #2D3748;
+}
+
+.btn-success {
+    color: rgb(0, 0, 0) !important;
+    background-color: #00FFC1 !important;
+    border-color: #00FFC1 !important;
+}
+
+#wrap2{
+    background-color: #2D3748;
+    }
+
+
+#ScentralBox{
+
+}
