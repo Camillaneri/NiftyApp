@@ -79,7 +79,7 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("Text", ev.target.id);
-};copyimg
+};
 
 function drop(ev) {
     ev.preventDefault();
@@ -780,7 +780,41 @@ function closeimg(){
     document.getElementById("displayimg").classList.toggle("seeme");
 }
 
-
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    x = document.getElementById("introwarmup");
+  
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      
+      
+      
+      
+      elementVisible = 100;
+      
+      if (reveals[i].id == "goonbutton"){
+        
+        elementVisible = 5;
+        
+      }
+      if (elementTop < windowHeight - elementVisible) {
+        
+        
+        reveals[i].classList.add("active");
+        x.style.display = "none";
+  
+      } else {
+        
+       
+        reveals[i].classList.remove("active");
+        x.style.display = "block";
+      }
+    }
+  }
+  
+  window.addEventListener("scroll", reveal);
 
 
 

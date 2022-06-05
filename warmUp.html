@@ -159,7 +159,7 @@
                     </div> 
                     <div class="my-5 mx-3 d-flex"> 
                         <div class="col-6 p-1"> 
-                            <button class="w-100 col-6 btn btn-success px-4" type="button" onclick="getWarmUpData()">
+                            <button class="w-100 col-6 btn btn-success px-4" type="button" onclick="loadWarmUp()">
                             Repeat task
                             </button>    
                         </div>
@@ -177,11 +177,61 @@
                     <div class="position-relative mx-auto">   <!--column2-->          
                         <div class="flex-grow-1">
                             <button type="button" class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#compare">compare aside</button>
-                            
-                           
-                              </div>
-                        
-                          <div class="p-3 collapse" id="compare"> 
+                        </div>
+                        <div class="flex-grow-1">
+                            <button type="button" class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#compare1">compare aside but bigger</button>
+                        </div>
+                            <div class=" p-3 collapse" id="compare1">  <!--slide right 12345-->      
+                                <div class="dropboxes d-flex m-3 overflowY">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 position-relative gx-3 getDatabox">                     
+                                        <div id="getData" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center" >            
+                                            <button class="position-absolute  btn btn-dark align-self-end d-none" onclick="clearImg(event)">Remove</button> 
+                                            <div class="position-absolute m-1 z-1 border-dot">
+                                                #1
+                                            </div> 
+                                            <img id="WUimg" src="">
+                                        </div>        
+                                    </div>   
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 position-relative gx-3 getDatabox">                          
+                                        <div id="getData" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv card text-center" >            
+                                            <button class="position-absolute  btn btn-dark align-self-end d-none" onclick="clearImg(event)">Remove</button> 
+                                            <div class="position-absolute m-1 z-1 border-dot">
+                                                #2
+                                            </div> 
+                                            <img id="WUimg" src="">
+                                        </div>          
+                                    </div>        
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 position-relative gx-3 getDatabox"> 
+                                        <div id="getData" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv card text-center" >            
+                                            <button class="position-absolute  btn btn-dark align-self-end d-none" onclick="clearImg(event)">Remove</button> 
+                                            <div class="position-absolute m-1 z-1 border-dot">
+                                                #3
+                                            </div> 
+                                            <img id="WUimg" src="">
+                                        </div>         
+                                    </div>        
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 position-relative gx-3 getDatabox">            
+                                        <div id="getData" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv card text-center" >            
+                                            <button class="position-absolute  btn btn-dark align-self-end d-none" onclick="clearImg(event)">Remove</button> 
+                                            <div class="position-absolute m-1 z-1 border-dot">
+                                                #4
+                                            </div> 
+                                            <img id="WUimg" src="">
+                                        </div>         
+                                    </div>        
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 position-relative gx-3 getDatabox">     
+                                        <div id="getData" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv card text-center" >            
+                                            <button class="position-absolute  btn btn-dark align-self-end d-none" onclick="clearImg(event)">Remove</button> 
+                                            <div class="position-absolute m-1 z-1 border-dot">
+                                                #5
+                                            </div> 
+                                            <img id="WUimg" src="">
+                                        </div>        
+                                    </div>  
+                                </div>       
+                                
+                            </div>
+                          <div class="p-3 collapse" id="compare"> <!--small fixed 12345--> 
                                    <div class="dropboxes d-flex m-3 overflowY">
                                         <div class="flextofit position-relative gx-3 getDatabox">                     
                                             <div id="getData" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center" >            
