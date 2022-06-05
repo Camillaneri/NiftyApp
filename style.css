@@ -1,10 +1,24 @@
 body{
-    background-color: whitesmoke!important;
+    /*background-color: #2D3748 !important;*/
     min-height: 100vh;
+    overflow-y: scroll;
 
-        }
+    }
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 .vcenter-item{
     align-items: center;
+}
+.dcenter-item{
+ margin: auto;
 }
 /* Some custom styles to beautify this example */
 .wrapper{
@@ -25,7 +39,7 @@ body{
 }
 
 #getData {
-    min-height: 300px;
+    min-height: 8em;
     margin: 2%;
     
 }
@@ -39,7 +53,18 @@ body{
 .getDatabox{
     min-height: fit-content;
     margin: 0;
-    background-color: whitesmoke;
+    background-color: #212529;;
+
+}
+
+.getDatabox1{
+    min-height: 5%;
+    margin: 0;
+    background-color: #212529;
+    border: 1px solid #00FFC1;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+
 }
 
 img{
@@ -50,6 +75,7 @@ img{
     image-resolution: from-image;
     image-resolution: 72dpi;
     image-resolution: from-image 72dpi;
+    background-color: #343A3F !important;
 
 }
 
@@ -60,11 +86,11 @@ img{
 
 
 .dropboxes{
-    background: white;
+    background: #212529;
 }
 
 .card{
-    background-color: whitesmoke;
+    background-color: #212529;
 }
 
 .description{
@@ -172,9 +198,9 @@ padding-top: 15vh;
 /*borders*/
 
 .border-dot{
-    border: 1px solid rgba(212, 212, 212, 0.918);
-    background-color:  rgba(212, 212, 212, 0.918);
-    color: white;
+    
+    background-color: none !important;
+    color: #00FFC1;
     padding: 0.2em;
     border-radius: 30%;
 }
@@ -357,6 +383,10 @@ html {
 #similarImg0 {
     height: 15em;
   }
+.simimages{
+    min-width: 16em;
+    max-width: 16em;
+}
 
 .reveal{
     position: relative;
@@ -371,6 +401,7 @@ html {
 
 #wrap{
     background-color: #2D3748;
+    padding-top: 0% !important;
 }
 
 .btn-success {
@@ -384,6 +415,30 @@ html {
     }
 
 
-#ScentralBox{
+#centralBox{
+margin-top: 5%;
+margin-bottom: 5%;
+}
 
+#refimg{
+    width: 40%;
+    background-color: #212529;
+}
+
+
+#refimgcontainer{
+    background-color: #212529;
+    min-height: 20%;
+   
+}
+
+.flextofit{
+    flex-grow: 1;
+}
+
+.navcolor{
+    background-color: #252525 !important;
+}
+.Headercolor{
+    background-color: #121619 !important;
 }

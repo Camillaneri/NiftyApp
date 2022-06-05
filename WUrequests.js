@@ -147,6 +147,10 @@ function loadWarmUp(){
         console.log("preso1!")
         loadWarmUp()
       }
+      /*if(dict == undefined){
+        console.log("preso2!")
+        loadWarmUp()
+      }*/
       console.log(dict)
       console.log(result['data']['artwork_metrics'].length)
       art_id = IDnum
@@ -241,8 +245,10 @@ function loadWarmUp(){
           }})})})
 
         }
+      
+ loadWarmUp()
         
- function placeholders(){
+ /*function placeholders(){
   
   randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
           document.getElementById("reference").style.backgroundColor = randomColor;
@@ -252,6 +258,41 @@ function loadWarmUp(){
             document.getElementsByClassName("max-h-50")[x].style.backgroundColor = randomColor;
             
            }
-    loadWarmUp()
- }
+    
+ }*/
       
+ function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+  x = document.getElementById("introwarmup");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    
+    
+    
+    
+    elementVisible = 100;
+    
+    if (reveals[i].id == "goonbutton"){
+      
+      elementVisible = 5;
+      
+    }
+    if (elementTop < windowHeight - elementVisible) {
+      
+      
+      reveals[i].classList.add("active");
+      x.style.display = "none";
+
+    } else {
+      
+     
+      reveals[i].classList.remove("active");
+      x.style.display = "block";
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);
