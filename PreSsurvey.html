@@ -15,6 +15,7 @@
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        
     </head>
     <body class="d-flex flex-column vh-100">
 
@@ -30,18 +31,18 @@
         <div class="wrapper vcenter-item" id="wrap2">
             <div class="container mt-5 px-5 py-5 bg-light rounded-3 " id="ScentralBox"> 
                 <h1 class="display-3 mx-5 my-5 w-75 text-center" id="headerSTitle">Tell us something about you!</h1>
-                <form class="container w-75"> 
+                <form class="container w-75" id="pre-form"> 
                     <div class="p-3"> 
                         <label for="PresurveyInput1" class="form-label">Expertise level on art</label> 
-                        <input type="range" class="form-range" min="0" max="5" step="1" id="artExp">
+                        <input type="range" class="form-range" min="0" max="5" step="1" id="artExp" name="ArtExp" required>
                     </div> 
                     <div class="p-3"> 
                         <label for="PresurveyInput2" class="form-label">Expertise level on NFTs </label> 
-                        <input type="range" class="form-range" min="0" max="5" step="1" id="nftExp"> 
+                        <input type="range" class="form-range" min="0" max="5" step="1" id="nftExp" name="NFTExp" required> 
                     </div> 
                     <div class="p-3">
                         <label for="PresurveyInput3" class="form-label">Education in art </label>
-                        <select class="form-select form-select-sm-3 mt-3" aria-label=".form-select-sm example"> 
+                        <select class="form-select form-select-sm-3 mt-3" aria-label=".form-select-sm example" name="ArtEd" required> 
                             <option selected >Open this select menu</option>  
                             <option value="1">Formal training in applied arts</option> 
                             <option value="2">Bachelor of Fine Arts</option> 
@@ -52,7 +53,7 @@
                     </div> 
                     <div class="p-3"> 
                         <label for="PresurveyInput4" class="form-label">Education in finance</label>
-                        <select class="form-select form-select-sm-3 mt-3" aria-label=".form-select-sm example"> 
+                        <select class="form-select form-select-sm-3 mt-3" aria-label=".form-select-sm example" name="FinEd" required> 
                             <option selected >Open this select menu</option> 
                             <option value="1">Some education on finance but no degree</option> 
                             <option value="2">Bachelor of Finance</option> 
@@ -151,7 +152,7 @@
                 </form>
             </div>
             <div class=" container py-3 px-0"> 
-                <button onclick="location.href='warmUp.html'" type="button"  class="btn btn-success px-4 float-end w-25">
+                <button onclick="location.href='warmUp.html'" type="submit"  class="btn btn-success px-4 float-end w-25">
                     Go to warmup!
                 </button> 
             </div>   
@@ -165,4 +166,15 @@
             </div>
       </footer>    
     </body>
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <script>
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U'
+        const { createClient } = supabase
+
+        // Create a single supabase client for interacting with your database 
+        const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', SUPABASE_KEY)
+
+        const form = document.querySelectorAll('#pre-form')
+        form.addEventListener('submit')
+    </script>
 </html>
