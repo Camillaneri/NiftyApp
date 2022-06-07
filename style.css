@@ -67,6 +67,11 @@ body {
 
 }
 
+.Databox1{
+    min-width: 16em;
+    max-width: 20%;
+}
+
 img{
 
     width: 100%;

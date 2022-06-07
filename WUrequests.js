@@ -110,11 +110,11 @@ function loadWarmUp(){
   
 
   IDnum = Math.floor(Math.random() * 50000)
-  console.log(" a "+IDnum)
+  //console.log(" a "+IDnum)
 
   
 
-  console.log(IDnum) //first image
+  //console.log(IDnum) //first image
     Refquery =  `
     {
       artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+IDnum+` }}) {
@@ -124,7 +124,7 @@ function loadWarmUp(){
     }
         
     ` 
-    console.log(Refquery)
+    //console.log(Refquery)
     //fetch url and mediatype for every artwork
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
       method: 'POST',
@@ -138,29 +138,29 @@ function loadWarmUp(){
     .then((res) => res.json())
     .then((result) =>{ 
       dict1 = result['data']['artwork_metrics'];
-      console.log(result)
+      //console.log(result)
       refimg = document.getElementById("reference")
-      console.log(refimg)
+      //console.log(refimg)
       
       dict = result['data']['artwork_metrics'][0]
       if(dict == null){
-        console.log("preso1!")
+        //console.log("preso1!")
         loadWarmUp()
       }
       /*if(dict == undefined){
-        console.log("preso2!")
+        //console.log("preso2!")
         loadWarmUp()
       }*/
-      console.log(dict)
-      console.log(result['data']['artwork_metrics'].length)
+      //console.log(dict)
+      //console.log(result['data']['artwork_metrics'].length)
       art_id = IDnum
       art_high_res = dict['url']
       if(art_high_res == null){
-        console.log("preso!")
+        //console.log("preso!")
         loadWarmUp()
       }
 
-      console.log("controllo "+art_high_res)
+      //console.log("controllo "+art_high_res)
 
      
       
@@ -173,14 +173,14 @@ function loadWarmUp(){
       refimg.src = art_high_res;
      
 
-      console.log(IDnum)
+      //console.log(IDnum)
       request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+IDnum+"&artworks_neg=''"; //if its more than one they have to be numbers separated by comma without spaces
-        console.log(request)
+        //console.log(request)
       ids = fetch(request)
       .then((response) => response.json())
       .then((responseJSON) => {
         biglist = responseJSON['recs']
-        console.log(biglist)
+        //console.log(biglist)
         
         //list of 100 similar artwoks ids
         biglist_str = biglist.join();
@@ -194,7 +194,7 @@ function loadWarmUp(){
         }
             
         ` 
-        console.log(Refquery1)
+        //console.log(Refquery1)
         //fetch url and mediatype for every artwork
         fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
           method: 'POST',
@@ -207,7 +207,7 @@ function loadWarmUp(){
         })
         .then((res) => res.json())
         .then((result) =>{ 
-          console.log(result)
+          //console.log(result)
           dict1 = result['data']['artwork_metrics'];
           if(dict1.length < 5){
             loadWarmUp()
@@ -219,11 +219,11 @@ function loadWarmUp(){
           art_url = dict['preview']
           get_img_element = document.getElementById('similarImg0') //put them into the image elements
           
-            console.log(get_img_element)
+            //console.log(get_img_element)
         
     
         if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
-            console.log("HEIGHT!!!!!")
+            //console.log("HEIGHT!!!!!")
             
             get_img_element.style.height = null;
             
@@ -296,3 +296,44 @@ function loadWarmUp(){
 }
 
 window.addEventListener("scroll", reveal);
+
+function arrowDown(){
+  console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
+  if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == false){
+    console.log("a") 
+    console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
+  document.getElementById("Small").classList.toggle("show");}
+  else if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == true){
+    console.log("b")
+    console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList) 
+  document.getElementById("Small").classList.toggle("show");
+  document.getElementById("Big").classList.toggle("show");
+  document.getElementById("arrowDownButton").classList.toggle("collapse");
+    if((document.getElementById("arrowUpButton").classList[2] == "collapse") == true){
+      document.getElementById("arrowUpButton").classList.toggle("collapse");
+    }
+    console.log("arrowDownButton "+document.getElementById("arrowUpButton").classList)
+  }
+}
+function arrowUp(){
+  console.log("arrowUp big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
+  if((document.getElementById("Big").classList[2] == "show") == true && (document.getElementById("Small").classList[2] == "show") == false){
+    console.log("c") 
+  document.getElementById("Big").classList.toggle("show");
+  document.getElementById("Small").classList.toggle("show");}
+  else if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == true){
+    console.log("d") 
+  document.getElementById("Small").classList.toggle("show");
+  document.getElementById("arrowUpButton").classList.toggle("collapse");
+  if((document.getElementById("arrowDownButton").classList[2] == "collapse") == true){
+    document.getElementById("arrowDownButton").classList.toggle("collapse");
+  }
+  
+  }
+
+}
+/*function disappear1(){
+  if((document.getElementById("Small").classList[2] == "show") == false){
+  document.getElementById("Big").classList.toggle("collapse");
+  }
+}*/
