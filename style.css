@@ -447,3 +447,40 @@ margin-bottom: 5%;
 .Headercolor{
     background-color: #121619 !important;
 }
+
+/* slider prova */
+.slider {
+    margin: 20px 0;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .slider input[type="range"] {
+    width:100%;
+  }
+  
+  .slider .limit {
+    color: #fff;
+    position: absolute;
+    top: 20px;
+  }
+  
+  .slider .limit:first-child {
+    left: 10px;
+  }
+  
+  .slider .limit:last-child {
+    right: 10px;
+  }
+  
+  .slider .vals {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    text-align: end;
+  }
+  
+  .slider .vals li {
+    display: inline-block;
+    width: 20%;
+  }
