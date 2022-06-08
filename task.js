@@ -256,9 +256,12 @@ function clearImg(ev){
 }
 
 
-
-
-
+function resetDash(){
+    a = document.getElementsByClassName("clear-dash")
+    for(let i = 0; i < a.length; i++){
+        a[i].src = ""
+    }
+}
 
 
 function Apply_like_dislike(){ //start 
