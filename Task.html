@@ -115,14 +115,14 @@
 
            
             <!-- Dashboard -->
-            <div class="col-3 bg-dark text-light -0" id="dashboard"> 
+            <div class="col-3 bg-dark text-light " id="dashboard"> 
                 <div class="position-absolute bg-dark p-3 container-fluid z-1" id="DashHeader">
-                    <span> Dashboard</span>
+                    <span> My Gallery</span>
                     <button class="btn btn-dark expand" type="button"id="Expand" onclick="ExpandDash()"> 
                         <i class="bi bi-arrows-angle-expand"></i>
                     </button>
                 </div>
-                <div class="px-1 position-relative" id="imagesGrid"> 
+                <div class="px-1 position-relative d-flex flex-wrap" id="imagesGrid"> 
                     <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;">
@@ -144,12 +144,13 @@
                         <input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;">
                     </div>
                     <div class="container-fluid d-flex px-3 bg-dark z-1" id="dashFooter" > 
-                        <button class="mx-1 col btn btn-success w-50" type="button" onclick="location.href='PostSsurvey.html'">
-                            Next
-                        </button>
                         <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">
-                            Reset
-                        </button> 
+                            Clear my gallery
+                        </button>
+                        <button class="mx-1 col btn btn-success w-50" type="button" onclick="location.href='PostSsurvey.html'">
+                            End Task
+                        </button>
+                         
                     </div>
                 </div>
                 
@@ -205,7 +206,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                                 
                             </div> 
-                            <img id="dragData1" src="" class="w-10" alt="...">
+                            <img id="dragData1" src="" class="w-10 img-to-like" alt="...">
                         </div> 
     
                         <div class="position-relative "  id="drag2"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)" > 
@@ -213,7 +214,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
-                            <img id="dragData2" src="" class="w-10" alt="..."> 
+                            <img id="dragData2" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
     
                         <div class="position-relative "  id="drag3"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -221,7 +222,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div>  
-                            <img id="dragData3" src="" class="w-10" alt="..."> 
+                            <img id="dragData3" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
     
                         <div class="position-relative " id="drag4"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -229,7 +230,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">  
                             </div> 
-                            <img id="dragData4" src="" class="w-10" alt="..."> 
+                            <img id="dragData4" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
                         
                         <div class="position-relative " id="drag5"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -237,7 +238,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
-                            <img id="dragData5" src="" class="w-10" alt="...">
+                            <img id="dragData5" src="" class="w-10 img-to-like" alt="...">
                         </div> 
     
                     </div>
@@ -248,7 +249,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">  
                             </div> 
-                            <img id="dragData6" src="" class="w-10" alt="..."> 
+                            <img id="dragData6" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
     
                         <div class="position-relative "  id="drag7"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -256,7 +257,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div> 
-                            <img id="dragData7" src="" class="w-10" alt="..."> 
+                            <img id="dragData7" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
     
                         <div class="position-relative " id="drag8"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">  
@@ -264,7 +265,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
-                            <img id="dragData8" src="" class="w-10" alt="...">
+                            <img id="dragData8" src="" class="w-10 img-to-like" alt="...">
                         </div>  
     
                         <div class="position-relative " id="drag9"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -272,7 +273,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
-                            <img id="dragData9" src="" class="w-10" alt="...">
+                            <img id="dragData9" src="" class="w-10 img-to-like" alt="...">
                         </div>  
     
                         <div class="position-relative " id="drag10"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -280,7 +281,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div>  
-                            <img id="dragData10" src="" class="w-10" alt="...">  
+                            <img id="dragData10" src="" class="w-10 img-to-like" alt="...">  
                         </div>   
                     </div>
 
@@ -290,7 +291,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div>
-                            <img id="dragData11" src="" class="w-10" alt="..."> 
+                            <img id="dragData11" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
     
                         <div class="position-relative " id="drag12"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
@@ -298,7 +299,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div>   
-                            <img id="dragData12" src="" class="w-10" alt="...">     
+                            <img id="dragData12" src="" class="w-10 img-to-like" alt="...">     
                         </div> 
                     
                         <div class="position-relative " id="drag13"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -306,7 +307,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
-                            <img id="dragData13" src="" class="w-10" alt="..."> 
+                            <img id="dragData13" src="" class="w-10 img-to-like" alt="..."> 
                         </div>
     
                         <div class="position-relative " id="drag14"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
@@ -314,7 +315,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div> 
-                            <img id="dragData14" src="" class="w-10" alt="..."> 
+                            <img id="dragData14" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
                         
                         <div class="position-relative " id="drag15"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -322,7 +323,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
-                            <img id="dragData15" src="" class="w-10" alt="..."> 
+                            <img id="dragData15" src="" class="w-10 img-to-like" alt="..."> 
                         </div>
                     </div>
 
@@ -333,7 +334,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div>
-                            <img id="dragData16" src="" class="w-10" alt="...">
+                            <img id="dragData16" src="" class="w-10 img-to-like" alt="...">
                         </div> 
 
                         <div class="position-relative " id="drag17"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -341,7 +342,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div> 
-                            <img id="dragData17" src="" class="w-10" alt="..."> 
+                            <img id="dragData17" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
 
                         <div class="position-relative " id="drag18"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
@@ -349,7 +350,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div>
-                            <img id="dragData18" src="" class="w-10" alt="...">
+                            <img id="dragData18" src="" class="w-10 img-to-like" alt="...">
                         </div> 
 
                         <div class="position-relative " id="drag19"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
@@ -357,7 +358,7 @@
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="btn btn-light p-0" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div>
-                            <img id="dragData19" src="" class="w-10" alt="...">
+                            <img id="dragData19" src="" class="w-10 img-to-like" alt="...">
                         </div> 
                         <div class="position-relative " id="drag20"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
                             <div class="col-2 mt-1 position-absolute w-min-content">

@@ -1,107 +1,3 @@
-/*function loadWarmUp(){
-  function getRef() {
-    console.log('START LOADING')
-    IDnum = Math.floor(Math.random() * 50000) + 1
-
-    Refquery =  `
-        {
-          {
-            artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+IDnum+` }}) {
-              preview
-              artwork_id
-            }
-          }
-     
-      ` 
-  
-    fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/json',
-      },
-      body: JSON.stringify({
-        query: Refquery
-      }),
-    })
-    .then((res) => res.json())
-    .then((result) =>{ 
-      console.log(result)
-      id_dict = result['data']['artworks_by_pk']
-      media = id_dict['media_type']
-      id = id_dict['id']
-      console.log('ID =',media)
-      $('#reference').attr('src',  id_dict['url'])
-      query = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+IDnum
-
-      request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+liked_ids+"&artworks_neg="+disliked_ids+""; //if its more than one they have to be numbers separated by comma without spaces
-   
-      ids = fetch(request)
-      .then((response) => response.json())
-      .then((responseJSON) => {
-        biglist = responseJSON['recs']
-  
-        //list of 100 similar artwoks ids
-        biglist_str = biglist.join();
-        
-        Refquery =  `
-        {
-          artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_in: [`+biglist_str+ `] }}, limit: 5 {
-            artwork_id
-            media_type
-            preview
-          }
-        }
-            
-        ` 
-        //fetch url and mediatype for every artwork
-        fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'text/json',
-          },
-          body: JSON.stringify({
-            query: Refquery
-          }),
-        })
-        .then((res) => res.json())
-        .then((result) =>{ 
-          dict1 = result['data']['artwork_metrics'];
-          
-          for(let x = 0; x <= dict1.length ; x++){
-          dict = result['data']['artwork_metrics'][x]
-          art_media = dict['media_type']
-          art_id = dict['artwork_id']
-          art_url = dict['preview']
-          //art_high_res = dict['url']
-          
-          get_img_element = document.getElementsByClassName('w-10')[x] //put them into the image elements
-         
-          
-      
-          if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
-              
-              get_img_element.src = art_url;
-              
-              get_img_element.id = art_id;
-              console.log(get_img_element.naturalWidth + 'x' + get_img_element.naturalHeight)
-              console.log(get_img_element.width + 'x' + get_img_element.height)
-              }
-          else{
-              get_img_element.src = "images/wooops1.jpg";
-          
-          }
-      }
-        
-          
-        }
-        
-      )
-      
-  }
-       
-  
-      )
-    }*/
 
 
      
@@ -205,8 +101,7 @@ function loadWarmUp(){
             query: Refquery1
           }),
         })
-        .then((res) =>{ res.json()
-        console.log(res.json())       })
+        .then((res) => res.json())
         .then((result) =>{ 
           console.log(result)
           dict1 = result['data']['artwork_metrics'];
@@ -341,35 +236,51 @@ function disappear1(){
 
 function arrowDown(){
   console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
-  if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == false){
-    console.log("a") 
+  if((document.getElementById("Small").classList[2] == "show") == false && (document.getElementById("Small").children[0].children[0].classList[0] == "getDatabox1") == false){
+    console.log("a") // niente
     console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
-  document.getElementById("Small").classList.toggle("show");}
-  else if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == true){
-    console.log("b")
-    console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList) 
-  document.getElementById("Small").classList.toggle("show");
-  document.getElementById("Big").classList.toggle("show");
-  document.getElementById("arrowDownButton").classList.toggle("collapse");
-    if((document.getElementById("arrowUpButton").classList[2] == "collapse") == true){
-      document.getElementById("arrowUpButton").classList.toggle("collapse");
-    }
-    console.log("arrowDownButton "+document.getElementById("arrowUpButton").classList)
+  document.getElementById("Small").classList.toggle("show"); //aggiungo show 
+  for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){ 
+    document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1") //aggiungo  getDatabox1
+    document.getElementById("Small").children[0].children[i].children[0].children[2].classList.toggle("img-fit")
   }
+}
+  else if((document.getElementById("Small").children[0].children[0].classList[0] == "getDatabox1") == true){
+    console.log("b") //c'è getDatabox1
+    console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList) 
+  for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){
+  document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1")//tolgo getDatabox1
+  document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox") //aggiungo  getDatabox
+  document.getElementById("Small").children[0].children[i].children[0].children[2].classList.toggle("img-fit")
+  
+  }
+  document.getElementById("arrowDownButton").classList.toggle("collapse");//tolgo arrowDown
+  document.getElementById("arrowUpButton").classList.toggle("collapse");
+  console.log()
+}
 }
 function arrowUp(){
   console.log("arrowUp big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
-  if((document.getElementById("Big").classList[2] == "show") == true && (document.getElementById("Small").classList[2] == "show") == false){
-    console.log("c") 
-  document.getElementById("Big").classList.toggle("show");
-  document.getElementById("Small").classList.toggle("show");}
-  else if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == true){
-    console.log("d") 
-  document.getElementById("Small").classList.toggle("show");
-  document.getElementById("arrowUpButton").classList.toggle("collapse");
-  if((document.getElementById("arrowDownButton").classList[2] == "collapse") == true){
-    document.getElementById("arrowDownButton").classList.toggle("collapse");
+  if((document.getElementById("Small").children[0].children[0].classList[0] == "getDatabox1") == false){
+    console.log("c") //c'è getDatabox
+    for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){
+      document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1")//aggiungo  getDatabox1
+      document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox")//tolgo getDatabox
+      document.getElementById("Small").children[0].children[i].children[0].children[2].classList.toggle("img-fit")
+      }
+  } else if((document.getElementById("Small").children[0].children[0].classList[0] == "getDatabox1") == true){
+    console.log("d") //c'è getDatabox1
+  document.getElementById("Small").classList.toggle("show");//tolgo small
+  for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){ 
+    document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1") //tolgo getDatabox1
+    document.getElementById("Small").children[0].children[i].children[0].children[2].classList.toggle("img-fit")
   }
+  document.getElementById("arrowDownButton").classList.toggle("collapse");//tolgo arrowDown
+  document.getElementById("arrowUpButton").classList.toggle("collapse");
+  /*
+  if((document.getElementById("arrowDownButton").classList[2] == "collapse") == true){
+    document.getElementById("arrowDownButton").classList.toggle("collapse");//tolgo arrowDownButton
+  }*/
   
   }
 

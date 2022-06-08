@@ -54,7 +54,12 @@ function allowDrop(ev) {
   function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    var source = document.getElementById(data).src
+    var sourceImg = document.getElementById(data)
+    console.log(sourceImg)
+    sourceImg.remove();
+    var source = sourceImg.src
+    
+
     console.log(ev.target)
     ev.target.children[2].src = source
     ev.target.children[0].classList.remove('d-none')

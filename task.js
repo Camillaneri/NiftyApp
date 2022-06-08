@@ -42,7 +42,7 @@ function fill_task_dash(){
     //console.log(img_id)
     //console.log(img_url)
    
-    get_img = document.getElementsByClassName('w-10')[i]
+    get_img = document.getElementsByClassName('img-to-like')[i]
     
     if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
         get_img.src = img_url;
@@ -84,7 +84,14 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("Text");
+    console.log( ev.target)
+    console.log(data)
     ev.target.appendChild(document.getElementById(data));
+    console.log(ev.target.children[1])
+    ev.target.children[1].classList.toggle("img-to-like")
+    ev.target.children[1].classList.toggle("clear-dash")
+    console.log( ev.target)
+    console.log(ev.target.children[1])
 };
 
 function dropcopy(ev) {
@@ -128,9 +135,14 @@ function ExpandDash() {
     console.log("got");
     document.getElementById("dashboard").classList.toggle("col-6");
     document.getElementById("dashboard").classList.toggle("col-3");
+    for (var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++) {
+        document.getElementsByClassName("getDataboxDash")[i].classList.toggle("DataDash")
+        document.getElementsByClassName("getDataboxDash")[i].classList.toggle("bigdash")
+      }
 
     document.getElementById("mainBody").classList.toggle("col-6");
     document.getElementById("mainBody").classList.toggle("col-9");
+    
 
 };
 
@@ -140,384 +152,7 @@ function ExpandDash() {
 
 
 //ADD IMAGES TO QUERY
-/*function AddLiked(ev) {
-    num_likd = document.getElementById('LikesBox').children.length
-    
-    if (num_likd < 3 ){
-
-        var AddMe = ev.target.parentElement.nextElementSibling.src;
-        var Addid = ev.target.parentElement.nextElementSibling.id;
-        //console.log(AddMe);
-        
-        ids = []
-        console.log()
-        if (num_likd > 0){
-            console.log(num_likd)
-        for(let i = 0; i < num_likd; i++){
-            var img_id = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
-            console.log(num_likd)
-            console.log(ids)
-        if(ids.includes("Addid")){
-            alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
-        }else{
-            ids.push(img_id)
-            console.log(ids)
-        }
-    }
-        }
-
-    
-        document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
-
-    } else {
-       alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
-    }
-
-};
-
-function AddDisliked(ev) {
-    if (document.getElementById('DislikesBox').children.length < 3) {
-        var AddMe = ev.target.parentElement.nextElementSibling.src;
-        var Addid = ev.target.parentElement.nextElementSibling.id;
-
-        //console.log(AddMe);
-
-        document.getElementById
-        document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
-
-    } else {
-       alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
-    }
-
-};
-function AddLiked_Disliked(event) {
-
-    console.log(event.target.id)
-    if(event.target.id == 'imgBtnlike'){
-    AddMeL = event.target.parentElement.nextElementSibling.src; 
-    AddidL = event.target.parentElement.nextElementSibling.id;
-    }
-    if(event.target.id == 'imgBtndislike'){
-    AddMeD = event.target.parentElement.nextElementSibling.src; 
-    AddidD = event.target.parentElement.nextElementSibling.id;
-        }
-    num_likd = document.getElementById('LikesBox').children.length
-    num_dslikd = document.getElementById('DislikesBox').children.length
-    console.log(num_dslikd)
-    likd_ids = []
-    dislikd_ids =[];
-    
-    if(num_likd > 0){
-        for(let i = 0; i < num_likd; i++){
-        var img_id = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
-        likd_ids.push(img_id)}
-    }
-    if(num_dslikd > 0){
-        for(let i = 0; i < num_dslikd; i++){
-        var img_id = document.getElementById("DislikesBox").children[i].children[1].id; //id of liked elements
-        dislikd_ids.push(img_id)}
-    }
-    
-
-if(event.target.id == 'imgBtnlike'){
-    
-    if (num_likd > 3 ){
-        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
-    } else if(num_dslikd > 0 || num_dslikd > 0){
-        if(likd_ids.includes(Addid)){
-            alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
-        //delete added element
-            } 
-        if(dislikd_ids.includes(Addid)){
-            alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
-            //delete added element
-        }else {
-            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
-            } 
-     } else  {
-        document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
-    }
-   
-
-}else if (event.target.id == 'imgBtndislike'){
-    if (num_dslikd > 3) {
-        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
-    }else if(num_dslikd > 0 || num_dslikd > 0){
-    if(dislikd_ids.includes(Addid)){
-            alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
-        //delete added element
-        }
-    if(likd_ids.includes(Addid)){
-            alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
-        //delete added element
-            } 
-    }else {
-        document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id='"+Addid+"' src='"+AddMe+"' class='img-thumbnail'></div>"
-}
-}
-    
-        
-};
-function AddLiked_Disliked(event) {
-
-console.log("you clicked"+event.target.id)
-    num_likd = document.getElementById('LikesBox').children.length
-//console.log("n liked "+num_likd)
-
-    if(event.target.id == 'imgBtnlike'){
-//console.log("num_likd == 0 ")  
-    AddMeL = event.target.parentElement.nextElementSibling.src; 
-    AddidL = event.target.parentElement.nextElementSibling.id;
-console.log(AddidL) 
-}
-    if(num_likd == 0){
-    document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
-    }
-
-    num_dslikd = document.getElementById('DislikesBox').children.length
-//console.log("n disliked "+num_dslikd)
-
-    if(event.target.id == 'imgBtndislike'){
-    AddMeD = event.target.parentElement.nextElementSibling.src; 
-    AddidD = event.target.parentElement.nextElementSibling.id;
-    console.log(event.target.parentElement.nextElementSibling) 
-    }
-    if(num_dslikd == 0){
-    document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
-        }
-
-    likd_ids = []
-    dislikd_ids =[];
-    
-if (num_likd > 3 ){
-    console.log("num_likd > 3 ")  
-    alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
-    }  
-if (num_dslikd > 3) {
-        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
-}
-
-if(event.target.id == 'imgBtnlike' && num_likd > 0 ){
-    console.log("num_likd > 0 ")  
-    console.log("dislikd_ids"+dislikd_ids ) 
-        for(let i = 0; i < num_likd; i++){
-            console.log("a")  
-            var img_idL = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
-            likd_ids.push(img_idL)
-            }
-        if(likd_ids.includes(AddidL)){
-            
-            console.log("b") 
-            console.log(AddidL )  
-            alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
-        //delete added element
-            }
-        else if(dislikd_ids.includes(AddidL)){
-            console.log("c")  
-            console.log(AddidL ) 
-                alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
-                //delete added element
-            }
-        else {
-            console.log("d") 
-            console.log(AddidL ) 
-                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
-             } 
-        }
-if(event.target.id == 'imgBtndislike' && num_dslikd > 0){
-        for(let i = 0; i < num_dslikd; i++){
-            var img_idD = document.getElementById("DislikesBox").children[i].children[1].id; //id of liked elements
-            dislikd_ids.push(img_idD)
-            }
-        if(dislikd_ids.includes(AddidD)){
-                alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
-            //delete added element
-            } 
-        
-        else if(likd_ids.includes(AddidD)){
-            alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
-            //delete added element
-        }
-        else {
-            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
-            }       
-}
-
-}
-
-//ADD IMAGES TO QUERY
-
-
-function AddLiked_Disliked(event) {
-
-//LIKE
-
-console.log("you clicked"+event.target.id)
-
-num_likd = document.getElementById('LikesBox').children.length
-likd_ids = []
-
-
-
-if(event.target.id == 'imgBtnlike'){
- 
-    AddMeL = event.target.parentElement.nextElementSibling.src; 
-    AddidL = event.target.parentElement.nextElementSibling.id;
-}
-if(num_likd == 0){
-    document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
-    }
-if (num_likd > 3 ){
-        console.log("num_likd > 3 ")  
-        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
-        }  
-if(num_likd > 0 && num_likd < 3 ){
-    console.log("num_likd > 0 ")  
-    console.log("dislikd_ids"+dislikd_ids ) 
-        for(let i = 0; i < num_likd; i++){
-            console.log("a")  
-            var img_idL = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
-            likd_ids.push(img_idL)
-            }
-        if(likd_ids.includes(AddidL)){
-            
-            console.log("b") 
-            console.log(AddidL )  
-            alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
-        //delete added element
-            }
-        else if(dislikd_ids.includes(AddidL)){
-            console.log("c")  
-            console.log(AddidL ) 
-                alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
-                //delete added element
-            }
-        else {
-            console.log("d") 
-            console.log(AddidL ) 
-                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
-             } 
-        }
-
-num_dslikd = document.getElementById('DislikesBox').children.length
-dislikd_ids =[];
-
-console.log('questo'+event.target.id) 
-
-if(event.target.id == 'imgBtndislike'){
-    AddMeD = event.target.parentElement.nextElementSibling.src; 
-    //AddidD = event.target.parentElement.nextElementSibling.id;
-    
-    }
-//if(num_dslikd == 0){
-//document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
-       // }
-
-
-
-if (num_dslikd > 3) {
-        alert('Maximum number of liked images reached, please delete at least one image from the box to add a new one')
-}
-
-
-if(event.target.id == 'imgBtndislike' && num_dslikd > 0){
-        for(let i = 0; i < num_dslikd; i++){
-            var img_idD = document.getElementById("DislikesBox").children[i].children[1].id; //id of liked elements
-            dislikd_ids.push(img_idD)
-            }
-        if(dislikd_ids.includes(AddidD)){
-                alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
-            //delete added element
-            } 
-        
-        else if(likd_ids.includes(AddidD)){
-            alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
-            //delete added element
-        }
-        else {
-            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
-            }       
-}
-
-}
-
-/////////////////////////////////////////////GOOD ONE/////////////////////////////////////////////////////
-function AddLiked_Disliked(event) {
-    num_likd = document.getElementById('LikesBox').children.length
-    num_dslikd = document.getElementById('DislikesBox').children.length
-
-    if(event.target.id == 'imgBtnlike'){
-        AddMeL = event.target.parentElement.nextElementSibling.src; 
-        AddidL = event.target.parentElement.nextElementSibling.id;
-        if (num_likd == 0 && num_dslikd == 0){
-            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
-            }
-        if(3 > num_likd > 0 && num_dslikd > 0){
-            likd_ids = []
-            dislikd_ids =[];
-            for(let i = 0; i < num_likd; i++){   
-                var img_idL = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
-                likd_ids.push(img_idL)
-            }
-            for(let i = 0; i < num_dslikd; i++){
-            var img_idD = document.getElementById("DislikesBox").children[i].children[1].id; //id of liked elements
-            dislikd_ids.push(img_idD)
-            }
-            if (likd_ids.includes(AddidL)){
-                alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
-            }
-            else if (dislikd_ids.includes(AddidL)){
-                alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
-            }
-            else{
-                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
-            }
-        
-        }
-        else if ( num_likd > 3){
-            alert('Maximum number of liked images reached')
-        }
-
-    }
-    else if(event.target.id == 'imgBtndislike'){
-        AddMeD = event.target.parentElement.nextElementSibling.src; 
-        AddidD = event.target.parentElement.nextElementSibling.id;
-        if (num_likd == 0 && num_dslikd == 0){
-            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
-            }
-        if(3 > num_dslikd > 0 && num_likd > 0){
-            likd_idsD = []
-            dislikd_idsD =[];
-            for(let i = 0; i < num_likd; i++){   
-                var img_id1 = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
-                likd_idsD.push(img_id1)
-            }
-            for(let i = 0; i < num_dslikd; i++){
-            var img_id2 = document.getElementById("DislikesBox").children[i].children[1].id; //id of liked elements
-            dislikd_idsD.push(img_id2)
-            }
-            if (likd_idsD.includes(AddidD)){
-                alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
-            }
-            else if (dislikd_idsD.includes(AddidD)){
-                alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
-            }
-            else{
-                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
-            }
-        
-        }
-        else if ( num_dslikd > 3){
-            alert('Maximum number of disliked images reached')
-        }
-
-    }
-    
-  
-        
-    //LIKE
-}    
-*/console.log("")
+console.log("")
 
 function AddLiked_Disliked(event) {
     num_likd = document.getElementById('LikesBox').children.length
@@ -628,12 +263,7 @@ function clearImg(ev){
 
 function Apply_like_dislike(){ //start 
     
-    for(let y = 0; y < 21; y++){
-        get1_img_element = document.getElementsByClassName('w-10')[y];
-        
-        //get1_img_element.src = "images/wooops1.jpg";
-    }
-
+    
     var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
   
     
@@ -708,7 +338,7 @@ function Apply_like_dislike(){ //start
         art_url = dict['preview']
         //art_high_res = dict['url']
         
-        get_img_element = document.getElementsByClassName('w-10')[x] //put them into the image elements
+        get_img_element = document.getElementsByClassName('img-to-like')[x] //put them into the image elements
        
         
     
