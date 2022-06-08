@@ -34,8 +34,21 @@
                 <h1 class="display-3 mx-5 my-5 w-75 text-center" id="headerSTitle">Tell us something about you!</h1>
                 <form class="container w-75" id="pre-form"> 
                     <div class="p-3"> 
-                        <label for="PresurveyInput1" class="form-label">Expertise level on art</label> 
-                        <input type="range" class="form-range" min="0" max="5" step="1" id="artExp" name="ArtExp" required />
+                        <div class="entry-field">
+                            <div class="inline slider">
+                              <span class="limit">0</span>
+                              <input type="range" min="0" max="100" value={value} step="5" />
+                              <span class="limit">100</span>
+                              <ul class="colors">
+                                <li class="green">Green</li>
+                                <li class="yellow">Yellow</li>
+                                <li class="orange">Orange</li>
+                                <li class="red">Red</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                        <input type="range" data-slider-ticks-labels="[$1, $2, $3, $£4, 5]"  class="form-range" min="0" max="5" step="1" id="artExp" name="ArtExp" required />
                     </div> 
                     <div class="p-3"> 
                         <label for="PresurveyInput2" class="form-label">Expertise level on NFTs </label> 
