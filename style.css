@@ -38,7 +38,7 @@ body {
     height: 100%;
 }
 
-#getData {
+.getData {
     min-height: 8em;
     margin: 2%;
     
