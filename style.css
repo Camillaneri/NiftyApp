@@ -53,18 +53,34 @@ body {
 .getDatabox{
     min-height: fit-content;
     margin: 0;
-    background-color: #212529;;
+    background-color: #212529;
+    min-width: 16em;
+    max-width: 20%;
+    position: relative!important;
 
 }
 
 .getDatabox1{
-    min-height: 5%;
+    min-height: 8em;
+    max-width: 20%;
     margin: 0;
     background-color: #212529;
     border: 1px solid #00FFC1;
     margin-left: 0.25em;
     margin-right: 0.25em;
+    flex-grow: 1;
+    overflow: hidden;
 
+}
+
+.tall-img{
+    min-height: 8em;
+    
+    width: inherit;
+    
+}
+.img-fit{
+    object-fit: cover;
 }
 
 .Databox1{
@@ -73,7 +89,7 @@ body {
 }
 
 img{
-
+    
     width: 100%;
     color-rendering: optimizespeed;
     shape-rendering: optimizespeed;
