@@ -183,8 +183,12 @@ function loadWarmUp(){
       x.style.display = "none";
       console.log(document.getElementById("bod").classList)
       console.log(document.getElementById("task").classList[2])
-      if((document.getElementById("task").classList[2] == "zindex")){
+      console.log(document.getElementById("tutorial3").style)
+      if((document.getElementById("task").classList[2] == "zindex") && (document.getElementById("tutorial3").style !== "display: block;")){
       window.scrollTo(0, 0);
+      }
+      else if ((document.getElementById("task").classList[2] == "zindex") && (document.getElementById("tutorial3").style == "display: block;")){
+        window.scrollBy(0, 100)
       }
       //window.scrollBy(0, 100)
      

@@ -1,6 +1,6 @@
 // TOOLTIPS
 
-/*jQuery(document).ready(function($) { // the good one
+jQuery(document).ready(function($) { // the good one
     console.log("hi i'm jquery")
     $('#reference').css("box-shadow", "0 0 30px #198753")
   
@@ -38,7 +38,7 @@
    
     // $(".botpage a").tipTip({ content: "This is an anchor tag!"});
     // $(".botpage a").tipTip('show');
-    });*/
+    });
 
 function display(ev) {
     console.log(ev.target)

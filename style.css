@@ -351,20 +351,23 @@ padding-top: 15vh;
   
   /* tutorial boxes */
   #tutorial1{
-      top: 50%;
-      left: 10%;
+      top: 30%;
+      left: 40%;
       display: block;
   }
 
   #tutorial2{
-    top: 60%;
-    left: 30%;
+    width: 30%;
+    top: 40%;
+    right: 60%;
+    left: 10%;
+    
     display: none;
 }
 
 #tutorial3{
-    top: 40%;
-    left: 30%;
+    top: 60%;
+    left: 40%;
     display: none;
 }
   @media screen and (max-width: 800px) {
