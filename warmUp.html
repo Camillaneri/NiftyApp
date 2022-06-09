@@ -19,6 +19,37 @@
     </head>
     <body id="bod" class=""> <!-- class="d-flex flex-column"  onload="placeholders()"-->
 
+          <!-- tutorial -->
+
+          <div class="position-absolute bgdark50 h-100 w-100 reveal" id="tutorials">
+            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial1">
+                <h1>this is the Reference image</h1>
+                
+                <p>look this artpiece closely and judge the other image based on how much the are similar to to it</p>
+                
+                
+                <button type="button" class="btn btn-success" id="toTut2a">Next</button>
+            </div>
+
+            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial2">
+                <h1>Fetched images</h1>
+                <p>Look at these artworks and decide wich one look more similar to the reference image based on shape, color, and art style, then drag and drop them in the numbered slots.</p>
+                <p>first slot for the most similar, second slot for the second most similar, and so on.</p>
+                
+                <button type="button" class="btn btn-success" id="toTut1">Back</button>
+                <button type="button" class="btn btn-success" id="toTut3">Next</button>
+            </div>
+            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial3">
+                <h1>End task</h1>
+                <p>When you are done click on the "end task" button. </p>
+                <p>if you want to repeat the task click on "repeat task", you can do it as many time as you'd like!</p>
+                <button type="button" class="btn btn-success" id="toTut2b">Back</button>
+                <button type="button" class="btn btn-success" id="FinishTut">Got it!</button>
+            </div>
+
+        </div>
+        
+
          <!-- header -->
          <div class="py-4 Headercolor" id="Header">
             <span class="container-fluid d-flex justify-content-between">
@@ -65,37 +96,7 @@
             </div>
         </div>
         
-         <!-- tutorial -->
-
-         <div class="position-absolute bgdark50 h-100 w-100 reveal" id="tutorials">
-            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial1">
-                <h1>Tutorial 1/3</h1>
-                <p>Welcome to the first task</p>
-                <p>Given the reference image you will be given 5 similar images given at a random order.</p>
-                <p>Match the right imges below to the most appropriate ranking posistion, you will be given a score for each choice matching with the sysstem </p>
-                
-                <button type="button" class="btn btn-success" id="toTut2a">Next</button>
-            </div>
-
-            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial2">
-                <h1>Tutorial 2/3</h1>
-                <p>Welcome to the first task</p>
-                <p>Given the reference image you will be given 5 similar images given at a random order.</p>
-                <p>Match the right imges below to the most appropriate ranking posistion, you will be given a score for each choice matching with the sysstem </p>
-                <button type="button" class="btn btn-success" id="toTut1">Back</button>
-                <button type="button" class="btn btn-success" id="toTut3">Next</button>
-            </div>
-            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial3">
-                <h1>Tutorial 2/3</h1>
-                <p>Welcome to the first task</p>
-                <p>Given the reference image you will be given 5 similar images given at a random order.</p>
-                <p>Match the right imges below to the most appropriate ranking posistion, you will be given a score for each choice matching with the sysstem </p>
-                <button type="button" class="btn btn-success" id="toTut2b">Back</button>
-                <button type="button" class="btn btn-success" id="FinishTut">Got it!</button>
-            </div>
-
-        </div>
-        
+       
 
         <!-- Task -->
         <div class="d-flex reveal zindex" id="task">    <!-- big container-->

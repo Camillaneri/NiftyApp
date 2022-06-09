@@ -182,8 +182,12 @@ function loadWarmUp(){
       reveals[i].classList.add("active");
       x.style.display = "none";
       console.log(document.getElementById("bod").classList)
-      document.getElementById("bod").classList.add("noscroll")
-
+      console.log(document.getElementById("task").classList[2])
+      if((document.getElementById("task").classList[2] == "zindex")){
+      window.scrollTo(0, 0);
+      }
+      //window.scrollBy(0, 100)
+     
 
     } else {
       
@@ -196,6 +200,7 @@ function loadWarmUp(){
 }
 
 window.addEventListener("scroll", reveal);
+
 
 
 function arrowDown(){

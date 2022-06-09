@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
     $( "#FinishTut" ).click(function() {
       $('.dropboxes').css("box-shadow", "unset")
       $('#tutorials').css("display","none")
-      $('body').toggleClass("noscroll");
+      $('#task').toggleClass("zindex")
     });
    
     // $(".botpage a").tipTip({ content: "This is an anchor tag!"});
