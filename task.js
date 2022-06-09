@@ -439,6 +439,9 @@ function reveal() {
         
         reveals[i].classList.add("active");
         x.style.display = "none";
+        if((document.getElementById("task2").classList[5] == "zindex")){
+          window.scrollTo(0, 0);
+          }
   
       } else {
         

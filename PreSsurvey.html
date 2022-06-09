@@ -33,32 +33,27 @@
             <div class="container mt-5 px-5 py-5 bg-light rounded-3 " id="ScentralBox"> 
                 <h1 class="display-3 mx-5 my-5 w-75 text-center" id="headerSTitle">Tell us something about you!</h1>
                 <form class="container w-75" id="pre-form"> 
-                    <div class="p-3 entry-field"> 
-                        <div class="inline slider">
-                            <input class="form-range"  type="range" min="0" max="5"  step="1" id="artExp" name="ArtExp" required/>
-
-                            <ul class="vals">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                            </ul>
+                    <div class="p-3"> 
+                        <div class="entry-field">
+                            <div class="inline slider">
+                              <span class="limit">0</span>
+                              <input type="range" min="0" max="100" value={value} step="5" />
+                              <span class="limit">100</span>
+                              <ul class="colors">
+                                <li class="green">Green</li>
+                                <li class="yellow">Yellow</li>
+                                <li class="orange">Orange</li>
+                                <li class="red">Red</li>
+                              </ul>
+                            </div>
                           </div>
+
+                        <input type="range" data-slider-ticks-labels="[$1, $2, $3, $£4, 5]"  class="form-range" min="0" max="5" step="1" id="artExp" name="ArtExp" required />
                     </div> 
-                    <div class="p-3 entry-field"> 
-                        <div class="inline slider">
-                            <input class="form-range"  type="range" min="0" max="5"  step="1" id="nftExp" name="NftExp" required/>
-
-                            <ul class="vals">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                            </ul>
-                          </div>
-                    </div>  
+                    <div class="p-3"> 
+                        <label for="PresurveyInput2" class="form-label">Expertise level on NFTs </label> 
+                        <input type="range" class="form-range" min="0" max="5" step="1" id="nftExp" name="NftExp" require /> 
+                    </div> 
                     <div class="p-3">
                         <label for="PresurveyInput3" class="form-label">Education in art </label>
                         <select class="form-select form-select-sm-3 mt-3" name="ArtEd"> 

@@ -34,6 +34,7 @@ jQuery(document).ready(function($) { // the good one
     $( "#FinishTut" ).click(function() {
       $('.dropboxes').css("box-shadow", "unset")
       $('#tutorials').css("display","none")
+      $('#task2').toggleClass("zindex")
     });
    
     // $(".botpage a").tipTip({ content: "This is an anchor tag!"});
