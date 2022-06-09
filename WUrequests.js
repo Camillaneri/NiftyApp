@@ -181,64 +181,28 @@ function loadWarmUp(){
       
       reveals[i].classList.add("active");
       x.style.display = "none";
+      console.log(document.getElementById("bod").classList)
+      document.getElementById("bod").classList.add("noscroll")
+
 
     } else {
       
      
       reveals[i].classList.remove("active");
       x.style.display = "block";
+      
     }
   }
 }
 
 window.addEventListener("scroll", reveal);
-/*
+
+
 function arrowDown(){
-  console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
-  if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == false){
-    console.log("a") 
-    console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
-  document.getElementById("Small").classList.toggle("show");}
-  else if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == true){
-    console.log("b")
-    console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList) 
-  document.getElementById("Small").classList.toggle("show");
-  document.getElementById("Big").classList.toggle("show");
-  document.getElementById("arrowDownButton").classList.toggle("collapse");
-    if((document.getElementById("arrowUpButton").classList[2] == "collapse") == true){
-      document.getElementById("arrowUpButton").classList.toggle("collapse");
-    }
-    console.log("arrowDownButton "+document.getElementById("arrowUpButton").classList)
-  }
-}
-function arrowUp(){
-  console.log("arrowUp big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
-  if((document.getElementById("Big").classList[2] == "show") == true && (document.getElementById("Small").classList[2] == "show") == false){
-    console.log("c") 
-  document.getElementById("Big").classList.toggle("show");
-  document.getElementById("Small").classList.toggle("show");}
-  else if((document.getElementById("Big").classList[2] == "show") == false && (document.getElementById("Small").classList[2] == "show") == true){
-    console.log("d") 
-  document.getElementById("Small").classList.toggle("show");
-  document.getElementById("arrowUpButton").classList.toggle("collapse");
-  if((document.getElementById("arrowDownButton").classList[2] == "collapse") == true){
-    document.getElementById("arrowDownButton").classList.toggle("collapse");
-  }
   
-  }
-
-}
-function disappear1(){
-  if((document.getElementById("Small").classList[2] == "show") == false){
-  document.getElementById("Big").classList.toggle("collapse");
-  }
-}*/
-
-function arrowDown(){
-  console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
   if((document.getElementById("Small").classList[2] == "show") == false && (document.getElementById("Small").children[0].children[0].classList[0] == "getDatabox1") == false){
     console.log("a") // niente
-    console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
+    
   document.getElementById("Small").classList.toggle("show"); //aggiungo show 
   for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){ 
     document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1") //aggiungo  getDatabox1
@@ -247,7 +211,7 @@ function arrowDown(){
 }
   else if((document.getElementById("Small").children[0].children[0].classList[0] == "getDatabox1") == true){
     console.log("b") //c'è getDatabox1
-    console.log("arrowDown big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList) 
+    
   for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){
   document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1")//tolgo getDatabox1
   document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox") //aggiungo  getDatabox
@@ -260,7 +224,7 @@ function arrowDown(){
 }
 }
 function arrowUp(){
-  console.log("arrowUp big "+document.getElementById("Big").classList+" small "+document.getElementById("Small").classList)
+  
   if((document.getElementById("Small").children[0].children[0].classList[0] == "getDatabox1") == false){
     console.log("c") //c'è getDatabox
     for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){

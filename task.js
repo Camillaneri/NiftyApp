@@ -258,8 +258,10 @@ function clearImg(ev){
 
 function resetDash(){
     a = document.getElementsByClassName("clear-dash")
+    console.log("a "+a)
     for(let i = 0; i < a.length; i++){
-        a[i].src = ""
+        console.log("a "+a.children[i].children[0])
+        a.children[i].children[0].remove()
     }
 }
 

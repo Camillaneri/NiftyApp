@@ -60,7 +60,7 @@ body {
     min-height: 16em;
     min-width: 50%;
     margin: 0;
-    background-color: #2D3748;
+    background-color: #121619;
     border: 1px solid #00FFC1;
     margin-left: 0.25em;
     margin-right: 0.25em;
@@ -74,7 +74,7 @@ body {
     min-height: 8em;
     max-width: 20%;
     margin: 0;
-    background-color: #2D3748;
+    background-color: #121619;
     border: 1px solid #00FFC1;
     margin-left: 0.25em;
     margin-right: 0.25em;
@@ -458,6 +458,7 @@ html {
     }
 
 
+
 #centralBox{
 margin-top: 5%;
 margin-bottom: 5%;
@@ -521,4 +522,36 @@ margin-bottom: 5%;
   .slider .vals li {
     display: inline-block;
     width: 20%;
+  }
+
+.almostBlack{
+    background-color: #121619 !important;
+}
+.gray{
+    background-color: #212529 !important;
+}
+.darkGreen{
+    background-color: #2D3748 !important;
+}
+.lightgreen{
+    background-color: #00FFC1 !important;
+}
+
+.slidebtn{
+    color: #00FFC1 !important;
+    background-color: #121619 !important;
+    border-color: #121619 !important;
+    padding-top: 0% !important;
+    padding-bottom: 0% !important;
+    padding-right: 5% !important;
+    padding-left: 5% !important;
+}
+
+.zindex{
+    z-index: -1;
+}
+
+.noscroll {
+    max-height: 100vh;
+    overflow: hidden;
   }
