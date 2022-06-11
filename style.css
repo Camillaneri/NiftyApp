@@ -558,3 +558,8 @@ margin-bottom: 5%;
     max-height: 100vh;
     overflow: hidden;
   }
+
+  .radio-inline{
+      display: flex;
+      justify-content: space-between;
+  }
