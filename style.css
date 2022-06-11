@@ -499,7 +499,7 @@ margin-bottom: 5%;
   }
   
   .slider input[type="range"] {
-    width:100%;
+    width:80%;
   }
   
   .slider .limit {
@@ -567,4 +567,12 @@ margin-bottom: 5%;
 
   .lead{
       font-size: 1.25em!important;
+  }
+
+  .myPointer{
+    cursor: pointer;
+  }
+
+  .myPointer:hover{
+      color: #00FFC1;
   }
