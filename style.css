@@ -499,7 +499,7 @@ margin-bottom: 5%;
   }
   
   .slider input[type="range"] {
-    width:100%;
+    width:80%;
   }
   
   .slider .limit {
