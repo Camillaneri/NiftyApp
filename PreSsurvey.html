@@ -24,15 +24,19 @@
         <nav class="navbar py-4 navbar-dark bg-dark fixed-top" id="MainNav">
             <span class="container-fluid">
                 <span class="navbar-text"> NiftyEValue</span> 
-                <span class="navbar-text align-self-end" id="pageName">Survey</spandes>
+                <span class="navbar-text align-self-end" id="pageName">Survey</span>
+              
+
             </span>
         </nav>
         
         <!-- Central body -->
         <div class="wrapper vcenter-item" id="wrap2">
             <div class="container mt-5 px-5 py-5 bg-light rounded-3 " id="ScentralBox"> 
-                <h1 class="display-3 mx-5 my-5 w-75 text-center" id="headerSTitle">Tell us something about you!</h1>
+                <div class="d-flex"><h1 class="display-3 mx-5 my-5 w-75" id="headerSTitle">Arts and Blockchain in multimedia applications</h1>(Duration: 3 minutes)</div>
+                
                 <form class="container w-75" id="pre-form"> 
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="p-3"> 
                         <div class="entry-field">
@@ -50,10 +54,14 @@
                           </div>
 =======
                     <h1>Art</h1>
+=======
+         
+>>>>>>> 56b6905ba36eacffb44585c1183fca82ec88e23c
                     <p> Thanks to the web, art is increasingly becoming handy. We are surrounded by artworks more than ever in human history!</p>
                     <p>Now everyone can embrace art and experience it gaining knowledge about it. </p>
 
                     <p class="lead">How would you define yourself?</p>
+                    
                     <div class="p-3 entry-field"> 
                         <div class="form-check"> 
                             <input class="form-check-input" type="checkbox" name="Decision" id="Decision1" value="1">
@@ -94,23 +102,9 @@
                             </div> 
                         </div> 
 
-                        <div class="inline slider">
-                            <input class="form-range"  type="range" min="0" max="5"  step="1" id="artExp" name="ArtExp" required/>
-
-                            <ul class="vals">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                            </ul>
-                          </div>
                     </div> 
 
                     <div class="p-3 entry-field"> 
-        
-                        
-
                         <h1 class="lead-title">But when it comes to the technology , do you know what a Non-Fungible Token is? </h1>
                         <div class="p-3  mb-3 entry-field"> 
                             <div class="form-check"> 
@@ -129,25 +123,27 @@
                                 <input class="form-check-input" type="checkbox" name="Decision" id="Decision1" value="4">
                                 <label class="form-check-label" for="Decision1">None of the above answers represent me</label>
                             </div>
-                            
-                            <p>An NFT a.k.a. Non-Fungible Token is a technology that in the last few years started to catch on in our daily life (and naturally the web) as Blockchains spread as a financial (mostly) tool.</br> NFTs represent unique digital (or digitized) object,s guaranteeing the authorship of the piece they represent.</p>
-    
-                            <p>Do you hae any higher-degree in the Arts field?</p> 
-                            <div class="p-3">
-                                <label for="PresurveyInput5" class="form-label">Bachelor degree</label> 
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt1" value="-10" /> 
-                                    <label class="form-check-label" for="RadioTimeArt1">Master degree</label> 
-                                </div> 
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt2" value="-20" />
-                                    <label class="form-check-label" for="RadioTimeArt2">PhD</label>
-                                </div>    
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt3"  value="x-30" />
-                                    <label class="form-check-label" for="RadioTimeArt3">None of the above</label>
-                                </div> 
+                        </div>
+
+                        <p>An NFT a.k.a. Non-Fungible Token is a technology that in the last few years started to catch on in our daily life (and naturally the web) as Blockchains spread as a financial (mostly) tool.</br> 
+                            NFTs represent unique digital (or digitized) object,s guaranteeing the authorship of the piece they represent.</p>
+
+                        <p>Do you hae any higher-degree in the financial field?</p> 
+                        <div class="p-3">
+                            <label for="PresurveyInput5" class="form-label">Bachelor degree</label> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt1" value="-10" /> 
+                                <label class="form-check-label" for="RadioTimeArt1">Master degree</label> 
                             </div> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt2" value="-20" />
+                                <label class="form-check-label" for="RadioTimeArt2">PhD</label>
+                            </div>    
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt3"  value="x-30" />
+                                <label class="form-check-label" for="RadioTimeArt3">None of the above</label>
+                            </div> 
+                        </div> 
     
                         <div class="inline slider">
                             <input class="form-range"  type="range" min="0" max="5"  step="1" id="nftExp" name="NftExp" required/>
@@ -160,25 +156,32 @@
                         <input type="range" class="form-range" min="0" max="5" step="1" id="nftExp" name="NftExp" require /> 
                     </div> 
                     <div class="p-3">
-                        <label for="PresurveyInput3" class="form-label">Education in art </label>
-                        <select class="form-select form-select-sm-3 mt-3" name="ArtEd"> 
-                            <option  value="" selected >Open this select menu</option>  
-                            <option value="Formal training in applied arts">Formal training in applied arts</option> 
-                            <option  value="Bachelor of Fine Arts">Bachelor of Fine Arts</option> 
-                            <option  value="Master of Fine Arts">Master of Fine Arts</option> 
-                            <option  value="Master of Applied Arts">Master of Applied Arts</option>  
-                            <option value="Some art education but no degree">Some art education but no degree</option> 
-                        </select> 
+                        <p>Multimedia web-applications are services providing to you different kind of media (images, text, videos, audio, etc.),<br>
+                            examples could be You-Tube, Netflix, as well as google Arts & Culture, etc. NiftyValue can be <br> 
+                            included in this definition, as you will find there texts, still– and moving-images.</p>
+                            <label for="PresurveyInput5" class="form-label">Average time spent on multimedia applications</label> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt1" value="-10" /> 
+                                <label class="form-check-label" for="RadioTimeArt1"> Very often</label> 
+                            </div> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt2" value="-20" />
+                                <label class="form-check-label" for="RadioTimeArt2"> Often</label>
+                            </div>    
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt3"  value="x-30" />
+                                <label class="form-check-label" for="RadioTimeArt3">Sometimes</label>
+                            </div> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt4"  value="+30" />
+                                <label class="form-check-label" for="RadioTimeArt4">Rarely</label> 
+                            </div> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="TimeArt" id="RadioTimeArt4"  value="+30" />
+                                <label class="form-check-label" for="RadioTimeArt4">Never</label> 
+                            </div> 
                     </div> 
-                    <div class="p-3"> 
-                        <label for="PresurveyInput4" class="form-label">Education in finance</label>
-                        <select class="form-select form-select-sm-3 mt-3" name="FinEd"> 
-                            <option value="" selected >Open this select menu</option> 
-                            <option value="Some education on finance but no degree">Some education on finance but no degree</option> 
-                            <option value="Bachelor of Finance">Bachelor of Finance</option> 
-                            <option value="Master of Finance">Master of Finance</option>
-                        </select>  
-                    </div>  
+                   
                     <div class="p-3">
                         <label for="PresurveyInput5" class="form-label">Average time spent on multimedia applications</label> 
                         <div class="form-check"> 
