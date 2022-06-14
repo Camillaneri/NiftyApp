@@ -1,7 +1,9 @@
 // TOOLTIPS
 
+
 jQuery(document).ready(function($) {
     console.log("hi i'm jquery")
+    //$(".owl-carousel").owlCarousel();
     $('#reference').css("box-shadow", "0 0 30px #198753")
     console.log($("#tutorials").hasClass("active"))
     
