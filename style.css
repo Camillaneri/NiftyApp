@@ -1,5 +1,7 @@
 body{
-    background-color: #2D3748 !important;
+    /* background-color: #2D3748 !important; */
+    background-color: #E2E8F0 !important;
+    
     min-height: 100vh;
     overflow-y: scroll;
     font-size: 24px!important;
@@ -623,4 +625,9 @@ margin-bottom: 5%;
 
   .pincontainer{
     right: 0px;
+  }
+
+  .fa-solid{
+    background-color: #000000;
+
   }

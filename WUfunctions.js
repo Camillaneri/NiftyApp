@@ -4,7 +4,7 @@
 jQuery(document).ready(function($) {
     console.log("hi i'm jquery")
     //$(".owl-carousel").owlCarousel();
-    $('#reference').css("box-shadow", "0px 0px 10px 1300px rgb(0 0 0 / 50%)")
+    $('#reference').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
     console.log($("#tutorials").hasClass("active"))
     
     
@@ -22,8 +22,8 @@ jQuery(document).ready(function($) {
       $('#tutorial1').css("display","none")
       $('#tutorial2').css("display","block");
       $('#reference').css("box-shadow", "unset")
-      $('#coso').css("box-shadow", "0px 0px 10px 1300px rgb(0 0 0 / 50%)")
-      $('.dropboxes').css("box-shadow", "0px 0px 10px 1300px rgb(0 0 0 / 50%)")
+      $('#coso').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
+      $('.dropboxes').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
       
     });
   
@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
       $('#tutorial3').css("display","block");
       $('#coso').css("box-shadow", "unset")
       $('.dropboxes').css("box-shadow", "unset")
-      $('#buttons2').css("box-shadow", "0px 0px 10px 1300px rgb(0 0 0 / 50%)")
+      $('#buttons2').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
     
     });
     
@@ -101,8 +101,12 @@ function allowDrop(ev) {
    for(let x = 0; x <  document.getElementsByClassName("recover").length ; x++){ //recover mi fa riconoscere le immaginni sotto non è uno stile
      if(document.getElementsByClassName("recover")[x].id == newid ){ 
       console.log("f") //ritrovo lo spot originale perchè mantiene l'id
+      if(sourceImg.classList.contains("img-fit") == false){
       document.getElementsByClassName("recover")[x].classList.toggle("collapse")// gli tolgo la classe collapse che ho aggiunto quando ho droppato
      }
+    }
    }
   }
   
+
+    

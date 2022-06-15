@@ -84,21 +84,21 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("Text");
-    console.log( ev.target)
-    console.log(data)
+   
     ev.target.appendChild(document.getElementById(data));
-    console.log(ev.target.children[1])
+    
     ev.target.children[1].classList.toggle("img-to-like")
     ev.target.children[1].classList.toggle("clear-dash")
-    console.log( ev.target)
-    console.log(ev.target.children[1])
-};
+    
+};  
 
 function dropcopy(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("Text");
     var copyimg = document.createElement("img");
     var original = document.getElementById(data);
+    ev.target.children[1].classList.toggle("img-to-like")
+    ev.target.children[1].classList.toggle("clear-dash")
     copyimg.src = original.src;
     copyimg.className = original.className;
     ev.target.appendChild(copyimg);
@@ -146,6 +146,7 @@ function Addtodash(ev){
     console.log(document.getElementsByClassName("DataDash")[i].children.length)
     if(document.getElementsByClassName("DataDash")[i].children.length < 2){
       document.getElementsByClassName("DataDash")[i].appendChild(img)
+      console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
       break
     }
     
@@ -274,19 +275,20 @@ function AddLiked_Disliked(event) {
 
 //CLEAR IMGS from fields
 function clearImg(ev){
-    console.log(ev.target.parentNode)
-    ev.target.parentNode.remove();
+    console.log("ciauxxx "+ev.target.parentNode.outerHTML)
+    ev.target.parentNode.children[1].remove();
     // console.log(ev.target.parentNode.parentNode)
 }
 
 
 function resetDash(){
-    a = document.getElementsByClassName("clear-dash")
+    a = document.getElementsByClassName("getDataboxDash")
     console.log("a "+a)
     for(let i = 0; i < a.length; i++){
-        console.log("a "+a.children[i].children[0])
-        a.children[i].children[0].remove()
+      if(a[i].children.length > 1){
+        a[i].children[1].remove()
     }
+  }
 }
 
 
