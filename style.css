@@ -209,7 +209,7 @@ padding-top: 15vh;
 }
 
 .bgdark50{
-    background-color: rgba(0, 0, 0, 0.50)!important;
+   /*  background-color: rgba(0, 0, 0, 0.50)!important; */
 }
 
 /* font colors */
@@ -355,6 +355,7 @@ padding-top: 15vh;
       top: 30%;
       left: 40%;
       display: block;
+      
   }
 
   #tutorial2{
@@ -415,6 +416,7 @@ padding-top: 15vh;
    position: fixed;
    height: 100vh;
    overflow: auto;
+   z-index: 1;
    
 }
 
@@ -477,6 +479,8 @@ margin-bottom: 5%;
 #refimgcontainer{
     background-color: #212529;
     min-height: 20%;
+    position: relative;
+    z-index: 9;
    
 }
 
@@ -555,6 +559,10 @@ margin-bottom: 5%;
     z-index: -1;
 }
 
+.zindextop{
+    z-index: 9;
+}
+
 .noscroll {
     max-height: 100vh;
     overflow: hidden;
@@ -576,4 +584,43 @@ margin-bottom: 5%;
 
   .myPointer:hover{
       color: #00FFC1;
+  }
+
+  .scentralBox{
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+
+  }
+
+/*SCROLL BAR*/
+
+  /* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #121619;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #00FFC1;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+   /* background:;*/
+  }
+
+  #pin{
+    background-color: #fff;
+    padding: 3px;
+    
+  }
+
+  .pincontainer{
+    right: 0px;
   }

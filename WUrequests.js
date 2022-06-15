@@ -8,7 +8,7 @@ function loadWarmUp(){
   IDnum = Math.floor(Math.random() * 50000)
   console.log(" a "+IDnum)
 
-  
+
 
   console.log(IDnum) //first image
     Refquery =  `
@@ -21,6 +21,8 @@ function loadWarmUp(){
         
     ` 
     console.log(Refquery)
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 5000)
     //fetch url and mediatype for every artwork
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
       method: 'POST',
@@ -30,7 +32,8 @@ function loadWarmUp(){
       body: JSON.stringify({
         query: Refquery
       }),
-    })
+    },
+    { signal: controller.signal })
     .then((res) => res.json())
     .then((result) =>{ 
       dict1 = result['data']['artwork_metrics'];

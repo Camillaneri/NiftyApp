@@ -122,13 +122,35 @@ function dropcopy(ev) {
         x += '<div class="my-4 position-relative getDataboxDash border rounded border-light p-0" id="getDataDash" ondrop="dropcopy(event)" ondragover="allowDrop(event)" ><input class="position-absolute btn btn-light p-0 d-none ClearBtn" style="font-family: bootstrap-icons" type="button" id="imgBtn" onclick="clearImg(event)" value="&#xF62A;"> </div> ';
         document.getElementById('imagesGrid').innerHTML = x
     }
-    
-
-
-
 
 };
 
+function Addtodash(ev){
+  console.log(ev.target.parentElement.parentElement.children[2])
+  giveid = ev.target.parentElement.parentElement.children[2].id
+  givsrc = ev.target.parentElement.parentElement.children[2].src
+  var img = document.createElement('img');
+  img.src = givsrc
+  img.id = giveid
+  img.classList = ['w-10', 'clear-dash']
+  console.log(ev.target.id)
+  console.log(img)
+  for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
+    console.log(document.getElementsByClassName("DataDash")[i])
+    if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
+      alert("you already added this image")
+    }
+  }
+  for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
+    console.log(document.getElementsByClassName("DataDash")[i])
+    console.log(document.getElementsByClassName("DataDash")[i].children.length)
+    if(document.getElementsByClassName("DataDash")[i].children.length < 2){
+      document.getElementsByClassName("DataDash")[i].appendChild(img)
+      break
+    }
+    
+  }
+}
 // DASHBOARD EXPAND-CONTRACT 
 
 function ExpandDash() {
@@ -162,8 +184,10 @@ function AddLiked_Disliked(event) {
 
     if(event.target.id == 'imgBtnlike'){
         console.log("a")
-        AddMeL = event.target.parentElement.nextElementSibling.src; 
-        AddidL = event.target.parentElement.nextElementSibling.id;
+        console.log("AddidL "+event.target.parentElement.parentElement.children[2].outerHTML)
+        AddMeL = event.target.parentElement.parentElement.children[2].src; 
+        AddidL = event.target.parentElement.parentElement.children[2].id;
+        console.log("AddidL "+event.target.parentElement.parentElement[2])
         if (num_likd == 0 && num_dslikd == 0){
             console.log("a.1")
             document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
@@ -202,8 +226,8 @@ function AddLiked_Disliked(event) {
     }
     else if(event.target.id == 'imgBtndislike'){
         console.log("b")
-        AddMeD = event.target.parentElement.nextElementSibling.src; 
-        AddidD = event.target.parentElement.nextElementSibling.id;
+        AddMeD = event.target.parentElement.parentElement.children[2].src; 
+        AddidD = event.target.parentElement.parentElement.children[2].id;
         if (num_likd == 0 && num_dslikd == 0){
             console.log("b.1")
             document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
