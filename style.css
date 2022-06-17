@@ -631,3 +631,7 @@ margin-bottom: 5%;
     background-color: #000000;
 
   }
+
+  .d-inline-block{
+      width: inherit!important;
+    }
