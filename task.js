@@ -90,6 +90,7 @@ function drop(ev) {
     var copyimg = document.createElement("img");
     var original = document.getElementById(data);
     copyimg.src = original.src;
+    copyimg.id = original.id;
     copyimg.classList = original.classList;
     ev.target.appendChild(copyimg);
     
@@ -98,7 +99,7 @@ function drop(ev) {
     
 };  
 
-function dropcopy(ev) {
+/*function dropcopy(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("Text");
     var copyimg = document.createElement("img");
@@ -129,7 +130,7 @@ function dropcopy(ev) {
         document.getElementById('imagesGrid').innerHTML = x
     }
 
-};
+};*/
 
 function Addtodash(ev){
   //console.log(ev.target.parentElement.parentElement.children[2])
@@ -144,7 +145,7 @@ function Addtodash(ev){
 
   
   for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
-    //console.log(document.getElementsByClassName("DataDash")[i])
+    console.log(document.getElementsByClassName("DataDash ")[i])
     if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
       alert("you already added this image")
     } 
