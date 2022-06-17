@@ -1,7 +1,10 @@
-var start = new Date().getTime();
+var start = new Date();
 
+var btn = document.querySelector('#twofuns');
+btn.addEventListener('click',method1);
+btn.addEventListener('click',method2);
+function method2(){
+  console.log("Method 2");
+}
 
-
-var end = new Date().getTime();
-var time = end - start;
-alert('Execution time: ' + time);
+console.log('Start time: ' + start);
