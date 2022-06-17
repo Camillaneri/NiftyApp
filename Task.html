@@ -40,7 +40,7 @@
 
             <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial2">
                 <h1>The dashboard</h1>
-                <p>>When you find an image you really like drag it to the left to add it to the dashboard: Imagine it as your personal gallery, where you keep your favorite artpiece!</p>
+                <p>When you find an image you really like drag it to the left to add it to the dashboard: Imagine it as your personal gallery, where you keep your favorite artpiece!</p>
                 
                 <button type="button" class="btn btn-success" id="toTut1">Back</button>
                 <button type="button" class="btn btn-success" id="toTut3">Next</button>
@@ -146,7 +146,7 @@
                         <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">
                             Clear my gallery
                         </button>
-                        <button class="mx-1 col btn btn-success w-50" type="button" onclick="location.href='PostSsurvey.html'">
+                        <button class="mx-1 col btn btn-success w-50" type="button" id="submit">
                             End Task
                         </button>
                          
@@ -186,10 +186,10 @@
                         </div> 
                     </div> 
                     <div class="row px-2"> 
-                        <button class="mx-1 col btn btn-success w-100" type="button" onclick="Apply_like_dislike()" id="apply-btn">
+                        <button class="mx-1 col btn btn-success w-100" type="button" onClick="Apply_like_dislike()" id="apply-btn">
                             Apply
                         </button>   
-                        <button class="mx-1 col btn btn-success w-100" type="button" onclick="fill_task_dash()">
+                        <button class="mx-1 col btn btn-success w-100" type="button" onClick="fill_task_dash(), removeQuery()">
                             Reset
                         </button> 
                     </div>
@@ -447,11 +447,50 @@
         const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
       
         console.log('Supabase Instance: ', supabase)
+        
+        
+        // function endTask(){
+        //     let myId = sessionStorage.getItem('id');
+        //     console.log('User ID: ', myId)
+        //     var submission = {'id':myId}
+        //     console.log(myId)
+        //     console.log("Initial submission: ",submission)
+        //     event.preventDefault()
+        //     // add queries count
+        //     const n_queries = sessionStorage.getItem('n_queries');
+        //     submission['n_queries'] = n_queries
+            
+        //     await supabase.from('Main_task').insert([submission])
+        //     consol.log('sent')
+        // }
+        
+
         let myId = sessionStorage.getItem('id');
-        let submission = {'id':myId}
+
         console.log(myId)
-        console.log(submission)
-        await supabase.from('Main_task').insert([submission])
+        const form = document.querySelectorAll('#imagesGrid')
+            console.log(form)
+        form[0].addEventListener('submit', async (event) => {
+            event.preventDefault()
+            
+            let submission = {'id':myId}
+            console.log('inner', submission)
+            // formInputs.forEach( element =>{
+            //     const { value, name } = element
+            //     if (value) {
+
+            //         if (submission[name] != undefined){
+            //         submission[name]=submission[name]+', '+value}else{submission[name]=value}
+                
+            //     }
+            // })
+
+            // console.log(submission)
+            // await supabase.from('First_survey').insert([submission])
+            // window.location.href = "PostSurvey.html"
+
+        })
+            
          
 
     
