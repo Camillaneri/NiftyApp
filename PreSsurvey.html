@@ -62,7 +62,7 @@
                             </div>
                             <div class="form-check"> 
                                 <input class="form-check-input" type="checkbox" name="ArtExp" id="ArtExp4" value="artAmateur">
-                                <label class="form-check-label" for="ArtExp4">Just interested in Arts</label>
+                                <label class="form-check-label" for="ArtExp4">I have no direct experience, but I am interested in the topic</label>
                             </div>
 
                             <div class="form-check"> 
@@ -72,10 +72,7 @@
                         </div> 
                         
                     </section>
-                </div>
-            </form>
-                <div class="mt-5 pb-5 pt-5 bg-light rounded-3 scentralBox"> 
-                    <form class="container w-75" id="pre-form"> 
+                   
                     <section class="py-4">
                         <h2>How much do you know about NFTs?</h2>
                         <p>NFTs (Non-Fungible Tokens) are a new technology increasingly used in the art world and art market, questioning the concepts of art medium and ownership. </br> 
@@ -99,17 +96,39 @@
                                 <label class="form-check-label" for="NftExp4">I have no direct experience, but I am interested in the topic  </label>
                             </div>
                             <div class="form-check"> 
-                                <input class="form-check-input" type="checkbox" name="NftExp" id="NftExp4" value="nftNone">
+                                <input class="form-check-input" type="checkbox" name="NftExp" id="NftExp5" value="nftNone">
                                 <label class="form-check-label" for="NftExp4">None of the above</label>
                             </div>
                         </div>
 
-                       <!-- vedere se mettere "How much do you know about finance?" -->
                     </section>
-                    </div>
-                </form>
-                    <div class="mt-5 pb-5 pt-5 bg-light rounded-3 scentralBox"> 
-                    <form class="container w-75" id="pre-form"> 
+                    <section class="py-4">
+                        <h2>How much do you know about finance and blockchain? </h2>
+                        <p class="lead">Do you work or have you worked in finance or have experience with blockchain technologies?</p>
+                        <div class="p-3  mb-3 entry-field"> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="FinBcExp" id="FinBcExp1" value="finAdvanced">
+                                <label class="form-check-label" for="FinBcExp1">I regularly trade/I work in the financial system</label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="FinBcExp" id="FinBcExp2" value="bcAdvancedd">
+                                <label class="form-check-label" for="FinBcExp2">I regularly trade/make use of blockchain technologies </label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="FinBcExp" id="FinBcExp3" value="finBasic">
+                                <label class="form-check-label" for="FinBcExp3">I have basic knowledge/experience in finance</label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="FinBcExp" id="FinBcExp4" value="bcBasic">
+                                <label class="form-check-label" for="FinBcExp4">I have basic knowledge/experience with blockchain technologies</label>
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="FinBcExp" id="FinBcExp5" value="finbcNone">
+                                <label class="form-check-label" for="FinBcExp4">None of the above</label>
+                            </div>
+                        </div>
+
+                    </section>
                     <section class="py-4">
                         <p class="lead">Now tell us something about you!</p>
                         
@@ -136,7 +155,6 @@
                                     <input class="form-check-input" type="radio" name="useMM" id="useMM5"  value="Never" />
                                     <label class="form-check-label" for="useMM5">Never</label> 
                                 </div> 
-                        </div>
                     </section>
                     <section class="py-4">
                         <p>Read the statements below and choose in a scale from “Strongly Agree ” to “Strongly Disagree” how much they reflect you. </p>
@@ -184,7 +202,7 @@
                         </div> 
                     </section> 
                     <div class=" container py-3 px-0"> 
-                        <button type="submit" class="btn btn-success px-4 float-end w-25" id="submit">
+                        <button type="submit" disabled="disabled" class="btn btn-success px-4 float-end w-25" id="submit">
                             Submit!
                         </button> 
                     </div>   
@@ -201,6 +219,7 @@
             </div>
         </footer>    
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
        <script type="module">
         var currentDate = new Date()
@@ -215,9 +234,9 @@
         console.log(myId)
         const form = document.querySelectorAll('#pre-form')
         form[0].addEventListener('submit', async (event) => {
-            console.log('cazzo')
+
             event.preventDefault()
-            const formInputs = form[0].querySelectorAll('input[name = ArtExp]:checked, input[name = ArtEd]:checked, input[name = NftExp]:checked, input[name = FinEd]:checked, input[name = useMM]:checked, input[name = Decision], input[name = Bore], input[name = Curios]')
+            const formInputs = form[0].querySelectorAll('input[name = ArtExp]:checked, input[name = NftExp]:checked, input[name = FinBcExp]:checked, input[name = useMM]:checked, input[name = Decision], input[name = Bore], input[name = Curios]')
             let submission = {'id':myId}
             formInputs.forEach( element =>{
                 const { value, name } = element
@@ -236,9 +255,9 @@
         })
       </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="./presurvey.js"></script>
       
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </html> 
