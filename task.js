@@ -338,10 +338,21 @@ function resetDash(){
   }
 }
 
-
+var n_queries = 0;
 function Apply_like_dislike(){ //start 
     
+    // inizio parte log apply
     
+    console.log("Query number: ", n_queries);
+    n_queries+=1
+    console.log("Add query");
+    sessionStorage.setItem('n_queries', n_queries);
+    console.log('n_queries =', n_queries)
+
+    num_likd = document.getElementById('LikesBox').children.length
+    num_dslikd = document.getElementById('DislikesBox').children.length
+    // fine parte log apply
+
     var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
   
     
