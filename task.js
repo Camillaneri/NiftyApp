@@ -92,10 +92,26 @@ function drop(ev) {
     copyimg.src = original.src;
     copyimg.id = original.id;
     copyimg.classList = original.classList;
-    ev.target.appendChild(copyimg);
-    
-    ev.target.children[1].classList.toggle("img-to-like")
-    ev.target.children[1].classList.toggle("clear-dash")
+/* 
+    for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
+      console.log(document.getElementsByClassName("DataDash ")[i])
+      if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == copyimg.id ){
+        alert("you already added this image")
+        break
+        
+      } else {
+        for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
+        if(document.getElementsByClassName("DataDash")[i].children.length < 2){ */
+          ev.target.appendChild(copyimg);
+          ev.target.children[1].classList.toggle("img-to-like")
+          ev.target.children[1].classList.toggle("clear-dash")
+         /*  break
+        }
+        //console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
+        
+      }  
+    } 
+  }*/
     
 };  
 
@@ -144,7 +160,7 @@ function Addtodash(ev){
   //console.log(img)
   idilist = []
 
-  if (typeof(Storage) !== "undefined") {
+ /* if (typeof(Storage) !== "undefined") {
     for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
       if(document.getElementsByClassName("DataDash")[i].children.length > 1){
         console.log( document.getElementsByClassName("DataDash")[i].children[1].id)
@@ -155,34 +171,34 @@ function Addtodash(ev){
   }
 }
 
-console.log(sessionStorage.getItem('lista'))
+console.log(sessionStorage.getItem('lista'))*/
   
-  /* for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
-    console.log(document.getElementsByClassName("DataDash ")[i])
+  for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
+    console.log(document.getElementsByClassName("DataDash")[i])
     if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
       alert("you already added this image")
     } 
-  } */
+      
+  } 
+  for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
+    if(document.getElementsByClassName("DataDash")[i].children.length < 2){
+    document.getElementsByClassName("DataDash")[i].appendChild(img)
+    //console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
+    break
+    }
+  } 
   //
     //console.log(document.getElementsByClassName("DataDash")[i])
     //console.log(document.getElementsByClassName("DataDash")[i].children.length)
     
-    mylist = sessionStorage.getItem('lista')
+    /* mylist = sessionStorage.getItem('lista')
     console.log(giveid)
     console.log(mylist)
-    console.log(mylist.includes(giveid)== true )
-    for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
-      if(mylist.includes(giveid) == false && document.getElementsByClassName("DataDash")[i].children.length < 2){
-      document.getElementsByClassName("DataDash")[i].appendChild(img)
-      //console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
-      break
-    } else if (mylist.includes(giveid) == true){
-      alert("you already added this image")
-      break
-    }
+    console.log(mylist.includes(giveid)== true ) */
+    
     
   }
-}
+
 // DASHBOARD EXPAND-CONTRACT 
 
 function ExpandDash() {
