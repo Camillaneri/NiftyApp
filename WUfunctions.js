@@ -1,4 +1,4 @@
-// TOOLTIPS
+// Tutorials
 
 
 jQuery(document).ready(function($) {
@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
 
 
 
-//allow drop images
+// drop images
 function allowDrop(ev) {
   console.log("a")
     ev.preventDefault();
@@ -72,41 +72,46 @@ function allowDrop(ev) {
     console.log("c")
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    var sourceImg = document.getElementById(data)
     
-    console.log("sourceImg for drop "+sourceImg.parentElement.outerHTML)
-    //console.log("heyyyy"+sourceImg.parentElement.parentElement)
-    if(sourceImg.classList.contains("img-fit") == false){
-      //console.log("noooo!!!")
-    sourceImg.classList.toggle("collapse")//all riquadro inferiore da cui ho preso l'immagine aggiungo la classe collapse(la fa sparire)
-  }
-    var source = sourceImg.src
-    var ident = sourceImg.id
-    console.log("d")
+    console.log("upper slot fill "+ev.target.children[2].outerHTML)
 
-    console.log(ev.target)
-    ev.target.children[2].src = source
-    ev.target.children[2].id = ident
+    ev.target.children[2].remove()
+    console.log("upper slot fill deleted")
+    console.log("upper slot fill "+ev.target.children[2])
+    
+    //document.getElementById(data).draggable = ""
+    ev.target.appendChild(document.getElementById(data));
+    console.log("upper slot fill refilled")
     ev.target.children[0].classList.remove('d-none')
-    ev.target.style.border == '0'
+    console.log("upper slot fill "+ev.target.children[2].outerHTML)
   }
-  
+
   function clearImg(ev){
     console.log("e")
-  console.log(ev.target.parentElement.children[2])
-   ev.target.parentElement.children[2].src = ''
-   ev.target.parentElement.children[0].classList.add('d-none')
-   newid = ev.target.parentElement.children[2].id
-   console.log(newid)
-   for(let x = 0; x <  document.getElementsByClassName("recover").length ; x++){ //recover mi fa riconoscere le immaginni sotto non è uno stile
-     if(document.getElementsByClassName("recover")[x].id == newid ){ 
-      console.log("f") //ritrovo lo spot originale perchè mantiene l'id
+    console.log("upper slot  "+ev.target.parentElement.children[2].outerHTML)
+    for(let x = 0; x < document.getElementById("coso").children.length ; x++){
+      console.log("f")
+      console.log("upper slot  "+ev.target.parentElement.children[2].outerHTML)
+      if(document.getElementById("coso").children[x].children.length < 1){
+        console.log("g")
+        console.log("to here "+document.getElementById("coso").children[x].outerHTML)
+        //console.log("img to append  "+ev.target.parentElement.children[2].outerHTML)
+        //ev.target.parentElement.children[2].draggable = true
+        console.log("upper slot  "+ev.target.parentElement.children[2].outerHTML)
+        console.log("from here  "+ev.target.parentElement.children[2].outerHTML)
+        num = ev.target.parentElement.children[1].innerHTML
+        numero = num.replace('#', '');
+        n = parseFloat(numero);
+        document.getElementById("coso").children[x].appendChild(ev.target.parentElement.children[2])
+        console.log("ooooooo "+document.getElementsByClassName("tall-img")[n-1].outerHTML)
+        document.getElementsByClassName("tall-img")[n-1].insertAdjacentHTML('beforeend', "<img id='WUimg4' class='img-fit' src=''>")
+        //ev.target.parentElement.insertAdjacentHTML('beforeend', "<img id='WUimg4' class='img-fit' src=''>");
+        ev.target.parentElement.children[0].classList.add('d-none')
+        console.log("upper slot  "+ev.target.parentElement.children[2].outerHTML)
+        break
+        
+      }
       
-      document.getElementsByClassName("recover")[x].classList.toggle("collapse")// gli tolgo la classe collapse che ho aggiunto quando ho droppato
-     
-    }
-   }
   }
+}
   
-
-    

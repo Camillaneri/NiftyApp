@@ -116,30 +116,31 @@ function loadWarmUp(){
           dict = result['data']['artwork_metrics'][x]
           art_id = dict['artwork_id']
           art_url = dict['preview']
-          get_img_element = document.getElementById('similarImg0') //put them into the image elements
+          get_img_element = document.getElementsByClassName('similarImg0') //put them into the image elements
           
             console.log(get_img_element)
         
-    
+          
         if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
             console.log("HEIGHT!!!!!")
             
-            get_img_element.style.height = null;
+            get_img_element[x].style.height = null;
             
             //box = document.getElementsByClassName("position-relative col-lg-4 col-md-6");
             /*for(let x = 0; x < box.length ; x++){
               box[x].style.height = "";
             }
             */
-            get_img_element.src = art_url;
+            get_img_element[x].src = art_url;
             
-            get_img_element.id = art_id;
+            get_img_element[x].id = art_id;
         
             }
         else{
-            get_img_element.src = "images/wooops1.jpg";
+            get_img_element[x].src = "images/wooops1.jpg";
         
         }
+      
           
           }})})})
 
