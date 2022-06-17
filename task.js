@@ -25,7 +25,7 @@ function fill_task_dash(){
 .then((result) =>{  
     const myJSON = JSON.stringify(result);
     r_json = JSON.parse(myJSON);
-    let i=1;
+    
     for(let i = 0; i <= 20; i++){
 
     dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['preview']);
@@ -39,8 +39,8 @@ function fill_task_dash(){
     newStr01 = dict_path1.replace('"', '');
     img_id = newStr01.replace('"', '');//get id
 
-    //console.log(img_id)
-    //console.log(img_url)
+    ////console.log(img_id)
+    //console.log(document.getElementsByClassName('img-to-like').length)
    
     get_img = document.getElementsByClassName('img-to-like')[i]
     
@@ -79,13 +79,19 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("Text", ev.target.id);
+    
 };  
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("Text");
    
-    ev.target.appendChild(document.getElementById(data));
+    //ev.target.appendChild(document.getElementById(data));
+    var copyimg = document.createElement("img");
+    var original = document.getElementById(data);
+    copyimg.src = original.src;
+    copyimg.classList = original.classList;
+    ev.target.appendChild(copyimg);
     
     ev.target.children[1].classList.toggle("img-to-like")
     ev.target.children[1].classList.toggle("clear-dash")
@@ -126,27 +132,29 @@ function dropcopy(ev) {
 };
 
 function Addtodash(ev){
-  console.log(ev.target.parentElement.parentElement.children[2])
+  //console.log(ev.target.parentElement.parentElement.children[2])
   giveid = ev.target.parentElement.parentElement.children[2].id
   givsrc = ev.target.parentElement.parentElement.children[2].src
   var img = document.createElement('img');
   img.src = givsrc
   img.id = giveid
   img.classList = ['w-10', 'clear-dash']
-  console.log(ev.target.id)
-  console.log(img)
+  //console.log(ev.target.id)
+  //console.log(img)
+
+  
   for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
-    console.log(document.getElementsByClassName("DataDash")[i])
+    //console.log(document.getElementsByClassName("DataDash")[i])
     if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
       alert("you already added this image")
-    }
+    } 
   }
   for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
-    console.log(document.getElementsByClassName("DataDash")[i])
-    console.log(document.getElementsByClassName("DataDash")[i].children.length)
+    //console.log(document.getElementsByClassName("DataDash")[i])
+    //console.log(document.getElementsByClassName("DataDash")[i].children.length)
     if(document.getElementsByClassName("DataDash")[i].children.length < 2){
       document.getElementsByClassName("DataDash")[i].appendChild(img)
-      console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
+      //console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
       break
     }
     
@@ -155,7 +163,7 @@ function Addtodash(ev){
 // DASHBOARD EXPAND-CONTRACT 
 
 function ExpandDash() {
-    console.log("got");
+    //console.log("got");
     document.getElementById("dashboard").classList.toggle("col-6");
     document.getElementById("dashboard").classList.toggle("col-3");
     for (var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++) {
@@ -175,26 +183,26 @@ function ExpandDash() {
 
 
 //ADD IMAGES TO QUERY
-console.log("")
+//console.log("")
 
 function AddLiked_Disliked(event) {
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
-    console.log("liked "+num_likd)
-    console.log("disliked "+num_dslikd)
+    //console.log("liked "+num_likd)
+    //console.log("disliked "+num_dslikd)
 
     if(event.target.id == 'imgBtnlike'){
-        console.log("a")
-        console.log("AddidL "+event.target.parentElement.parentElement.children[2].outerHTML)
+        //console.log("a")
+        //console.log("AddidL "+event.target.parentElement.parentElement.children[2].outerHTML)
         AddMeL = event.target.parentElement.parentElement.children[2].src; 
         AddidL = event.target.parentElement.parentElement.children[2].id;
-        console.log("AddidL "+event.target.parentElement.parentElement[2])
+        //console.log("AddidL "+event.target.parentElement.parentElement[2])
         if (num_likd == 0 && num_dslikd == 0){
-            console.log("a.1")
+            //console.log("a.1")
             document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
             }
         if((num_likd > 0 && num_likd < 3) || (num_likd < 0 && num_dslikd > 0 && num_dslikd <= 3 )){
-            console.log("a.2")
+            //console.log("a.2")
             likd_ids = []
             dislikd_ids =[];
             for(let i = 0; i < num_likd; i++){   
@@ -206,35 +214,35 @@ function AddLiked_Disliked(event) {
             dislikd_ids.push(img_idD)
             }
             if (likd_ids.includes(AddidL)){
-                console.log("a.21")
+                //console.log("a.21")
                 alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
             }
             else if (dislikd_ids.includes(AddidL)){
-                console.log("a.22")
+                //console.log("a.22")
                 alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
             }
             else{
-                console.log("a.23")
+                //console.log("a.23")
                 document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
             }
         
         }
         else if ( num_likd == 3){
-            console.log("a.3")
+            //console.log("a.3")
             alert('Maximum number of liked images reached')
         }
 
     }
     else if(event.target.id == 'imgBtndislike'){
-        console.log("b")
+        //console.log("b")
         AddMeD = event.target.parentElement.parentElement.children[2].src; 
         AddidD = event.target.parentElement.parentElement.children[2].id;
         if (num_likd == 0 && num_dslikd == 0){
-            console.log("b.1")
+            //console.log("b.1")
             document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
             }
         if((num_dslikd > 0 && num_dslikd < 3) || (num_likd > 0 && num_likd <= 3 && num_dslikd < 3)){
-            console.log("b.2")
+            //console.log("b.2")
             likd_idsD = []
             dislikd_idsD =[];
             for(let i = 0; i < num_likd; i++){  
@@ -246,21 +254,21 @@ function AddLiked_Disliked(event) {
             dislikd_idsD.push(img_id2)
             }
             if (likd_idsD.includes(AddidD)){
-                console.log("b.21")
+                //console.log("b.21")
                 alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
             }
             else if (dislikd_idsD.includes(AddidD)){
-                console.log("b.22")
+                //console.log("b.22")
                 alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
             }
             else{
-                console.log("b.23")
+                //console.log("b.23")
                 document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
             }
         
         }
         else if ( num_dslikd == 3){
-            console.log("b.3")
+            //console.log("b.3")
             alert('Maximum number of disliked images reached')
         }
 
@@ -275,15 +283,15 @@ function AddLiked_Disliked(event) {
 
 //CLEAR IMGS from fields
 function clearImg(ev){
-    console.log("ciauxxx "+ev.target.parentNode.outerHTML)
+    //console.log("ciauxxx "+ev.target.parentNode.outerHTML)
     ev.target.parentNode.children[1].remove();
-    // console.log(ev.target.parentNode.parentNode)
+    // //console.log(ev.target.parentNode.parentNode)
 }
 
 
 function resetDash(){
     a = document.getElementsByClassName("getDataboxDash")
-    console.log("a "+a)
+    //console.log("a "+a)
     for(let i = 0; i < a.length; i++){
       if(a[i].children.length > 1){
         a[i].children[1].remove()
@@ -378,8 +386,8 @@ function Apply_like_dislike(){ //start
             get_img_element.src = art_url;
             
             get_img_element.id = art_id;
-            console.log(get_img_element.naturalWidth + 'x' + get_img_element.naturalHeight)
-            console.log(get_img_element.width + 'x' + get_img_element.height)
+            //console.log(get_img_element.naturalWidth + 'x' + get_img_element.naturalHeight)
+            //console.log(get_img_element.width + 'x' + get_img_element.height)
             }
         else{
             get_img_element.src = "images/wooops1.jpg";
@@ -399,7 +407,7 @@ function Apply_like_dislike(){ //start
 } 
 
 function display_img(ev){
-    console.log(ev.target)
+    //console.log(ev.target)
     hid = ev.target.id
     
 Refquery =  `
@@ -437,7 +445,7 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
 }
 
 function closeimg(){
-    console.log(document.getElementById("displayimg").classList)
+    //console.log(document.getElementById("displayimg").classList)
     document.getElementById("displayimg").classList.toggle("seeme");
 }
 
@@ -486,13 +494,13 @@ function reveal() {
 
         /*fetch(request)
     .then(data => data.json())
-    console.log(data)
+    //console.log(data)
     .then(response=>response.json())
-    console.log(response)
+    //console.log(response)
     .then((result) =>{  
         const myJSON = JSON.stringify(result);
         r_json = JSON.parse(myJSON);})
-        console.log(myJSON)
+        //console.log(myJSON)
     
         let i=0;
         while(i < 10){
@@ -510,14 +518,14 @@ function reveal() {
     
     xhr.onreadystatechange = function() {
        if (xhr.readyState === 4) {
-          console.log(xhr.status);
+          //console.log(xhr.status);
           response1 = xhr.responseText;
           response_list = response1.split(" ");
           for (let i = 0; i < response_list.length; i++)
           result.push(response_list[i])
-          console.log(response1);
-          console.log(response_list);
-          console.log(result);
+          //console.log(response1);
+          //console.log(response_list);
+          //console.log(result);
           }
        
        
@@ -525,21 +533,21 @@ function reveal() {
     xhr.send();
     
     
-    console.log(result)
+    //console.log(result)
     result = xhr.responseText;
-    console.log(result);
+    //console.log(result);
     impure_array = result.split(" ");
-    console.log(impure_array)
+    //console.log(impure_array)
     .then(response=>response.json())
     .then((result) =>{  
-        //console.log(result);
+        ////console.log(result);
         const myJSON = JSON.stringify(result);
-        //console.log(myJSON);
+        ////console.log(myJSON);
         r_json = JSON.parse(myJSON);
-        //console.log(r_json);
+        ////console.log(r_json);
         let i=0;
         var lista = [];
-        //console.log(typeof lista);
+        ////console.log(typeof lista);
         for(i = 0; i < 20; i++) 
         {
         new_ids = JSON.stringify(r_json['data'][i]);//is path correct?is it a string?

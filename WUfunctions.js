@@ -101,9 +101,9 @@ function allowDrop(ev) {
    for(let x = 0; x <  document.getElementsByClassName("recover").length ; x++){ //recover mi fa riconoscere le immaginni sotto non è uno stile
      if(document.getElementsByClassName("recover")[x].id == newid ){ 
       console.log("f") //ritrovo lo spot originale perchè mantiene l'id
-      if(sourceImg.classList.contains("img-fit") == false){
+      
       document.getElementsByClassName("recover")[x].classList.toggle("collapse")// gli tolgo la classe collapse che ho aggiunto quando ho droppato
-     }
+     
     }
    }
   }
