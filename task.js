@@ -53,6 +53,7 @@ function fill_task_dash(){
     }
     //for the reset button
     if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
+      console.log("preso")
         document.getElementById('LikesBox').innerHTML = "";
         document.getElementById('DislikesBox').innerHTML = "";
         

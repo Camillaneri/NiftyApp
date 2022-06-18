@@ -69,45 +69,40 @@ function allowDrop(ev) {
   }
   
   function drop(ev) {
-    console.log("c")
+    
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     
-    console.log("upper slot fill "+ev.target.children[2].outerHTML)
-
+    
     ev.target.children[2].remove()
-    console.log("upper slot fill deleted")
-    console.log("upper slot fill "+ev.target.children[2])
+    
     
     //document.getElementById(data).draggable = ""
     ev.target.appendChild(document.getElementById(data));
-    console.log("upper slot fill refilled")
+    
     ev.target.children[0].classList.remove('d-none')
-    console.log("upper slot fill "+ev.target.children[2].outerHTML)
+   
+
+    ev.target.parentElement.classList.toggle("no-border")
   }
 
   function clearImg(ev){
-    console.log("e")
-    console.log("upper slot  "+ev.target.parentElement.children[2].outerHTML)
+
     for(let x = 0; x < document.getElementById("coso").children.length ; x++){
-      console.log("f")
-      console.log("upper slot  "+ev.target.parentElement.children[2].outerHTML)
+ 
       if(document.getElementById("coso").children[x].children.length < 1){
-        console.log("g")
-        console.log("to here "+document.getElementById("coso").children[x].outerHTML)
-        //console.log("img to append  "+ev.target.parentElement.children[2].outerHTML)
+
         //ev.target.parentElement.children[2].draggable = true
-        console.log("upper slot  "+ev.target.parentElement.children[2].outerHTML)
-        console.log("from here  "+ev.target.parentElement.children[2].outerHTML)
+
         num = ev.target.parentElement.children[1].innerHTML
         numero = num.replace('#', '');
         n = parseFloat(numero);
         document.getElementById("coso").children[x].appendChild(ev.target.parentElement.children[2])
-        console.log("ooooooo "+document.getElementsByClassName("tall-img")[n-1].outerHTML)
+        ev.target.parentElement.parentElement.classList.toggle("no-border")
         document.getElementsByClassName("tall-img")[n-1].insertAdjacentHTML('beforeend', "<img id='WUimg4' class='img-fit' src=''>")
         //ev.target.parentElement.insertAdjacentHTML('beforeend', "<img id='WUimg4' class='img-fit' src=''>");
         ev.target.parentElement.children[0].classList.add('d-none')
-        console.log("upper slot  "+ev.target.parentElement.children[2].outerHTML)
+
         break
         
       }
