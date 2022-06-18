@@ -638,3 +638,77 @@ margin-bottom: 5%;
   .d-inline-block{
       width: inherit!important;
     }
+
+ .navbar {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+ }
+
+ .dot{
+    height: 40px;
+    width: 40px;
+    background-color: #00FFC1;
+    border-radius: 50%;
+    display: inline-block;
+ }
+
+ #navcontainer{
+    padding-left: 0rem !important;
+ }
+
+ #navcontainer1{
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+ }
+
+ #animateexample{
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite
+ }
+
+ @keyframes example {
+    25%   {background-color: #00FFC1; }
+    50%  {background-color: #252525;}
+    75%  {background-color: #252525;}
+    100% {background-color: #252525;}
+  }
+
+  #animateexample1{
+    animation-name: example1;
+    animation-duration: 4s;
+    animation-iteration-count: infinite
+ }
+
+  @keyframes example1 {
+    25%   {background-color: #252525;}
+    50%  {background-color: #00FFC1;}
+    75%  {background-color: #252525;}
+    100% {background-color: #252525;}
+  }
+  #animateexample2{
+    animation-name: example2;
+    animation-duration: 4s;
+    animation-iteration-count: infinite
+ }
+  
+ @keyframes example2 {
+    25%   {background-color: #252525;}
+    50%  {background-color: #252525;}
+    75%  {background-color: #00FFC1;}
+    100% {background-color: #252525;}
+  }
+  #animateexample3{
+    animation-name: example3;
+    animation-duration: 4s;
+    animation-iteration-count: infinite
+ }
+  
+ @keyframes example3 {
+    25%   {background-color: #252525;}
+    50%  {background-color: #252525;}
+    75%  {background-color: #252525;}
+    100% {background-color: #00FFC1;}
+  }
+
+  
