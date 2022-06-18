@@ -371,7 +371,8 @@ function resetDash(){
 function Apply_like_dislike(){ //start 
     
     // inizio parte log apply
-    // log count query
+    // log count queryc
+    
     n_queries+=1
     console.log("Query number: ", n_queries);
     
