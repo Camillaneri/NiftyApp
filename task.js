@@ -394,6 +394,10 @@ function Apply_like_dislike(){ //start
     console.log('print session storage:', sessionStorage)
     // sessionStorage.setItem()
     // fine parte log apply
+
+
+
+    
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
     
