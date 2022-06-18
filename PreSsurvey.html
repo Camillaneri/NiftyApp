@@ -20,15 +20,37 @@
     </head>
     <body class="d-flex flex-column vh-100">
 
-        <!-- Navbar -->
-        <nav class="navbar py-4 navbar-dark bg-dark fixed-top" id="MainNav">
-            <span class="container-fluid">
-                <span class="navbar-text"> NiftyEValue</span> 
-                <span class="navbar-text align-self-end" id="pageName">Survey</span>
-              
-
-            </span>
-        </nav>
+         <!-- header -->
+       <div class="py-4 Headercolor" id="Header">
+        <span class="container-fluid d-flex justify-content-between">
+            <span class="text-left text-light"> NiftyEValue</span> 
+            <span class="text-right text-light" id="pageName">Home</spandes>
+        </span>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navcolor navbar-dark">
+        <div class="container-fluid" id="navcontainer">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link py-3 px-5 lightgreen text-dark " href="#">Pre survey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-3 px-5" href="#">First Task</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-3 px-5" href="#">Second Task</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-3 px-5" href="#">Post survey</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center mt-2 me-3 position-absolute pincontainer" href="#">
+                    <span class="dot text-dark text-center">?</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+      </nav>
         
         <!-- Central body -->
         <div class="wrapper vcenter-item" id="wrap2">
