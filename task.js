@@ -230,11 +230,7 @@ function ExpandDash() {
 console.log(query)
 function AddLiked_Disliked(event) {
 
-    // inizio parte logs
-    let query = sessionStorage.getItem('n_queries');
-
-    sessionStorage.setItem('query'+query, {});
-    // fine parte logs
+   
     console.log('session:', sessionStorage)
     
 
@@ -375,16 +371,26 @@ function resetDash(){
 function Apply_like_dislike(){ //start 
     
     // inizio parte log apply
+    // log count query
     n_queries+=1
     console.log("Query number: ", n_queries);
     
     console.log("Add query");
     sessionStorage.setItem('n_queries', n_queries);
     console.log('n_queries =', n_queries)
-
+    //log ids nella query
+    var imgs =  document.getElementById('LikesBox').querySelectorAll('img')
+    console.log('inizio ids',)
+    var positives = []
+    for(var i = 0, n = imgs.length; i < n; ++i){
+      console.log('img =', imgs[i].id)
+      positives.push(imgs[i].id)
+    }
+    console.log('array pos=', positives)
+    // fine parte log apply
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
-    // fine parte log apply
+    
 
     var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
   
