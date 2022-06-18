@@ -240,16 +240,7 @@ function AddLiked_Disliked(event) {
     //console.log("disliked "+num_dslikd)
 
     if(event.target.id == 'imgBtnlike'){
-      support = event.target.parentElement.parentElement.children
-      support = support[2].id
-      console.log('support:',support)
-      if (query['pos']==undefined){
-        item = support; 
-        console.log('item no:', item);
-        query['pos']==item;
-      console.log('query:',query['pos'])}else{
-          item = query['pos']+', '+support
-      console.log('item si:', item);query['pos']=item}
+      
       
       
       
@@ -372,7 +363,7 @@ function Apply_like_dislike(){ //start
     
     // inizio parte log apply
     // log count queryc
-    
+
     n_queries+=1
     console.log("Query number: ", n_queries);
     
@@ -380,14 +371,28 @@ function Apply_like_dislike(){ //start
     sessionStorage.setItem('n_queries', n_queries);
     console.log('n_queries =', n_queries)
     //log ids nella query
-    var imgs =  document.getElementById('LikesBox').querySelectorAll('img')
-    console.log('inizio ids',)
+    var imgs_p =  document.getElementById('LikesBox').querySelectorAll('img')
+  
     var positives = []
-    for(var i = 0, n = imgs.length; i < n; ++i){
-      console.log('img =', imgs[i].id)
-      positives.push(imgs[i].id)
+    for(var i = 0, n = imgs_p.length; i < n; ++i){
+      console.log('img =', imgs_p[i].id)
+      positives.push(imgs_p[i].id)
     }
     console.log('array pos=', positives)
+
+    var imgs_n =  document.getElementById('DislikesBox').querySelectorAll('img')
+    var negatives = []
+    for(var i = 0, n = imgs_n.length; i < n; ++i){
+      console.log('img =', imgs_n[i].id)
+      negatives.push(imgs_n[i].id)
+    }
+    console.log('array neg=', negatives)
+    console.log('quries number',n_queries)
+    var dict = {'pos':positives, 'neg':negatives}
+    console.log('dict:',JSON.stringify(dict))
+    sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
+    console.log('print session storage:', sessionStorage)
+    // sessionStorage.setItem()
     // fine parte log apply
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
