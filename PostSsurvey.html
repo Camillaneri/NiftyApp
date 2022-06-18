@@ -294,8 +294,8 @@
             </div>
       </footer>    
     </body>
-
-       <script type="module">
+ <!-- This script brelow sends data from the task -->
+        <script type="module">
         var currentDate = new Date()
         sessionStorage.setItem('access-surv1', currentDate);
 
@@ -304,29 +304,17 @@
       
         console.log('Supabase Instance: ', supabase)
         let myId = sessionStorage.getItem('id');
+        let queries = sessionStorage.getItem('n_queries');
+        
+        let submission = {'id':myId, 'n_queries':queries}
+        console.log(myId, queries)
+        console.log(submission)
+        await supabase.from('Main_task').insert([submission])
+         
 
-        console.log(myId)
-        const form = document.querySelectorAll('#pre-form')
-        form[0].addEventListener('submit', async (event) => {
-            console.log('cazzo')
-            event.preventDefault()
-            const formInputs = form[0].querySelectorAll('input:checked')
-            let submission = {'id':myId}
-            formInputs.forEach( element =>{
-                const { value, name } = element
-                if (value) {
-                    submission[name]=value
-                
-                }
-            })
-
-            console.log(submission)
-            await supabase.from('Second_survey').insert([submission])
-            window.location.replace('warmUp.html')
-
-        })
+    
       </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+     
 </html> 
