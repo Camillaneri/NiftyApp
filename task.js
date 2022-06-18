@@ -55,10 +55,11 @@ function fill_task_dash(){
     }
     //for the reset button
     if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
+      console.log("preso")
         document.getElementById('LikesBox').innerHTML = "";
         document.getElementById('DislikesBox').innerHTML = "";
-
-    }
+        
+    } 
     
 }
     
@@ -352,6 +353,10 @@ function AddLiked_Disliked(event) {
 function clearImg(ev){
     //console.log("ciauxxx "+ev.target.parentNode.outerHTML)
     ev.target.parentNode.children[1].remove();
+    if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
+    ev.target.parentNode.remove()
+    
+    }
     // //console.log(ev.target.parentNode.parentNode)
 }
 

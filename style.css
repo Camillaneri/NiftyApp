@@ -67,10 +67,6 @@ body {
     border: 1px solid #00FFC1;
     margin-left: 0.25em;
     margin-right: 0.25em;
-    
-    
-
-
 }
 
 .getDatabox1{
@@ -86,6 +82,10 @@ body {
 
 }
 
+.no-border{
+    border: none !important;
+}
+
 
 .tall-img{
     min-height: 8em;
@@ -95,7 +95,6 @@ body {
 }
 .img-fit{
     object-fit: cover;
-    border: 1px solid #00FFC1;
 }
 
 .Databox1{
@@ -545,6 +544,10 @@ margin-bottom: 5%;
 }
 .lightgreen{
     background-color: #00FFC1 !important;
+}
+
+.greenborder{
+    border: 1px solid #00FFC1;
 }
 
 .slidebtn{
