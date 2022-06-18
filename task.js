@@ -1,7 +1,9 @@
 
 
 
-
+var n_queries = 0;
+sessionStorage.setItem('n_queries', n_queries);
+var query = {'pos':'','neg':''};
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
@@ -225,13 +227,35 @@ function ExpandDash() {
 //ADD IMAGES TO QUERY
 //console.log("")
 
+console.log(query)
 function AddLiked_Disliked(event) {
+
+   
+    console.log('session:', sessionStorage)
+    
+
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
     //console.log("liked "+num_likd)
     //console.log("disliked "+num_dslikd)
 
     if(event.target.id == 'imgBtnlike'){
+      support = event.target.parentElement.parentElement.children
+      support = support[2].id
+      console.log('support:',support)
+      if (query['pos']==undefined){
+        item = support; 
+        console.log('item no:', item);
+        query['pos']==item;
+      console.log('query:',query['pos'])}else{
+          item = query['pos']+', '+support
+      console.log('item si:', item);query['pos']=item}
+      
+      
+      
+
+      
+      // const positives = sessionStorage.getItem('pos_q_'+queries);
         //console.log("a")
         //console.log("AddidL "+event.target.parentElement.parentElement.children[2].outerHTML)
         AddMeL = event.target.parentElement.parentElement.children[2].src; 
@@ -343,20 +367,31 @@ function resetDash(){
   }
 }
 
-var n_queries = 0;
+
 function Apply_like_dislike(){ //start 
     
     // inizio parte log apply
+    // log count queryc
     
-    console.log("Query number: ", n_queries);
     n_queries+=1
+    console.log("Query number: ", n_queries);
+    
     console.log("Add query");
     sessionStorage.setItem('n_queries', n_queries);
     console.log('n_queries =', n_queries)
-
+    //log ids nella query
+    var imgs =  document.getElementById('LikesBox').querySelectorAll('img')
+    console.log('inizio ids',)
+    var positives = []
+    for(var i = 0, n = imgs.length; i < n; ++i){
+      console.log('img =', imgs[i].id)
+      positives.push(imgs[i].id)
+    }
+    console.log('array pos=', positives)
+    // fine parte log apply
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
-    // fine parte log apply
+    
 
     var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
   
