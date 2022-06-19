@@ -306,6 +306,10 @@
         let myId = sessionStorage.getItem('id');
         let queries = sessionStorage.getItem('n_queries');
         
+        for(var i = 1; i < queries; ++i){
+            var query = sessionStorage.getItem('query'+i)
+            console.log(query)
+        }
         let submission = {'id':myId, 'n_queries':queries}
         console.log(myId, queries)
         console.log(submission)
