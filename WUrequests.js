@@ -134,6 +134,8 @@ function loadWarmUp(){
             get_img_element[x].src = art_url;
             
             get_img_element[x].id = art_id;
+
+            document.getElementsByClassName("simimages")[x].classList.remove("imgsubst")
         
             }
         else{

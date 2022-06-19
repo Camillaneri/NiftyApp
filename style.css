@@ -712,3 +712,26 @@ margin-bottom: 5%;
   }
 
   
+
+  .imgsubst{
+    min-height: 10rem;
+    animation-name: noimg;
+    margin-bottom: 1rem;
+    animation-duration: 3s;
+    animation-iteration-count: infinite
+  }
+
+  @keyframes noimg {
+    0% {background-color: #e0e0e0;}
+    50%  {background-color: #8d8d8d;}
+    100% {background-color: #e0e0e0;}
+  }
+
+  .hide {
+    display: none;
+  }
+      
+  img:hover + .hide {
+    display: block;
+    
+  }
