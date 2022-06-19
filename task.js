@@ -104,12 +104,11 @@ function drop(ev) {
     var copyimg = document.createElement("img");
     var original = document.getElementById(data);
     copyimg.src = original.src;
-    copyimg.id = original.id;
     copyimg.classList = original.classList;
-
-          ev.target.appendChild(copyimg);
-          ev.target.children[1].classList.toggle("img-to-like")
-          ev.target.children[1].classList.toggle("clear-dash")
+    ev.target.appendChild(copyimg);
+    ev.target.children[1].classList.toggle("img-to-like");
+    ev.target.children[1].classList.toggle("clear-dash");
+    myImgsListener();
       
     
 };  
@@ -143,10 +142,12 @@ function Addtodash(ev){
     break
     }
   } 
+  myImgsListener();
+  
+  
   
     
-    
-  }
+}
 
 // DASHBOARD EXPAND-CONTRACT 
 
@@ -283,6 +284,7 @@ function clearImg(ev){
     ev.target.parentNode.remove()
     
     }
+    myImgsListener();
     // //console.log(ev.target.parentNode.parentNode)
 }
 
@@ -295,6 +297,7 @@ function resetDash(){
         a[i].children[1].remove()
     }
   }
+  myImgsListener();
 }
 
 
@@ -535,3 +538,10 @@ function reveal() {
 
 
 
+// retrieve dash images ids and count 
+
+function myImgsListener(){
+  
+}
+
+myImgsListener();
