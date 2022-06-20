@@ -727,11 +727,41 @@ margin-bottom: 5%;
     100% {background-color: #e0e0e0;}
   }
 
-  .hide {
-    display: none;
-  }
-      
-  img:hover + .hide {
-    display: block;
+.img-to-like{
+    object-fit: cover;
+    overflow: hidden;
+    position: absolute;
+    inset: 0px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    margin-top:0 !important;
+
+}
+
+.no-img{
+    min-height: 18rem;
+    margin-bottom: 1rem;
+}
+
+.like_dislike{
+
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+
+}
+
+#imgBtnlike{
+    border: none !important;
     
-  }
+}
+
+#imgBtndislike{
+    border: none !important;
+}
