@@ -3,6 +3,7 @@
 
 var n_queries = 0;
 sessionStorage.setItem('n_queries', n_queries);
+sessionStorage.setItem('clearedQueryImgs', 0);
 var query = {'pos':'','neg':''};
 
 
@@ -195,7 +196,7 @@ function AddLiked_Disliked(event) {
   
         if (num_likd == 0 && num_dslikd == 0){
             //console.log("a.1")
-            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
+            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
             }
         if((num_likd > 0 && num_likd < 3) || (num_likd < 0 && num_dslikd > 0 && num_dslikd <= 3 )){
             //console.log("a.2")
@@ -219,7 +220,7 @@ function AddLiked_Disliked(event) {
             }
             else{
                 //console.log("a.23")
-                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
+                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
             }
         
         }
@@ -235,7 +236,7 @@ function AddLiked_Disliked(event) {
         AddidD = event.target.parentElement.parentElement.children[2].id;
         if (num_likd == 0 && num_dslikd == 0){
             //console.log("b.1")
-            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
+            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
             }
         if((num_dslikd > 0 && num_dslikd < 3) || (num_likd > 0 && num_likd <= 3 && num_dslikd < 3)){
             //console.log("b.2")
@@ -259,7 +260,7 @@ function AddLiked_Disliked(event) {
             }
             else{
                 //console.log("b.23")
-                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
+                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
             }
         
         }
@@ -279,10 +280,12 @@ function AddLiked_Disliked(event) {
 
 //CLEAR IMGS from fields
 function clearImg(ev){
-    //console.log("ciauxxx "+ev.target.parentNode.outerHTML)
+    console.log("ciauxxx "+ev.target.parentNode)
+    //inizio log removed images 
     ev.target.parentNode.children[1].remove();
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
-    ev.target.parentNode.remove()
+      console.log('inside query:',ev.target.parentNode)
+      ev.target.parentNode.remove()
     
     }
     myImgsListener();
@@ -558,3 +561,4 @@ function myImgsListener(){
 }
 
 myImgsListener();
+
