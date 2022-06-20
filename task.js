@@ -125,6 +125,7 @@ function Addtodash(ev){
   var img = document.createElement('img');
   img.src = givsrc
   img.id = giveid
+  img.value = 'query'+n_queries
   img.classList = ['w-10', 'clear-dash']
 
   idilist = []
@@ -596,16 +597,17 @@ function myImgsListener(){
   var myImgIds = []
   const gallery = document.getElementById('imagesGrid')
   console.log(gallery)
+  
   const imgs = gallery.querySelectorAll('img')
   sessionStorage.setItem('myGallery_count', imgs.length)
   console.log('imgs',imgs.length)
   for(var i = 0; i < imgs.length; i++){
     myImg = imgs[i]
-    myImgIds.push(myImg.id)
+    myImgIds.push(JSON.str('{ '+myImg.value+': '+myImg.id+'}'))
     console.log('i=', myImg.id)
   }
   console.log('array :', myImgIds)
-  sessionStorage.setItem('myImgIds', JSON.stringify(myImgIds))
+  sessionStorage.setItem('myImgIds', +JSON.stringify(myImgIds))
 }
 
 myImgsListener();
