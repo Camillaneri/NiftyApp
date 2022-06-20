@@ -3,8 +3,10 @@
 
 var n_queries = 0;
 sessionStorage.setItem('n_queries', n_queries);
+sessionStorage.setItem('clearedLikedImgs', 0);
+sessionStorage.setItem('clearedDislikedImgs', 0);
+sessionStorage.setItem('queryImgsClrd', '');
 var query = {'pos':'','neg':''};
-
 
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
@@ -196,7 +198,7 @@ function AddLiked_Disliked(event) {
   
         if (num_likd == 0 && num_dslikd == 0){
             //console.log("a.1")
-            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
+            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
             }
         if((num_likd > 0 && num_likd < 3) || (num_likd < 0 && num_dslikd > 0 && num_dslikd <= 3 )){
             //console.log("a.2")
@@ -220,7 +222,7 @@ function AddLiked_Disliked(event) {
             }
             else{
                 //console.log("a.23")
-                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
+                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
             }
         
         }
@@ -236,7 +238,7 @@ function AddLiked_Disliked(event) {
         AddidD = event.target.parentElement.parentElement.children[2].id;
         if (num_likd == 0 && num_dslikd == 0){
             //console.log("b.1")
-            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
+            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
             }
         if((num_dslikd > 0 && num_dslikd < 3) || (num_likd > 0 && num_likd <= 3 && num_dslikd < 3)){
             //console.log("b.2")
@@ -260,7 +262,7 @@ function AddLiked_Disliked(event) {
             }
             else{
                 //console.log("b.23")
-                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='imgBtn' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
+                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
             }
         
         }
@@ -280,15 +282,38 @@ function AddLiked_Disliked(event) {
 
 //CLEAR IMGS from fields
 function clearImg(ev){
-    //console.log("ciauxxx "+ev.target.parentNode.outerHTML)
+    console.log("ciauxxx "+ev.target.parentNode)
+    //inizio log removed images 
     ev.target.parentNode.children[1].remove();
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
     ev.target.parentNode.remove()
     } else{
       ev.target.classList.toggle("d-none")
+      console.log('inside query:',ev.target.id)
+      let imgId = ev.target.id
+
+      switch (imgId){
+        case 'clear-liked':
+          var clearedlkd = parseInt(sessionStorage.getItem('clearedLikedImgs'))
+          clearedlkd +=1
+          sessionStorage.setItem('clearedLikedImgs', clearedlkd)
+          console.log('liked removed',clearedlkd)
+          break
+        case 'clear-disliked':
+          var cleareddslkd = parseInt(sessionStorage.getItem('clearedDislikedImgs'))
+          cleareddslkd +=1
+          sessionStorage.setItem('clearedDislikedImgs', cleareddslkd)
+          
+          
+          console.log('disliked removed', cleareddslkd)
+          break
+      }
+      ev.target.parentNode.remove()
+    
     }
-    myImgsListener();
-    // //console.log(ev.target.parentNode.parentNode)
+    //fine log removed images 
+    myImgsListener(); //log images inserted in query, poi le do in pasto ad apply per riassumrle in una unica value di session storage 
+    //console.log(ev.target.parentNode.parentNode)
 }
 
 
@@ -308,41 +333,69 @@ function Apply_like_dislike(){ //start
 
   for(let x = 0; x <= 19; x++){
     img_element = document.getElementsByClassName('img-to-like')[x].src = ""
-  if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
-    document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
+    if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
+      document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
+    }
   }
-}
 
-    n_queries+=1
-    console.log("Query number: ", n_queries);
-    
-    console.log("Add query");
-    sessionStorage.setItem('n_queries', n_queries);
-    console.log('n_queries =', n_queries)
-    //log ids nella query
-    var imgs_p =  document.getElementById('LikesBox').querySelectorAll('img')
+  // inizio parte log apply
+
+  //riassumiamo le immagini cancellate da like e dislike in un unico item di storage Session
+  let removedLiked = sessionStorage.getItem('clearedLikedImgs')
+  let removedDisiked = sessionStorage.getItem('clearedDislikedImgs')
+  console.log(n_queries, removedLiked, removedDisiked)
+  // creaiamo una string con numero di query e dati da poi mettere in session storage
+  var clearedforSession = +n_queries+': {removedLiked: '+removedLiked+', removedDisiked: '+removedDisiked+'}'
+  console.log('clearedforSession', clearedforSession)
+
+  var queryImgsClrd = sessionStorage.getItem('queryImgsClrd'); //riprendi value attuale in session storage
   
-    var positives = []
-    for(var i = 0, n = imgs_p.length; i < n; ++i){
-      console.log('img =', imgs_p[i].id)
-      positives.push(imgs_p[i].id)
-    }
-    console.log('array pos=', positives)
+  switch (queryImgsClrd){
+    case '':
+      queryImgsClrd = clearedforSession;
+      break
+    default:
+      queryImgsClrd = queryImgsClrd+', '+clearedforSession;
+      break
+  }
+  sessionStorage.setItem('queryImgsClrd', queryImgsClrd)
+  console.log('queryImgsClrd', queryImgsClrd)
 
-    var imgs_n =  document.getElementById('DislikesBox').querySelectorAll('img')
-    var negatives = []
-    for(var i = 0, n = imgs_n.length; i < n; ++i){
-      console.log('img =', imgs_n[i].id)
-      negatives.push(imgs_n[i].id)
-    }
-    console.log('array neg=', negatives)
-    console.log('quries number',n_queries)
-    var dict = {'pos':positives, 'neg':negatives}
-    console.log('dict:',JSON.stringify(dict))
-    sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
-    console.log('print session storage:', sessionStorage)
-    // sessionStorage.setItem()
-    // fine parte log apply
+  // riporta i count delle immagini (liked e disliked) e rimossi a zero per il count della prossima query
+  sessionStorage.setItem('clearedLikedImgs', 0);
+  sessionStorage.setItem('clearedDislikedImgs', 0);
+
+  n_queries+=1 //incrementa count query dopo aver fatto i log sullo stato attuale
+  console.log("Query number: ", n_queries);
+  
+  console.log("Add query");
+  sessionStorage.setItem('n_queries', n_queries);
+  console.log('n_queries =', n_queries)
+
+  //log ids nella query
+  var imgs_p =  document.getElementById('LikesBox').querySelectorAll('img')
+
+  var positives = []
+  for(var i = 0, n = imgs_p.length; i < n; ++i){
+    console.log('img =', imgs_p[i].id)
+    positives.push(imgs_p[i].id)
+  }
+  console.log('array pos=', positives)
+
+  var imgs_n =  document.getElementById('DislikesBox').querySelectorAll('img')
+  var negatives = []
+  for(var i = 0, n = imgs_n.length; i < n; ++i){
+    console.log('img =', imgs_n[i].id)
+    negatives.push(imgs_n[i].id)
+  }
+  console.log('array neg=', negatives)
+  console.log('quries number',n_queries)
+  var dict = {'pos':positives, 'neg':negatives}
+  console.log('dict:',JSON.stringify(dict))
+  sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
+  console.log('print session storage:', sessionStorage)
+  // sessionStorage.setItem()
+  // fine parte log apply
 
 
 
@@ -560,3 +613,4 @@ function myImgsListener(){
 }
 
 myImgsListener();
+
