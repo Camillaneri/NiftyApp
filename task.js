@@ -105,6 +105,7 @@ function drop(ev) {
     var original = document.getElementById(data);
     copyimg.src = original.src;
     copyimg.classList = original.classList;
+    copyimg.id = original.id
     ev.target.appendChild(copyimg);
     ev.target.children[1].classList.toggle("img-to-like");
     ev.target.children[1].classList.toggle("clear-dash");
@@ -541,7 +542,19 @@ function reveal() {
 // retrieve dash images ids and count 
 
 function myImgsListener(){
-  
+  var myImgIds = []
+  const gallery = document.getElementById('imagesGrid')
+  console.log(gallery)
+  const imgs = gallery.querySelectorAll('img')
+  sessionStorage.setItem('myGallery_count', imgs.length)
+  console.log('imgs',imgs.length)
+  for(var i = 0; i < imgs.length; i++){
+    myImg = imgs[i]
+    myImgIds.push(myImg.id)
+    console.log('i=', myImg.id)
+  }
+  console.log('array :', myImgIds)
+  sessionStorage.setItem('myImgIds', JSON.stringify(myImgIds))
 }
 
 myImgsListener();
