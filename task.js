@@ -110,6 +110,7 @@ function drop(ev) {
     copyimg.src = original.src;
     copyimg.classList = original.classList;
     copyimg.id = original.id
+    copyimg.name = 'query'+n_queries
     ev.target.appendChild(copyimg);
     ev.target.children[1].classList.toggle("img-to-like");
     ev.target.children[1].classList.toggle("clear-dash");
@@ -130,7 +131,7 @@ function Addtodash(ev){
   var img = document.createElement('img');
   img.src = givsrc
   img.id = giveid
-  img.value = 'query'+n_queries
+  img.name = 'query'+n_queries
   img.classList = ['w-10', 'clear-dash']
 
   idilist = []
@@ -609,7 +610,7 @@ function myImgsListener(){
   console.log('imgs',imgs.length)
   for(var i = 0; i < imgs.length; i++){
     myImg = imgs[i]
-    myImgIds.push(JSON.str('{ '+myImg.value+': '+myImg.id+'}'))
+    myImgIds.push('{ '+myImg.name+': '+myImg.id+'}')
     console.log('i=', myImg.id)
   }
   console.log('array :', myImgIds)
