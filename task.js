@@ -612,7 +612,8 @@ function myImgsListener(){
     console.log('i=', myImg.id)
   }
   console.log('array :', myImgIds)
-  sessionStorage.setItem('myImgIds', +JSON.stringify(myImgIds))
+  sessionStorage.setItem('myImgIds', myImgIds)
+  console.log(sessionStorage.getItem('myImgIds'))
 }
 
 myImgsListener();
