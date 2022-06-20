@@ -741,9 +741,27 @@ margin-bottom: 5%;
     height: 100%;
     z-index: -1;
     margin-top:0 !important;
+
 }
 
 .no-img{
     min-height: 18rem;
     margin-bottom: 1rem;
+}
+
+.like_dislike{
+
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+
+}
+
+#imgBtnlike{
+    border: none !important;
+    
+}
+
+#imgBtndislike{
+    border: none !important;
 }
