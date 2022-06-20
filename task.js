@@ -5,6 +5,7 @@ var n_queries = 0;
 sessionStorage.setItem('n_queries', n_queries);
 sessionStorage.setItem('clearedLikedImgs', 0);
 sessionStorage.setItem('clearedDislikedImgs', 0);
+sessionStorage.setItem('queryImgsClrd', '');
 var query = {'pos':'','neg':''};
 
 //GET SIMILAR IMAGES 
@@ -296,8 +297,9 @@ function clearImg(ev){
           break
         case 'clear-disliked':
           var cleareddslkd = parseInt(sessionStorage.getItem('clearedDislikedImgs'))
-          sessionStorage.setItem('clearedDislikedImgs', cleareddslkd)
           cleareddslkd +=1
+          sessionStorage.setItem('clearedDislikedImgs', cleareddslkd)
+          
           
           console.log('disliked removed', cleareddslkd)
           break
@@ -307,7 +309,7 @@ function clearImg(ev){
     }
     //fine log removed images 
     myImgsListener(); //log images inserted in query, poi le do in pasto ad apply per riassumrle in una unica value di session storage 
-    // //console.log(ev.target.parentNode.parentNode)
+    //console.log(ev.target.parentNode.parentNode)
 }
 
 
@@ -327,41 +329,69 @@ function Apply_like_dislike(){ //start
 
   for(let x = 0; x <= 19; x++){
     img_element = document.getElementsByClassName('img-to-like')[x].src = ""
-  if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
-    document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
+    if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
+      document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
+    }
   }
-}
 
-    n_queries+=1
-    console.log("Query number: ", n_queries);
-    
-    console.log("Add query");
-    sessionStorage.setItem('n_queries', n_queries);
-    console.log('n_queries =', n_queries)
-    //log ids nella query
-    var imgs_p =  document.getElementById('LikesBox').querySelectorAll('img')
+  // inizio parte log apply
+
+  //riassumiamo le immagini cancellate da like e dislike in un unico item di storage Session
+  let removedLiked = sessionStorage.getItem('clearedLikedImgs')
+  let removedDisiked = sessionStorage.getItem('clearedDislikedImgs')
+  console.log(n_queries, removedLiked, removedDisiked)
+  // creaiamo una string con numero di query e dati da poi mettere in session storage
+  var clearedforSession = +n_queries+': {removedLiked: '+removedLiked+', removedDisiked: '+removedDisiked+'}'
+  console.log('clearedforSession', clearedforSession)
+
+  var queryImgsClrd = sessionStorage.getItem('queryImgsClrd'); //riprendi value attuale in session storage
   
-    var positives = []
-    for(var i = 0, n = imgs_p.length; i < n; ++i){
-      console.log('img =', imgs_p[i].id)
-      positives.push(imgs_p[i].id)
-    }
-    console.log('array pos=', positives)
+  switch (queryImgsClrd){
+    case '':
+      queryImgsClrd = clearedforSession;
+      break
+    default:
+      queryImgsClrd = queryImgsClrd+', '+clearedforSession;
+      break
+  }
+  sessionStorage.setItem('queryImgsClrd', queryImgsClrd)
+  console.log('queryImgsClrd', queryImgsClrd)
 
-    var imgs_n =  document.getElementById('DislikesBox').querySelectorAll('img')
-    var negatives = []
-    for(var i = 0, n = imgs_n.length; i < n; ++i){
-      console.log('img =', imgs_n[i].id)
-      negatives.push(imgs_n[i].id)
-    }
-    console.log('array neg=', negatives)
-    console.log('quries number',n_queries)
-    var dict = {'pos':positives, 'neg':negatives}
-    console.log('dict:',JSON.stringify(dict))
-    sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
-    console.log('print session storage:', sessionStorage)
-    // sessionStorage.setItem()
-    // fine parte log apply
+  // riporta i count delle immagini (liked e disliked) e rimossi a zero per il count della prossima query
+  sessionStorage.setItem('clearedLikedImgs', 0);
+  sessionStorage.setItem('clearedDislikedImgs', 0);
+
+  n_queries+=1 //incrementa count query dopo aver fatto i log sullo stato attuale
+  console.log("Query number: ", n_queries);
+  
+  console.log("Add query");
+  sessionStorage.setItem('n_queries', n_queries);
+  console.log('n_queries =', n_queries)
+
+  //log ids nella query
+  var imgs_p =  document.getElementById('LikesBox').querySelectorAll('img')
+
+  var positives = []
+  for(var i = 0, n = imgs_p.length; i < n; ++i){
+    console.log('img =', imgs_p[i].id)
+    positives.push(imgs_p[i].id)
+  }
+  console.log('array pos=', positives)
+
+  var imgs_n =  document.getElementById('DislikesBox').querySelectorAll('img')
+  var negatives = []
+  for(var i = 0, n = imgs_n.length; i < n; ++i){
+    console.log('img =', imgs_n[i].id)
+    negatives.push(imgs_n[i].id)
+  }
+  console.log('array neg=', negatives)
+  console.log('quries number',n_queries)
+  var dict = {'pos':positives, 'neg':negatives}
+  console.log('dict:',JSON.stringify(dict))
+  sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
+  console.log('print session storage:', sessionStorage)
+  // sessionStorage.setItem()
+  // fine parte log apply
 
 
 

@@ -312,17 +312,18 @@
         let myId = sessionStorage.getItem('id');
         let myImgIds = sessionStorage.getItem('myImgIds');
         let myGallery_count = sessionStorage.getItem('myGallery_count');
+        let queryImgsClrd = sessionStorage.getItem('queryImgsClrd');
         console.log('images',myImgIds,myGallery_count)
         let queries = sessionStorage.getItem('n_queries');
         var toAdd = {};
-        for(var i = 1; i <= queries; ++i){
+        for(var i = 0; i <= queries; ++i){
             var query = sessionStorage.getItem('query'+i);
             console.log((JSON.stringify(query)));
             toAdd[i]=query;
             
         }
         let queriesIds = JSON.stringify(toAdd)
-        let submission = {'id':myId, 'n_queries':queries, 'queries_ids':queriesIds, 'myImgIds':myImgIds, 'myGallery_count':myGallery_count}
+        let submission = {'id':myId, 'n_queries':queries, 'queries_ids':queriesIds, 'myImgIds':myImgIds, 'myGallery_count':myGallery_count, 'queryImgsClrd':queryImgsClrd}
         console.log(myId, queries)
         console.log('final array', JSON.stringify(toAdd))
         
