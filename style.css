@@ -727,7 +727,7 @@ margin-bottom: 5%;
     100% {background-color: #e0e0e0;}
   }
 
-.img-to-like{
+/* .img-to-like{
     object-fit: cover;
     overflow: hidden;
     position: absolute;
@@ -742,12 +742,12 @@ margin-bottom: 5%;
     z-index: -1;
     margin-top:0 !important;
 
-}
+} */
 
-.no-img{
+/* .no-img{
     min-height: 18rem;
     margin-bottom: 1rem;
-}
+} */
 
 .like_dislike{
 
