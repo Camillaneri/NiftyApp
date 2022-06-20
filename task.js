@@ -3,9 +3,9 @@
 
 var n_queries = 0;
 sessionStorage.setItem('n_queries', n_queries);
-sessionStorage.setItem('clearedQueryImgs', 0);
+sessionStorage.setItem('clearedLikedImgs', 0);
+sessionStorage.setItem('clearedDislikedImgs', 0);
 var query = {'pos':'','neg':''};
-
 
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
@@ -284,11 +284,29 @@ function clearImg(ev){
     //inizio log removed images 
     ev.target.parentNode.children[1].remove();
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
-      console.log('inside query:',ev.target.parentNode)
+      console.log('inside query:',ev.target.id)
+      let imgId = ev.target.id
+
+      switch (imgId){
+        case 'clear-liked':
+          var clearedlkd = parseInt(sessionStorage.getItem('clearedLikedImgs'))
+          clearedlkd +=1
+          sessionStorage.setItem('clearedLikedImgs', clearedlkd)
+          console.log('liked removed',clearedlkd)
+          break
+        case 'clear-disliked':
+          var cleareddslkd = parseInt(sessionStorage.getItem('clearedDislikedImgs'))
+          sessionStorage.setItem('clearedDislikedImgs', cleareddslkd)
+          cleareddslkd +=1
+          
+          console.log('disliked removed', cleareddslkd)
+          break
+      }
       ev.target.parentNode.remove()
     
     }
-    myImgsListener();
+    //fine log removed images 
+    myImgsListener(); //log images inserted in query, poi le do in pasto ad apply per riassumrle in una unica value di session storage 
     // //console.log(ev.target.parentNode.parentNode)
 }
 
