@@ -99,7 +99,7 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("Text");
-   
+    console.log("target"+ ev.target.outerHTML)
     //ev.target.appendChild(document.getElementById(data));
     var copyimg = document.createElement("img");
     var original = document.getElementById(data);
@@ -110,11 +110,14 @@ function drop(ev) {
     ev.target.children[1].classList.toggle("img-to-like");
     ev.target.children[1].classList.toggle("clear-dash");
     myImgsListener();
+    ev.target.children[0].classList.toggle("d-none")
       
     
 };  
 
 
+
+//PIN TO DASH
 
 function Addtodash(ev){
   //console.log(ev.target.parentElement.parentElement.children[2])
@@ -127,8 +130,6 @@ function Addtodash(ev){
 
   idilist = []
 
-
-  
   for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
     console.log(document.getElementsByClassName("DataDash")[i])
     if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
@@ -139,16 +140,16 @@ function Addtodash(ev){
   for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
     if(document.getElementsByClassName("DataDash")[i].children.length < 2){
     document.getElementsByClassName("DataDash")[i].appendChild(img)
+    document.getElementsByClassName("DataDash")[i].children[0].classList.toggle("d-none")
     //console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
     break
     }
   } 
   myImgsListener();
-  
-  
-  
-    
 }
+
+
+
 
 // DASHBOARD EXPAND-CONTRACT 
 
@@ -283,7 +284,8 @@ function clearImg(ev){
     ev.target.parentNode.children[1].remove();
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
     ev.target.parentNode.remove()
-    
+    } else{
+      ev.target.classList.toggle("d-none")
     }
     myImgsListener();
     // //console.log(ev.target.parentNode.parentNode)
