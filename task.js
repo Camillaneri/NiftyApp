@@ -77,6 +77,8 @@ function fill_task_dash(){
     } 
     
 }
+
+console.log('start task')
     
     ;}
 )  
@@ -515,11 +517,11 @@ function Apply_like_dislike(){ //start
 } 
 
 function display_img(ev){
-  // inizio log immagne grande
+  // inizio log immagine grande
   var count = parseInt(sessionStorage.getItem('displayedImgs'));
   count +=1
   sessionStorage.setItem('displayedImgs', count);
-  // fine log immagne grande
+  // fine log immagine grande
     //console.log(ev.target)
     hid = ev.target.id
     
