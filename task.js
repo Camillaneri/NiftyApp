@@ -73,6 +73,17 @@ function fill_task_dash(){
      console.log("preso")
         document.getElementById('LikesBox').innerHTML = "";
         document.getElementById('DislikesBox').innerHTML = "";
+
+        boxes = document.querySelectorAll('.green');
+boxes.forEach(box => {
+  box.classList.remove('green');
+});
+
+boxes = document.querySelectorAll('.red');
+boxes.forEach(box => {
+  box.classList.remove('red');
+});
+
         
     } 
     
@@ -205,9 +216,11 @@ function AddLiked_Disliked(event) {
         AddidL = event.target.parentElement.parentElement.children[2].id;
   
         if (num_likd == 0 && num_dslikd == 0){
+            
             console.log("a.1")
             document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
-            }
+            event.target.classList.add("green")
+          }
         if((num_likd > 0 && num_likd < 3) || (num_likd == 0 && num_dslikd > 0 && num_dslikd <= 3 )){
             console.log("a.2")
             likd_ids = []
@@ -230,8 +243,10 @@ function AddLiked_Disliked(event) {
             }
             else{
                 console.log("a.23")
+                
                 document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
-            }
+                event.target.classList.add("green")
+              }
         
         }
         else if ( num_likd == 3){
@@ -247,7 +262,8 @@ function AddLiked_Disliked(event) {
         if (num_likd == 0 && num_dslikd == 0){
             console.log("b.1")
             document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
-            }
+            event.target.classList.add("red")
+          }
         if((num_dslikd > 0 && num_dslikd < 3) || (num_likd > 0 && num_likd <= 3 && num_dslikd < 3)){
             console.log("b.2")
             likd_idsD = []
@@ -271,7 +287,8 @@ function AddLiked_Disliked(event) {
             else{
                 console.log("b.23")
                 document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
-            }
+                event.target.classList.add("red")
+              }
         
         }
         else if ( num_dslikd == 3){
@@ -290,13 +307,27 @@ function AddLiked_Disliked(event) {
 
 //CLEAR IMGS from fields
 function clearImg(ev){
-    console.log("ciauxxx "+ev.target.parentNode.outerHTML)
-
+    console.log("ciauxxx "+ev.target.parentNode.children[1].id)
+    console.log("iddd "+ev.target.parentNode.outerHTML)
+    getid = ev.target.parentNode.children[1].id
     //inizio log removed images 
     ev.target.parentNode.children[1].remove();
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
       console.log("A")
+      
+      
+    
+    if(document.getElementById(getid).parentNode.children[0].children[0].classList.contains("green")){
+      document.getElementById(getid).parentNode.children[0].children[0].classList.remove("green")
+    }
+    if(document.getElementById(getid).parentNode.children[0].children[1].classList.contains("red")){
+      document.getElementById(getid).parentNode.children[0].children[1].classList.remove("red")
+    }
+
     ev.target.parentNode.remove()
+    console.log("iddd "+ev.target.parentNode.outerHTML)
+    
+    
     } else{
       console.log("B")
       ev.target.classList.toggle("d-none")
@@ -348,6 +379,16 @@ function Apply_like_dislike(){ //start
       document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
     }
   }
+
+boxes = document.querySelectorAll('.green');
+boxes.forEach(box => {
+  box.classList.remove('green');
+});
+
+boxes = document.querySelectorAll('.red');
+boxes.forEach(box => {
+  box.classList.remove('red');
+});
 
   // inizio parte log apply
 
