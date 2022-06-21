@@ -204,7 +204,7 @@ function AddLiked_Disliked(event) {
             console.log("a.1")
             document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
             }
-        if((num_likd > 0 && num_likd < 3) || (num_likd < 0 && num_dslikd > 0 && num_dslikd <= 3 )){
+        if((num_likd > 0 && num_likd < 3) || (num_likd = 0 && num_dslikd > 0 && num_dslikd <= 3 )){
             console.log("a.2")
             likd_ids = []
             dislikd_ids =[];
@@ -286,12 +286,15 @@ function AddLiked_Disliked(event) {
 
 //CLEAR IMGS from fields
 function clearImg(ev){
-    console.log("ciauxxx "+ev.target.parentNode)
+    console.log("ciauxxx "+ev.target.parentNode.outerHTML)
+
     //inizio log removed images 
     ev.target.parentNode.children[1].remove();
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
+      console.log("A")
     ev.target.parentNode.remove()
     } else{
+      console.log("B")
       ev.target.classList.toggle("d-none")
       console.log('inside query:',ev.target.id)
       let imgId = ev.target.id
@@ -312,7 +315,7 @@ function clearImg(ev){
           console.log('disliked removed', cleareddslkd)
           break
       }
-      ev.target.parentNode.remove()
+      
     
     }
     //fine log removed images 
