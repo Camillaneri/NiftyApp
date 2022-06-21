@@ -5,6 +5,8 @@ var n_queries = 0;
 sessionStorage.setItem('n_queries', n_queries);
 sessionStorage.setItem('clearedLikedImgs', 0);
 sessionStorage.setItem('clearedDislikedImgs', 0);
+sessionStorage.setItem('dispolayedImgs', 0);
+sessionStorage.setItem('displayedImgs', 0);
 sessionStorage.setItem('queryImgsClrd', '');
 var query = {'pos':'','neg':''};
 
@@ -75,6 +77,8 @@ function fill_task_dash(){
     } 
     
 }
+
+console.log('start task')
     
     ;}
 )  
@@ -516,18 +520,23 @@ function Apply_like_dislike(){ //start
 } 
 
 function display_img(ev){
+  // inizio log immagine grande
+  var count = parseInt(sessionStorage.getItem('displayedImgs'));
+  count +=1
+  sessionStorage.setItem('displayedImgs', count);
+  // fine log immagine grande
     //console.log(ev.target)
     hid = ev.target.id
     
-Refquery =  `
-{
-  artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+hid+` }}) {
-    url
-    artwork_id
+  Refquery =  `
+  {
+    artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+hid+` }}) {
+      url
+      artwork_id
+    }
   }
-}
-    
-` 
+      
+  ` 
 //fetch url and mediatype for every artwork
 fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   method: 'POST',
