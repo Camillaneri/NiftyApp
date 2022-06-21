@@ -208,7 +208,7 @@ function AddLiked_Disliked(event) {
             console.log("a.1")
             document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
             }
-        if((num_likd > 0 && num_likd < 3) || (num_likd = 0 && num_dslikd > 0 && num_dslikd <= 3 )){
+        if((num_likd > 0 && num_likd < 3) || (num_likd == 0 && num_dslikd > 0 && num_dslikd <= 3 )){
             console.log("a.2")
             likd_ids = []
             dislikd_ids =[];
