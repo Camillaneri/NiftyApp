@@ -115,7 +115,14 @@
                 </div>
             </div>
         </div>
-
+        
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+  
        
 
         <!-- Main body -->
@@ -131,23 +138,23 @@
                     </button>
                 </div>
                 <div class="px-1 position-relative d-flex flex-wrap" id="imagesGrid"> 
-                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
-                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
-                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
-                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
-                    <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
@@ -215,7 +222,7 @@
                                
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData1" src="" class="w-10 img-to-like" alt="...">
                         </div> 
@@ -226,7 +233,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData2" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
@@ -237,7 +244,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div>  
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData3" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
@@ -248,7 +255,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">  
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData4" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
@@ -259,7 +266,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData5" src="" class="w-10 img-to-like" alt="...">
                         </div> 
@@ -273,7 +280,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">  
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData6" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
@@ -284,7 +291,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData7" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
@@ -295,7 +302,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData8" src="" class="w-10 img-to-like" alt="...">
                         </div>  
@@ -306,7 +313,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData9" src="" class="w-10 img-to-like" alt="...">
                         </div>  
@@ -317,7 +324,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div>  
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData10" src="" class="w-10 img-to-like" alt="...">  
                         </div>   
@@ -330,7 +337,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div>
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData11" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
@@ -341,7 +348,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>  
                             <img id="dragData12" src="" class="w-10 img-to-like" alt="...">     
                         </div> 
@@ -352,7 +359,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData13" src="" class="w-10 img-to-like" alt="..."> 
                         </div>
@@ -363,7 +370,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData14" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
@@ -374,7 +381,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData15" src="" class="w-10 img-to-like" alt="..."> 
                         </div>
@@ -388,7 +395,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div>
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData16" src="" class="w-10 img-to-like" alt="...">
                         </div> 
@@ -399,7 +406,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData17" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
@@ -409,7 +416,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div><div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData18" src="" class="w-10 img-to-like" alt="...">
                         </div> 
@@ -420,7 +427,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
                             </div>
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData19" src="" class="w-10 img-to-like" alt="...">
                         </div> 
@@ -430,7 +437,7 @@
                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid fa-thumbtack" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
                             </div>
                             <img id="dragData20" src="" class="w-10 img-to-like" alt="..."> 
                         </div>
