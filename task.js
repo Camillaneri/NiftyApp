@@ -629,3 +629,4 @@ function myImgsListener(){
 
 myImgsListener();
 
+function startTask()
