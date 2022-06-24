@@ -1,6 +1,6 @@
 body{
-    background-color: #2D3748 !important; 
-    /* background-color: #E2E8F0 !important; */
+    /*background-color: #2D3748 !important;*/ 
+     background-color: #E2E8F0 !important; 
     
     min-height: 100vh;
     overflow-y: scroll;
@@ -481,7 +481,7 @@ margin-bottom: 5%;
     background-color: #212529;
     min-height: 20%;
     position: relative;
-    z-index: 9;
+    
    
 }
 
@@ -725,32 +725,11 @@ margin-bottom: 5%;
   }
 
   @keyframes noimg {
-    0% {background-color: #e0e0e0;}
-    50%  {background-color: #8d8d8d;}
-    100% {background-color: #e0e0e0;}
+    0% {background-color: #e4e5ea;}
+    50%  {background-color: #929fa4;}
+    100% {background-color: #e4e5ea;}
   }
 
-/* .img-to-like{
-    object-fit: cover;
-    overflow: hidden;
-    position: absolute;
-    inset: 0px;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    margin-top:0 !important;
-
-} */
-
-/* .no-img{
-    min-height: 18rem;
-    margin-bottom: 1rem;
-} */
 
 .like_dislike{
 
@@ -812,21 +791,35 @@ margin-bottom: 5%;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    background-color: rgb(0 0 0 / 47%); /* Black w/ opacity */
   }
+  #square{
+    background-color: #e0e0e0;
+    padding: 5%;
+}
 
   .modal-content {
-    margin: auto;
+    margin:auto ;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    max-height: 65vh !important;
+    max-width: 65vh !important;
+    width: auto !important;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: none !important;
+    border-radius: 0 !important;
   }
+
+
 
 /* Add Animation */
 .modal-content, #caption {  
@@ -834,6 +827,7 @@ margin-bottom: 5%;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
+    
   }
   
   @-webkit-keyframes zoom {
@@ -863,10 +857,33 @@ margin-bottom: 5%;
     text-decoration: none;
     cursor: pointer;
   }
-  
+ 
   /* 100% Image Width on Smaller Screens */
-  @media only screen and (max-width: 700px){
+   /* @media only screen and (max-width: 700px){
     .modal-content {
       width: 100%;
     }
-  }
+  } */
+
+  .img-fit-in{
+    object-fit: cover;
+    overflow: hidden;
+    position: absolute;
+    inset: 0px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    margin-top:0 !important;
+
+} 
+
+.img-contain{
+    max-height: 8rem;
+    margin-bottom: 1rem;
+}
+
