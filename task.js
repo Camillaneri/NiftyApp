@@ -128,6 +128,7 @@ function drop(ev) {
     copyimg.name = 'query'+n_queries
     ev.target.appendChild(copyimg);
     ev.target.children[1].classList.toggle("img-to-like");
+    ev.target.children[1].classList.add("img-fit-in");
     ev.target.children[1].classList.toggle("clear-dash");
     myImgsListener();
     ev.target.children[0].classList.toggle("d-none")
@@ -162,6 +163,7 @@ function Addtodash(ev){
     if(document.getElementsByClassName("DataDash")[i].children.length < 2){
     document.getElementsByClassName("DataDash")[i].appendChild(img)
     document.getElementsByClassName("DataDash")[i].children[0].classList.toggle("d-none")
+    document.getElementsByClassName("DataDash")[i].children[1].classList.add("img-fit-in")
     //console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
     break
     }
@@ -218,7 +220,7 @@ function AddLiked_Disliked(event) {
         if (num_likd == 0 && num_dslikd == 0){
             
             console.log("a.1")
-            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
+            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0 img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail img-fit-in'></div>"
             event.target.classList.add("green")
           }
         if((num_likd > 0 && num_likd < 3) || (num_likd == 0 && num_dslikd > 0 && num_dslikd <= 3 )){
@@ -244,7 +246,7 @@ function AddLiked_Disliked(event) {
             else{
                 console.log("a.23")
                 
-                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail'></div>"
+                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0 img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail  img-fit-in'></div>"
                 event.target.classList.add("green")
               }
         
@@ -261,7 +263,7 @@ function AddLiked_Disliked(event) {
         AddidD = event.target.parentElement.parentElement.children[2].id;
         if (num_likd == 0 && num_dslikd == 0){
             console.log("b.1")
-            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
+            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0 img-contain'><input class='position-absolute btn btn-light p-0 ' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
             event.target.classList.add("red")
           }
         if((num_dslikd > 0 && num_dslikd < 3) || (num_likd > 0 && num_likd <= 3 && num_dslikd < 3)){
@@ -286,7 +288,7 @@ function AddLiked_Disliked(event) {
             }
             else{
                 console.log("b.23")
-                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail'></div>"
+                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0  img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
                 event.target.classList.add("red")
               }
         
@@ -309,6 +311,7 @@ function AddLiked_Disliked(event) {
 function clearImg(ev){
     console.log("ciauxxx "+ev.target.parentNode.children[1].id)
     console.log("iddd "+ev.target.parentNode.outerHTML)
+    ev.target.parentNode.children[1].classList.remove("img-fit-in")
     getid = ev.target.parentNode.children[1].id
     //inizio log removed images 
     ev.target.parentNode.children[1].remove();
@@ -567,7 +570,8 @@ function display_img(ev){
   sessionStorage.setItem('displayedImgs', count);
   // fine log immagine grande
     //console.log(ev.target)
-    hid = ev.target.id
+
+  hid = ev.target.id
     
   Refquery =  `
   {
@@ -596,12 +600,33 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   dict = result['data']['artwork_metrics'][x]
   art_id = dict['artwork_id']
   art_high_res = dict['url']
+  //document.getElementById("displayimg").classList.toggle("seeme");
+  //document.getElementById("displayed").src = art_high_res;
 
-  document.getElementById("displayimg").classList.toggle("seeme");
-  document.getElementById("displayed").src = art_high_res;
+  document.getElementById("myModal").style.display = "block"
+  document.getElementById("img01").src = art_high_res;
+  
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  document.getElementById("myModal").style.display = "none";
+}
+
+  
   }})
 
 }
+
+
+
+
+
+
+
 
 function closeimg(){
     //console.log(document.getElementById("displayimg").classList)

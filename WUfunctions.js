@@ -4,7 +4,8 @@
 jQuery(document).ready(function($) {
     console.log("hi i'm jquery")
     //$(".owl-carousel").owlCarousel();
-    $('#reference').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
+    $('#RefImg').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
+    $('#RefImg').css("z-index", "9")
     console.log($("#tutorials").hasClass("active"))
     
     
@@ -14,16 +15,28 @@ jQuery(document).ready(function($) {
     $( "#toTut1" ).click(function() {
       $('#tutorial2').css("display","none")
       $('#tutorial1').css("display", "block");
-      $('#reference').css("box-shadow", "unset")
+
       //$('#reference').css("z-index", "9")
       //$('#refimgcontainer').toggleClass("zindextop");
     });
+    
     $( "#toTut2a" ).click(function() {
       $('#tutorial1').css("display","none")
       $('#tutorial2').css("display","block");
-      $('#reference').css("box-shadow", "unset")
-      $('#coso').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
-      $('.dropboxes').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
+      $('#RefImg').css("box-shadow", "unset")
+      $('#RefImg').css("z-index", "0")
+      $('#clumnN2').css("box-shadow", "-300px 329.5px 0px 100px rgb(0 0 0 / 50%)")
+      $('.dropboxes').css("box-shadow", "-100px -232.8px 0px 300px rgb(0 0 0 / 50%)")
+      $('.dropboxes').css("z-index", "9")
+      $('#similarBox4').css("z-index", "10")
+      
+      $('#similarBox3').css("z-index", "10")
+      
+      $('#similarBox2').css("z-index", "10")
+      
+      $('#similarBox1').css("z-index", "10")
+      $('#similarBox0').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
+      $('#similarBox0').css("z-index", "9")
       
     });
   
