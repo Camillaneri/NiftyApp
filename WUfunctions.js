@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
       
       $('#buttons2').css("z-index", "9")
       $('#buttons2').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 80%)")
-      $('#refimgcontainer').css("z-index", "-1")
+      $('#refimgcontainer').toggleClass("zindex")
       $('#refimg').css("z-index", "9")
       
      
