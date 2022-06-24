@@ -182,13 +182,13 @@ function loadWarmUp(){
       if((document.getElementById("task").classList[2] == "zindex") && (document.getElementById("tutorial3").style !== "display: block;")){
       window.scrollTo(0, 0);
       }
-      else if ((document.getElementById("task").classList[2] == "zindex") && ((document.getElementById("tutorial1").style == "display: none;") && (document.getElementById("tutorial2").style == "display: none;") && (document.getElementById("tutorial3").style == "display: block;"))){
+      else if ((document.getElementById("task").classList[2] == "zindex")&& ((document.getElementById("refimgcontainer").classList[0] == "zindex") == false)){
         //console.log("eccoci")
         window.scrollTo(0, 0);
       }
-      //else if ((document.getElementById("task").classList[2] == "zindex") && (document.getElementById("tutorial3").style == "display: block;")){
-        //window.scrollBy(0, 100)
-      //}
+      else if ((document.getElementById("task").classList[2] == "zindex") && (document.getElementById("refimgcontainer").classList[0]== "zindex")){
+        window.scrollTo(0, 600);
+      }
       //window.scrollBy(0, 100)
 
     } else {
