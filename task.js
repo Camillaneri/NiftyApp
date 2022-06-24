@@ -698,4 +698,19 @@ function myImgsListener(){
 
 myImgsListener();
 
-function startTask()
+function startTimer () {
+  let franco = document.getElementsByTagName('img')
+  for(i in franco){
+    // console.log(franco[i].outerHTML.src)
+    var francoSrc = franco[i].outerHTML.src
+
+    if (francoSrc === undefined){
+      
+      startTimer();
+    }else{ console.log('hahahahaha')}
+  }
+  
+  
+};
+
+startTimer();
