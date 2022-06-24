@@ -2,17 +2,19 @@
 
 
 jQuery(document).ready(function($) {
+    //window.scrollTo(0, 0);
     console.log("hi i'm jquery")
     //$(".owl-carousel").owlCarousel();
     $('#RefImg').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
     $('#RefImg').css("z-index", "9")
-    console.log($("#tutorials").hasClass("active"))
+    //console.log($("#tutorials").hasClass("active"))
     
     
     
     //
   
     $( "#toTut1" ).click(function() {
+      console.log("1")
       $('#tutorial2').css("display","none")
       $('#tutorial1').css("display", "block");
 
@@ -21,35 +23,52 @@ jQuery(document).ready(function($) {
     });
     
     $( "#toTut2a" ).click(function() {
+      console.log("2")
       $('#tutorial1').css("display","none")
       $('#tutorial2').css("display","block");
       $('#RefImg').css("box-shadow", "unset")
       $('#RefImg').css("z-index", "0")
-      $('#clumnN2').css("box-shadow", "-300px 329.5px 0px 100px rgb(0 0 0 / 50%)")
-      $('.dropboxes').css("box-shadow", "-100px -232.8px 0px 300px rgb(0 0 0 / 50%)")
+
+      $('#clumnN2').css("box-shadow", "-300px 329.5px 0px 600px rgb(0 0 0 / 80%)")
+      $('.dropboxes').css("box-shadow", "0px 1px 0px 66.3px rgb(0 0 0 / 80%)")
       $('.dropboxes').css("z-index", "9")
-      $('#similarBox4').css("z-index", "10")
-      
-      $('#similarBox3').css("z-index", "10")
-      
-      $('#similarBox2').css("z-index", "10")
-      
-      $('#similarBox1').css("z-index", "10")
-      $('#similarBox0').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
+      $('#similarBox0').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 80%)")
       $('#similarBox0').css("z-index", "9")
+      $('#similarBox4').css("z-index", "10")
+      $('#similarBox3').css("z-index", "10")
+      $('#similarBox2').css("z-index", "10")
+      $('#similarBox1').css("z-index", "10")
+      
       
     });
   
     $( "#toTut3" ).click(function() {
+      console.log("3")
       $('#tutorial2').css("display","none")
       $('#tutorial3').css("display","block");
-      $('#coso').css("box-shadow", "unset")
+
+      $('#clumnN2').css("box-shadow", "unset")
       $('.dropboxes').css("box-shadow", "unset")
-      $('#buttons2').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
+      $('.dropboxes').css("z-index", "0")
+      $('#similarBox4').css("z-index", "0")
+      $('#similarBox3').css("z-index", "0")
+      $('#similarBox2').css("z-index", "0")
+      $('#similarBox1').css("z-index", "0")
+      $('#similarBox0').css("box-shadow", "unset")
+      $('#similarBox0').css("z-index", "0")
+      
+      $('#buttons2').css("z-index", "9")
+      $('#buttons2').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 80%)")
+      $('#refimgcontainer').css("z-index", "-1")
+      $('#refimg').css("z-index", "9")
+      
+     
+      
     
     });
     
     $( "#toTut2b" ).click(function() {
+      console.log("4")
       $('#tutorial3').css("display","none")
       $('#tutorial2').css("display","block");
       
@@ -57,6 +76,7 @@ jQuery(document).ready(function($) {
     });
   
     $( "#FinishTut" ).click(function() {
+      console.log("5")
       $('.dropboxes').css("box-shadow", "unset")
       $('#tutorials').css("display","none")
       $('#buttons2').css ("box-shadow","unset")
@@ -71,12 +91,12 @@ jQuery(document).ready(function($) {
 
 // drop images
 function allowDrop(ev) {
-  console.log("a")
+  //console.log("a")
     ev.preventDefault();
   }
   
   function drag(ev) {
-    console.log("b")
+    //console.log("b")
     //console.log("sourceImg for drag "+ev.parentElement.outerHTML)
     ev.dataTransfer.setData("text", ev.target.id);
   }
