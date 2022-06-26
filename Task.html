@@ -31,7 +31,7 @@
          <!-- tutorial -->
 
          <div class="bgdark50 w-100 reveal" id="tutorials">
-            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial1">
+            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorialA">
                 <h1>The Gallery</h1>
                 <p>Browse freely the images in the gallery.</p>
                 <p>Use the images to search other artworks: like an image if you want to find similar artwork, dislike it if you don't want to find similar artwork</p>
@@ -39,14 +39,14 @@
                 <button type="button" class="btn btn-success" id="toTut2a">Next</button>
             </div>
 
-            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial2">
+            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorialB">
                 <h1>The dashboard</h1>
                 <p>>When you find an image you really like drag it to the left to add it to the dashboard: Imagine it as your personal gallery, where you keep your favorite artpiece!</p>
                 
-                <button type="button" class="btn btn-success" id="toTut1">Back</button>
-                <button type="button" class="btn btn-success" id="toTut3">Next</button>
+                <button type="button" class="btn btn-success" id="toTutA">Back</button>
+                <button type="button" class="btn btn-success" id="toTutC">Next</button>
             </div>
-            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial3">
+            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorialC">
                 <h1>End task</h1>
                 <p>Repeat the process as many time as you'd like, and when you are done click on "end task"</p>
                 <button type="button" class="btn btn-success" id="toTut2b">Back</button>
@@ -141,23 +141,23 @@
                 <div class="px-1 position-relative d-flex flex-wrap" id="imagesGrid"> 
                     
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                     
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                     
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                     
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                     
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                     <div class="container-fluid d-flex px-3 bg-dark z-1" id="dashFooter" > 
                         <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">
