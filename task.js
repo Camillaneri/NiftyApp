@@ -10,6 +10,7 @@ sessionStorage.setItem('displayedImgs', 0);
 sessionStorage.setItem('queryImgsClrd', '');
 var query = {'pos':'','neg':''};
 
+var LoadedImgsListener = 0
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
   for(let x = 0; x <= 19; x++){
@@ -61,6 +62,7 @@ function fill_task_dash(){
     if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
         get_img.src = img_url;
         get_img.id = img_id;
+
         
         document.getElementsByClassName("no-img")[i].classList.remove("imgsubst")
         
@@ -83,7 +85,8 @@ boxes = document.querySelectorAll('.red');
 boxes.forEach(box => {
   box.classList.remove('red');
 });
-
+LoadedImgsListener +=1
+        console.log(LoadedImgsListener)
         
     } 
     
