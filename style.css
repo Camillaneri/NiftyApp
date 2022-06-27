@@ -375,17 +375,18 @@ padding-top: 15vh;
 }
 
 #tutorialA{
-    top: 30%;
-    left: 40%;
-    display: block;
+  top: 20%;
+  left: 5%;
+  right: 78%;
+  display: block;
     
 }
 
 #tutorialB{
   width: 30%;
-  top: 40%;
-  right: 60%;
-  left: 10%;
+  top: 30%;
+  right: 30%;
+  left: 28%;
   
   display: none;
 }
@@ -917,12 +918,9 @@ margin-bottom: 5%;
 }
 
 #task{
-    height: 150vh;
+    min-height: 150vh;
 }
 
-#coso{
-    height: 130vh;
-}
 
 
   #tutorial1:before {
@@ -978,24 +976,24 @@ margin-bottom: 5%;
 #tutorialA:before {
     content: "";
     position: absolute;
-    right: 100%;
-    top: 36px;
+    left: 100%;
+    top: 126px;
     width: 0;
     height: 0;
     border-top: 13px solid transparent;
-    border-right: 39px solid rgb(33,37,41) ;
+    border-left: 60px solid rgb(33,37,41) ;
     border-bottom: 13px solid transparent;
   }
 
   #tutorialB:before {
     content: "";
     position: absolute;
-    left: 100%;
-    top: 176px;
+    right: 100%;
+    top: 36px;
     width: 0;
     height: 0;
     border-top: 13px solid transparent;
-    border-left: 39px solid rgb(33,37,41) ;
+    border-right: 39px solid rgb(33,37,41) ;
     border-bottom: 13px solid transparent;
   }
 

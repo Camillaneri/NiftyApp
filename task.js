@@ -660,10 +660,15 @@ function reveal() {
         
         reveals[i].classList.add("active");
         x.style.display = "none";
-        if((document.getElementById("task2").classList[5] == "zindex")){
+        if((document.getElementById("task2").classList[5] == "zindex")&&(document.getElementById("dashboard").classList.contains("check") == false)){
           window.scrollTo(0, 0);
+          } else if ((document.getElementById("task2").classList[5] == "zindex") && document.getElementById("dashboard").classList.contains("check")){
+            console.log("preso")
+            let pos = sessionStorage.getItem("wherebuttons1");
+            console.log("retrieved "+pos)
+            console.log("position "+(pos-800))
+            window.scrollTo(0, pos-650);
           }
-  
       } else {
         
        

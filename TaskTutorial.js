@@ -24,7 +24,7 @@ jQuery(document).ready(function($) { // the good one
       $('#tutorialB').css("display","block");
 
       $('#dashboard').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
-    $('#dashboard').css("z-index", "9")
+      $('#dashboard').css("z-index", "9")
       
       
       $('#mainBody').css("box-shadow", "unset")
@@ -36,8 +36,22 @@ jQuery(document).ready(function($) { // the good one
       console.log("c")
       $('#tutorialB').css("display","none")
       $('#tutorialC').css("display","block");
-      $('#id_dict').css("box-shadow", "unset")
-      $('.dropboxes').css("box-shadow", "0 0 30px #198753")
+
+     /*  $('#dashboard').css("box-shadow", "unset")
+      $('#dashboard').css("z-index", "0") */
+
+      $('#dashFooter').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
+      $('#dashFooter').css("z-index", "9")
+
+      $('#dashboard').toggleClass("check")
+      const whereisit = document.getElementById("dashFooter")
+      const {  
+        top: t,  
+        left: l  
+      } = whereisit.getBoundingClientRect();  
+      console.log("stored "+ t, l)
+      sessionStorage.setItem("wherebuttons1", t);
+      window.scrollTo(0, t-650);
     });
     
     $( "#toTut2b" ).click(function() {
@@ -50,9 +64,16 @@ jQuery(document).ready(function($) { // the good one
   
     $( "#FinishTut" ).click(function() {
       console.log("e")
+      $('#dashboard').toggleClass("check")
       $('.dropboxes').css("box-shadow", "unset")
       $('#tutorials').css("display","none")
       $('#task2').toggleClass("zindex")
+
+      $('#dashboard').css("box-shadow", "unset")
+      $('#dashboard').css("z-index", "0")
+      $('#dashFooter').css("box-shadow", "unset")
+      $('#dashFooter').css("z-index", "0")
+
 
       $('#task2').css("z-index", "0")
       $('#tutorials').css("z-index", "0")
