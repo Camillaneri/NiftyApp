@@ -13,14 +13,16 @@ var query = {'pos':'','neg':''};
 var LoadedImgsListener = 0
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
+  
   for(let x = 0; x <= 19; x++){
+    
     img_element = document.getElementsByClassName('img-to-like')[x].src = ""
   if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
     document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
   }
-}
+  }
   
-    fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
+  fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -34,69 +36,64 @@ function fill_task_dash(){
         }
       }
       
-        `
-    }),
+        `}),
   })
-.then(response=>response.json())
-.then((result) =>{  
+  .then(response=>response.json())
+  .then((result) =>{  
     const myJSON = JSON.stringify(result);
     r_json = JSON.parse(myJSON);
     
-    for(let i = 0; i <= 20; i++){
+    for(let i = 0; i <= 19; i++){
+        
+      LoadedImgsListener += 1
 
-    dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['preview']);
+      if(LoadedImgsListener == 40){
+        const taskStarts = new Date().getTime()
+        sessionStorage.setItem('taskStarts'+n_queries , taskStarts)
+        console.log('taskStarts'+n_queries , sessionStorage.getItem('taskStarts'+n_queries )) //returns time in milliseconds since the ECMAScript epoch, which is defined as January 1, 1970, UTC (equivalent to the UNIX epoch).
+        LoadedImgsListener = 0
+      }
+      dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['preview']);
 
 
-    newStr0 = dict_path.replace('"', '');
-    img_url = newStr0.replace('"', '');//get url
+      newStr0 = dict_path.replace('"', '');
+      img_url = newStr0.replace('"', '');//get url
 
 
-    dict_path1 = JSON.stringify(r_json['data']['artwork_metrics'][i]['artwork_id']);
-    newStr01 = dict_path1.replace('"', '');
-    img_id = newStr01.replace('"', '');//get id
+      dict_path1 = JSON.stringify(r_json['data']['artwork_metrics'][i]['artwork_id']);
+      newStr01 = dict_path1.replace('"', '');
+      img_id = newStr01.replace('"', '');//get id
 
- 
-   
-    get_img = document.getElementsByClassName('img-to-like')[i]
+
     
-    if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+      get_img = document.getElementsByClassName('img-to-like')[i]
+        
+      if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
         get_img.src = img_url;
         get_img.id = img_id;
-
-        
         document.getElementsByClassName("no-img")[i].classList.remove("imgsubst")
-        
-        }
-    else{
-        get_img.src = "images/wooops.jpg";
+        }else{
+          get_img.src = "images/wooops.jpg";}
+        //for the reset button
+      if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
+          console.log("preso")
+          document.getElementById('LikesBox').innerHTML = "";
+          document.getElementById('DislikesBox').innerHTML = "";
+          boxes = document.querySelectorAll('.green');
+          boxes.forEach(box => {
+            box.classList.remove('green');
+          });
+          boxes = document.querySelectorAll('.red');
+          boxes.forEach(box => {
+            box.classList.remove('red');});   
+      }      
     }
-    //for the reset button
-    if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
-     console.log("preso")
-        document.getElementById('LikesBox').innerHTML = "";
-        document.getElementById('DislikesBox').innerHTML = "";
+    console.log('start task');
+  })  
 
-        boxes = document.querySelectorAll('.green');
-boxes.forEach(box => {
-  box.classList.remove('green');
-});
-
-boxes = document.querySelectorAll('.red');
-boxes.forEach(box => {
-  box.classList.remove('red');
-});
-LoadedImgsListener +=1
-        console.log(LoadedImgsListener)
-        
-    } 
-    
 }
 
-console.log('start task')
-    
-    ;}
-)  
-}
+
 
 fill_task_dash();
 
@@ -538,7 +535,14 @@ boxes.forEach(box => {
         
         get_img_element = document.getElementsByClassName('img-to-like')[x] //put them into the image elements
        
-        
+        LoadedImgsListener += 1
+
+      if(LoadedImgsListener <= 40){
+        const taskStarts = new Date().getTime()
+        sessionStorage.setItem('taskStarts'+n_queries , taskStarts)
+        console.log('taskStarts'+n_queries , sessionStorage.getItem('taskStarts'+n_queries )) //returns time in milliseconds since the ECMAScript epoch, which is defined as January 1, 1970, UTC (equivalent to the UNIX epoch).
+        LoadedImgsListener = 0
+      }
     
         if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
             
