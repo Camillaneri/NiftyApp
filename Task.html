@@ -216,58 +216,59 @@
                 <div class="row mt-3" id="dvSource"> 
 
                     <div class="column">
-                        <div class="position-relative no-img imgsubst"  id="drag1"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst"  id="drag1"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike">  
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                                
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard">
+                                </i>
                             </div>
                             <img id="dragData1" src="" class="w-10 img-to-like" alt="...">
                         </div> 
     
-                        <div class="position-relative no-img imgsubst"  id="drag2"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)" > 
+                        <div class="position-relative no-img imgsubst"  id="drag2"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)" > 
                             <div class="d-flex position-absolute w-min-conten like_dislike">  
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData2" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
     
-                        <div class="position-relative no-img imgsubst"  id="drag3"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst"  id="drag3"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike">  
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div>  
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData3" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
     
-                        <div class="position-relative no-img imgsubst" id="drag4"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag4"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">  
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">  
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData4" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
                         
-                        <div class="position-relative no-img imgsubst" id="drag5"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag5"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData5" src="" class="w-10 img-to-like" alt="...">
                         </div> 
@@ -275,114 +276,114 @@
                     </div>
 
                     <div class="column">
-                        <div class="position-relative no-img imgsubst" id="drag6"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag6"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">  
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">  
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData6" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
     
-                        <div class="position-relative no-img imgsubst"  id="drag7"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst"  id="drag7"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData7" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
     
-                        <div class="position-relative  no-img imgsubst" id="drag8"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)">  
+                        <div class="position-relative  no-img imgsubst" id="drag8"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">  
                             <div class="d-flex position-absolute w-min-conten like_dislike">  
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData8" src="" class="w-10 img-to-like" alt="...">
                         </div>  
     
-                        <div class="position-relative  no-img imgsubst" id="drag9"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative  no-img imgsubst" id="drag9"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData9" src="" class="w-10 img-to-like" alt="...">
                         </div>  
     
-                        <div class="position-relative no-img imgsubst" id="drag10"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag10"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div>  
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData10" src="" class="w-10 img-to-like" alt="...">  
                         </div>   
                     </div>
 
                     <div class="column">
-                        <div class="position-relative no-img imgsubst" id="drag11"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag11"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">
                             </div>
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData11" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
     
-                        <div class="position-relative no-img imgsubst" id="drag12"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)">
+                        <div class="position-relative no-img imgsubst" id="drag12"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>  
                             <img id="dragData12" src="" class="w-10 img-to-like" alt="...">     
                         </div> 
                     
-                        <div class="position-relative no-img imgsubst" id="drag13"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag13"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData13" src="" class="w-10 img-to-like" alt="..."> 
                         </div>
     
-                        <div class="position-relative no-img imgsubst" id="drag14"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)">
+                        <div class="position-relative no-img imgsubst" id="drag14"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
                             <div class="d-flex position-absolute w-min-conten like_dislike">
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData14" src="" class="w-10 img-to-like" alt="..."> 
                         </div> 
                         
-                        <div class="position-relative no-img imgsubst" id="drag15"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag15"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike">   
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData15" src="" class="w-10 img-to-like" alt="..."> 
                         </div>
@@ -390,55 +391,55 @@
 
                     <div class=" column">
 
-                        <div class="position-relative no-img imgsubst" id="drag16"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)">
+                        <div class="position-relative no-img imgsubst" id="drag16"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">
                             </div>
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData16" src="" class="w-10 img-to-like" alt="...">
                         </div> 
 
-                        <div class="position-relative no-img imgsubst" id="drag17"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag17"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike">
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData17" src="" class="w-10 img-to-like" alt="..."> 
                         </div>  
 
-                        <div class="position-relative no-img imgsubst" id="drag18"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)">
+                        <div class="position-relative no-img imgsubst" id="drag18"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">
                             </div><div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData18" src="" class="w-10 img-to-like" alt="...">
                         </div> 
 
-                        <div class="position-relative no-img imgsubst" id="drag19"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)"> 
+                        <div class="position-relative no-img imgsubst" id="drag19"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike">
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;">
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images">
                             </div>
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData19" src="" class="w-10 img-to-like" alt="...">
                         </div> 
-                        <div class="position-relative no-img imgsubst" id="drag20"  draggable="true" ondragstart="drag(event)"  ondblclick="display_img(event)">
+                        <div class="position-relative no-img imgsubst" id="drag20"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
                             <div class="d-flex position-absolute w-min-conten like_dislike">
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;"> 
-                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;"> 
+                                 <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
+                                <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtndislike" onclick="AddLiked_Disliked(event)" value="&#xF405;" data-toggle="tooltip" title="click on the dislike button to avoid similar images"> 
                             </div> 
                             <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="Addtodash(event)" type="button" onclick="Addtodash(event)">
-                                <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin"></i>
+                                 <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                             </div>
                             <img id="dragData20" src="" class="w-10 img-to-like" alt="..."> 
                         </div>
