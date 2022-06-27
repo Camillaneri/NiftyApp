@@ -13,16 +13,14 @@ var query = {'pos':'','neg':''};
 var LoadedImgsListener = 0
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
-  
   for(let x = 0; x <= 19; x++){
-    
     img_element = document.getElementsByClassName('img-to-like')[x].src = ""
   if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
     document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
   }
-  }
+}
   
-  fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
+    fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -36,68 +34,65 @@ function fill_task_dash(){
         }
       }
       
-        `}),
+        `
+    }),
   })
-  .then(response=>response.json())
-  .then((result) =>{  
+.then(response=>response.json())
+.then((result) =>{  
     const myJSON = JSON.stringify(result);
     r_json = JSON.parse(myJSON);
     
-    for(let i = 0; i <= 19; i++){
-        
-      LoadedImgsListener += 1
+    for(let i = 0; i <= 20; i++){
 
-      if(LoadedImgsListener == 40){
-        const taskStarts = new Date().getTime()
-        sessionStorage.setItem('taskStarts'+n_queries , taskStarts)
-        console.log('taskStarts'+n_queries , sessionStorage.getItem('taskStarts'+n_queries )) //returns time in milliseconds since the ECMAScript epoch, which is defined as January 1, 1970, UTC (equivalent to the UNIX epoch).
-        LoadedImgsListener = 0
-      }
-      dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['preview']);
+    dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['preview']);
 
 
-      newStr0 = dict_path.replace('"', '');
-      img_url = newStr0.replace('"', '');//get url
+    newStr0 = dict_path.replace('"', '');
+    img_url = newStr0.replace('"', '');//get url
 
 
-      dict_path1 = JSON.stringify(r_json['data']['artwork_metrics'][i]['artwork_id']);
-      newStr01 = dict_path1.replace('"', '');
-      img_id = newStr01.replace('"', '');//get id
+    dict_path1 = JSON.stringify(r_json['data']['artwork_metrics'][i]['artwork_id']);
+    newStr01 = dict_path1.replace('"', '');
+    img_id = newStr01.replace('"', '');//get id
 
-
+ 
+   
+    get_img = document.getElementsByClassName('img-to-like')[i]
     
-      get_img = document.getElementsByClassName('img-to-like')[i]
-        
-      if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+    if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
         get_img.src = img_url;
         get_img.id = img_id;
+
+        
         document.getElementsByClassName("no-img")[i].classList.remove("imgsubst")
-        }else{
-          get_img.src = "images/wooops.jpg";}
-        //for the reset button
-      if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
-          console.log("preso")
-          document.getElementById('LikesBox').innerHTML = "";
-          document.getElementById('DislikesBox').innerHTML = "";
-          boxes = document.querySelectorAll('.green');
-          boxes.forEach(box => {
-            box.classList.remove('green');
-          });
-          boxes = document.querySelectorAll('.red');
-          boxes.forEach(box => {
-            box.classList.remove('red');});   
-      }      
+        
+        }
+    else{
+        get_img.src = "images/wooops.jpg";
     }
     //for the reset button
     if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
-     //console.log("preso")
+     console.log("preso")
         document.getElementById('LikesBox').innerHTML = "";
         document.getElementById('DislikesBox').innerHTML = "";
 
+        boxes = document.querySelectorAll('.green');
+boxes.forEach(box => {
+  box.classList.remove('green');
+});
+
+boxes = document.querySelectorAll('.red');
+boxes.forEach(box => {
+  box.classList.remove('red');
+});
+LoadedImgsListener +=1
+        console.log(LoadedImgsListener)
+        
+    } 
+    
 }
 
-
-//console.log('start task')
+console.log('start task')
     
     ;}
 )  
@@ -124,12 +119,12 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("Text");
-    //console.log("target"+ ev.target.outerHTML)
+    console.log("target"+ ev.target.outerHTML)
     //ev.target.appendChild(document.getElementById(data));
     var copyimg = document.createElement("img");
     var original = document.getElementById(data);
-    //console.log("SOURCE"+copyimg.src)
-    //console.log("ORIG-SOURCE"+original.src)
+    console.log("SOURCE"+copyimg.src)
+    console.log("ORIG-SOURCE"+original.src)
     copyimg.src = original.src;
     copyimg.classList = original.classList;
     copyimg.id = original.id
@@ -161,7 +156,7 @@ function Addtodash(ev){
   idilist = []
 
   for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
-    //console.log(document.getElementsByClassName("DataDash")[i])
+    console.log(document.getElementsByClassName("DataDash")[i])
     if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
       alert("you already added this image")
     } 
@@ -207,18 +202,18 @@ function ExpandDash() {
 //ADD IMAGES TO QUERY
 //console.log("")
 
-//console.log(query)
+console.log(query)
 function AddLiked_Disliked(event) {
   
   
    
-    //console.log('session:', sessionStorage)
+    console.log('session:', sessionStorage)
     
 
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
-    //console.log("liked "+num_likd)
-    //console.log("disliked "+num_dslikd)
+    console.log("liked "+num_likd)
+    console.log("disliked "+num_dslikd)
 
     if(event.target.id == 'imgBtnlike'){
 
@@ -227,12 +222,12 @@ function AddLiked_Disliked(event) {
   
         if (num_likd == 0 && num_dslikd == 0){
             
-            //console.log("a.1")
+            console.log("a.1")
             document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0 img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail img-fit-in'></div>"
             event.target.classList.add("green")
           }
         if((num_likd > 0 && num_likd < 3) || (num_likd == 0 && num_dslikd > 0 && num_dslikd <= 3 )){
-            //console.log("a.2")
+            console.log("a.2")
             likd_ids = []
             dislikd_ids =[];
             for(let i = 0; i < num_likd; i++){   
@@ -244,15 +239,15 @@ function AddLiked_Disliked(event) {
             dislikd_ids.push(img_idD)
             }
             if (likd_ids.includes(AddidL)){
-                //console.log("a.21")
+                console.log("a.21")
                 alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
             }
             else if (dislikd_ids.includes(AddidL)){
-                //console.log("a.22")
+                console.log("a.22")
                 alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
             }
             else{
-                //console.log("a.23")
+                console.log("a.23")
                 
                 document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0 img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail  img-fit-in'></div>"
                 event.target.classList.add("green")
@@ -260,22 +255,22 @@ function AddLiked_Disliked(event) {
         
         }
         else if ( num_likd == 3){
-            //console.log("a.3")
+            console.log("a.3")
             alert('Maximum number of liked images reached')
         }
 
     }
     else if(event.target.id == 'imgBtndislike'){
-        //console.log("b")
+        console.log("b")
         AddMeD = event.target.parentElement.parentElement.children[2].src; 
         AddidD = event.target.parentElement.parentElement.children[2].id;
         if (num_likd == 0 && num_dslikd == 0){
-            //console.log("b.1")
+            console.log("b.1")
             document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0 img-contain'><input class='position-absolute btn btn-light p-0 ' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
             event.target.classList.add("red")
           }
         if((num_dslikd > 0 && num_dslikd < 3) || (num_likd > 0 && num_likd <= 3 && num_dslikd < 3)){
-            //console.log("b.2")
+            console.log("b.2")
             likd_idsD = []
             dislikd_idsD =[];
             for(let i = 0; i < num_likd; i++){  
@@ -287,22 +282,22 @@ function AddLiked_Disliked(event) {
             dislikd_idsD.push(img_id2)
             }
             if (likd_idsD.includes(AddidD)){
-                //console.log("b.21")
+                console.log("b.21")
                 alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
             }
             else if (dislikd_idsD.includes(AddidD)){
-                //console.log("b.22")
+                console.log("b.22")
                 alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
             }
             else{
-                //console.log("b.23")
+                console.log("b.23")
                 document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0  img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
                 event.target.classList.add("red")
               }
         
         }
         else if ( num_dslikd == 3){
-            //console.log("b.3")
+            console.log("b.3")
             alert('Maximum number of disliked images reached')
         }
 
@@ -317,14 +312,14 @@ function AddLiked_Disliked(event) {
 
 //CLEAR IMGS from fields
 function clearImg(ev){
-    //console.log("ciauxxx "+ev.target.parentNode.children[1].id)
-    //console.log("iddd "+ev.target.parentNode.outerHTML)
+    console.log("ciauxxx "+ev.target.parentNode.children[1].id)
+    console.log("iddd "+ev.target.parentNode.outerHTML)
     ev.target.parentNode.children[1].classList.remove("img-fit-in")
     getid = ev.target.parentNode.children[1].id
     //inizio log removed images 
     ev.target.parentNode.children[1].remove();
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
-      //console.log("A")
+      console.log("A")
       
       
     
@@ -336,13 +331,13 @@ function clearImg(ev){
     }
 
     ev.target.parentNode.remove()
-    //console.log("iddd "+ev.target.parentNode.outerHTML)
+    console.log("iddd "+ev.target.parentNode.outerHTML)
     
     
     } else{
-      //console.log("B")
+      console.log("B")
       ev.target.classList.toggle("d-none")
-      //console.log('inside query:',ev.target.id)
+      console.log('inside query:',ev.target.id)
       let imgId = ev.target.id
 
       switch (imgId){
@@ -350,7 +345,7 @@ function clearImg(ev){
           var clearedlkd = parseInt(sessionStorage.getItem('clearedLikedImgs'))
           clearedlkd +=1
           sessionStorage.setItem('clearedLikedImgs', clearedlkd)
-          //console.log('liked removed',clearedlkd)
+          console.log('liked removed',clearedlkd)
           break
         case 'clear-disliked':
           var cleareddslkd = parseInt(sessionStorage.getItem('clearedDislikedImgs'))
@@ -358,7 +353,7 @@ function clearImg(ev){
           sessionStorage.setItem('clearedDislikedImgs', cleareddslkd)
           
           
-          //console.log('disliked removed', cleareddslkd)
+          console.log('disliked removed', cleareddslkd)
           break
       }
       
@@ -406,10 +401,10 @@ boxes.forEach(box => {
   //riassumiamo le immagini cancellate da like e dislike in un unico item di storage Session
   let removedLiked = sessionStorage.getItem('clearedLikedImgs')
   let removedDisiked = sessionStorage.getItem('clearedDislikedImgs')
-  //console.log(n_queries, removedLiked, removedDisiked)
+  console.log(n_queries, removedLiked, removedDisiked)
   // creaiamo una string con numero di query e dati da poi mettere in session storage
   var clearedforSession = +n_queries+': {removedLiked: '+removedLiked+', removedDisiked: '+removedDisiked+'}'
-  //console.log('clearedforSession', clearedforSession)
+  console.log('clearedforSession', clearedforSession)
 
   var queryImgsClrd = sessionStorage.getItem('queryImgsClrd'); //riprendi value attuale in session storage
   
@@ -422,41 +417,41 @@ boxes.forEach(box => {
       break
   }
   sessionStorage.setItem('queryImgsClrd', queryImgsClrd)
-  //console.log('queryImgsClrd', queryImgsClrd)
+  console.log('queryImgsClrd', queryImgsClrd)
 
   // riporta i count delle immagini (liked e disliked) e rimossi a zero per il count della prossima query
   sessionStorage.setItem('clearedLikedImgs', 0);
   sessionStorage.setItem('clearedDislikedImgs', 0);
 
   n_queries+=1 //incrementa count query dopo aver fatto i log sullo stato attuale
-  //console.log("Query number: ", n_queries);
+  console.log("Query number: ", n_queries);
   
-  //console.log("Add query");
+  console.log("Add query");
   sessionStorage.setItem('n_queries', n_queries);
-  //console.log('n_queries =', n_queries)
+  console.log('n_queries =', n_queries)
 
   //log ids nella query
   var imgs_p =  document.getElementById('LikesBox').querySelectorAll('img')
 
   var positives = []
   for(var i = 0, n = imgs_p.length; i < n; ++i){
-    //console.log('img =', imgs_p[i].id)
+    console.log('img =', imgs_p[i].id)
     positives.push(imgs_p[i].id)
   }
-  //console.log('array pos=', positives)
+  console.log('array pos=', positives)
 
   var imgs_n =  document.getElementById('DislikesBox').querySelectorAll('img')
   var negatives = []
   for(var i = 0, n = imgs_n.length; i < n; ++i){
-    //console.log('img =', imgs_n[i].id)
+    console.log('img =', imgs_n[i].id)
     negatives.push(imgs_n[i].id)
   }
-  //console.log('array neg=', negatives)
-  //console.log('quries number',n_queries)
+  console.log('array neg=', negatives)
+  console.log('quries number',n_queries)
   var dict = {'pos':positives, 'neg':negatives}
-  //console.log('dict:',JSON.stringify(dict))
+  console.log('dict:',JSON.stringify(dict))
   sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
-  //console.log('print session storage:', sessionStorage)
+  console.log('print session storage:', sessionStorage)
   // sessionStorage.setItem()
   // fine parte log apply
 
@@ -543,14 +538,7 @@ boxes.forEach(box => {
         
         get_img_element = document.getElementsByClassName('img-to-like')[x] //put them into the image elements
        
-        LoadedImgsListener += 1
-
-      if(LoadedImgsListener <= 40){
-        const taskStarts = new Date().getTime()
-        sessionStorage.setItem('taskStarts'+n_queries , taskStarts)
-        console.log('taskStarts'+n_queries , sessionStorage.getItem('taskStarts'+n_queries )) //returns time in milliseconds since the ECMAScript epoch, which is defined as January 1, 1970, UTC (equivalent to the UNIX epoch).
-        LoadedImgsListener = 0
-      }
+        
     
         if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
             
@@ -672,15 +660,10 @@ function reveal() {
         
         reveals[i].classList.add("active");
         x.style.display = "none";
-        if((document.getElementById("task2").classList[5] == "zindex")&&(document.getElementById("dashboard").classList.contains("check") == false)){
+        if((document.getElementById("task2").classList[5] == "zindex")){
           window.scrollTo(0, 0);
-          } else if ((document.getElementById("task2").classList[5] == "zindex") && document.getElementById("dashboard").classList.contains("check")){
-            console.log("preso")
-            let pos = sessionStorage.getItem("wherebuttons1");
-            console.log("retrieved "+pos)
-            console.log("position "+(pos-800))
-            window.scrollTo(0, pos-650);
           }
+  
       } else {
         
        
@@ -701,36 +684,19 @@ function reveal() {
 function myImgsListener(){
   var myImgIds = []
   const gallery = document.getElementById('imagesGrid')
-  //console.log(gallery)
+  console.log(gallery)
   
   const imgs = gallery.querySelectorAll('img')
   sessionStorage.setItem('myGallery_count', imgs.length)
-  //console.log('imgs',imgs.length)
+  console.log('imgs',imgs.length)
   for(var i = 0; i < imgs.length; i++){
     myImg = imgs[i]
     myImgIds.push('{ '+myImg.name+': '+myImg.id+'}')
-    //console.log('i=', myImg.id)
+    console.log('i=', myImg.id)
   }
-  //console.log('array :', myImgIds)
+  console.log('array :', myImgIds)
   sessionStorage.setItem('myImgIds', myImgIds)
-  //console.log(sessionStorage.getItem('myImgIds'))
+  console.log(sessionStorage.getItem('myImgIds'))
 }
 
 myImgsListener();
-
-function startTimer () {
-  let franco = document.getElementsByTagName('img')
-  for(i in franco){
-    // //console.log(franco[i].outerHTML.src)
-    var francoSrc = franco[i].outerHTML.src
-
-    if (francoSrc === undefined){
-      
-      startTimer();
-    }else{ console.log('hahahahaha')}
-  }
-  
-  
-};
-
-startTimer();
