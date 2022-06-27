@@ -5,8 +5,12 @@ jQuery(document).ready(function($) {
     //window.scrollTo(0, 0);
     console.log("hi i'm jquery")
     //$(".owl-carousel").owlCarousel();
-    $('#RefImg').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 50%)")
+    $('#tutorials').css("z-index", "13")
+    $('#RefImg').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
     $('#RefImg').css("z-index", "9")
+    
+    $('#task').css("z-index", "11")
+    
     //console.log($("#tutorials").hasClass("active"))
     
     
@@ -14,9 +18,22 @@ jQuery(document).ready(function($) {
     //
   
     $( "#toTut1" ).click(function() {
-      console.log("1")
+      console.log("1") //when you click back from 2
       $('#tutorial2').css("display","none")
       $('#tutorial1').css("display", "block");
+
+      $('#RefImg').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
+      $('#RefImg').css("z-index", "9")
+      $('#task').css("z-index", "11")
+
+      $('#clumnN2').css("box-shadow", "unset")
+      $('.dropboxes').css("box-shadow", "unset")
+      $('.dropboxes').css("z-index", "0")
+      $('.similarImg0').css("z-index", "0")
+      $('.similarImg0').first().css("box-shadow", "unset")
+      $('.similarImg0').first().css("z-index", "0")
+      $('#task').css("box-shadow", "unset")
+      $('#task').css("z-index", "0")
 
       //$('#reference').css("z-index", "9")
       //$('#refimgcontainer').toggleClass("zindextop");
@@ -26,19 +43,19 @@ jQuery(document).ready(function($) {
       console.log("2")
       $('#tutorial1').css("display","none")
       $('#tutorial2').css("display","block");
+
       $('#RefImg').css("box-shadow", "unset")
       $('#RefImg').css("z-index", "0")
 
-      $('#clumnN2').css("box-shadow", "-300px 329.5px 0px 600px rgb(0 0 0 / 80%)")
-      $('.dropboxes').css("box-shadow", "0px 1px 0px 66.3px rgb(0 0 0 / 80%)")
+      $('#clumnN2').css("box-shadow", "-1000px 10001px 0px 10000px rgb(0 0 0 / 60%)")
+      $('.dropboxes').css("box-shadow", "20.4px 22px 0px 45px rgb(0 0 0 / 60%)")
       $('.dropboxes').css("z-index", "9")
-      $('#similarBox0').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 80%)")
-      $('#similarBox0').css("z-index", "9")
-      $('#similarBox4').css("z-index", "10")
-      $('#similarBox3').css("z-index", "10")
-      $('#similarBox2').css("z-index", "10")
-      $('#similarBox1').css("z-index", "10")
+      $('.similarImg0').css("z-index", "10")
+      $('.similarImg0').first().css("box-shadow", "0px 0px 0px 10000px rgb(0 0 0 / 60%)")
+      $('.similarImg0').first().css("z-index", "9")
+      $('#task').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
       
+     
       
     });
   
@@ -50,37 +67,72 @@ jQuery(document).ready(function($) {
       $('#clumnN2').css("box-shadow", "unset")
       $('.dropboxes').css("box-shadow", "unset")
       $('.dropboxes').css("z-index", "0")
-      $('#similarBox4').css("z-index", "0")
-      $('#similarBox3').css("z-index", "0")
-      $('#similarBox2').css("z-index", "0")
-      $('#similarBox1').css("z-index", "0")
-      $('#similarBox0').css("box-shadow", "unset")
-      $('#similarBox0').css("z-index", "0")
-      
-      $('#buttons2').css("z-index", "9")
-      $('#buttons2').css("box-shadow", "0px 0px 10px 1900px rgb(0 0 0 / 80%)")
-      $('#refimgcontainer').toggleClass("zindex")
-      $('#refimg').css("z-index", "9")
-      
+      $('.similarImg0').css("z-index", "0")
+      $('.similarImg0').first().css("box-shadow", "unset")
+      $('.similarImg0').first().css("z-index", "0")
+      $('#task').css("box-shadow", "unset")
+      $('#task').css("z-index", "0")
      
-      
+      $('#buttons2').css("z-index", "9")
+      $('#buttons2').css("box-shadow", "0px 0px 0px 3900px rgb(0 0 0 / 60%)")
+      console.log($("#refimgcontainer").hasClass( "zindex" ))
+      $('#refimgcontainer').toggleClass("zindex")
+      console.log($("#refimgcontainer").hasClass( "zindex" ))
+      $('#refimg').css("z-index", "9")
+      const whereisit = document.getElementById("buttons2")
+      const {  
+        top: t,  
+        left: l  
+      } = whereisit.getBoundingClientRect();  
+      console.log("stored "+ t, l)
+      sessionStorage.setItem("wherebuttons", t);
+      window.scrollTo(0, t-40);
     
     });
     
     $( "#toTut2b" ).click(function() {
-      console.log("4")
+      console.log("4")//when you click back from 3
       $('#tutorial3').css("display","none")
       $('#tutorial2').css("display","block");
       
+      $('#clumnN2').css("box-shadow", "-1000px 10001px 0px 10000px rgb(0 0 0 / 60%)")
+      $('.dropboxes').css("box-shadow", "20.4px 22px 0px 45px rgb(0 0 0 / 60%)")
+      $('.dropboxes').css("z-index", "9")
+      $('.similarImg0').css("z-index", "10")
+      $('.similarImg0').first().css("box-shadow", "0px 0px 0px 10000px rgb(0 0 0 / 60%)")
+      $('.similarImg0').first().css("z-index", "9")
+      $('#task').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
+
+      $('#buttons2').css("z-index", "0")
+      $('#buttons2').css("box-shadow", "unset")
+      
+      $('#refimgcontainer').toggleClass("zindex")
+      
+      $('#refimg').css("z-index", "0")
+      window.scrollTo(0, 0);
       
     });
   
     $( "#FinishTut" ).click(function() {
       console.log("5")
-      $('.dropboxes').css("box-shadow", "unset")
       $('#tutorials').css("display","none")
-      $('#buttons2').css ("box-shadow","unset")
+      $('#tutorials').css("z-index", "0")
+
       $('#task').toggleClass("zindex")
+      $('#task').css("box-shadow", "unset")
+      $('#task').css("z-index", "0")
+
+
+      $('#buttons2').css("z-index", "0")
+      $('#buttons2').css("box-shadow", "unset")
+      $('#refimgcontainer').toggleClass("zindex")
+      $('#refimg').css("z-index", "0")
+      
+
+      /* $('.dropboxes').css("box-shadow", "unset")
+      
+      $('#buttons2').css ("box-shadow","unset")
+      $('#task').toggleClass("zindex") */
     });
    
     // $(".botpage a").tipTip({ content: "This is an anchor tag!"});

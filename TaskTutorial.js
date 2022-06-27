@@ -2,39 +2,60 @@
 
 jQuery(document).ready(function($) { // the good one
     console.log("hi i'm jquery")
-    $('#reference').css("box-shadow", "0 0 30px #198753")
+    $('#tutorialB').css("display","none")
+    $('#tutorialC').css("display","none")
+    $('#mainBody').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
+    $('#mainBody').css("z-index", "9")
+
+    $('#task2').css("z-index", "9")
+    $('#tutorials').css("z-index", "10")
   
-    $( "#toTut1" ).click(function() {
-      $('#tutorial2').css("display","none")
-      $('#tutorial1').css("display","block");
+    $( "#toTutA" ).click(function() {
+      console.log("a")//indietro da b
+      $('#tutorialB').css("display","none")
+      $('#tutorialA').css("display","block");
       $('#id_dict').css("box-shadow", "unset")
       $('#reference').css("box-shadow", "0 0 30px #198753")
     });
+
     $( "#toTut2a" ).click(function() {
-      $('#tutorial1').css("display","none")
-      $('#tutorial2').css("display","block");
-      $('#reference').css("box-shadow", "unset")
-      $('#id_dict').css("box-shadow", "0 0 30px #198753")
+      console.log("b")
+      $('#tutorialA').css("display","none")
+      $('#tutorialB').css("display","block");
+
+      $('#dashboard').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
+    $('#dashboard').css("z-index", "9")
+      
+      
+      $('#mainBody').css("box-shadow", "unset")
+    $('#mainBody').css("z-index", "0")
+      
     });
   
-    $( "#toTut3" ).click(function() {
-      $('#tutorial2').css("display","none")
-      $('#tutorial3').css("display","block");
+    $( "#toTutC" ).click(function() {
+      console.log("c")
+      $('#tutorialB').css("display","none")
+      $('#tutorialC').css("display","block");
       $('#id_dict').css("box-shadow", "unset")
       $('.dropboxes').css("box-shadow", "0 0 30px #198753")
     });
     
     $( "#toTut2b" ).click(function() {
-      $('#tutorial3').css("display","none")
-      $('#tutorial2').css("display","block");
+      console.log("d")//indietro da c
+      $('#tutorialC').css("display","none")
+      $('#tutorialB').css("display","block");
       $('.dropboxes').css("box-shadow", "unset")
       $('#id_dict').css("box-shadow", "0 0 30px #198753")
     });
   
     $( "#FinishTut" ).click(function() {
+      console.log("e")
       $('.dropboxes').css("box-shadow", "unset")
       $('#tutorials').css("display","none")
       $('#task2').toggleClass("zindex")
+
+      $('#task2').css("z-index", "0")
+      $('#tutorials').css("z-index", "0")
     });
    
     // $(".botpage a").tipTip({ content: "This is an anchor tag!"});

@@ -373,6 +373,32 @@ padding-top: 15vh;
     left: 40%;
     display: none;
 }
+
+#tutorialA{
+    top: 30%;
+    left: 40%;
+    display: block;
+    
+}
+
+#tutorialB{
+  width: 30%;
+  top: 40%;
+  right: 60%;
+  left: 10%;
+  
+  display: none;
+}
+
+#tutorialC{
+  top: 60%;
+  left: 40%;
+  display: none;
+}
+
+
+
+
   @media screen and (max-width: 800px) {
     .column {
       -ms-flex: 50%;
@@ -877,7 +903,10 @@ margin-bottom: 5%;
     align-items: center;
     width: 100%;
     height: 100%;
-    z-index: -1;
+        padding: 0rem !important; 
+        
+        border: 0px !important; 
+        border-radius: 0rem !important;
     margin-top:0 !important;
 
 } 
@@ -889,4 +918,109 @@ margin-bottom: 5%;
 
 #task{
     height: 150vh;
+}
+
+#coso{
+    height: 130vh;
+}
+
+
+  #tutorial1:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 36px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 39px solid rgb(33,37,41) ;
+    border-bottom: 13px solid transparent;
+  }
+
+  #tutorial2:before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 176px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 39px solid rgb(33,37,41) ;
+    border-bottom: 13px solid transparent;
+  }
+
+  #tail:before {
+    content: "";
+    position: absolute;
+    left: 98%;
+    top: 36px;
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-left: 67px solid rgb(33,37,41);
+    border-bottom: 26px solid transparent;
+    transform: rotate(-20deg);
+  }
+
+  #tutorial3:before{
+    content: "";
+    position: absolute;
+    right: 95%;
+    top: 160px;
+    width: 0;
+    height: 0;
+    transform: rotate(-25deg);
+    border-top: 13px solid transparent;
+    border-right: 76px solid rgb(33,37,41);
+    border-bottom: 26px solid transparent;
+}
+
+#tutorialA:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 36px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 39px solid rgb(33,37,41) ;
+    border-bottom: 13px solid transparent;
+  }
+
+  #tutorialB:before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 176px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 39px solid rgb(33,37,41) ;
+    border-bottom: 13px solid transparent;
+  }
+
+  #tail:before {
+    content: "";
+    position: absolute;
+    left: 98%;
+    top: 36px;
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-left: 67px solid rgb(33,37,41);
+    border-bottom: 26px solid transparent;
+    transform: rotate(-20deg);
+  }
+
+  #tutorialC:before{
+    content: "";
+    position: absolute;
+    right: 95%;
+    top: 160px;
+    width: 0;
+    height: 0;
+    transform: rotate(-25deg);
+    border-top: 13px solid transparent;
+    border-right: 76px solid rgb(33,37,41);
+    border-bottom: 26px solid transparent;
 }
