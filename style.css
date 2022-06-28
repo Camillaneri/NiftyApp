@@ -917,7 +917,8 @@ margin-bottom: 5%;
 } 
 
 .img-contain{
-    max-height: 8rem;
+    
+    height: 6rem;
     margin-bottom: 1rem;
 }
 
