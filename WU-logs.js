@@ -1,21 +1,20 @@
-trials =  0
-removed1 =  0
-removed2 =  0
-removed3 =  0
-removed4 =  0
-removed5 =  0
 
-// how many times did the user repeat WU?
-function Trials() {
-    trials = trials+1
-    console.log(trials)
+function endTask(){
+    const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
 
-};
+    const endWU = new Date().getTime()
+    sessionStorage.setItem('endWU'+n_round , endWU)
+    console.log(sessionStorage)
+    support = document.getElementById('Small').children[0].childNodes
+    img1 = support[1].children[0].children[2].id
+    img2 = support[3].children[0].children[2].id
+    img3 = support[5].children[0].children[2].id
+    img4 = support[7].children[0].children[2].id
+    img5 = support[9].children[0].children[2].id
 
+    sessionStorage.setItem('userOrder', [img1, img2, img3, img4, img5])
 
-//How many times did he change his mind on the order? WHich are the most removed positions?
+   console.log(sessionStorage)
 
-function Removed (ev){
-    console.log('hey')
-    
 }
+

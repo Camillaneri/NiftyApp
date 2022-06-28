@@ -1,6 +1,8 @@
 
+var LoadedImgsListenerWU = 0
+var n_round = 0
+var AIorder = []
 
-     
 function loadWarmUp(){
   IDnum = Math.floor(Math.random() * 50000)
   //console.log(" a "+IDnum)
@@ -64,6 +66,8 @@ function loadWarmUp(){
             get_img_element.src = "images/wooops1.jpg";
         }
       refimg.src = art_high_res;
+      refimg.id = art_id
+      sessionStorage.setItem('WUreference', refimg.id)
      
 
       //console.log(IDnum)
@@ -130,6 +134,29 @@ function loadWarmUp(){
             get_img_element[x].id = art_id;
 
             document.getElementsByClassName("simimages")[x].classList.remove("imgsubst")
+
+            //qua log che  registra quando sono compilate le src di tutto
+
+            LoadedImgsListenerWU += 1
+            AIorder.push(art_id)
+            switch(LoadedImgsListenerWU){
+              case 5:
+                console.log('all loaded', LoadedImgsListenerWU )
+                const startWU = new Date().getTime()
+                sessionStorage.setItem('startWU'+n_round , startWU)
+                sessionStorage.setItem('AIorder'+n_round , AIorder)
+                console.log(sessionStorage)
+            default: break
+            }
+
+            // if(LoadedImgsListenerWU < 5){
+              // const taskStarts = new Date().getTime()
+              // sessionStorage.setItem('taskStarts'+n_queries , taskStarts)
+              // console.log('taskStarts'+n_queries , sessionStorage.getItem('taskStarts'+n_queries )) //returns time in milliseconds since the ECMAScript epoch, which is defined as January 1, 1970, UTC (equivalent to the UNIX epoch).
+              // LoadedImgsListener = 0
+              // console.log('all loaded', LoadedImgsListenerWU )
+            // }
+
         
             }
         else{
