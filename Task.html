@@ -457,7 +457,8 @@
             </div>
         </footer> 
     </body>
-    <!-- <script type="module">
+    <!-- Send stuff from warm up session -->
+    <script type="module">
         var currentDate = new Date()
         sessionStorage.setItem('access-surv1', currentDate);
 
@@ -465,17 +466,29 @@
         const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
       
         console.log('Supabase Instance: ', supabase)
+        //user id
         let myId = sessionStorage.getItem('id');
-        let queries = sessionStorage.getItem('n_queries');
-        
-        let submission = {'id':myId, 'n_queries':queries}
-        console.log(myId, queries)
-        console.log(submission)
-        await supabase.from('Main_task').insert([submission])
+        //Ai order
+         let AIorder = sessionStorage.getItem('AIorder');
+        //User order
+        let Userorder = sessionStorage.getItem('userOrder'); 
+        //Start
+        let Start = sessionStorage.getItem('startWU');
+        //End
+        let End = sessionStorage.getItem('endWU');
+        //ref ID
+        let refID = sessionStorage.getItem('WUreference');
+    
+        //fill submission obj 
+        let submission = {'id':myId, 'AIorder':AIorder, 'Userorder':Userorder, 'Start':Start, 'End':End, 'refID':refID}
+
+
+        await supabase.from('Warmup').insert([submission])
          
 
     
-      </script> -->
+      </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="task.js"></script>
 </html>

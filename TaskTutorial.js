@@ -49,7 +49,7 @@ jQuery(document).ready(function($) { // the good one
         top: t,  
         left: l  
       } = whereisit.getBoundingClientRect();  
-      console.log("stored "+ t, l)
+      // console.log("stored "+ t, l)
       sessionStorage.setItem("wherebuttons1", t);
       window.scrollTo(0, t-650);
     });
@@ -84,7 +84,7 @@ jQuery(document).ready(function($) { // the good one
     });
 
 function display(ev) {
-    console.log(ev.target)
+    // console.log(ev.target)
    
     $('#reference').css("box-shadow", "0 0 30px #198753")
       }
