@@ -156,7 +156,8 @@ function Addtodash(ev){
   img.src = givsrc
   img.id = giveid
   img.name = 'query'+n_queries
-  img.classList = ['w-10', 'clear-dash']
+  img.classList.add('w-10') 
+  img.classList.add('clear-dash') 
 
   idilist = []
 
