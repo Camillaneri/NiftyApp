@@ -118,6 +118,7 @@ function drag(ev) {
 
 function drop(ev) {
     ev.preventDefault();
+    id_List =[]
     var data = ev.dataTransfer.getData("Text");
     //console.log("target"+ ev.target.outerHTML)
     //ev.target.appendChild(document.getElementById(data));
@@ -129,13 +130,25 @@ function drop(ev) {
     copyimg.classList = original.classList;
     copyimg.id = original.id
     copyimg.name = 'query'+n_queries
+
+    for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
+      if(document.getElementsByClassName("DataDash")[i].children.length > 1){
+        id_List.push(document.getElementsByClassName("DataDash")[i].children[1].id)
+      } 
+    }
+      console.log( id_List)
+    if(id_List.includes(original.id)==false){
     ev.target.appendChild(copyimg);
     ev.target.children[1].classList.toggle("img-to-like");
     ev.target.children[1].classList.add("img-fit-in");
     ev.target.children[1].classList.toggle("clear-dash");
     myImgsListener();
     ev.target.children[0].classList.toggle("d-none")
-      
+  }
+    else{
+      alert("you already added this image")
+    }
+  
     
 };  
 
@@ -153,24 +166,37 @@ function Addtodash(ev){
   img.name = 'query'+n_queries
   img.classList.add('w-10') 
   img.classList.add('clear-dash') 
+  id_List =[]
 
   idilist = []
+  console.log(giveid)
 
   for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
-    //console.log(document.getElementsByClassName("DataDash")[i])
-    if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
-      alert("you already added this image")
+    if(document.getElementsByClassName("DataDash")[i].children.length > 1){
+      id_List.push(document.getElementsByClassName("DataDash")[i].children[1].id)
     } 
+    console.log( id_List)
+    //console.log(document.getElementsByClassName("DataDash")[i])
+    /* if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
+      alert("you already added this image")
+    }  */
       
   } 
   for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
     if(document.getElementsByClassName("DataDash")[i].children.length < 2){
+      if (id_List.includes(giveid)==false){
+      console.log(id_List.includes(giveid)==false)
     document.getElementsByClassName("DataDash")[i].appendChild(img)
     document.getElementsByClassName("DataDash")[i].children[0].classList.toggle("d-none")
     document.getElementsByClassName("DataDash")[i].children[1].classList.add("img-fit-in")
+    id_List.push(document.getElementsByClassName("DataDash")[i].children[1].id)
     ////console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
     break
+    }else{
+      alert("you already added this image")
+      break
     }
+  }
   } 
   myImgsListener();
 }
@@ -191,6 +217,7 @@ function ExpandDash() {
 
     document.getElementById("mainBody").classList.toggle("col-6");
     document.getElementById("mainBody").classList.toggle("col-9");
+    document.getElementById("extraspace").classList.toggle("d-none");
     
 
 };
@@ -369,10 +396,12 @@ function clearImg(ev){
 
 function resetDash(){
     a = document.getElementsByClassName("getDataboxDash")
-    ////console.log("a "+a)
+    
     for(let i = 0; i < a.length; i++){
       if(a[i].children.length > 1){
+        console.log("a " +a[i].children[1].outerHTML)
         a[i].children[1].remove()
+        a[i].children[0].remove()
     }
   }
   myImgsListener();

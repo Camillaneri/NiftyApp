@@ -1,6 +1,6 @@
 body{
-    /*background-color: #2D3748 !important;*/ 
-     background-color: #E2E8F0 !important; 
+    background-color: #2D3748 !important; 
+     /* background-color: #E2E8F0 !important; */ 
     /* 
     min-height: 100vh;
     overflow-y: scroll; */
@@ -147,7 +147,6 @@ img{
 
 .bigdash{
     min-height: 13em;
-    max-width: 12em;
     min-width: 12em; 
     border-color: none !important;
 }
@@ -177,8 +176,9 @@ img{
 }
 
 #imagesGrid{
-    margin: 6rem 0;
-    padding: 0 10%;
+  margin-top: 6rem !important;
+  margin: auto;
+  padding: 10%;
     
     
 }
