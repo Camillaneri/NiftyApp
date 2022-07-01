@@ -138,7 +138,7 @@
                         <i class="bi bi-arrows-angle-expand"></i>
                     </button>
                 </div>
-                <div class="px-1 position-relative mx-3 d-flex flex-wrap" id="imagesGrid"> 
+                <!-- <div class="px-1 position-relative mx-3 d-flex flex-wrap" id="imagesGrid"> 
                     
                     <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
                         <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
@@ -173,8 +173,45 @@
                         </button>
                          
                     </div>
-                </div>
+                </div>  -->
                 
+                <div class="px-1 position-relative mx-3 d-flex flex-wrap flex-column" id="imagesGrid"> 
+                <div class="column1" >
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                    
+                    </div>
+                    
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                    </div>
+                </div>
+                <div class="column1" >
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                    </div>
+                
+                 
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                    </div>
+                </div>
+                <div class="column1" >
+                    <div class="my-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                    </div>
+                </div>
+                    <div class="container-fluid d-flex px-3 bg-dark z-1" id="dashFooter" > 
+                        <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">
+                            Clear my gallery
+                        </button>
+                        <button class="mx-1 col btn btn-success w-50" type="button" onclick="location.href='PostSsurvey.html'" id="submit">
+                            End Task
+                        </button>
+                         
+                    </div>
+                </div> 
+
             </div>
             <!-- Main section -->
             <div class="col-9 p-4" id="mainBody">

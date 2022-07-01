@@ -131,16 +131,25 @@ function drop(ev) {
     copyimg.id = original.id
     copyimg.name = 'query'+n_queries
 
+    
+
     for(var i = 0; i < document.getElementsByClassName("DataDash").length; i++){
       if(document.getElementsByClassName("DataDash")[i].children.length > 1){
         id_List.push(document.getElementsByClassName("DataDash")[i].children[1].id)
       } 
     }
       console.log( id_List)
+
+    console.log(ev.target.outerHTML)
     if(id_List.includes(original.id)==false){
+      if(ev.target.classList.contains("bigdash")){
+        ev.target.classList.toggle("Dimdash")
+      }
+    ev.target.classList.toggle("DataDash")
     ev.target.appendChild(copyimg);
     ev.target.children[1].classList.toggle("img-to-like");
-    ev.target.children[1].classList.add("img-fit-in");
+    ev.target.children[1].classList.add("img-fit-into");
+    ev.target.children[1].classList.add("fit-img");
     ev.target.children[1].classList.toggle("clear-dash");
     myImgsListener();
     ev.target.children[0].classList.toggle("d-none")
@@ -188,7 +197,8 @@ function Addtodash(ev){
       console.log(id_List.includes(giveid)==false)
     document.getElementsByClassName("DataDash")[i].appendChild(img)
     document.getElementsByClassName("DataDash")[i].children[0].classList.toggle("d-none")
-    document.getElementsByClassName("DataDash")[i].children[1].classList.add("img-fit-in")
+    document.getElementsByClassName("DataDash")[i].children[1].classList.add("img-fit-into")
+    document.getElementsByClassName("DataDash")[i].children[1].classList.add("fit-img")
     id_List.push(document.getElementsByClassName("DataDash")[i].children[1].id)
     ////console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
     break
@@ -213,11 +223,19 @@ function ExpandDash() {
     for (var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++) {
         document.getElementsByClassName("getDataboxDash")[i].classList.toggle("DataDash")
         document.getElementsByClassName("getDataboxDash")[i].classList.toggle("bigdash")
+        if(document.getElementsByClassName("getDataboxDash")[i].children.length > 1){
+          document.getElementsByClassName("getDataboxDash")[i].children[1].classList.toggle("fit-img")
+          document.getElementsByClassName("getDataboxDash")[i].children[1].classList.toggle("img-fit-into")
+        }else{
+          document.getElementsByClassName("getDataboxDash")[i].classList.toggle("Dimdash")
+        }
       }
-
+    document.getElementById("imagesGrid").classList.toggle("flex-column");
     document.getElementById("mainBody").classList.toggle("col-6");
     document.getElementById("mainBody").classList.toggle("col-9");
-    document.getElementById("extraspace").classList.toggle("d-none");
+    
+    
+    
     
 
 };
@@ -368,6 +386,9 @@ function clearImg(ev){
       ev.target.classList.toggle("d-none")
       //console.log('inside query:',ev.target.id)
       let imgId = ev.target.id
+      if(ev.target.parentElement.classList.contains("bigdash")){
+        ev.target.parentElement.classList.toggle("Dimdash")
+      }
 
       switch (imgId){
         case 'clear-liked':
@@ -401,7 +422,7 @@ function resetDash(){
       if(a[i].children.length > 1){
         console.log("a " +a[i].children[1].outerHTML)
         a[i].children[1].remove()
-        a[i].children[0].remove()
+        a[i].children[0].classList.add("d-none")
     }
   }
   myImgsListener();
@@ -667,7 +688,7 @@ function closeimg(){
     document.getElementById("displayimg").classList.toggle("seeme");
 }
 
-function reveal() {
+/* function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     x = document.getElementById("introwarmup");
   
@@ -705,8 +726,51 @@ function reveal() {
   }
   
   window.addEventListener("scroll", reveal);
+ */
 
-
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    x = document.getElementById("introwarmup");
+  
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      
+      
+      
+      
+      elementVisible = 100;
+      
+      if (reveals[i].id == "goonbutton"){
+        
+        elementVisible = 5;
+        
+      }
+      if (elementTop < windowHeight - elementVisible) {
+        
+        
+        reveals[i].classList.add("active");
+        x.style.display = "none";
+        if((document.getElementById("task2").classList[5] == "zindex")&&(document.getElementById("dashboard").classList.contains("check") == false)){
+          window.scrollTo(0, 0);
+          } else if ((document.getElementById("task2").classList[5] == "zindex") && document.getElementById("dashboard").classList.contains("check")){
+            console.log("preso")
+            let pos = sessionStorage.getItem("wherebuttons1");
+            console.log("retrieved "+pos)
+            console.log("position "+(pos-800))
+            window.scrollTo(0, pos-650);
+          }
+      } else {
+        
+       
+        reveals[i].classList.remove("active");
+        x.style.display = "block";
+      }
+    }
+  }
+  
+  window.addEventListener("scroll", reveal);
 
 
 

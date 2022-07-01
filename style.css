@@ -145,11 +145,23 @@ img{
      
 }
 
-.bigdash{
+.Dimdash{
+  min-height: 8em;
+  min-width: 90%;
+   
+}
+
+/* .bigdash{
     min-height: 13em;
     min-width: 12em; 
     border-color: none !important;
+} */
+.bigdash{
+  
+   
+  border-color: none !important;
 }
+
 
 
 #galleryBack{
@@ -351,9 +363,17 @@ padding-top: 15vh;
     -ms-flex: 25%; /* IE10 */
     flex: 25%;
     max-width: 25%;
-    padding: 0 4px;
+    padding: 4px;
   }
   
+  .column1 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    
+    padding:  4px;
+  }
+
+
   /* tutorial boxes */
   #tutorial1{
       top: 30%;
@@ -653,7 +673,7 @@ margin-bottom: 5%;
   #pin{
     background-color: #fff;
     padding: 3px;
-    width: 1.6em;
+    width: 1.7em;
     height: 2rem;
     text-align: center;
     padding-top: 0.2;
@@ -895,8 +915,8 @@ margin-bottom: 5%;
     }
   } */
 
-  .img-fit-in{
-    object-fit: cover;
+ .img-fit-into{
+    
     overflow: hidden;
     inset: 0px;
     display: flex;
@@ -911,9 +931,24 @@ margin-bottom: 5%;
         border: 0px !important; 
         border-radius: 0rem !important;
     margin-top:0 !important;
-    
+}  
 
-
+.img-fit-in{
+  object-fit: cover;
+  overflow: hidden;
+  inset: 0px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100% !important;
+  height: 100% !important;
+      padding: 0rem !important; 
+      
+      border: 0px !important; 
+      border-radius: 0rem !important;
+  margin-top:0 !important;
 } 
 
 .img-contain{
@@ -971,6 +1006,7 @@ margin-bottom: 5%;
     right: 95%;
     top: 160px;
     width: 0;
+    z-index: -1;
     height: 0;
     transform: rotate(-25deg);
     border-top: 13px solid transparent;
@@ -1021,6 +1057,7 @@ margin-bottom: 5%;
     right: 95%;
     top: 133px;
     width: 0;
+    z-index: -1;
     height: 0;
     transform: rotate(-25deg);
     border-top: 13px solid transparent;
@@ -1028,6 +1065,8 @@ margin-bottom: 5%;
     border-bottom: 26px solid transparent;
 }
 
-.clear-dash{
+
+.fit-img{
   height: 23rem !important;
+  object-fit: cover;
 }

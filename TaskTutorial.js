@@ -44,7 +44,9 @@ jQuery(document).ready(function($) { // the good one
       $('#dashFooter').css("z-index", "9")
 
       $('#dashboard').toggleClass("check")
+
       const whereisit = document.getElementById("dashFooter")
+      console.log("c")
       const {  
         top: t,  
         left: l  
@@ -52,6 +54,7 @@ jQuery(document).ready(function($) { // the good one
       // console.log("stored "+ t, l)
       sessionStorage.setItem("wherebuttons1", t);
       window.scrollTo(0, t-650);
+      console.log(0, t-650)
     });
     
     $( "#toTut2b" ).click(function() {
@@ -122,3 +125,4 @@ function display(ev) {
 //           console.log(id);
 //         });
 //       });
+
