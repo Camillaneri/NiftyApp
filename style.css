@@ -1339,3 +1339,7 @@ margin-bottom: 5%;
 .container3{
   margin-top: 30vh;
 }
+
+.no-scroll{
+  overflow: hidden !important;
+}

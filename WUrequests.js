@@ -214,6 +214,7 @@ function loadWarmUp(){
       reveals[i].classList.add("active");
       x.style.display = "none";
       
+      
       //console.log(document.getElementById("bod").classList)
       //console.log(document.getElementById("task").classList[2])
       //console.log(document.getElementById("tutorial3").style)
@@ -221,17 +222,20 @@ function loadWarmUp(){
         // console.log("eccoci")
         // console.log("doesn't have zindex "+document.getElementById("refimgcontainer").outerHTML)
         // console.log((document.getElementById("refimgcontainer").classList.contains("zindex")))
+        //window.scrollTo(0, 0); !!!!
+        console.log(document.getElementById("bod").classList)
         window.scrollTo(0, 0);
+        document.getElementById("bod").classList.add("no-scroll")
          
       }  else if ((document.getElementById("task").classList[2] == "zindex") && document.getElementById("refimgcontainer").classList.contains("zindex")){
         // console.log("preso")
         let pos = sessionStorage.getItem("wherebuttons");
         // console.log("retrieved "+pos)
         // console.log("position "+(pos-500))
-        window.scrollTo(0, pos-500);
+        window.scrollTo(0, pos-500); 
       } 
       
-      //window.scrollBy(0, 100)
+      
 
     } else {
      

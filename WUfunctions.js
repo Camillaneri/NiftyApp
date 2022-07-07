@@ -2,9 +2,10 @@
 
 
 jQuery(document).ready(function($) {
-    //window.scrollTo(0, 0);
+   
     console.log("hi i'm jquery")
-    //$(".owl-carousel").owlCarousel();
+    
+    //$("body").css("overflow", "hidden")
     $('#tutorials').css("z-index", "13")
     $('#RefImg').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
     $('#RefImg').css("z-index", "9")
@@ -27,16 +28,15 @@ jQuery(document).ready(function($) {
       $('#task').css("z-index", "11")
 
       $('#clumnN2').css("box-shadow", "unset")
-      $('.dropboxes').css("box-shadow", "unset")
-      $('.dropboxes').css("z-index", "0")
-      $('.similarImg0').css("z-index", "0")
+     /*  $('.dropboxes').css("box-shadow", "unset")
+      $('.dropboxes').css("z-index", "0") */
+/*       $('.similarImg0').css("z-index", "0")
       $('.similarImg0').first().css("box-shadow", "unset")
-      $('.similarImg0').first().css("z-index", "0")
+      $('.similarImg0').first().css("z-index", "0") */
       $('#task').css("box-shadow", "unset")
       $('#task').css("z-index", "0")
 
-      //$('#reference').css("z-index", "9")
-      //$('#refimgcontainer').toggleClass("zindextop");
+      
     });
     
     $( "#toTut2a" ).click(function() {
@@ -48,11 +48,11 @@ jQuery(document).ready(function($) {
       $('#RefImg').css("z-index", "0")
 
       $('#clumnN2').css("box-shadow", "-1000px 10001px 0px 10000px rgb(0 0 0 / 60%)")
-      $('.dropboxes').css("box-shadow", "20.4px 22px 0px 45px rgb(0 0 0 / 60%)")
-      $('.dropboxes').css("z-index", "9")
-      $('.similarImg0').css("z-index", "10")
+      /* $('.dropboxes').css("box-shadow", "20.4px 22px 0px 45px rgb(0 0 0 / 60%)")
+      $('.dropboxes').css("z-index", "9") */
+ /*      $('.similarImg0').css("z-index", "10")
       $('.similarImg0').first().css("box-shadow", "0px 0px 0px 10000px rgb(0 0 0 / 60%)")
-      $('.similarImg0').first().css("z-index", "9")
+      $('.similarImg0').first().css("z-index", "9") */
       $('#task').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
       
      
@@ -65,11 +65,11 @@ jQuery(document).ready(function($) {
       $('#tutorial3').css("display","block");
 
       $('#clumnN2').css("box-shadow", "unset")
-      $('.dropboxes').css("box-shadow", "unset")
-      $('.dropboxes').css("z-index", "0")
-      $('.similarImg0').css("z-index", "0")
+    /*   $('.dropboxes').css("box-shadow", "unset")
+      $('.dropboxes').css("z-index", "0") */
+/*       $('.similarImg0').css("z-index", "0")
       $('.similarImg0').first().css("box-shadow", "unset")
-      $('.similarImg0').first().css("z-index", "0")
+      $('.similarImg0').first().css("z-index", "0") */
       $('#task').css("box-shadow", "unset")
       $('#task').css("z-index", "0")
      
@@ -79,14 +79,25 @@ jQuery(document).ready(function($) {
       $('#refimgcontainer').toggleClass("zindex")
       console.log($("#refimgcontainer").hasClass( "zindex" ))
       $('#refimg').css("z-index", "9")
+
       const whereisit = document.getElementById("buttons2")
       const {  
         top: t,  
         left: l  
       } = whereisit.getBoundingClientRect();  
-      // console.log("stored "+ t, l)
+
+      console.log("stored "+ t, l)
+
+      const whereisit1 = document.getElementById("tutorial3")
+      const {  
+        top: t1,  
+        left: l1  
+      } = whereisit1.getBoundingClientRect(); 
+
+      console.log("tut "+ t1, l1)
+      
       sessionStorage.setItem("wherebuttons", t);
-      window.scrollTo(0, t-40);
+      window.scrollTo(0, t);
     
     });
     
@@ -96,11 +107,11 @@ jQuery(document).ready(function($) {
       $('#tutorial2').css("display","block");
       
       $('#clumnN2').css("box-shadow", "-1000px 10001px 0px 10000px rgb(0 0 0 / 60%)")
-      $('.dropboxes').css("box-shadow", "20.4px 22px 0px 45px rgb(0 0 0 / 60%)")
+/*       $('.dropboxes').css("box-shadow", "20.4px 22px 0px 45px rgb(0 0 0 / 60%)")
       $('.dropboxes').css("z-index", "9")
       $('.similarImg0').css("z-index", "10")
       $('.similarImg0').first().css("box-shadow", "0px 0px 0px 10000px rgb(0 0 0 / 60%)")
-      $('.similarImg0').first().css("z-index", "9")
+      $('.similarImg0').first().css("z-index", "9") */
       $('#task').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
 
       $('#buttons2').css("z-index", "0")
@@ -127,6 +138,8 @@ jQuery(document).ready(function($) {
       $('#buttons2').css("box-shadow", "unset")
       $('#refimgcontainer').toggleClass("zindex")
       $('#refimg').css("z-index", "0")
+      console.log("ooooo")
+      $("#bod").removeClass("no-scroll")
       
 
       /* $('.dropboxes').css("box-shadow", "unset")
