@@ -63,32 +63,38 @@
             </span>
         </div>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm navcolor navbar-dark">
+        <nav class="navbar navbar-expand-sm gray navbar-dark">
             <div class="container-fluid" id="navcontainer">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link py-3 px-5 " href="#">Start</a>
+                    <a class="navnolink py-3 px-5 " >Start</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link py-3 px-5" href="#">Pre survey</a>
+                  <a class="navnolink py-3 px-5 ">Pre survey</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link py-3 px-5  " href="#">First Task</a>
+                  <a class="navnolink py-3 px-5" >First Task</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link py-3 px-5 lightgreen text-dark " href="#">Second Task</a>
+                  <a class="navnolink py-3 px-5 lightgreen text-dark" >Second Task</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link py-3 px-5" href="#">Post survey</a>
+                  <a class="navnolink py-3 px-5" >Post survey</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link py-3 px-5 " href="#">End</a>
+                    <a class="navnolink py-3 px-5 ">End</a>
                   </li>
                 <li class="nav-item">
-                    <a class="nav-link text-center position-absolute pincontainer" href="#">
-                        <span class="dot text-dark text-center">?</span>
+                    <a class="navnolink pt-2 px-5 text-center position-absolute pincontainer" href="#">
+                        
+                        <span class="dot text-dark text-center"><i class="fa-solid fa-question trbackgr"></i></span>
                     </a>
                   </li>
+                <!-- <li class="nav-item">
+                    <a class="navnolink text-center mt-2 me-3 position-absolute pincontainer" href="#">
+                        <span class="dot text-dark text-center">?</span>
+                    </a>
+                  </li> -->
               </ul>
             </div>
           </nav>
@@ -117,10 +123,10 @@
         </div>-->
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
-    <div class="text-light -0" id="square">
+<div id="myModal" class="">
+    <div class="my-5" id="square">
     <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
+    <img class="dimimg" id="img01">
 </div>
   </div>
   
@@ -143,34 +149,34 @@
                 <div class="px-1 position-relative mx-3 d-flex flex-wrap flex-column" id="imagesGrid"> 
                 <div class="column1" >
                     <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     
                     </div>
                     
                     <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                 </div>
                 <div class="column1" >
                     <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                 
                  
                     <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                 </div>
                 <div class="column1" >
                     <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
                     </div>
                 </div>
                     <div class="container-fluid d-flex px-3 bg-dark z-1" id="dashFooter" > 
-                        <button class="mx-1col btn btn-success w-50" type="button" onclick="resetDash()">
+                        <button class="col btn btn-success me-1 w-50" type="button" onclick="resetDash()">
                             Clear my gallery
                         </button>
-                        <button class="mx-1 col btn btn-success w-50" type="button" onclick="location.href='PostSsurvey.html'" id="submit">
+                        <button class="col btn btn-success ms-1 w-50" type="button" onclick="location.href='PostSsurvey.html'" id="submit">
                             End Task
                         </button>
                          
@@ -210,10 +216,10 @@
                         </div> 
                     </div> 
                     <div class="row px-2"> 
-                        <button class="mx-1 col btn btn-success w-100" type="button" onclick="Apply_like_dislike()">
+                        <button class="mx-1 col btn btn-success w-100 py-2" type="button" onclick="Apply_like_dislike()">
                             Apply
                         </button>   
-                        <button class="mx-1 col btn btn-success w-100" type="button" onClick="fill_task_dash()"> <!-- removeQuery()-->
+                        <button class="mx-1 col btn btn-success w-100 py-2" type="button" onClick="fill_task_dash()"> <!-- removeQuery()-->
                             Reset
                         </button> 
                     </div>

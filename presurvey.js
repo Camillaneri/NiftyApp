@@ -18,3 +18,16 @@ $(document).ready(() => {
       $("#submit").attr("disabled", "disabled");
     }
   }
+
+//MODAL
+ function finishsurv() {
+  console.log("hey")
+  if($("#submit").attr("disabled")==("disabled")){
+    $("#myModal1").css("display","block");
+  }
+ }
+
+ function closemod(){
+  console.log("oi")
+  $("#myModal1").css("display","none");
+ }

@@ -3,7 +3,7 @@
 
 jQuery(document).ready(function($) {
     //window.scrollTo(0, 0);
-    console.log("hi i'm jquery")
+    //console.log("hi i'm jquery")
     //$(".owl-carousel").owlCarousel();
     $('#tutorials').css("z-index", "13")
     $('#RefImg').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
@@ -11,14 +11,14 @@ jQuery(document).ready(function($) {
     
     $('#task').css("z-index", "11")
     
-    //console.log($("#tutorials").hasClass("active"))
+    ////console.log($("#tutorials").hasClass("active"))
     
     
     
     //
   
     $( "#toTut1" ).click(function() {
-      console.log("1") //when you click back from 2
+      //console.log("1") //when you click back from 2
       $('#tutorial2').css("display","none")
       $('#tutorial1').css("display", "block");
 
@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
     });
     
     $( "#toTut2a" ).click(function() {
-      console.log("2")
+      //console.log("2")
       $('#tutorial1').css("display","none")
       $('#tutorial2').css("display","block");
 
@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
     });
   
     $( "#toTut3" ).click(function() {
-      console.log("3")
+      //console.log("3")
       $('#tutorial2').css("display","none")
       $('#tutorial3').css("display","block");
 
@@ -75,23 +75,23 @@ jQuery(document).ready(function($) {
      
       $('#buttons2').css("z-index", "9")
       $('#buttons2').css("box-shadow", "0px 0px 0px 3900px rgb(0 0 0 / 60%)")
-      console.log($("#refimgcontainer").hasClass( "zindex" ))
+      //console.log($("#refimgcontainer").hasClass( "zindex" ))
       $('#refimgcontainer').toggleClass("zindex")
-      console.log($("#refimgcontainer").hasClass( "zindex" ))
+      //console.log($("#refimgcontainer").hasClass( "zindex" ))
       $('#refimg').css("z-index", "9")
       const whereisit = document.getElementById("buttons2")
       const {  
         top: t,  
         left: l  
       } = whereisit.getBoundingClientRect();  
-      console.log("stored "+ t, l)
+      //console.log("stored "+ t, l)
       sessionStorage.setItem("wherebuttons", t);
       window.scrollTo(0, t-40);
     
     });
     
     $( "#toTut2b" ).click(function() {
-      console.log("4")//when you click back from 3
+      //console.log("4")//when you click back from 3
       $('#tutorial3').css("display","none")
       $('#tutorial2').css("display","block");
       
@@ -114,7 +114,7 @@ jQuery(document).ready(function($) {
     });
   
     $( "#FinishTut" ).click(function() {
-      console.log("5")
+      //console.log("5")
       $('#tutorials').css("display","none")
       $('#tutorials').css("z-index", "0")
 
@@ -143,13 +143,13 @@ jQuery(document).ready(function($) {
 
 // drop images
 function allowDrop(ev) {
-  //console.log("a")
+  ////console.log("a")
     ev.preventDefault();
   }
   
   function drag(ev) {
-    //console.log("b")
-    //console.log("sourceImg for drag "+ev.parentElement.outerHTML)
+    ////console.log("b")
+    ////console.log("sourceImg for drag "+ev.parentElement.outerHTML)
     ev.dataTransfer.setData("text", ev.target.id);
   }
   
@@ -166,7 +166,7 @@ function allowDrop(ev) {
     ev.target.appendChild(document.getElementById(data));
     
     ev.target.children[0].classList.remove('d-none')
-   
+    ev.target.children[2].classList.add('border1')
 
     ev.target.parentElement.classList.toggle("no-border")
   }
@@ -178,7 +178,7 @@ function allowDrop(ev) {
       if(document.getElementById("coso").children[x].children.length < 1){
 
         //ev.target.parentElement.children[2].draggable = true
-
+        ev.target.parentElement.children[2].classList.remove('border1')
         num = ev.target.parentElement.children[1].innerHTML
         numero = num.replace('#', '');
         n = parseFloat(numero);
@@ -187,7 +187,8 @@ function allowDrop(ev) {
         document.getElementsByClassName("tall-img")[n-1].insertAdjacentHTML('beforeend', "<img id='WUimg4' class='img-fit' src=''>")
         //ev.target.parentElement.insertAdjacentHTML('beforeend', "<img id='WUimg4' class='img-fit' src=''>");
         ev.target.parentElement.children[0].classList.add('d-none')
-
+        console.log("ev.target.parentElement.children[2] "+ev.target.parentElement.children[2].outerHTML)
+        
         break
         
       }

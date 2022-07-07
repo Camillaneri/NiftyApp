@@ -33,8 +33,8 @@ function loadWarmUp(){
     .then((res) => res.json())
     .then((result) =>{ 
       dict1 = result['data']['artwork_metrics'];
-      //console.log(result)
-      refimg = document.getElementById("reference")
+      //console.log(document.getElementsByClassName("REF")[0])
+      refimg = document.getElementsByClassName("REF")[0]
       //console.log(refimg)
       
       dict = result['data']['artwork_metrics'][0]
@@ -129,6 +129,7 @@ function loadWarmUp(){
               box[x].style.height = "";
             }
             */
+           
             get_img_element[x].src = art_url;
             
             get_img_element[x].id = art_id;
@@ -141,20 +142,20 @@ function loadWarmUp(){
             AIorder.push(art_id)
             switch(LoadedImgsListenerWU){
               case 5:
-                console.log('all loaded', LoadedImgsListenerWU )
+                //console.log('all loaded', LoadedImgsListenerWU )
                 const startWU = new Date().getTime()
                 sessionStorage.setItem('startWU'+n_round , startWU)
                 sessionStorage.setItem('AIorder'+n_round , AIorder)
-                console.log(sessionStorage)
+                //console.log(sessionStorage)
             default: break
             }
 
             // if(LoadedImgsListenerWU < 5){
               // const taskStarts = new Date().getTime()
               // sessionStorage.setItem('taskStarts'+n_queries , taskStarts)
-              // console.log('taskStarts'+n_queries , sessionStorage.getItem('taskStarts'+n_queries )) //returns time in milliseconds since the ECMAScript epoch, which is defined as January 1, 1970, UTC (equivalent to the UNIX epoch).
+              // //console.log('taskStarts'+n_queries , sessionStorage.getItem('taskStarts'+n_queries )) //returns time in milliseconds since the ECMAScript epoch, which is defined as January 1, 1970, UTC (equivalent to the UNIX epoch).
               // LoadedImgsListener = 0
-              // console.log('all loaded', LoadedImgsListenerWU )
+              // //console.log('all loaded', LoadedImgsListenerWU )
             // }
 
         
@@ -170,6 +171,15 @@ function loadWarmUp(){
         }
       
  loadWarmUp()
+
+ function repeatask(){
+  document.getElementsByClassName("REF")[0].src = ""
+  for(let x = 0; x < 5 ; x++){
+    document.getElementsByClassName("similarImg0")[x].src = ""
+    document.getElementsByClassName("simimages")[x].classList.add("imgsubst")
+  }
+  loadWarmUp()
+ }
         
  /*function placeholders(){
   
@@ -198,14 +208,14 @@ function loadWarmUp(){
 
   for (var i = 0; i < reveals.length; i++) {
     var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    elementVisible = 100;
-    
-    if (reveals[i].id == "goonbutton"){
-      
-      elementVisible = 5;
-      
-    }
+    var elementTop = reveals[1].getBoundingClientRect().top;
+    elementVisible = 300;
+    //console.log("reveals[i] "+reveals[i].outerHTML)
+    console.log("elementTop "+ elementTop)
+    console.log("windowHeight "+ windowHeight)
+    console.log("elementVisible "+ elementVisible)
+    console.log("windowHeight - elementVisible "+ (windowHeight - elementVisible))
+   
     if (elementTop < windowHeight - elementVisible) {
       
       
@@ -216,16 +226,16 @@ function loadWarmUp(){
       //console.log(document.getElementById("task").classList[2])
       //console.log(document.getElementById("tutorial3").style)
       if((document.getElementById("task").classList[2] == "zindex") && (document.getElementById("refimgcontainer").classList.contains("zindex")== false)){
-        console.log("eccoci")
-        console.log("doesn't have zindex "+document.getElementById("refimgcontainer").outerHTML)
-        console.log((document.getElementById("refimgcontainer").classList.contains("zindex")))
+        //console.log("eccoci")
+        //console.log("doesn't have zindex "+document.getElementById("refimgcontainer").outerHTML)
+        //console.log((document.getElementById("refimgcontainer").classList.contains("zindex")))
         window.scrollTo(0, 0);
          
       }  else if ((document.getElementById("task").classList[2] == "zindex") && document.getElementById("refimgcontainer").classList.contains("zindex")){
-        console.log("preso")
+        //console.log("preso")
         let pos = sessionStorage.getItem("wherebuttons");
-        console.log("retrieved "+pos)
-        console.log("position "+(pos-500))
+        //console.log("retrieved "+pos)
+        //console.log("position "+(pos-500))
         window.scrollTo(0, pos-500);
       } 
       
