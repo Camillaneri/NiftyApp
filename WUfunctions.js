@@ -249,7 +249,7 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   document.getElementById("shadow").classList.toggle("seeme");
   document.getElementById("displayed").src = art_high_res;
   window.scrollTo(0, 0);
-  document.getElementById("bd2").classList.add("noscroll")
+  document.getElementById("bod").classList.add("noscroll")
   
 
   
@@ -261,5 +261,5 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
 function closeimg(){
     //////console.log(document.getElementById("displayimg").classList)
     document.getElementById("shadow").classList.remove("seeme");
-    document.getElementById("bd1").classList.remove("noscroll")
+    document.getElementById("bod").classList.remove("noscroll")
 }
