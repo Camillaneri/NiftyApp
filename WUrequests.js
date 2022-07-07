@@ -1,4 +1,4 @@
-
+var WUround = 0
 var LoadedImgsListenerWU = 0
 var n_round = 0
 var AIorder = []
@@ -296,4 +296,10 @@ function arrowUp(){
   
   }
 
+}
+
+function repeattask(){
+   WUround += 1
+   sessionStorage.setItem('WUround', WUround)
+   console.log('round', WUround)
 }

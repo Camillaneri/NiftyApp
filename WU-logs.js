@@ -1,7 +1,5 @@
 
 function endTask(){
-    const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
-
     const endWU = new Date().getTime()
     sessionStorage.setItem('endWU'+n_round , endWU)
     console.log(sessionStorage)
@@ -18,4 +16,12 @@ function endTask(){
    
 }
 
+function resetWU(){
+    
+}
 // total rounds, image order by algorithm, image order by user (for each round) time spent per round 
+
+// CHECKED :
+// user order,
+// AI order 
+//
