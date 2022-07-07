@@ -5,7 +5,7 @@ var AIorder = []
 
 function loadWarmUp(){
   IDnum = Math.floor(Math.random() * 50000)
-  //console.log(" a "+IDnum)
+  console.log(" a "+IDnum)
   //console.log(IDnum) //first image
     Refquery =  `
     {
@@ -33,36 +33,24 @@ function loadWarmUp(){
     .then((res) => res.json())
     .then((result) =>{ 
       dict1 = result['data']['artwork_metrics'];
-      //console.log(result)
+      // console.log('result', result)
       refimg = document.getElementById("reference")
       //console.log(refimg)
       
       dict = result['data']['artwork_metrics'][0]
       if(dict == null){
-        //console.log("preso1!")
         loadWarmUp()
       }
-      /*if(dict == undefined){
-        //console.log("preso2!")
-        loadWarmUp()
-      }*/
-      //console.log(dict)
-      //console.log(result['data']['artwork_metrics'].length)
       art_id = IDnum
-      art_high_res = dict['url']
-      if(art_high_res == null){
-        //console.log("preso!")
-        loadWarmUp()
-      }
-
-      //console.log("controllo "+art_high_res)
-
-     
       
+      if(dict['url'] == null){
+        loadWarmUp();
+      }else{
+        art_high_res = dict['url']
+      }
+     
       if (art_high_res != null && art_high_res != "" && art_id !="" && art_id != null && art_high_res.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
-        refimg.src = art_high_res;
-            }
-        else{
+        refimg.src = art_high_res;}else{
             get_img_element.src = "images/wooops1.jpg";
         }
       refimg.src = art_high_res;
@@ -171,20 +159,8 @@ function loadWarmUp(){
 
         }
       
- loadWarmUp()
-        
- /*function placeholders(){
-  
-  randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
-          document.getElementById("reference").style.backgroundColor = randomColor;
-           //document.documentElement.style.setProperty('--placeholder-color', randomColor);
-           for (let x = 0; x <= 4 ; x++){
-            randomColor = "#"+((1<<24)*Math.random()|0).toString(16); 
-            document.getElementsByClassName("max-h-50")[x].style.backgroundColor = randomColor;
-            
-           }
-    
- }*/
+ loadWarmUp(); 
+
 
  function findbuttons(){
   const whereisit = document.getElementById("buttons2")  
@@ -298,8 +274,11 @@ function arrowUp(){
 
 }
 
-function repeattask(){
-   WUround += 1
-   sessionStorage.setItem('WUround', WUround)
-   console.log('round', WUround)
+function repeatask(){
+   WUround += 1;
+   sessionStorage.setItem('WUround', WUround);
+   console.log('round', WUround);
+   console.log('images', document.getElementsByTagName('img'))
+   document.getElementsByTagName('img').src = "images/wooops1.jpg";
+   loadWarmUp();
 }
