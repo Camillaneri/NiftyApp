@@ -26,7 +26,7 @@
         
         <script src="TaskTutorial.js"></script>   
     </head>
-    <body class="d-flex flex-column" onload="fill_task_dash()">
+    <body class="d-flex flex-column darkGreen" onload="fill_task_dash()">
 
          <!-- tutorial -->
 
@@ -57,8 +57,8 @@
 
          <!-- header -->
          <div class="py-4 Headercolor" id="Header">
-            <span class="container-fluid d-flex justify-content-between">
-                <span class="text-left text-light"> NiftyEValue</span> 
+            <span class="container-fluid d-flex justify-content-between" id="head">
+                <span class="text-left text-light me-5"> NiftyEValue</span> 
                 <span class="text-right text-light" id="pageName">Home</spandes>
             </span>
         </div>
@@ -137,10 +137,10 @@
 
            
             <!-- Dashboard -->
-            <div class="col-3 bg-dark text-light " id="dashboard"> 
-                <div class="position-absolute bg-dark p-3 container-fluid z-1 smaldashead" id="DashHeader">
+            <div class="col-3 gray text-light " id="dashboard"> 
+                <div class="position-absolute gray p-3 container-fluid z-1 smaldashead" id="DashHeader">
                     <span> My Gallery</span>
-                    <button class="btn btn-dark expand" type="button"id="Expand" onclick="ExpandDash()"> 
+                    <button class="btn text-light gray expand" type="button"id="Expand" onclick="ExpandDash()"> 
                         <i class="bi bi-arrows-angle-expand"></i>
                     </button>
                 </div>

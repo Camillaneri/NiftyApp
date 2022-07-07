@@ -63,7 +63,7 @@ body {
     min-height: 16em;
     min-width: 50%;
     margin: 0;
-    background-color: #121619;
+    background-color: #171923;
     border: 1px solid #00FFC1;
     margin-right: 0.5em;
 }
@@ -72,7 +72,7 @@ body {
     min-height: 8em;
     max-width: 20%;
     margin: 0;
-    background-color: #121619;
+    background-color: #171923;
     border: 1px solid #00FFC1;
     margin-left: 0.25em;
     margin-right: 0.25em;
@@ -582,15 +582,15 @@ margin-bottom: 5%;
   }
 
 
-/*COLOR*/
+/*COLORSSS*/
 .almostBlack{
     background-color: #171923 !important;
 }
 .gray{
-    background-color: #2D3748 !important;
+    background-color: #1A202C !important;
 }
 .lightgray{
-  background-color: #718096 !important;
+  background-color: #E2E8F0 !important;
 }
 
 .darkGreen{
@@ -605,7 +605,7 @@ margin-bottom: 5%;
 .boh{
   --chakra-colors-gray-50: #F7FAFC;
   --chakra-colors-gray-100: #EDF2F7;
-  --chakra-colors-gray-200: #E2E8F0;
+  --chakra-colors-gray-200: #E2E8F0;/*lightlightgray nifty*/
   --chakra-colors-gray-300: #CBD5E0;
   --chakra-colors-gray-400: #A0AEC0;
   --chakra-colors-gray-500: #718096;
@@ -681,7 +681,13 @@ margin-bottom: 5%;
     width: 70%;
     margin-right: auto;
     margin-left: auto;
+    
 
+  }
+
+  #ScentralBox{
+
+    margin-bottom: 130px;
   }
 
 /*SCROLL BAR*/
@@ -693,7 +699,7 @@ margin-bottom: 5%;
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #121619;
+    background: #171923;
   }
   
   /* Handle */
@@ -1138,7 +1144,7 @@ margin-bottom: 5%;
   content: "";
   width: 78px;
   height: 37px;
-  background: #212529;
+  background: #171923;
   border-radius: 50px 50px 0 0;
   transform: rotate(180deg);
   
@@ -1318,4 +1324,8 @@ margin-bottom: 5%;
 .trbackgr{
   background-color: transparent !important;
   margin-top: 0.7rem;
+}
+
+#head{
+  margin-left: 2.25rem;
 }
