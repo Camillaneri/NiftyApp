@@ -524,6 +524,7 @@ margin-bottom: 5%;
 #refimg{
     width: 40%;
     
+    
 }
 
 
@@ -1024,7 +1025,7 @@ margin-bottom: 5%;
 }
 
 #task{
-    min-height: 150vh;
+    min-height: 180vh;
 }
 
 
@@ -1329,4 +1330,12 @@ margin-bottom: 5%;
 #head{
   margin-left: 2.25rem;
   margin-right: 3rem;
+}
+
+.noundrln{
+  text-decoration: none !important;
+}
+
+.container3{
+  margin-top: 30vh;
 }
