@@ -448,16 +448,36 @@ padding-top: 15vh;
 
 
 #displayimg{
-    
-    left: 25%;
-    display:none;
-
+  padding:5vh;
+  
+  height: fit-content;
+  width:fit-content;
+    margin:auto;
 }
-#closeimg{
-    right: 0%
+#shadow{
+  
+  padding: 2.5%;
+  height: 160vh;
+  left:0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.63);
+  display:none;
+}
+.closeimg{
+  position: absolute;
+  top: 5vh;
+  right: 10vh;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 .seeme{
     display:block !important;
+}
+#displayed{
+  max-height: 80vh !important;
+  width: auto !important;
 }
 
 #tutorials{

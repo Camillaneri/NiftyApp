@@ -679,21 +679,12 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   dict = result['data']['artwork_metrics'][x]
   art_id = dict['artwork_id']
   art_high_res = dict['url']
-  //document.getElementById("displayimg").classList.toggle("seeme");
-  //document.getElementById("displayed").src = art_high_res;
 
-  document.getElementById("myModal").style.display = "block"
-  document.getElementById("img01").src = art_high_res;
+  document.getElementById("shadow").classList.toggle("seeme");
+  document.getElementById("displayed").src = art_high_res;
+  window.scrollTo(0, 0);
+  document.getElementById("bd1").classList.add("noscroll")
   
-
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  document.getElementById("myModal").style.display = "none";
-}
 
   
   }})
@@ -701,56 +692,12 @@ span.onclick = function() {
 }
 
 
-
-
-
-
-
-
 function closeimg(){
     //////console.log(document.getElementById("displayimg").classList)
-    document.getElementById("displayimg").classList.toggle("seeme");
+    document.getElementById("shadow").classList.remove("seeme");
+    document.getElementById("bd1").classList.remove("noscroll")
 }
 
-/* function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    x = document.getElementById("introwarmup");
-  
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      
-      var elementTop = reveals[i].getBoundingClientRect().top;
-      
-      
-      
-      
-      elementVisible = 100;
-      
-      if (reveals[i].id == "goonbutton"){
-        
-        elementVisible = 5;
-        
-      }
-      if (elementTop < windowHeight - elementVisible) {
-        
-        
-        reveals[i].classList.add("active");
-        x.style.display = "none";
-        if((document.getElementById("task2").classList[5] == "zindex")){
-          window.scrollTo(0, 0);
-          }
-  
-      } else {
-        
-       
-        reveals[i].classList.remove("active");
-        x.style.display = "block";
-      }
-    }
-  }
-  
-  window.addEventListener("scroll", reveal);
- */
 
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");

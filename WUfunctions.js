@@ -208,3 +208,58 @@ function allowDrop(ev) {
   }
 }
   
+function display_img(ev){
+ /*  // inizio log immagine grande
+  var count = parseInt(sessionStorage.getItem('displayedImgs'));
+  count +=1
+  sessionStorage.setItem('displayedImgs', count);
+  // fine log immagine grande
+    //////console.log(ev.target) */
+
+  hid = ev.target.id
+    
+  Refquery =  `
+  {
+    artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+hid+` }}) {
+      url
+      artwork_id
+    }
+  }
+      
+  ` 
+//fetch url and mediatype for every artwork
+fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'text/json',
+  },
+  body: JSON.stringify({
+    query: Refquery
+  }),
+})
+.then((res) => res.json())
+.then((result) =>{ 
+  dict1 = result['data']['artwork_metrics'];
+  
+  for(let x = 0; x <= dict1.length ; x++){
+  dict = result['data']['artwork_metrics'][x]
+  art_id = dict['artwork_id']
+  art_high_res = dict['url']
+
+  document.getElementById("shadow").classList.toggle("seeme");
+  document.getElementById("displayed").src = art_high_res;
+  window.scrollTo(0, 0);
+  document.getElementById("bd2").classList.add("noscroll")
+  
+
+  
+  }})
+
+}
+
+
+function closeimg(){
+    //////console.log(document.getElementById("displayimg").classList)
+    document.getElementById("shadow").classList.remove("seeme");
+    document.getElementById("bd1").classList.remove("noscroll")
+}

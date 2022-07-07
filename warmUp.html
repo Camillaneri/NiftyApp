@@ -53,6 +53,18 @@
         </div>
         
 
+                <!-- Display img-->
+        
+                <div class="z-2000 position-absolute" id="shadow">
+                    <div class="white bg-dark br1 imgsubst" id="displayimg">
+                        <span class="closeimg" onclick="closeimg()">&times;</span>
+                        <!--<button type="button" class="btn btn-success" id="closeimg" onclick="closeimg()">x</button>-->
+                        <img id="displayed" src="" class="w-15" alt="...">
+                    </div>
+            </div>
+           
+        
+
          <!-- header -->
          <div class="py-4 almostBlack" id="Header">
             <span class="d-flex justify-content-between" id="head">
@@ -154,7 +166,7 @@
                 <div class="p-4 collapse show almostBlack" id="Small">  <!--Small--> 
                     <div class="dropboxes d-flex pb-2 overflowY almostBlack">
                         <div class="getDatabox1">                     
-                            <div id="getData21" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData21" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" onclick="display_img(event) >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #1
@@ -163,7 +175,7 @@
                             </div>        
                         </div>   
                         <div class="getDatabox1">                          
-                            <div id="getData22" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData22" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" onclick="display_img(event) >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #2
@@ -172,7 +184,7 @@
                             </div>          
                         </div>        
                         <div class="getDatabox1"> 
-                            <div id="getData23" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData23" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" onclick="display_img(event) >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #3
@@ -181,7 +193,7 @@
                             </div>       
                         </div>        
                         <div class="getDatabox1">            
-                            <div id="getData24" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData24" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" onclick="display_img(event) >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #4
@@ -190,7 +202,7 @@
                             </div>         
                         </div>        
                         <div class="getDatabox1">     
-                            <div id="getData25" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData25" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" onclick="display_img(event) >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #5

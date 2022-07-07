@@ -27,7 +27,7 @@
         
         <script src="TaskTutorial.js"></script>   
     </head>
-    <body class="d-flex flex-column darkGreen" onload="fill_task_dash()">
+    <body id="bd1" class="d-flex flex-column darkGreen" onload="fill_task_dash()">
 
          <!-- tutorial -->
 
@@ -113,23 +113,24 @@
     </div>
     
 
-        <!-- Display img
-        <div class="row wrapper w-100 p-0 bgdark50">
-            <div class="col-3 bg-dark text-light -0" id="square">
-                <div class="position-absolute w-50 white bg-dark z-2000 p-3 br1" id="displayimg">
-                    <button type="button" class="btn btn-success" id="closeimg" onclick="closeimg()">x</button>
+        <!-- Display img-->
+        
+        <div class="z-2000 position-absolute" id="shadow">
+                <div class="white bg-dark br1 imgsubst" id="displayimg">
+                    <span class="closeimg" onclick="closeimg()">&times;</span>
+                    <!--<button type="button" class="btn btn-success" id="closeimg" onclick="closeimg()">x</button>-->
                     <img id="displayed" src="" class="w-15" alt="...">
                 </div>
-            </div>
-        </div>-->
+        </div>
+       
 
 <!-- The Modal -->
-<div id="myModal" class="">
+<!--<div id="myModal" class="">
     <div class="my-5" id="square">
     <span class="close">&times;</span>
     <img class="dimimg" id="img01">
 </div>
-  </div>
+  </div>-->
   
        
 
