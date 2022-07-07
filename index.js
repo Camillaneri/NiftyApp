@@ -7,12 +7,17 @@ function reveal() {
       var elementTop = reveals[i].getBoundingClientRect().top;
       
       elementVisible = 150;
-      console.log(reveals[i])
-      console.log(elementVisible)
+      //console.log("reveals[i] "+reveals[i].outerHTML)
+      console.log("elementTop "+elementTop)
+      console.log("windowHeight "+windowHeight)
+      console.log("elementVisible "+elementVisible)
+      console.log("windowHeight - elementVisible "+(windowHeight - elementVisible))
+      
+
       if (reveals[i].id == "goonbutton"){
-        console.log("ecco")
+        //console.log("ecco")
         elementVisible = 5;
-        console.log(elementVisible)
+        //console.log(elementVisible)
       }
       if (elementTop < windowHeight - elementVisible) {
         reveals[i].classList.add("active");

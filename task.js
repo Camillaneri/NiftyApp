@@ -287,7 +287,7 @@ function AddLiked_Disliked(event) {
         if (num_likd == 0 && num_dslikd == 0){
             
             //////console.log("a.1")
-            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0 mx-2 img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail img-fit-in'></div>"
+            document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0 mx-2 img-contain'><input class='position-absolute cross-btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail img-fit-in'></div>"
             event.target.classList.add("green")
           }
         if((num_likd > 0 && num_likd < 3) || (num_likd == 0 && num_dslikd > 0 && num_dslikd <= 3 )){
@@ -313,7 +313,7 @@ function AddLiked_Disliked(event) {
             else{
                 ////console.log("a.23")
                 
-                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 mx-2 p-0 img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail  img-fit-in'></div>"
+                document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 mx-2 p-0 img-contain'><input class='position-absolute cross-btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail  img-fit-in'></div>"
                 event.target.classList.add("green")
               }
         
@@ -330,7 +330,7 @@ function AddLiked_Disliked(event) {
         AddidD = event.target.parentElement.parentElement.children[2].id;
         if (num_likd == 0 && num_dslikd == 0){
             //////console.log("b.1")
-            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 mx-2 p-0 img-contain'><input class='position-absolute btn btn-light p-0 ' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
+            document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 mx-2 p-0 img-contain'><input class='position-absolute cross-btn btn-light p-0 ' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
             event.target.classList.add("red")
           }
         if((num_dslikd > 0 && num_dslikd < 3) || (num_likd > 0 && num_likd <= 3 && num_dslikd < 3)){
@@ -355,7 +355,7 @@ function AddLiked_Disliked(event) {
             }
             else{
                 //////console.log("b.23")
-                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0 mx-2 img-contain'><input class='position-absolute btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
+                document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0 mx-2 img-contain'><input class='position-absolute cross-btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
                 event.target.classList.add("red")
               }
         
@@ -759,12 +759,12 @@ function closeimg(){
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
       
-      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementTop = reveals[1].getBoundingClientRect().top;
       
       
       
       
-      elementVisible = 100;
+      elementVisible = 300;
       
       if (reveals[i].id == "goonbutton"){
         

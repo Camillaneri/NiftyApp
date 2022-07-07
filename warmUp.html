@@ -18,8 +18,9 @@
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/bc67555ac1.js" crossorigin="anonymous"></script>
     </head>
-    <body id="bod" class=""> <!-- class="d-flex flex-column"  onload="placeholders()"-->
+    <body id="bod" class="darkGreen"> <!-- class="d-flex flex-column"  onload="placeholders()"-->
 
           <!-- tutorial -->
 
@@ -53,41 +54,42 @@
         
 
          <!-- header -->
-         <div class="py-4 Headercolor" id="Header">
-            <span class="container-fluid d-flex justify-content-between">
-                <span class="text-left text-light"> NiftyEValue</span> 
+         <div class="py-4 almostBlack" id="Header">
+            <span class="d-flex justify-content-between" id="head">
+                <span class="text-left text-light me-5"> NiftyEValue</span> 
                 <span class="text-right text-light" id="pageName">Home</spandes>
             </span>
         </div>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm navcolor navbar-dark">
+        <nav class="navbar navbar-expand-sm gray navbar-dark">
             <div class="container-fluid" id="navcontainer">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link py-3 px-5 " href="#">Start</a>
+                    <a class="navnolink py-3 px-5 " >Start</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link py-3 px-5 " href="#">Pre survey</a>
+                  <a class="navnolink py-3 px-5 ">Pre survey</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link py-3 px-5  lightgreen text-dark" href="#">First Task</a>
+                  <a class="navnolink py-3 px-5  lightgreen text-dark" >First Task</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link py-3 px-5" href="#">Second Task</a>
+                  <a class="navnolink py-3 px-5" >Second Task</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link py-3 px-5" href="#">Post survey</a>
+                  <a class="navnolink py-3 px-5" >Post survey</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link py-3 px-5 " href="#">End</a>
+                    <a class="navnolink py-3 px-5 ">End</a>
                   </li>
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="#">
-                        <span class="dot text-dark text-center">?</span>
+                    <a class="navnolink pt-2 px-5 text-center position-absolute pincontainer" href="#">
+                        
+                        <span class="dot text-dark text-center"><i class="fa-solid fa-question trbackgr"></i></span>
                     </a>
                   </li>
                 <!-- <li class="nav-item">
-                    <a class="nav-link text-center mt-2 me-3 position-absolute pincontainer" href="#">
+                    <a class="navnolink text-center mt-2 me-3 position-absolute pincontainer" href="#">
                         <span class="dot text-dark text-center">?</span>
                     </a>
                   </li> -->
@@ -114,7 +116,7 @@
         <!-- Task -->
         <div class="d-flex reveal zindex" id="task">    <!-- big container-->
 
-                <div class="col-xl-4 flex-column px-5" id="refimg">   <!--column1-->
+                <div class="col-xl-4 flex-column px-5 almostBlack" id="refimg">   <!--column1-->
                     <!-- <div class="my-3 text-light">  --text--
                         <h3>Reference image</h3>
                         
@@ -123,7 +125,7 @@
                         <div class="aclass" id="refimgcontainer">            
                             <div id="RefImg" class="position-relative text-center imgsubst"> 
         
-                                <img id="reference" src=""> 
+                                <img id="reference" class="REF" src=""> 
                             </div>     
                         </div>                      
                     </div>
@@ -132,14 +134,18 @@
                         <p class="lead">
                             Order the images based on their similarity to the reference image</p>
                     </div> 
-                    <div class="my-5 mx-3 d-flex" id="buttons2"> <!-- buttons -->
+                    <div class="my-3 d-flex" id="buttons2"> <!-- buttons -->
                         <div class="col-6 p-1"> 
-                            <button class="w-100 col-6 btn btn-success px-4" type="button" onclick="loadWarmUp()">
+                            <button class="w-100 col-6 btn btn-success py-2 px-4" type="button" onclick="repeatask()">
                             Repeat task
                             </button>    
                         </div>
                          <div class="col-6 p-1">
+<<<<<<< HEAD
                              <button class="w-100 col-6 btn btn-success px-4" type="button" onclick="endTask()"> 
+=======
+                             <button class="w-100 col-6 btn btn-success py-2 px-4" type="button" onclick="location.href='Task.html',endTask()"> 
+>>>>>>> 2347bfe18b46607d00eec0c0109079e83625cf7e
               
                             End task
                             </button>  
@@ -153,11 +159,11 @@
                     <div class="position-relative mx-auto flex-fill" id="clumnN2">   <!--column2--> 
                          
                         
-                        <div class="p-4 collapse show gray" id="Small">  <!--Small--> 
-                            <div class="dropboxes d-flex pb-2 overflowY gray">
+                        <div class="p-4 collapse show almostBlack" id="Small">  <!--Small--> 
+                            <div class="dropboxes d-flex pb-2 overflowY almostBlack">
                                 <div class="getDatabox1">                     
                                     <div id="getData21" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
-                                        <button class="position-absolute  btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
+                                        <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                         <div class="position-absolute m-1 z-1 border-dot">
                                             #1
                                         </div> 
@@ -166,7 +172,7 @@
                                 </div>   
                                 <div class="getDatabox1">                          
                                     <div id="getData22" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
-                                        <button class="position-absolute  btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
+                                        <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                         <div class="position-absolute m-1 z-1 border-dot">
                                             #2
                                         </div> 
@@ -175,7 +181,7 @@
                                 </div>        
                                 <div class="getDatabox1"> 
                                     <div id="getData23" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
-                                        <button class="position-absolute  btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
+                                        <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                         <div class="position-absolute m-1 z-1 border-dot">
                                             #3
                                         </div> 
@@ -184,7 +190,7 @@
                                 </div>        
                                 <div class="getDatabox1">            
                                     <div id="getData24" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
-                                        <button class="position-absolute  btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
+                                        <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                         <div class="position-absolute m-1 z-1 border-dot">
                                             #4
                                         </div> 
@@ -193,7 +199,7 @@
                                 </div>        
                                 <div class="getDatabox1">     
                                     <div id="getData25" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
-                                        <button class="position-absolute  btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
+                                        <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                         <div class="position-absolute m-1 z-1 border-dot">
                                             #5
                                         </div> 
@@ -211,10 +217,10 @@
 
 
                                 <div class="flex-grow-1 text-center" id="linguetta">
-                                    <button type="button" class="gray" onclick="arrowDown()" id="arrowDownButton">.</button>
+                                    <button type="button" class="almostBlack" onclick="arrowDown()" id="arrowDownButton">.</button>
                                 </div>
                                 <div class="flex-grow-1 justify-content-center text-center mb-3" >
-                                    <button type="button" class="gray collapse" onclick="arrowUp()" id="arrowUpButton">.</button>
+                                    <button type="button" class="almostBlack collapse" onclick="arrowUp()" id="arrowUpButton">.</button>
                                 </div>
 
                     <div class="position-relative px-3 pb-5 d-flex flex-wrap mx-auto overflowY dcenter-item" id="coso">    
@@ -245,7 +251,7 @@
         
         
         <!-- Footer -->
-        <footer class="mt-auto  py-4 bg-dark text-white-50" id="MainFooter">
+        <footer class="mt-auto  py-4 almostBlack text-white-50" id="MainFooter">
             <div class="container text-center">
             <small>Copyright &copy; Your Website</small>
             </div>
