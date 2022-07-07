@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
     });
   
     $( "#toTut3" ).click(function() {
-      console.log("3")
+      // console.log("3")
       $('#tutorial2').css("display","none")
       $('#tutorial3').css("display","block");
 
@@ -84,7 +84,7 @@ jQuery(document).ready(function($) {
         top: t,  
         left: l  
       } = whereisit.getBoundingClientRect();  
-      console.log("stored "+ t, l)
+      // console.log("stored "+ t, l)
       sessionStorage.setItem("wherebuttons", t);
       window.scrollTo(0, t-40);
     
@@ -114,7 +114,7 @@ jQuery(document).ready(function($) {
     });
   
     $( "#FinishTut" ).click(function() {
-      console.log("5")
+      // console.log("5")
       $('#tutorials').css("display","none")
       $('#tutorials').css("z-index", "0")
 

@@ -141,8 +141,10 @@ function loadWarmUp(){
             AIorder.push(art_id)
             switch(LoadedImgsListenerWU){
               case 5:
-                console.log('all loaded', LoadedImgsListenerWU )
+                // console.log('all loaded', LoadedImgsListenerWU )
                 const startWU = new Date().getTime()
+                boxes = document.querySelectorAll('.similarImg0')
+                console.log(boxes.src)
                 sessionStorage.setItem('startWU'+n_round , startWU)
                 sessionStorage.setItem('AIorder'+n_round , AIorder)
                 console.log(sessionStorage)
@@ -216,16 +218,16 @@ function loadWarmUp(){
       //console.log(document.getElementById("task").classList[2])
       //console.log(document.getElementById("tutorial3").style)
       if((document.getElementById("task").classList[2] == "zindex") && (document.getElementById("refimgcontainer").classList.contains("zindex")== false)){
-        console.log("eccoci")
-        console.log("doesn't have zindex "+document.getElementById("refimgcontainer").outerHTML)
-        console.log((document.getElementById("refimgcontainer").classList.contains("zindex")))
+        // console.log("eccoci")
+        // console.log("doesn't have zindex "+document.getElementById("refimgcontainer").outerHTML)
+        // console.log((document.getElementById("refimgcontainer").classList.contains("zindex")))
         window.scrollTo(0, 0);
          
       }  else if ((document.getElementById("task").classList[2] == "zindex") && document.getElementById("refimgcontainer").classList.contains("zindex")){
-        console.log("preso")
+        // console.log("preso")
         let pos = sessionStorage.getItem("wherebuttons");
-        console.log("retrieved "+pos)
-        console.log("position "+(pos-500))
+        // console.log("retrieved "+pos)
+        // console.log("position "+(pos-500))
         window.scrollTo(0, pos-500);
       } 
       

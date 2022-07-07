@@ -139,7 +139,7 @@
                             </button>    
                         </div>
                          <div class="col-6 p-1">
-                             <button class="w-100 col-6 btn btn-success px-4" type="button" onclick="location.href='Task.html',endTask()"> 
+                             <button class="w-100 col-6 btn btn-success px-4" type="button" onclick="endTask()"> 
               
                             End task
                             </button>  
@@ -253,6 +253,42 @@
 
       <!-- <script src="jquery.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script> -->
+        
+       <script type="module">
+        var currentDate = new Date()
+        sessionStorage.setItem('access-surv1', currentDate);
+
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+        const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
+      
+        console.log('Supabase Instance: ', supabase)
+        let myId = sessionStorage.getItem('id');
+
+        console.log(myId)
+        const form = document.querySelectorAll('#pre-form')
+        form[0].addEventListener('submit', async (event) => {
+
+            event.preventDefault()
+            const formInputs = form[0].querySelectorAll('input[name = ArtExp]:checked, input[name = NftExp]:checked, input[name = FinBcExp]:checked, input[name = useMM]:checked, input[name = Decision], input[name = Bore], input[name = Curios]')
+            let submission = {'id':myId}
+            formInputs.forEach( element =>{
+                const { value, name } = element
+                if (value) {
+
+                    if (submission[name] != undefined){
+                    submission[name]=submission[name]+', '+value}else{submission[name]=value}
+                
+                }
+            })
+
+            console.log(submission)
+            await supabase.from('First_survey').insert([submission])
+            window.location.href = "warmUp.html"
+
+        })
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="./surveyWU.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
        
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

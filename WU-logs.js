@@ -15,6 +15,7 @@ function endTask(){
     sessionStorage.setItem('userOrder', [img1, img2, img3, img4, img5])
 
    console.log(sessionStorage)
-
+   
 }
 
+// total rounds, image order by algorithm, image order by user (for each round) time spent per round 
