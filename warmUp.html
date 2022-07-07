@@ -141,11 +141,7 @@
                             </button>    
                         </div>
                          <div class="col-6 p-1">
-<<<<<<< HEAD
-                             <button class="w-100 col-6 btn btn-success px-4" type="button" onclick="endTask()"> 
-=======
-                             <button class="w-100 col-6 btn btn-success py-2 px-4" type="button" onclick="location.href='Task.html',endTask()"> 
->>>>>>> 2347bfe18b46607d00eec0c0109079e83625cf7e
+                             <button class="w-100 col-6 btn btn-success py-2 px-4" type="button" onclick="endTask()"> 
               
                             End task
                             </button>  
@@ -257,6 +253,11 @@
             </div>
       </footer>    
 
+      <div class="p-3" id="WUmodal">
+        <!-- here starts form -->
+
+      </div>
+
       <!-- <script src="jquery.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script> -->
         
@@ -277,6 +278,7 @@
             event.preventDefault()
             const formInputs = form[0].querySelectorAll('input[name = ArtExp]:checked, input[name = NftExp]:checked, input[name = FinBcExp]:checked, input[name = useMM]:checked, input[name = Decision], input[name = Bore], input[name = Curios]')
             let submission = {'id':myId}
+            // scrivere qui gli altri log 
             formInputs.forEach( element =>{
                 const { value, name } = element
                 if (value) {
@@ -289,7 +291,7 @@
 
             console.log(submission)
             await supabase.from('First_survey').insert([submission])
-            window.location.href = "warmUp.html"
+            window.location.href = "Task.html"
 
         })
       </script>
