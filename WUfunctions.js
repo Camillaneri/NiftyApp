@@ -86,7 +86,7 @@ jQuery(document).ready(function($) {
         left: l  
       } = whereisit.getBoundingClientRect();  
 
-      console.log("stored "+ t, l)
+      console.log("buttons2 "+ t, l)
 
       const whereisit1 = document.getElementById("tutorial3")
       const {  
@@ -94,11 +94,12 @@ jQuery(document).ready(function($) {
         left: l1,  
       } = whereisit1.getBoundingClientRect(); 
 
-      console.log("tut "+ t, l)
+      console.log("tutorial3 "+ t1, l1)
       
       sessionStorage.setItem("wherebuttons", t);
 
-      window.scrollTo(0, t);
+      window.scrollTo(0, t-600);
+
       $('#tutorial3').css("top", t-200)
       
     
