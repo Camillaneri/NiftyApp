@@ -156,7 +156,7 @@
                          
                     </div>
                     <div class="col-6 p-1">
-                        <button class="w-100 col-6 btn btn-success py-2 px-4" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+                        <button class="w-100 col-6 btn btn-success py-2 px-4" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="endTask()"> 
                         End task
                         </button>  
                     </div>                 
@@ -276,6 +276,29 @@
                             </ul>
                         </div>
                     </div>
+                    <section class="3">
+                        <p class="lead">Have you encountered one of the following issues?</p>
+                        
+                        <div class="p-3 entry-field"> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="Issues" id="ArtExp1" value="toosimilar">
+                                <label class="form-check-label" for="ArtExp1">Images were too similar to each other</label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="Issues" id="ArtExp2" value="toodifferent">
+                                <label class="form-check-label" for="ArtExp2">Images were too different to each other</label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="Issues" id="ArtExp3" value="longloadinh">
+                                <label class="form-check-label" for="ArtExp3">Loading time was too long</label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="Issues" id="ArtExp5" value="None">
+                                <label class="form-check-label" for="ArtExp5">None of the above</label> 
+                            </div>
+                        </div> 
+                        
+                    </section>
                     <div class=" container py-3 px-0"> 
                         <span class="d-inline-block" tabindex="0">
                         <button type="submit" class="btn btn-success me-5 px-4 float-end w-25" id="submit">
@@ -303,16 +326,19 @@
         console.log('Supabase Instance: ', supabase2)
         let myId = sessionStorage.getItem('id');
         
-        let refimg = sessionStorage.getItem('WUreference');
-        let AIorder = sessionStorage.getItem('AIorder0');
-        let submission = {'user':myId, 'refID':refimg, 'AIorder ':AIorder}
+        var refimg = sessionStorage.getItem('WUreference');
 
         console.log(myId)
         const form = document.querySelectorAll('#WU-form')
         form[0].addEventListener('submit', async (event) => {
 
             event.preventDefault()
-            const formInputs = form[0].querySelectorAll('input[name = Satisfaction]')
+
+        var AIorder = sessionStorage.getItem('AIorder0');
+        var Uorder = sessionStorage.getItem('userOrder');
+
+        var submission = {'user':myId, 'refID':refimg, 'AIorder ':AIorder, 'UserOrder':Uorder}
+            const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked')
             
             // scrivere qui gli altri log 
             formInputs.forEach( element =>{

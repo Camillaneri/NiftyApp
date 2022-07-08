@@ -2,7 +2,6 @@
 function endTask(){
     const endWU = new Date().getTime()
     sessionStorage.setItem('endWU'+n_round , endWU)
-    console.log(sessionStorage)
     support = document.getElementById('Small').children[0].childNodes
     img1 = support[1].children[0].children[2].id
     img2 = support[3].children[0].children[2].id
@@ -17,7 +16,7 @@ function endTask(){
 }
 
 function resetWU(){
-    
+
 }
 // total rounds, image order by algorithm, image order by user (for each round) time spent per round 
 
