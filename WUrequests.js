@@ -202,9 +202,9 @@ function loadWarmUp(){
       }  else if ((document.getElementById("task").classList[2] == "zindex") && document.getElementById("refimgcontainer").classList.contains("zindex")){
         // console.log("preso")
         let pos = sessionStorage.getItem("wherebuttons");
-        // console.log("retrieved "+pos)
+        console.log("retrievedjavascript "+pos)
         // console.log("position "+(pos-500))
-        window.scrollTo(0, pos-500);
+        window.scrollTo(0, pos-600);
       } 
       
       //window.scrollBy(0, 100)

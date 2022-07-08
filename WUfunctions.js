@@ -91,12 +91,13 @@ jQuery(document).ready(function($) {
       const whereisit1 = document.getElementById("tutorial3")
       const {  
         top: t1,  
-        left: l1  
+        left: l1,  
       } = whereisit1.getBoundingClientRect(); 
 
-      console.log("tut "+ t1, l1)
+      console.log("tut "+ t, l)
       
       sessionStorage.setItem("wherebuttons", t);
+
       window.scrollTo(0, t);
       $('#tutorial3').css("top", t-200)
       
