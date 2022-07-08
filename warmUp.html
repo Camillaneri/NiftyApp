@@ -254,7 +254,7 @@
       </footer>    
 
        <!-- Modal -->
-       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal fade h-auto" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -264,7 +264,7 @@
             <div class="modal-body">
                 <form class="" id="WU-form"> 
                     <div class="p-3"> 
-                        <p for="PresurveyInput5" class="form-label">On a scale from 1 to 5 how much satisfied are you after this task?</p>
+                        <p for="PresurveyInput5" class="lead">On a scale from 1 to 5 how much satisfied are you after this task?</p>
                         <div class="inline slider text-center">
                             <input class="form-range"  type="range" min="1" max="5"  step="1" id="nftExp" name="Satisfaction" required/>
                             <ul class="vals">
@@ -276,7 +276,7 @@
                             </ul>
                         </div>
                     </div>
-                    <section class="3">
+                    <section class="p-3">
                         <p class="lead">Have you encountered one of the following issues?</p>
                         
                         <div class="p-3 entry-field"> 
@@ -299,13 +299,20 @@
                         </div> 
                         
                     </section>
-                    <div class=" container py-3 px-0"> 
-                        <span class="d-inline-block" tabindex="0">
-                        <button type="submit" class="btn btn-success me-5 px-4 float-end w-25" id="submit">
-                            Submit! 
-                        </button> 
-                    </span>
-                    </div>  
+                    <section class="p-3">
+                
+                        <p class="lead">Do you have any additional comment?</p>
+                        <p>Imressions on the algorithm, additional issues, advices</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Comments" aria-label="Comments" name="Comments">
+                        <div class=" container py-3 px-0"> 
+                            <span class="d-inline-block" tabindex="0">
+                                <button type="submit" class="btn btn-success me-5 px-4 float-end w-25" id="submit">
+                                    Submit! 
+                                </button> 
+                            </span>
+                        </div>  
+                    </section>
                 </form>
             </div>
             <!-- <div class="modal-footer">
@@ -338,7 +345,7 @@
         var Uorder = sessionStorage.getItem('userOrder');
 
         var submission = {'user':myId, 'refID':refimg, 'AIorder ':AIorder, 'UserOrder':Uorder}
-            const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked')
+            const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked, input[name = Comments]')
             
             // scrivere qui gli altri log 
             formInputs.forEach( element =>{

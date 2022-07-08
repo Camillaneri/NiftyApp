@@ -1,6 +1,5 @@
-#WUmodal{
-    height: 100vh;
-    width: 600px;
-    background-color: aqua;
-    z-index: 1000;
+
+
+.modal-content{
+max-height: 100%!important;
 }
