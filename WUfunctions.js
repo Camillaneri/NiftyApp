@@ -88,13 +88,13 @@ jQuery(document).ready(function($) {
 
       console.log("buttons2 "+ t, l)
 
-      const whereisit1 = document.getElementById("tutorial3")
+      /* const whereisit1 = document.getElementById("tutorial3")
       const {  
         top: t1,  
         left: l1,  
       } = whereisit1.getBoundingClientRect(); 
 
-      console.log("tutorial3 "+ t1, l1)
+      console.log("tutorial3 "+ t1, l1) */
       
       sessionStorage.setItem("wherebuttons", t);
 
