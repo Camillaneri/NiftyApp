@@ -14,7 +14,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!-- Optional JavaScript; choose one of the two! -->
         <!-- Option 1: Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/bc67555ac1.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -178,7 +177,7 @@
                         <button class="col btn btn-success me-1 w-50" type="button" onclick="resetDash()">
                             Clear my gallery
                         </button>
-                        <button class="col btn btn-success ms-1 w-50" type="button" onclick="location.href='PostSsurvey.html'" id="submit">
+                        <button class="col btn btn-success ms-1 w-50" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                             End Task
                         </button>
                          
@@ -471,39 +470,111 @@
             <small>Copyright &copy; Your Website</small>
             </div>
         </footer> 
+        <!-- Modal -->
+       <div class="modal fade h-auto" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Before we move on...</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="" id="T-form"> 
+                    <div class="p-3"> 
+                        <p for="PresurveyInput5" class="lead">On a scale from 1 to 5 how much satisfied are you after this task?</p>
+                        <div class="inline slider text-center">
+                            <input class="form-range"  type="range" min="1" max="5"  step="1" id="nftExp" name="Satisfaction" required/>
+                            <ul class="vals">
+                                <li class="text-center">1</li>
+                                <li class="text-center">2</li>
+                                <li class="text-center">3</li>
+                                <li class="text-center">4</li>
+                                <li class="text-center">5</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <section class="p-3">
+                        <p class="lead">Have you encountered one of the following issues?</p>
+                        
+                        <div class="p-3 entry-field"> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="Issues" id="ArtExp1" value="toosimilar">
+                                <label class="form-check-label" for="ArtExp1">Images were too similar to each other</label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="Issues" id="ArtExp2" value="toodifferent">
+                                <label class="form-check-label" for="ArtExp2">Images were too different to each other</label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="Issues" id="ArtExp3" value="longloadinh">
+                                <label class="form-check-label" for="ArtExp3">Loading time was too long</label> 
+                            </div>
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="checkbox" name="Issues" id="ArtExp5" value="None">
+                                <label class="form-check-label" for="ArtExp5">None of the above</label> 
+                            </div>
+                        </div> 
+                        
+                    </section>
+                    <section class="p-3">
+                
+                        <p class="lead">Do you have any additional comment?</p>
+                        <p>Imressions on the algorithm, additional issues, advices</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Comments" aria-label="Comments" name="Comments">
+                        <div class=" container py-3 px-0"> 
+                            <span class="d-inline-block" tabindex="0">
+                                <button type="submit" class="btn btn-success me-5 px-4 float-end w-25" id="submit">
+                                    Submit! 
+                                </button> 
+                            </span>
+                        </div>  
+                    </section>
+                </form>
+            </div>
+          </div>
+        </div>
     </body>
     <!-- Send stuff from warm up session -->
-    <script type="module">
-        var currentDate = new Date()
-        sessionStorage.setItem('access-surv1', currentDate);
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+       <script type="module">
 
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-        const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
+        const supabase3 = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
       
-        console.log('Supabase Instance: ', supabase)
-        //user id
+        console.log('Supabase Instance: ', supabase3)
         let myId = sessionStorage.getItem('id');
-        //Ai order
-         let AIorder = sessionStorage.getItem('AIorder');
-        //User order
-        let Userorder = sessionStorage.getItem('userOrder'); 
-        //Start
-        let Start = sessionStorage.getItem('startWU');
-        //End
-        let End = sessionStorage.getItem('endWU');
-        //ref ID
-        let refID = sessionStorage.getItem('WUreference');
-    
-        //fill submission obj 
-        let submission = {'id':myId, 'AIorder':AIorder, 'Userorder':Userorder, 'Start':Start, 'End':End, 'refID':refID}
+        
+        var refimg = sessionStorage.getItem('WUreference');
 
+        console.log(myId)
+        const form = document.querySelectorAll('#&-form')
+        form[0].addEventListener('submit', async (event) => {
 
-        await supabase.from('Warmup').insert([submission])
-         
+            event.preventDefault()
 
-    
-      </script>
+        var AIorder = sessionStorage.getItem('AIorder0');
+        var Uorder = sessionStorage.getItem('userOrder');
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        var submission = {'user':myId, 'refID':refimg, 'AIorder ':AIorder, 'UserOrder':Uorder}
+            const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked, input[name = Comments]')
+            
+            // scrivere qui gli altri log 
+            formInputs.forEach( element =>{
+                const { value, name } = element
+                if (value) {
+
+                    if (submission[name] != undefined){
+                    submission[name]=submission[name]+', '+value}else{submission[name]=value}
+                
+                }
+            })
+
+            console.log('submission', submission)
+            await supabase3.from('Main_task').insert([submission])
+            window.location.href = "help.html"
+
+        })
+    </script>
     <script src="task.js"></script>
 </html>
