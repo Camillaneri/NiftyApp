@@ -39,7 +39,7 @@ function loadWarmUp(){
       
       dict = result['data']['artwork_metrics'][0]
       if(dict == null){
-        loadWarmUp()
+        loadWarmUp();
       }
       art_id = IDnum
       
