@@ -34,7 +34,7 @@ function loadWarmUp(){
     .then((result) =>{ 
       dict1 = result['data']['artwork_metrics'];
       // console.log('result', result)
-      refimg = document.getElementById("reference")
+      refimg = document.getElementsByClassName("REF")[0]
       //console.log(refimg)
       
       dict = result['data']['artwork_metrics'][0]
@@ -50,7 +50,8 @@ function loadWarmUp(){
       }
      
       if (art_high_res != null && art_high_res != "" && art_id !="" && art_id != null && art_high_res.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
-        refimg.src = art_high_res;}else{
+        
+      refimg.src = art_high_res;}else{
             get_img_element.src = "images/wooops1.jpg";
         }
       refimg.src = art_high_res;
@@ -278,7 +279,13 @@ function repeatask(){
    WUround += 1;
    sessionStorage.setItem('WUround', WUround);
    console.log('round', WUround);
-   console.log('images', document.getElementsByTagName('img'))
-   document.getElementsByTagName('img').src = "images/wooops1.jpg";
+
+   document.getElementsByClassName("REF")[0].src=""
+   //document.getElementById("RefImg").classList.add("imgsubst")
+  for(let x = 0; x < 5 ; x++){
+    document.getElementsByClassName('similarImg0')[x].src=""
+    document.getElementsByClassName("simimages")[x].classList.add("imgsubst")
+  }
+
    loadWarmUp();
 }
