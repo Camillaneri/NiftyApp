@@ -483,7 +483,6 @@ padding-top: 15vh;
 #tutorials{
    position: fixed;
    height: 100vh;
-   overflow: auto;
    z-index: 1;
    
 }
@@ -506,13 +505,13 @@ html {
     position: relative;
     transform: translateY(150px);
     opacity: 0;
-    transition: 2s all ease;
+    /*transition: 2s all ease;*/
   }
 
 .reveal.active{
     transform: translateY(0);
     opacity: 1;
-    transition: 2s all ease;
+    /*transition: 2s all ease;*/
   }
 
 #wrap{

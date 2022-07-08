@@ -98,6 +98,8 @@ jQuery(document).ready(function($) {
       
       sessionStorage.setItem("wherebuttons", t);
       window.scrollTo(0, t);
+      $('#tutorial3').css("top", t-200)
+      
     
     });
     
