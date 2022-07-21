@@ -463,15 +463,13 @@ form section{
 
 
 #displayimg{
-  padding:5vh;
-  
   height: fit-content;
   width:fit-content;
     margin:auto;
 }
 #shadow{
   
-  padding: 2.5%;
+  padding: 12% 2.5%;
   height: 160vh;
   left:0px;
   right: 0px;
@@ -479,20 +477,26 @@ form section{
   display:none;
 }
 .closeimg{
-  position: absolute;
-  top: 5vh;
-  right: 10vh;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
+    height: 3ex;
+    width: 100%;
+    right: unset;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    text-align: right;
+    padding-right: 0.5em;
+    float: right;
+
 }
+
 .seeme{
     display:block !important;
 }
 #displayed{
-  max-height: 80vh !important;
-  width: auto !important;
+  max-height: 60vh !important;
+  max-width: 100%;
 }
 
 #tutorials{
