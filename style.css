@@ -406,6 +406,7 @@ padding-top: 3ex;
   left: 5%;
   right: 78%;
   display: block;
+  min-width: 55%;
   max-height: 40%;
     
 }
@@ -415,6 +416,7 @@ padding-top: 3ex;
   top: 30%;
   right: 30%;
   left: 28%;
+  min-width: 55%;
   max-height: 40%;
   display: none;
 }
@@ -424,6 +426,7 @@ padding-top: 3ex;
   left: 40%;
   display: none;
   max-height: 40%;
+  min-width: 55%;
 }
 
 
