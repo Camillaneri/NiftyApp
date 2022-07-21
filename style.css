@@ -32,7 +32,7 @@ label, .vals li{
 /* Some custom styles to beautify this example */
 .wrapper{
 
-    padding:  130px 0px;
+    padding:  5ex 0px;
 }
 #centralBox{
     background-color: #00FFC1;
@@ -425,7 +425,9 @@ padding-top: 3ex;
 }
 
 
-
+form section{
+  padding: 3rem ;
+}
 
   @media screen and (max-width: 800px) {
     .column {
@@ -571,8 +573,7 @@ margin-bottom: 5%;
 
 /* slider prova */
 .slider {
-    margin: 20px 0;
-    padding: 20px;
+
     position: relative;
   }
   
@@ -1411,6 +1412,9 @@ margin-bottom: 5%;
   .scentralBox {
     width: 100%;
   }
+  form section{
+    padding: 0.5rem!important;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1427,7 +1431,5 @@ margin-bottom: 5%;
     font-size: 12px!important;
     
   }
-  form section{
-    padding: 0 1.2em!important;
-  }
+ 
 }
