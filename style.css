@@ -22,7 +22,7 @@ label, .vals li{
  margin: auto;
 }
 .nav-item{
-  white-space: nowrap;
+  white-space: wrap;
 
 }
 
@@ -606,6 +606,9 @@ margin-bottom: 5%;
     width: 20%;
   }
 
+  .slider input[type="range"] {
+    width: 100%!important;
+}
 
 /*COLORSSS*/
 .almostBlack{
@@ -1404,6 +1407,10 @@ margin-bottom: 5%;
   #mainBody{
     width: 100%!important;
   }
+
+  .scentralBox {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1419,5 +1426,8 @@ margin-bottom: 5%;
   body {
     font-size: 12px!important;
     
+  }
+  form section{
+    padding: 0 1.2em!important;
   }
 }
