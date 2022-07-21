@@ -402,7 +402,7 @@ padding-top: 3ex;
 }
 
 #tutorialA{
-  top: 20%;
+  top: 30%;
   left: 5%;
   right: 78%;
   display: block;
@@ -422,8 +422,8 @@ padding-top: 3ex;
 }
 
 #tutorialC{
-  top: 60%;
-  left: 40%;
+  top: 30%;
+  left: 30%;
   display: none;
   max-height: 40%;
   min-width: 55%;
