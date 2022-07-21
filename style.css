@@ -398,7 +398,7 @@ padding-top: 3ex;
 }
 
 #tutorial3{
-    top: 60%;
+    top: 30%;
     left: 40%;
     min-width: 55%;
     max-height: 40%;
@@ -560,6 +560,9 @@ margin-bottom: 5%;
     width: 40%;
     
     
+}
+#refImg img{
+max-height: 60vh;
 }
 
 
@@ -1065,7 +1068,7 @@ margin-bottom: 5%;
 }
 
 #task{
-    min-height: 180vh;
+    min-height: 83vh;
 }
 
 
