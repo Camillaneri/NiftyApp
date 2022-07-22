@@ -30,7 +30,7 @@
 
          <!-- tutorial -->
          <div class="bgdark50 w-100 reveal" id="tutorials">
-            <div class="position-absolute bg-dark white z-2000 p-3 br1" id="tutorialA">
+            <div class="position-absolute bg-dark white z-2000 p-3 br1 vh-25" id="tutorialA">
                 <h1>The Gallery</h1>
                 <p>Browse freely the images in the gallery.</p>
                 <p>Use the images to search other artworks: like an image if you want to find similar artwork, dislike it if you don't want to find similar artwork</p>
@@ -62,47 +62,25 @@
             </span>
         </div>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm gray navbar-dark">
-            <div class="container-fluid" id="navcontainer">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="navnolink py-3 px-5 " >Start</a>
-                  </li>
-                <li class="nav-item">
-                  <a class="navnolink py-3 px-5 ">Pre survey</a>
-                </li>
-                <li class="nav-item">
-                  <a class="navnolink py-3 px-5" >First Task</a>
-                </li>
-                <li class="nav-item">
-                  <a class="navnolink py-3 px-5 lightgreen text-dark" >Second Task</a>
-                </li>
-                <li class="nav-item">
-                  <a class="navnolink py-3 px-5" >Post survey</a>
-                </li>
-                <li class="nav-item">
-                    <a class="navnolink py-3 px-5 ">End</a>
-                  </li>
-                <li class="nav-item">
-                    <a class="navnolink pt-2 px-5 text-center position-absolute pincontainer"  href="help.html">
-                        
-                        <span class="dot text-dark text-center"><i class="fa-solid fa-question trbackgr"></i></span>
-                    </a>
-                  </li>
-                <!-- <li class="nav-item">
-                    <a class="navnolink text-center mt-2 me-3 position-absolute pincontainer" href="#">
-                        <span class="dot text-dark text-center">?</span>
-                    </a>
-                  </li> -->
-              </ul>
+        <div class="container-fluid px-0">
+            <div class="row m-0 gray">
+                <div class="col-2 nav-item navnolink text-center py-3">Start</div>
+                <div class="col-2 nav-item navnolink text-center py-3">Pre Survey</div>
+                <div class="col-2 nav-item navnolink text-center py-3">Warm Up</div>
+                <div class="col-2 nav-item lightgreen text-center py-3">Task</div>
+                <div class="col-2 nav-item navnolink text-center py-3">End
+                </div>
+                <div class="col-2 nav-item navnolink text-end py-3 pincontainer">
+                    <a class="dot text-dark text-center p-1"  href="help.html">?</a>
+                </div>
             </div>
-          </nav>
+        </div>
 
        <!-- introduction page -->
 
        <div class="col" id="introwarmup">
         <div class="container py-5 px-5 my-5 rounded-3 text-center" id="centralBox">
-            <h1 class="display-3 pb-3 " id="headerTitle2">Second Task</h1>
+            <h1 class="display-3 pb-3 " id="headerTitle2">Task</h1>
                 <p>You have a chance to experiment our application system, test our recommendation algorithm and tell us what you think</p>
                     <p>The rule is to have fun!</p>
                     <p> explore the gallery, find art that you like and search for more.
@@ -115,7 +93,7 @@
         
         <div class="z-2000 position-absolute" id="shadow">
                 <div class="white bg-dark br1 imgsubst" id="displayimg">
-                    <span class="closeimg" onclick="closeimg()">&times;</span>
+                    <span class="closeimg" onclick="closeimg()">x</span>
                     <!--<button type="button" class="btn btn-success" id="closeimg" onclick="closeimg()">x</button>-->
                     <img id="displayed" src="" class="w-15" alt="...">
                 </div>
@@ -133,7 +111,7 @@
        
 
         <!-- Main body -->
-        <div class="row wrapper w-100 p-0 reveal zindex" id="task2">
+        <div class=" wrapper p-0 reveal zindex" id="task2">
 
            
             <!-- Dashboard -->
@@ -145,43 +123,43 @@
                     </button>
                 </div>
                 
-                
-                <div class="px-1 position-relative mx-3 d-flex flex-wrap flex-column" id="imagesGrid"> 
-                <div class="column1" >
-                    <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                <div>
+                   <div class="px-1 position-relative mx-3 d-flex" id="imagesGrid"> 
+                        
+                        <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                            <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        
+                        </div>
+                        
+                        <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                            <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        </div>
+
+
+
+                        <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                            <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        </div>
                     
-                    </div>
                     
-                    <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                            <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        </div>
+                    
+                        <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+                            <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
+                        </div>
                     </div>
-                </div>
-                <div class="column1" >
-                    <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
-                    </div>
-                
-                 
-                    <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
-                    </div>
-                </div>
-                <div class="column1" >
-                    <div class="mb-4 mx-3 position-relative getDataboxDash border rounded border-light flex-fill p-0 DataDash" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                        <input class='position-absolute cross-btn btn-light p-0 d-none' style='font-family: bootstrap-icons;z-index: 1;' type='button'  onclick='clearImg(event)' value='&#xF62A;'>
-                    </div>
-                </div>
-                    <div class="container-fluid d-flex px-3 bg-dark z-1" id="dashFooter" > 
-                        <button class="col btn btn-success me-1 w-50" type="button" onclick="resetDash()">
-                            Clear my gallery
-                        </button>
-                        <button class="col btn btn-success ms-1 w-50" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            End Task
-                        </button>
-                         
-                    </div>
-                </div> 
+                        <div class="container-fluid d-flex px-3 bg-dark z-1" id="dashFooter" > 
+                            <button class="col btn btn-success me-1 w-50" type="button" onclick="resetDash()">
+                                Clear my gallery
+                            </button>
+                            <button class="col btn btn-success ms-1 w-50" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                End Task
+                            </button>
+                            
+                        </div>
+                    </div> 
 
             </div>
             <!-- Main section -->
@@ -228,7 +206,7 @@
                 <!-- Gallery -->
                 <div class="row mt-3" id="dvSource"> 
 
-                    <div class="column">
+                    <div class="col-12 col-md-6 col-xl-3">
                         <div class="position-relative no-img imgsubst"  id="drag1"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike">  
                                  <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
@@ -288,7 +266,7 @@
     
                     </div>
 
-                    <div class="column">
+                    <div class="col-12 col-md-6  col-xl-3">
                         <div class="position-relative no-img imgsubst" id="drag6"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
                                  <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
@@ -345,7 +323,7 @@
                         </div>   
                     </div>
 
-                    <div class="column">
+                    <div class="col-12 col-md-6  col-xl-3">
                         <div class="position-relative no-img imgsubst" id="drag11"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)"> 
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
                                  <input class="p-0 flex-fill" style="font-family: bootstrap-icons" type="button" id="imgBtnlike" onclick="AddLiked_Disliked(event)" value="&#xF407;" data-toggle="tooltip" title="click on the  like button to find similar images"> 
@@ -402,7 +380,7 @@
                         </div>
                     </div>
 
-                    <div class=" column">
+                    <div class=" col-12 col-md-6 col-xl-3">
 
                         <div class="position-relative no-img imgsubst" id="drag16"  draggable="true" ondragstart="drag(event)"  onclick="display_img(event)">
                             <div class="d-flex position-absolute w-min-conten like_dislike"> 
@@ -527,7 +505,7 @@
                             <input type="text" class="form-control" placeholder="Comments" aria-label="Comments" name="Comments">
                         <div class=" container py-3 px-0"> 
                             <span class="d-inline-block" tabindex="0">
-                                <button type="submit" class="btn btn-success me-5 px-4 float-end w-25" id="submit">
+                                <button type="submit" class="btn btn-success px-4 float-end " id="submit">
                                     Submit! 
                                 </button> 
                             </span>

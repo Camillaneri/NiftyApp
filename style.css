@@ -1,12 +1,4 @@
-body{
-    /*background-color: #3b4147 !important;*/ 
-     /* background-color: #E2E8F0 !important; */ 
-    /* 
-    min-height: 100vh;
-    overflow-y: scroll; */
-   /* font-size: 24px!important;*/
 
-    }
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
     display: none;
@@ -16,6 +8,12 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  font-size: 20px!important;
+  overflow-x: hidden;
+}
+
+label, .vals li{
+  font-size: 0.8em;
 }
 .vcenter-item{
     align-items: center;
@@ -23,17 +21,22 @@ body {
 .dcenter-item{
  margin: auto;
 }
+.nav-item{
+  white-space: wrap;
+
+}
+
+#coso{
+  overflow-x: hidden;
+}
 /* Some custom styles to beautify this example */
 .wrapper{
 
-    padding:  130px 0px;
+    padding:  5ex 0px;
 }
 #centralBox{
     background-color: #00FFC1;
     height: 60vh;
-    
-    
-   
 }
 
 .mainBox{
@@ -191,6 +194,7 @@ img{
   margin-top: 6rem !important;
   margin: auto;
   padding: 10%;
+  flex-direction: column;
     
     
 }
@@ -217,7 +221,7 @@ img{
 
 /*BACKGROUNDS*/
 #headerTitle{
-padding-top: 15vh;
+padding-top: 3ex;
 }
 
 .bg-white{
@@ -379,7 +383,8 @@ padding-top: 15vh;
       top: 30%;
       left: 40%;
       display: block;
-      
+      min-width: 55%;
+      max-height: 40%;
   }
 
   #tutorial2{
@@ -387,21 +392,26 @@ padding-top: 15vh;
     top: 40%;
     right: 60%;
     left: 10%;
-    
+    min-width: 55%;
+    max-height: 40%;
     display: none;
 }
 
 #tutorial3{
-    top: 60%;
+    top: 30%;
     left: 40%;
+    min-width: 55%;
+    max-height: 40%;
     display: none;
 }
 
 #tutorialA{
-  top: 20%;
+  top: 30%;
   left: 5%;
   right: 78%;
   display: block;
+  min-width: 55%;
+  max-height: 40%;
     
 }
 
@@ -410,18 +420,23 @@ padding-top: 15vh;
   top: 30%;
   right: 30%;
   left: 28%;
-  
+  min-width: 55%;
+  max-height: 40%;
   display: none;
 }
 
 #tutorialC{
-  top: 60%;
-  left: 40%;
+  top: 30%;
+  left: 30%;
   display: none;
+  max-height: 40%;
+  min-width: 55%;
 }
 
 
-
+form section{
+  padding: 3rem ;
+}
 
   @media screen and (max-width: 800px) {
     .column {
@@ -448,15 +463,13 @@ padding-top: 15vh;
 
 
 #displayimg{
-  padding:5vh;
-  
   height: fit-content;
   width:fit-content;
     margin:auto;
 }
 #shadow{
   
-  padding: 2.5%;
+  padding: 12% 2.5%;
   height: 160vh;
   left:0px;
   right: 0px;
@@ -464,20 +477,26 @@ padding-top: 15vh;
   display:none;
 }
 .closeimg{
-  position: absolute;
-  top: 5vh;
-  right: 10vh;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
+    height: 3ex;
+    width: 100%;
+    right: unset;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    text-align: right;
+    padding-right: 0.5em;
+    float: right;
+
 }
+
 .seeme{
     display:block !important;
 }
 #displayed{
-  max-height: 80vh !important;
-  width: auto !important;
+  max-height: 60vh !important;
+  max-width: 100%;
 }
 
 #tutorials{
@@ -512,6 +531,7 @@ html {
     transform: translateY(0);
     opacity: 1;
     transition: 2s all ease;
+
   }
 
 #wrap{
@@ -545,6 +565,9 @@ margin-bottom: 5%;
     
     
 }
+#refImg img{
+max-height: 60vh;
+}
 
 
 #refimgcontainer{
@@ -566,8 +589,7 @@ margin-bottom: 5%;
 
 /* slider prova */
 .slider {
-    margin: 20px 0;
-    padding: 20px;
+
     position: relative;
   }
   
@@ -601,6 +623,9 @@ margin-bottom: 5%;
     width: 20%;
   }
 
+  .slider input[type="range"] {
+    width: 100%!important;
+}
 
 /*COLORSSS*/
 .almostBlack{
@@ -619,6 +644,7 @@ margin-bottom: 5%;
 
 .lightgreen{
     background-color: #00FFC1 !important;
+    color: white;
 }
 
 
@@ -760,11 +786,13 @@ margin-bottom: 5%;
  }
 
  .dot{
-    height: 40px;
-    width: 40px;
+    height: auto;
+    width: 2em;
     background-color: #00FFC1;
     border-radius: 50%;
     display: inline-block;
+    text-decoration: none;
+    margin-right: 2em;
  }
 
  #navcontainer{
@@ -1044,7 +1072,7 @@ margin-bottom: 5%;
 }
 
 #task{
-    min-height: 180vh;
+    min-height: 83vh;
 }
 
 
@@ -1158,46 +1186,27 @@ margin-bottom: 5%;
 }
 
 
-#linguetta::before {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  width: 78px;
-  height: 37px;
-  background: #171923;
-  border-radius: 50px 50px 0 0;
-  transform: rotate(180deg);
-  
+.fa-solid{
+  background-color: unset!important;
+  color: #00FFC1!important;
 }
+
 #arrowDownButton{
+  width: 3.5em;
   background-color: none !important;
   border: none !important;
   margin-left: 1.3rem!important;
+
+  border-radius: 0 0 50px 50px;
 }
 #arrowUpButton{
+  width: 3.5em;
   background-color: none !important;
   border: none !important;
-  margin-left: 3.7rem!important;
-  margin-top: 0.5rem!important;
+  margin-left: 1.3rem!important;
+  border-radius: 0 0 50px 50px;
 }
-#arrowDownButton::after {
-  position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-bottom: 17px solid #00FFC1;
-    border-left: 17px solid transparent;
-    transform: rotate(45deg);
-}
-#arrowUpButton::after {
-  position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-bottom: 17px solid #00FFC1;
-    border-left: 17px solid transparent;
-    transform: rotate(225deg);
-}
+
 
 @media screen and (max-width: 950px) {
   .dropbtn {
@@ -1361,4 +1370,87 @@ margin-bottom: 5%;
 
 .no-scroll{
   overflow: hidden !important;
+}
+
+@media screen and (max-width: 850px) {
+  body {
+    font-size: 18px!important;
+  }
+
+}
+
+#task2{ 
+  display: flex!important;
+}
+
+
+@media screen and (max-width: 780px) {
+  body {
+    font-size: 16px!important;
+    
+  }
+  .wrapper{
+    padding: 5%;
+  }
+  #task{
+    display: block!important;
+  
+  }
+
+  #task2{
+    display: block!important;
+  
+  }
+  
+  #refimg{
+    width: 100%!important;
+  }
+  #dashboard{
+    width: 100%!important;
+    overflow-x: auto;
+  }
+  #imagesGrid{
+    flex-direction: row!important;
+    overflow-x: auto;
+    margin-top: 2rem!important;
+  }
+  #DashHeader{
+    width: 100%!important;
+  }
+  #Expand{
+    display: none;
+  }
+
+  .getDataboxDash{
+    width: 25%!important;
+
+  }
+
+  #mainBody{
+    width: 100%!important;
+  }
+
+  .scentralBox {
+    width: 100%;
+  }
+  form section{
+    padding: 1.5em!important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 14px!important;
+
+  }
+
+  }
+
+
+@media screen and (max-width: 400px) {
+  body {
+    font-size: 12px!important;
+    
+  }
+ 
 }

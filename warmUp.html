@@ -66,56 +66,35 @@
         
 
          <!-- header -->
-         <div class="py-4 almostBlack" id="Header">
+         <div class="almostBlack" id="Header">
             <span class="d-flex justify-content-between" id="head">
                 <span class="text-left text-light me-5"> NiftyEValue</span> 
                 <span class="text-right text-light" id="pageName">Home</spandes>
             </span>
         </div>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm gray navbar-dark">
-            <div class="container-fluid" id="navcontainer">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="navnolink py-3 px-5 " >Start</a>
-                  </li>
-                <li class="nav-item">
-                  <a class="navnolink py-3 px-5 ">Pre survey</a>
-                </li>
-                <li class="nav-item">
-                  <a class="navnolink py-3 px-5  lightgreen text-dark" >First Task</a>
-                </li>
-                <li class="nav-item">
-                  <a class="navnolink py-3 px-5" >Second Task</a>
-                </li>
-                <li class="nav-item">
-                  <a class="navnolink py-3 px-5" >Post survey</a>
-                </li>
-                <li class="nav-item">
-                    <a class="navnolink py-3 px-5 ">End</a>
-                  </li>
-                <li class="nav-item">
-                    <a class="navnolink pt-2 px-5 text-center position-absolute pincontainer" href="help.html">
-                        
-                        <span class="dot text-dark text-center"><i class="fa-solid fa-question trbackgr"></i></span>
-                    </a>
-                  </li>
-                <!-- <li class="nav-item">
-                    <a class="navnolink text-center mt-2 me-3 position-absolute pincontainer" href="#">
-                        <span class="dot text-dark text-center">?</span>
-                    </a>
-                  </li> -->
-              </ul>
+        <div class="container-fluid px-0">
+            <div class="row m-0 gray">
+                <div class="col-2 nav-item navnolink text-center py-3">Start</div>
+                <div class="col-2 nav-item navnolink text-center py-3">Pre Survey</div>
+                <div class="col-2 nav-item lightgreen text-center py-3">Warm Up</div>
+                <div class="col-2 nav-item navnolink text-center py-3">Task</div>
+                <div class="col-2 nav-item navnolink text-center py-3">End
+                </div>
+                <div class="col-2 nav-item navnolink text-end py-3 pincontainer">
+                    <a class="dot text-dark text-center p-1"  href="help.html">?</a>
+                </div>
             </div>
-          </nav>
+        </div>
         
        
 
         <!-- introduction page -->
 
         <div class="col" id="introwarmup">
-            <div class="container py-5 px-5 my-5 rounded-3 text-center" id="centralBox">
-                <h1 class="display-3 pb-3 " id="headerTitle2">First Task</h1>
+            <div class="container py-5 px-5 
+            rounded-3 text-center" id="centralBox">
+                <h1 class="display-3 pb-3 " id="headerTitle2">Warm Up</h1>
                 <p>Help us evaluate how precise is our retrieval algorithm,</p> 
                 <p> You will be asked to rank a series of artworks based on their similarity to a reference image.</p> 
                 <p> Your feedback will be used to improve our system of recommendation, and help future users find artworks that interest and inspire them!                    
@@ -133,7 +112,7 @@
                     <h3>Reference image</h3>
                     
                 </div> -->       
-                <div class="px-0 my-4" id="refimgcont1">  <!--img--> 
+                <div class="px-0 " id="refimgcont1">  <!--img--> 
                     <div class="aclass" id="refimgcontainer">            
                         <div id="RefImg" class="position-relative text-center imgsubst"> 
     
@@ -146,7 +125,7 @@
                     <p class="lead">
                         Order the images based on their similarity to the reference image</p>
                 </div> 
-                <div class="my-3 d-flex" id="buttons2"> <!-- buttons -->
+                <div class="mt-3 d-flex" id="buttons2"> <!-- buttons -->
                     <div class="col-6 p-1"> 
                         <button class="w-100 col-6 btn btn-success py-2 px-4"  type="button"  onclick="repeatask()" >
                         Repeat task
@@ -214,28 +193,28 @@
                         </div>  
                     </div>       
                 </div>  
-                <div class="flex-grow-1 text-center" id="linguetta">
-                    <button type="button" class="almostBlack" onclick="arrowDown()" id="arrowDownButton">.</button>
-                </div>
-                <div class="flex-grow-1 justify-content-center text-center mb-3" >
-                    <button type="button" class="almostBlack collapse" onclick="arrowUp()" id="arrowUpButton">.</button>
-                </div>
+                <div class="flex-grow-1 text-center justify-content-center" id="linguetta">
+                    <button type="button" class="almostBlack text-center" onclick="arrowDown()" id="arrowDownButton"><i class="fa-solid fa-chevron-down"></i></button>
+                    <button type="button" class="almostBlack text-center collapse" onclick="arrowUp()" id="arrowUpButton"><i class="fa-solid fa-chevron-up"></i></button>
 
-                <div class="position-relative px-3 pb-5 d-flex flex-wrap mx-auto overflowY dcenter-item" id="coso">    
-                     <div class="position-relative simimages imgsubst ms-3 mb-3"  onclick="display_img(event)"  id="similarBox0" draggable="true" ondragstart="drag(event)">
+                </div>
+         
+
+                <div class="row px-3 pb-5 d-flex flex-wrap mx-auto overflowY dcenter-item" id="coso">    
+                     <div class="col-12 col-md-6  col-lg-4 position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox0" draggable="true" ondragstart="drag(event)">
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                 
                     </div> 
-                     <div class="position-relative simimages imgsubst ms-3 mb-3"  onclick="display_img(event)"  id="similarBox1" draggable="true" ondragstart="drag(event)">
+                     <div class="col-12 col-md-6 col-lg-4 position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox1" draggable="true" ondragstart="drag(event)">
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                     </div> 
-                     <div class="position-relative simimages imgsubst ms-3 mb-3"  onclick="display_img(event)"  id="similarBox2" draggable="true" ondragstart="drag(event)">
+                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox2" draggable="true" ondragstart="drag(event)">
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                     </div> 
-                     <div class="position-relative simimages imgsubst ms-3 mb-3"  onclick="display_img(event)"  id="similarBox3" draggable="true" ondragstart="drag(event)">
+                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox3" draggable="true" ondragstart="drag(event)">
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                     </div>
-                     <div class="position-relative simimages imgsubst ms-3 mb-3"  onclick="display_img(event)"  id="similarBox4" draggable="true" ondragstart="drag(event)">
+                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox4" draggable="true" ondragstart="drag(event)">
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                     </div>     
                 </div> 
@@ -307,7 +286,7 @@
                             <input type="text" class="form-control" placeholder="Comments" aria-label="Comments" name="Comments">
                         <div class=" container py-3 px-0"> 
                             <span class="d-inline-block" tabindex="0">
-                                <button type="submit" class="btn btn-success me-5 px-4 float-end w-25" id="submit">
+                                <button type="submit" class="btn btn-success p-3 float-end" id="submit">
                                     Submit! 
                                 </button> 
                             </span>
