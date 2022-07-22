@@ -433,6 +433,7 @@ function clearImg(ev){
 }
 
 
+
 function resetDash(){
     a = document.getElementsByClassName("getDataboxDash")
     for(let i = 0; i < a.length; i++){
@@ -452,6 +453,10 @@ function resetDash(){
   myImgsListener();
 }
 
+function repeatTask(){
+  resetDash()
+  fill_task_dash()
+}
 
 function Apply_like_dislike(){ //start 
 
