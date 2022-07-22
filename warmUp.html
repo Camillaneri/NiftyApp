@@ -26,26 +26,31 @@
     
           <div class="position-absolute bgdark50 h-100 w-100 reveal" id="tutorials">
             <div class="position-absolute w-40 bg-dark white z-2000 p-3 br1" id="tutorial1">
+                <p>1/3</p>
                 <h1>this is the Reference image</h1>
-                
-                <p>look this artpiece closely and judge the other image based on how much the are similar to to it</p>
+                <p>Look closely at this artwork and rank the other images according to their visual similarities to it. Please rank the images from the one you perceive most similar to the most dissimilar to the reference.</p>
                 
                 
                 <button type="button" class="btn btn-success" id="toTut2a">Next</button>
             </div>
 
             <div class="position-absolute bg-dark white z-2000 p-3 br1" id="tutorial2">
+                <p>2/3</p>
                 <h1>Fetched images</h1>
-                <p id="tail">Look at these artworks and decide wich one look more similar to the reference image based on shape, color, and art style, then drag and drop them in the numbered slots.</p>
-                <p>first slot for the most similar, second slot for the second most similar, and so on.</p>
+                <p id="tail">Look at these artworks and decide which one looks more like the reference image in terms of shape, color, style, then drag and drop them in the numbered slots. </p>
+                    <p>The first slot goes to the most similar, second slot to the second most similar, and so on.
+                        You don’t have to fill all the slots to complete the task: if you deem some images just too different from the reference, just ignore them.! </p>
+               
                 
                 <button type="button" class="btn btn-success" id="toTut1">Back</button>
                 <button type="button" class="btn btn-success" id="toTut3">Next</button>
             </div>
             <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial3">
+                <p>3/3</p>
                 <h1>End task</h1>
-                <p>When you are done click on the "end task" button. </p>
-                <p>if you want to repeat the task click on "repeat task", you can do it as many time as you'd like!</p>
+                
+                <p>When you are done, click on the "end task" button.</p>
+                <p>Iif you want to repeat the task, click on "repeat task", you can do it as many times as you wish! </p>
                 <button type="button" class="btn btn-success" id="toTut2b">Back</button>
                 <button type="button" class="btn btn-success" id="FinishTut">Got it!</button>
             </div>
@@ -95,9 +100,10 @@
             <div class="container py-5 px-5 
             rounded-3 text-center" id="centralBox">
                 <h1 class="display-3 pb-3 " id="headerTitle2">Warm Up</h1>
-                <p>Help us evaluate how precise is our retrieval algorithm,</p> 
-                <p> You will be asked to rank a series of artworks based on their similarity to a reference image.</p> 
-                <p> Your feedback will be used to improve our system of recommendation, and help future users find artworks that interest and inspire them!                    
+                
+                <p>Help us evaluate how effective our retrieval algorithm is.  </p> 
+                <p> You will be asked to rank a series of artworks based on their similarity to a reference image. </p> 
+                                   
                 </p>    
             </div>
         </div>
