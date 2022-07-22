@@ -168,6 +168,7 @@ function allowDrop(ev) {
     //console.log("b")
     //console.log("sourceImg for drag "+ev.parentElement.outerHTML)
     ev.dataTransfer.setData("text", ev.target.id);
+    ev.target.parentElement.children[0].classList.toggle('d-none')
   }
   
   function drop(ev) {
@@ -192,19 +193,22 @@ function allowDrop(ev) {
 
     for(let x = 0; x < document.getElementById("coso").children.length ; x++){
  
-      if(document.getElementById("coso").children[x].children.length < 1){
+      if(document.getElementById("coso").children[x].children.length < 2){
 
         //ev.target.parentElement.children[2].draggable = true
 
         num = ev.target.parentElement.children[1].innerHTML
+        console.log()
         numero = num.replace('#', '');
         n = parseFloat(numero);
         document.getElementById("coso").children[x].appendChild(ev.target.parentElement.children[2])
+        
         ev.target.parentElement.parentElement.classList.toggle("no-border")
-        document.getElementsByClassName("tall-img")[n-1].insertAdjacentHTML('beforeend', "<img id='WUimg4' class='img-fit' src=''>")
+        document.getElementsByClassName("tall-img")[n-1].insertAdjacentHTML('beforeend', "<img id='WUimg' class='img-fit' src=''>")
         //ev.target.parentElement.insertAdjacentHTML('beforeend', "<img id='WUimg4' class='img-fit' src=''>");
         ev.target.parentElement.children[0].classList.add('d-none')
-
+        console.log(document.getElementById("coso").children[x].children[0])
+        document.getElementById("coso").children[x].children[0].classList.remove('d-none')
         break
         
       }
@@ -266,4 +270,18 @@ function closeimg(){
     //////console.log(document.getElementById("displayimg").classList)
     document.getElementById("shadow").classList.remove("seeme");
     document.getElementById("bod").classList.remove("noscroll")
+}
+
+function pin_WU(ev){
+  givsrc = ev.target.parentElement.parentElement.children[1].src
+  ev.target.parentElement.parentElement.children[1].remove()
+  console.log(givsrc)
+  free = document.getElementsByClassName('img-fit')
+  console.log(free[0].parentElement.children[0])
+  free[0].parentElement.children[0].classList.remove('d-none')
+  free[0].parentElement.parentElement.classList.toggle("no-border")
+  free[0].src = givsrc
+  free[0].classList = "img max-h-50 w-100 recover similarImg0"
+  ev.target.parentElement.classList.toggle('d-none')
+  
 }

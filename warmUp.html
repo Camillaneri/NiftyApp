@@ -66,10 +66,10 @@
         
 
          <!-- header -->
-         <div class="almostBlack" id="Header">
+         <div class="py-4 almostBlack" id="Header">
             <span class="d-flex justify-content-between" id="head">
                 <span class="text-left text-light me-5"> NiftyEValue</span> 
-                <span class="text-right text-light" id="pageName">Home</spandes>
+                <span class="text-right text-light" id="pageName">Task</spandes>
             </span>
         </div>
         <!-- Navbar -->
@@ -144,7 +144,7 @@
             </div>    
 
             <div class="position-relative mx-auto flex-fill" id="clumnN2">   <!--column2--> 
-                <div class="p-4 collapse show almostBlack" id="Small">  <!--Small--> 
+                <div class="py-4 collapse show almostBlack" id="Small">  <!--Small--> 
                     <div class="dropboxes d-flex pb-2 overflowY almostBlack">
                         <div class="getDatabox1">                     
                             <div id="getData21" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
@@ -201,20 +201,39 @@
          
 
                 <div class="row px-3 pb-5 d-flex flex-wrap mx-auto overflowY dcenter-item" id="coso">    
-                     <div class="col-12 col-md-6  col-lg-4 position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox0" draggable="true" ondragstart="drag(event)">
-                        <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
-                
+                    <div class="col-12 col-md-6  col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox0" draggable="true" ondragstart="drag(event)">
+                        <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
+                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                       </div>
+                        <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">    
                     </div> 
-                     <div class="col-12 col-md-6 col-lg-4 position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox1" draggable="true" ondragstart="drag(event)">
+                    
+                    <div class="col-12 col-md-6 col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox1" draggable="true" ondragstart="drag(event)">
+                        <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
+                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                       </div>
+                       <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
+
+                    </div> 
+                    
+                    <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox2" draggable="true" ondragstart="drag(event)">
+                        <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
+                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                       </div>
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                     </div> 
-                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox2" draggable="true" ondragstart="drag(event)">
-                        <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
-                    </div> 
-                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox3" draggable="true" ondragstart="drag(event)">
-                        <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
+                    
+                    <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox3" draggable="true" ondragstart="drag(event)">
+                        <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
+                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                       </div>
+                        <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">                     
                     </div>
-                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3"  onclick="display_img(event)"  id="similarBox4" draggable="true" ondragstart="drag(event)">
+
+                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox4" draggable="true" ondragstart="drag(event)">
+                        <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
+                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                        </div>
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                     </div>     
                 </div> 
