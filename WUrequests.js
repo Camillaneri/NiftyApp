@@ -283,7 +283,10 @@ function repeatask(){
    document.getElementsByClassName("REF")[0].src=""
    //document.getElementById("RefImg").classList.add("imgsubst")
   for(let x = 0; x < 5 ; x++){
-    document.getElementsByClassName('similarImg0')[x].src=""
+    a = document.getElementsByClassName("simimages")
+    if(a[x].children.length > 0){
+      a[x].children[0].src=""
+    }
     document.getElementsByClassName("simimages")[x].classList.add("imgsubst")
   }
 
