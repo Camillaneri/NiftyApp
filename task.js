@@ -124,6 +124,7 @@ function drop(ev) {
     //ev.target.appendChild(document.getElementById(data));
     var copyimg = document.createElement("img");
     var original = document.getElementById(data);
+    
     ////console.log("SOURCE"+copyimg.src)
     ////console.log("ORIG-SOURCE"+original.src)
     copyimg.src = original.src;
@@ -160,6 +161,7 @@ function drop(ev) {
     ev.target.children[1].classList.toggle("clear-dash");
     myImgsListener();//@chiara è tuo questo? perchè l'ho duplicato
     ev.target.children[0].classList.toggle("d-none")
+    original.classList.add("darken1")
     //original.classList.add("imggreen")
   }
   }
@@ -178,6 +180,7 @@ function Addtodash(ev){
   //////console.log(ev.target.parentElement.parentElement.children[2])
   giveid = ev.target.parentElement.parentElement.children[2].id
   givsrc = ev.target.parentElement.parentElement.children[2].src
+  ev.target.parentElement.parentElement.children[2].classList.add("darken1")
   var img = document.createElement('img');
   img.src = givsrc
   img.id = giveid
@@ -380,9 +383,12 @@ function clearImg(ev){
     ////console.log("iddd "+ev.target.parentNode.outerHTML)
     ev.target.parentNode.children[1].classList.remove("img-fit-in")
     getid = ev.target.parentNode.children[1].id
+    
     //inizio log removed images 
-    //console.log("ciauxxx "+ev.target.parentNode.children[1].outerHTML)
+    console.log("ciauxxx "+document.getElementById(getid).parentNode.outerHTML)
     ev.target.parentNode.children[1].remove();
+    console.log("ciauxxx "+document.getElementById(getid).parentNode.outerHTML)
+    document.getElementById(getid).classList.remove("darken1")
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
       //console.log("A")
       
