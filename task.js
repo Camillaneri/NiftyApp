@@ -13,6 +13,12 @@ var query = {'pos':'','neg':''};
 var LoadedImgsListener = 0
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
+  boxes = document.querySelectorAll('.darken1');
+boxes.forEach(box => {
+  box.classList.remove('darken1');
+});
+
+
   for(let x = 0; x <= 19; x++){
     img_element = document.getElementsByClassName('img-to-like')[x].src = ""
   if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
@@ -300,14 +306,24 @@ function AddLiked_Disliked(event) {
             for(let i = 0; i < num_likd; i++){   
                 var img_idL = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
                 likd_ids.push(img_idL)
+                console.log(likd_ids)
             }
             for(let i = 0; i < num_dslikd; i++){
             var img_idD = document.getElementById("DislikesBox").children[i].children[1].id; //id of liked elements
             dislikd_ids.push(img_idD)
             }
             if (likd_ids.includes(AddidL)){
-                ////console.log("a.21")
-                alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
+                //console.log("a.21")
+                //alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
+                //console.log("ciao"+document.getElementById("LikesBox").children[0].children[1].id)
+                for(let i = 0; i < document.getElementById("LikesBox").children.length; i++){
+                  if(document.getElementById("LikesBox").children[i].children[1].id == AddidL){
+                    console.log("ciao")
+                    console.log("ciao"+document.getElementById("LikesBox").children[i].children[1].id)
+                    event.target.classList.remove("green")
+                    document.getElementById("LikesBox").children[i].remove()
+                  }
+                } 
             }
             else if (dislikd_ids.includes(AddidL)){
                 ////console.log("a.22")
@@ -343,18 +359,28 @@ function AddLiked_Disliked(event) {
             for(let i = 0; i < num_likd; i++){  
                 var img_id1 = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
                 likd_idsD.push(img_id1)
+                
             }
             for(let i = 0; i < num_dslikd; i++){
-            var img_id2 = document.getElementById("DislikesBox").children[i].children[1].id; //id of liked elements
+            var img_id2 = document.getElementById("DislikesBox").children[i].children[1].id; //id of disliked elements
             dislikd_idsD.push(img_id2)
+            console.log(likd_idsD)
             }
             if (likd_idsD.includes(AddidD)){
                 ////console.log("b.21")
                 alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
             }
             else if (dislikd_idsD.includes(AddidD)){
-                ////console.log("b.22")
-                alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
+                console.log("b.22")
+                //alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
+                for(let i = 0; i < document.getElementById("DislikesBox").children.length; i++){
+                  if(document.getElementById("DislikesBox").children[i].children[1].id == AddidD){
+                    console.log("ciao")
+                    console.log("ciao"+document.getElementById("DislikesBox").children[i].children[1].id)
+                    event.target.classList.remove("red")
+                    document.getElementById("DislikesBox").children[i].remove()
+                  }
+                } 
             }
             else{
                 //////console.log("b.23")
@@ -385,19 +411,22 @@ function clearImg(ev){
     getid = ev.target.parentNode.children[1].id
     
     //inizio log removed images 
-    console.log("ciauxxx "+document.getElementById(getid).parentNode.outerHTML)
-    ev.target.parentNode.children[1].remove();
-    console.log("ciauxxx "+document.getElementById(getid).parentNode.outerHTML)
+    console.log("hey 1")
+    ev.target.parentNode.children[1].remove()
+
+     if (document.getElementById(getid) != null && document.getElementById(getid).classList.contains("darken1")){
+      console.log("beccato")
     document.getElementById(getid).classList.remove("darken1")
+    } 
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
       //console.log("A")
-      
+      console.log("hey 2"+document.getElementById(getid).outerHTML)
       ev.target.parentNode.remove()
       
-    if(document.getElementById(getid).parentNode.children[0].children[0].classList.contains("green")==true){
+    if(document.getElementById(getid) != null && document.getElementById(getid).parentNode.children[0].children[0].classList.contains("green")==true){
       document.getElementById(getid).parentNode.children[0].children[0].classList.remove("green")
     }
-    if(document.getElementById(getid).parentNode.children[0].children[1].classList.contains("red")==true){
+    if(document.getElementById(getid) != null && document.getElementById(getid).parentNode.children[0].children[1].classList.contains("red")==true){
       document.getElementById(getid).parentNode.children[0].children[1].classList.remove("red")
     }
     //console.log("ciauxxx1 "+ev.target.parentNode.outerHTML)
@@ -481,6 +510,11 @@ boxes.forEach(box => {
 boxes = document.querySelectorAll('.red');
 boxes.forEach(box => {
   box.classList.remove('red');
+});
+
+boxes = document.querySelectorAll('.darken1');
+boxes.forEach(box => {
+  box.classList.remove('darken1');
 });
 
   // inizio parte log apply
