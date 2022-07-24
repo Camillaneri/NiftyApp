@@ -56,8 +56,9 @@ function loadWarmUp(){
         }
       refimg.src = art_high_res;
       refimg.id = art_id
+
       sessionStorage.setItem('WUreference', refimg.id)
-     
+      document.getElementById('RefImg').classList.remove('imgsubst')
 
       //console.log(IDnum)
       request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+IDnum+"&artworks_neg=''"; //if its more than one they have to be numbers separated by comma without spaces

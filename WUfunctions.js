@@ -80,13 +80,13 @@ jQuery(document).ready(function($) {
       console.log($("#refimgcontainer").hasClass( "zindex" ))
       $('#refimg').css("z-index", "9")
 
-      const whereisit = document.getElementById("buttons2")
-      const {  
-        top: t,  
-        left: l  
-      } = whereisit.getBoundingClientRect();  
+      // const whereisit = document.getElementById("buttons2")
+      // const {  
+      //   top: t,  
+      //   left: l  
+      // } = whereisit.getBoundingClientRect();  
 
-      console.log("buttons2 "+ t, l)
+      // console.log("buttons2 "+ t, l)
 
       /* const whereisit1 = document.getElementById("tutorial3")
       const {  

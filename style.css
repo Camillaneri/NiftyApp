@@ -385,12 +385,21 @@ padding-top: 3ex;
 
 
   /* tutorial boxes */
+
+  .kitty{
+    bottom: 0px;
+    right: 0px;
+  }
+
   #tutorial{
       top: 30%;
       left: 40%;
-      display: block;
-      min-width: 55%;
-      max-height: 40%;
+      display: inline-block;
+      max-width: 40%;
+      height: 40%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      font-size: 0.7em;
   }
 
   
@@ -526,7 +535,6 @@ form section{
 
 #tutorials{
    position: fixed;
-   height: 100vh;
    z-index: 1;
    
 }
@@ -590,8 +598,11 @@ margin-bottom: 5%;
     
     
 }
-#refImg img{
-max-height: 60vh;
+
+
+#RefImg img{
+  max-height: 45vh;
+  max-width: fit-content;
 }
 
 
@@ -1437,6 +1448,13 @@ max-height: 60vh;
   #refimg{
     width: 100%!important;
   }
+
+
+  #RefImg img{
+    max-height: 25vh;
+    max-width: fit-content;
+  }
+  
   #dashboard{
     width: 100%!important;
     overflow-x: auto;
@@ -1468,6 +1486,11 @@ max-height: 60vh;
   form section{
     padding: 1.5em!important;
   }
+  .kitty{
+    bottom: 0px;
+    left: 0px;
+  }
+
 }
 
 @media screen and (max-width: 500px) {
