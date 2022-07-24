@@ -168,7 +168,7 @@ function allowDrop(ev) {
     //console.log("b")
     //console.log("sourceImg for drag "+ev.parentElement.outerHTML)
     ev.dataTransfer.setData("text", ev.target.id);
-    ev.target.parentElement.children[0].classList.toggle('d-none')
+    ev.target.parentElement.classList.toggle('d-none')
   }
   
   function drop(ev) {

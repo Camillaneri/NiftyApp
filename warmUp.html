@@ -12,7 +12,7 @@
 
         <!-- Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-        
+        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
   
         <!-- Bootstrap CSS -->
         
@@ -20,41 +20,57 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/bc67555ac1.js" crossorigin="anonymous"></script>
     </head>
-    <body id="bod" class="darkGreen"> <!-- class="d-flex flex-column"  onload="placeholders()"-->
+    <body  class="overflow-hidden darkGreen" id="bod"> <!-- class="d-flex flex-column"  onload="placeholders()"-->
 
           <!-- tutorial -->
-    
-          <div class="position-absolute bgdark50 h-100 w-100 reveal" id="tutorials">
-            <div class="position-absolute w-40 bg-dark white z-2000 p-3 br1" id="tutorial1">
-                <p>1/3</p>
-                <h1>this is the Reference image</h1>
-                <p>Look closely at this artwork and rank the other images according to their visual similarities to it. Please rank the images from the one you perceive most similar to the most dissimilar to the reference.</p>
-                
-                
-                <button type="button" class="btn btn-success" id="toTut2a">Next</button>
+        
+        <div class="position-absolute bgdark50 h-100 w-100" id="tutorials">
+            
+            <div class="col-2 position-relative">
+                <lord-icon 
+                    class="fixed-bottom" 
+                    src="https://cdn.lordicon.com/lzwckydi.json"
+                    trigger="loop"
+                    delay="4000"
+                    style="width:100%;height:450px">
+                </lord-icon>
             </div>
+            
+                
+            <div  class="position-absolute w-40 bg-dark white z-2000 p-3 br1 col-4"  id="tutorial">
+            
+                <div id="tutorial1">
+                    <p>1/3</p>
+                    <h1>this is the Reference image</h1>
+                    <p>Look closely at this artwork and rank the other images according to their visual similarities to it. Please rank the images from the one you perceive most similar to the most dissimilar to the reference.</p>
+                    
+                    
+                    <button type="button" class="btn btn-success" id="toTut2a">Next</button>
+                </div>
 
-            <div class="position-absolute bg-dark white z-2000 p-3 br1" id="tutorial2">
-                <p>2/3</p>
-                <h1>Fetched images</h1>
-                <p id="tail">Look at these artworks and decide which one looks more like the reference image in terms of shape, color, style, then drag and drop them in the numbered slots. </p>
-                    <p>The first slot goes to the most similar, second slot to the second most similar, and so on.
-                        You don’t have to fill all the slots to complete the task: if you deem some images just too different from the reference, just ignore them.! </p>
-               
+                <div  id="tutorial2">
+                    <p>2/3</p>
+                    <h1>Fetched images</h1>
+                    <p id="tail">Look at these artworks and decide which one looks more like the reference image in terms of shape, color, style, then drag and drop them in the numbered slots. </p>
+                        <p>The first slot goes to the most similar, second slot to the second most similar, and so on.
+                            You don’t have to fill all the slots to complete the task: if you deem some images just too different from the reference, just ignore them.! </p>
                 
-                <button type="button" class="btn btn-success" id="toTut1">Back</button>
-                <button type="button" class="btn btn-success" id="toTut3">Next</button>
+                    
+                    <button type="button" class="btn btn-success" id="toTut1">Back</button>
+                    <button type="button" class="btn btn-success" id="toTut3">Next</button>
+                </div>
+                <div id="tutorial3">
+                    <p>3/3</p>
+                    <h1>End task</h1>
+                    <p>When you are done, click on the "end task" button.</p>
+                    <p>Iif you want to repeat the task, click on "repeat task", you can do it as many times as you wish! </p>
+                    <button type="button" class="btn btn-success" id="toTut2b">Back</button>
+                    <button type="button" class="btn btn-success" id="FinishTut">Got it!</button>
+                </div>
+            
             </div>
-            <div class="position-absolute w-50 bg-dark white z-2000 p-3 br1" id="tutorial3">
-                <p>3/3</p>
-                <h1>End task</h1>
-                
-                <p>When you are done, click on the "end task" button.</p>
-                <p>Iif you want to repeat the task, click on "repeat task", you can do it as many times as you wish! </p>
-                <button type="button" class="btn btn-success" id="toTut2b">Back</button>
-                <button type="button" class="btn btn-success" id="FinishTut">Got it!</button>
-            </div>
-
+            
+        </div>
         </div>
         
 
@@ -71,7 +87,7 @@
         
 
          <!-- header -->
-         <div class="py-4 almostBlack" id="Header">
+         <div class="py-4 almostBlack" id="x">
             <span class="d-flex justify-content-between" id="head">
                 <span class="text-left text-light me-5"> NiftyEValue</span> 
                 <span class="text-right text-light" id="pageName">Task</spandes>
@@ -94,7 +110,7 @@
         
        
 
-        <!-- introduction page -->
+        <!-- introduction page
 
         <div class="col" id="introwarmup">
             <div class="container py-5 px-5 
@@ -107,11 +123,11 @@
                 </p>    
             </div>
         </div>
-        
+         -->
        
 
         <!-- Task -->
-        <div class="d-flex reveal zindex" id="task">    <!-- big container-->
+        <div class="d-flex zindex overflow-hidden" id="task">    <!-- big container-->
 
             <div class="col-xl-4 flex-column px-5 almostBlack" id="refimg">   <!--column1-->
                 <!-- <div class="my-3 text-light">  --text--

@@ -172,6 +172,7 @@ function loadWarmUp(){
  }
       
  function reveal() {
+  console.log('hi')
   var reveals = document.querySelectorAll(".reveal");
   x = document.getElementById("introwarmup");
 
