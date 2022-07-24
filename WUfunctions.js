@@ -143,7 +143,7 @@ jQuery(document).ready(function($) {
       $('#refimgcontainer').toggleClass("zindex")
       $('#refimg').css("z-index", "0")
       console.log("ooooo")
-      $("#bod").removeClass("no-scroll")
+      $("#bod").removeClass("overflow-hidden")
       
 
       /* $('.dropboxes').css("box-shadow", "unset")
