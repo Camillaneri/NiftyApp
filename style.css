@@ -75,8 +75,8 @@ label, .vals li{
 }
 
 .getDatabox1{
-    height: 6em;
-    width: 6em;
+    height: 20%;
+    width: 20%;
     margin: 0;
     background-color: #171923;
     border: 1px solid #00FFC1;
@@ -391,17 +391,17 @@ padding-top: 3ex;
     right: 0px;
   }
 
-  #tutorial{
-      top: 30%;
-      left: 40%;
-      display: inline-block;
-      max-width: 40%;
-      height: 40%;
-      overflow-y: auto;
-      overflow-x: hidden;
-      font-size: 0.7em;
-      margin-bottom: 2rem;
-  }
+  #tutorial {
+    bottom: 3rem;
+    right: 200px;
+    display: inline-block;
+    max-width: 35%;
+    /* height: 31%; */
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-size: 0.7em;
+    margin-bottom: 2rem;
+}
 
   
   #tutorial1{
@@ -464,22 +464,6 @@ form section{
   padding: 3rem ;
 }
 
-  @media screen and (max-width: 800px) {
-    .column {
-      -ms-flex: 50%;
-      flex: 50%;
-      max-width: 50%;
-    }
-  }
-  
-  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .column {
-      -ms-flex: 100%;
-      flex: 100%;
-      max-width: 100%;
-    }
-  }
 
 #MainFooter{
     bottom: 0 !important;
@@ -899,9 +883,9 @@ margin-bottom: 5%;
   }
 
   
-
+  
   .imgsubst{
-    min-height: 10rem;
+    min-height: 100px;
     animation-name: noimg;
     margin-top: 8px;
     animation-duration: 3s;
@@ -969,25 +953,6 @@ margin-bottom: 5%;
     cursor: pointer;
     transition: 0.3s;
   }
-  
-
-/* .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 50px;
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgb(0 0 0 / 47%); 
-  }
-   */
 
 #myModal{
   position: fixed;
@@ -1038,15 +1003,7 @@ margin-bottom: 5%;
     
   }
   
-  @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
-    to {-webkit-transform:scale(1)}
-  }
-  
-  @keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-  }
+
   
   /* The Close Button */
   .close {
@@ -1066,13 +1023,6 @@ margin-bottom: 5%;
     cursor: pointer;
   }
  
-  /* 100% Image Width on Smaller Screens */
-   /* @media only screen and (max-width: 700px){
-    .modal-content {
-      width: 100%;
-    }
-  } */
-
  .img-fit-into{
     
     overflow: hidden;
@@ -1116,7 +1066,7 @@ margin-bottom: 5%;
 }
 
 #task{
-    min-height: 83vh;
+    min-height: 90vh;
 }
 
 
@@ -1251,48 +1201,6 @@ margin-bottom: 5%;
   border-radius: 0 0 50px 50px;
 }
 
-
-@media screen and (max-width: 950px) {
-  .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown a:hover {background-color: #ddd;}
-  
-  .show {display: block;}
-}
-
 .greenimg{
     
   filter: invert(25%) sepia(90%) saturate(300%) hue-rotate(102deg) brightness(100%) contrast(100%);
@@ -1416,23 +1324,78 @@ margin-bottom: 5%;
   overflow: hidden !important;
 }
 
-@media screen and (max-width: 850px) {
-  body {
-    font-size: 18px!important;
-  }
-
-}
 
 #task2{ 
   display: flex!important;
 }
 
 
-@media screen and (max-width: 780px) {
-  body {
-    font-size: 16px!important;
-    
+.darken1{
+  filter: brightness(40%);
+  z-index: 0;
+}
+
+/* @ MEDIA RULES  */
+@media screen and (max-width: 950px) {
+  .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
   }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+
+  .kitty{
+    bottom: 0px;
+    left: 0px;
+  }
+  #tutorial {
+    left: 200px;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+
   .wrapper{
     padding: 5%;
   }
@@ -1487,11 +1450,16 @@ margin-bottom: 5%;
   form section{
     padding: 1.5em!important;
   }
-  .kitty{
-    bottom: 0px;
-    left: 0px;
-  }
 
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1508,10 +1476,24 @@ margin-bottom: 5%;
     font-size: 12px!important;
     
   }
+
+  .kitty{
+    width: 200px!important;;
+  }
+  #tutorial{
+    right: 300px;
+  }
  
 }
 
-.darken1{
-  filter: brightness(40%);
-  z-index: 0;
+
+/*KEYFRAMES */
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
 }

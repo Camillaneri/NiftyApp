@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 
       $('#RefImg').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
       $('#RefImg').css("z-index", "9")
-      $('#task').css("z-index", "11")
+      $('#RefImg').css("filter", "unset")
 
       $('#clumnN2').css("box-shadow", "unset")
      /*  $('.dropboxes').css("box-shadow", "unset")
@@ -144,16 +144,9 @@ jQuery(document).ready(function($) {
       $('#refimg').css("z-index", "0")
       console.log("ooooo")
       $("#bod").removeClass("overflow-hidden")
-      
 
-      /* $('.dropboxes').css("box-shadow", "unset")
-      
-      $('#buttons2').css ("box-shadow","unset")
-      $('#task').toggleClass("zindex") */
     });
-   
-    // $(".botpage a").tipTip({ content: "This is an anchor tag!"});
-    // $(".botpage a").tipTip('show');
+
     });
 
 

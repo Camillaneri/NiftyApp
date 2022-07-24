@@ -27,11 +27,11 @@
         <div class="row fixed-bottom bgdark50" id="tutorials">
     
                 
-            <div  class=" position-relative w-40 bg-dark white z-2000 p-3 br1"  id="tutorial">
+            <div  class=" position-absolute w-40 bg-dark white z-2000 p-3 br1"  id="tutorial">
             
                 <div id="tutorial1">
                     <p>1/3</p>
-                    <h3>this is the Reference image</h3>
+                    <h5>this is the Reference image</h5>
                     <p>Look closely at this artwork and rank the other images according to their visual similarities to it. Please rank the images from the one you perceive most similar to the most dissimilar to the reference.</p>
                     
                     
@@ -40,7 +40,7 @@
 
                 <div  id="tutorial2">
                     <p>2/3</p>
-                    <h3>Fetched images</h3>
+                    <h5>Fetched images</h5>
                     <p id="tail">Look at these artworks and decide which one looks more like the reference image in terms of shape, color, style, then drag and drop them in the numbered slots. </p>
                         <p>The first slot goes to the most similar, second slot to the second most similar, and so on.
                             You don’t have to fill all the slots to complete the task: if you deem some images just too different from the reference, just ignore them.! </p>
@@ -51,7 +51,7 @@
                 </div>
                 <div id="tutorial3">
                     <p>3/3</p>
-                    <h3>End task</h3>
+                    <h5>End task</h5>
                     <p>When you are done, click on the "end task" button.</p>
                     <p>Iif you want to repeat the task, click on "repeat task", you can do it as many times as you wish! </p>
                     <button type="button" class="btn btn-success" id="toTut2b">Back</button>
@@ -72,15 +72,15 @@
         </div>
         
 
-                <!-- Display img-->
-        
-                <div class="z-2000 position-absolute" id="shadow">
-                    <div class="white bg-dark br1 imgsubst" id="displayimg">
-                        <span class="closeimg" onclick="closeimg()">&times;</span>
-                        <!--<button type="button" class="btn btn-success" id="closeimg" onclick="closeimg()">x</button>-->
-                        <img id="displayed" src="" class="w-15" alt="...">
-                    </div>
+        <!-- Display img-->
+    
+        <div class="z-2000 position-absolute" id="shadow">
+            <div class="white bg-dark br1 imgsubst" id="displayimg">
+                <span class="closeimg" onclick="closeimg()">&times;</span>
+                <!--<button type="button" class="btn btn-success" id="closeimg" onclick="closeimg()">x</button>-->
+                <img id="displayed" src="" class="w-15" alt="...">
             </div>
+        </div>
            
         
 
@@ -106,35 +106,18 @@
             </div>
         </div>
         
-       
-
-        <!-- introduction page
-
-        <div class="col" id="introwarmup">
-            <div class="container py-5 px-5 
-            rounded-3 text-center" id="centralBox">
-                <h1 class="display-3 pb-3 " id="headerTitle2">Warm Up</h1>
-                
-                <p>Help us evaluate how effective our retrieval algorithm is.  </p> 
-                <p> You will be asked to rank a series of artworks based on their similarity to a reference image. </p> 
-                                   
-                </p>    
-            </div>
-        </div>
-         -->
-       
 
         <!-- Task -->
         <div class="d-flex zindex overflow-hidden" id="task">    <!-- big container-->
 
-            <div class="col-xl-4 flex-column px-5 almostBlack py-3" id="refimg">   <!--column1-->
+            <div class="col-4 px-4 almostBlack py-3" id="refimg">   <!--column1-->
                 <!-- <div class="my-3 text-light">  --text--
                     <h3>Reference image</h3>
                     
                 </div> -->       
                 <div class="px-0 " id="refimgcont1">  <!--img--> 
                     <div class="aclass" id="refimgcontainer">            
-                        <div id="RefImg" class="position-relative text-center imgsubst"> 
+                        <div id="RefImg" class="position-relative text-center imgsubst bg-white p-2"> 
     
                             <img id="reference" class="REF" src=""> 
                         </div>     
@@ -164,8 +147,8 @@
             </div>    
 
             <div class="position-relative mx-auto flex-fill" id="clumnN2">   <!--column2--> 
-                <div class="py-4 collapse show almostBlack" id="Small">  <!--Small--> 
-                    <div class="dropboxes d-flex pb-2 overflowY almostBlack">
+                <div class="p-4 collapse show almostBlack" id="Small">  <!--Small--> 
+                    <div class="dropboxes d-flex overflowY almostBlack">
                         <div class="getDatabox1">                     
                             <div id="getData21" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
@@ -220,7 +203,7 @@
                 </div>
          
 
-                <div class="row px-3 pb-5 d-flex flex-wrap mx-auto overflowY dcenter-item" id="coso">    
+                <div class="row px-4 d-flex flex-wrap mx-auto overflowY dcenter-item" id="coso">    
                     <div class="col-12 col-md-6  col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox0" draggable="true" ondragstart="drag(event)">
                         <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
                             <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
