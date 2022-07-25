@@ -192,6 +192,7 @@ function Addtodash(ev){
   img.id = giveid
   img.name = 'query'+n_queries
   img.classList.add('w-10') 
+  img.classList.add(giveid) 
   img.classList.add('clear-dash') 
   id_List =[]
 
@@ -213,7 +214,7 @@ function Addtodash(ev){
     if(document.getElementsByClassName("getDataboxDash")[i].children.length < 2){
       if (id_List.includes(giveid)==false){
       //console.log(id_List.includes(giveid)==false)
-      
+    //ev.target.parentElement.classList.remove("lightgreencol")
     document.getElementsByClassName("getDataboxDash")[i].appendChild(img)
     document.getElementsByClassName("getDataboxDash")[i].children[0].classList.toggle("d-none")
     if(document.getElementsByClassName("getDataboxDash")[i].classList.contains("bigdash")==false){
@@ -415,22 +416,32 @@ function clearImg(ev){
     //inizio log removed images 
     console.log("hey 1")
     ev.target.parentNode.children[1].remove()
-
+/* 
      if (document.getElementById(getid) != null && document.getElementById(getid).classList.contains("darken1")){
       console.log("beccato")
-    document.getElementById(getid).classList.remove("darken1")
-    } 
+    document.getElementById(getid).classList.remove("darken1") 
+    } */
     if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
       //console.log("A")
       console.log("hey 2"+document.getElementById(getid).outerHTML)
       ev.target.parentNode.remove()
+    
+    
+
+    for(let i = 1; i < 21; i++){
+      console.log(document.getElementById("drag"+i).children[0])
+      if( document.getElementById("drag"+i).children[1].id == getid){
+        if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.contains("green")==true){
+          console.log("boo2")
+          document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.remove("green")
+        }
+        if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.contains("red")==true){
+          document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.remove("red")
+        }
+      }
+    }
       
-    if(document.getElementById(getid) != null && document.getElementById(getid).parentNode.children[0].children[0].classList.contains("green")==true){
-      document.getElementById(getid).parentNode.children[0].children[0].classList.remove("green")
-    }
-    if(document.getElementById(getid) != null && document.getElementById(getid).parentNode.children[0].children[1].classList.contains("red")==true){
-      document.getElementById(getid).parentNode.children[0].children[1].classList.remove("red")
-    }
+    
     //console.log("ciauxxx1 "+ev.target.parentNode.outerHTML)
     
     ////console.log("iddd "+ev.target.parentNode.outerHTML)
@@ -439,11 +450,31 @@ function clearImg(ev){
     } else{
       //console.log("B")
       ev.target.classList.toggle("d-none")
+      
+      /* console.log(getid)
+      for(let i = 1; i < 21; i++){
+        console.log(document.getElementById("drag"+i).children[0])
+        if( document.getElementById("drag"+i).children[1].id == getid){
+          console.log("vai")
+          document.getElementById("drag"+i).children[0].classList.add("lightgreencol")
+        }
+      } */
+      
+
+      for(let i = 1; i < 21; i++){
+        console.log(document.getElementById("drag"+i).children[0])
+        if( document.getElementById("drag"+i).children[1].id == getid){
+          console.log("vai")
+          document.getElementById("drag"+i).children[1].classList.remove("darken1")
+        }
+      }
+      
       ////console.log('inside query:',ev.target.id)
       let imgId = ev.target.id
       if(ev.target.parentElement.classList.contains("bigdash")){
         ev.target.parentElement.classList.add("Dimdash")
       }
+      
 
       switch (imgId){
         case 'clear-liked':
@@ -517,7 +548,7 @@ boxes.forEach(box => {
 boxes = document.querySelectorAll('.darken1');
 boxes.forEach(box => {
   box.classList.remove('darken1');
-});
+}); 
 
   // inizio parte log apply
 

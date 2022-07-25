@@ -664,6 +664,10 @@ margin-bottom: 5%;
     color: white;
 }
 
+.lightgreencol{
+  color: #00FFC1 !important;
+}
+
 
 .boh{
   --chakra-colors-gray-50: #F7FAFC;
@@ -776,7 +780,7 @@ margin-bottom: 5%;
   }
 
   #pin{
-    background-color: rgba(255, 255, 255, 0.294)!important;
+    
     padding: 3px;
     width: 2em;
     aspect-ratio: 1 / 1;
@@ -813,14 +817,10 @@ margin-bottom: 5%;
   }
  .pincontainer{
     right: 0px;
-    background-color: rgba(255, 255, 255, 0.462)!important;
+    
 
   }
 
-  .fa-solid{
-    background-color: #000000;
-
-  }
 
   .d-inline-block{
       width: inherit!important;
@@ -1171,7 +1171,7 @@ margin-bottom: 5%;
 
 .fa-solid{
   background-color: unset!important;
-  color: #00FFC1!important;
+  /*color: #00FFC1!important;*/
 }
 
 #arrowDownButton{
