@@ -282,8 +282,8 @@ function repeatask(){
    sessionStorage.setItem('WUround', WUround);
    console.log('round', WUround);
 
-   //document.getElementsByClassName("REF")[0].src=""
-   //document.getElementById("RefImg").classList.add("imgsubst")
+   document.getElementsByClassName("REF")[0].src=""
+   document.getElementById("RefImg").classList.add("imgsubst")
   /* for(let x = 0; x < 5 ; x++){
     a = document.getElementsByClassName("simimages")
     if(a[x].children.length > 0){
