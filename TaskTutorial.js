@@ -53,8 +53,7 @@ jQuery(document).ready(function($) { // the good one
       } = whereisit.getBoundingClientRect();  
       // console.log("stored "+ t, l)
       sessionStorage.setItem("wherebuttons1", t);
-      window.scrollTo(0, t-650);
-      console.log(0, t-650)
+   
     });
     
     $( "#toTut2b" ).click(function() {
@@ -80,6 +79,7 @@ jQuery(document).ready(function($) { // the good one
 
       $('#task2').css("z-index", "0")
       $('#tutorials').css("z-index", "0")
+      $("#bd1").removeClass("overflow-hidden")
     });
    
     // $(".botpage a").tipTip({ content: "This is an anchor tag!"});

@@ -26,6 +26,7 @@ label, .vals li{
 }
 .nav-item{
   white-space: wrap;
+  width: 20%;
 
 }
 
@@ -148,16 +149,22 @@ img{
 
 }
 
+#DashHeader{
+
+
+  font-size: 1.2em;
+  padding: 1rem 2em 1rem 2em!important;
+
+}
 .DataDash{
-    min-height: 8em;
-    min-width: 90%;
+  aspect-ratio : 1 / 1;
+  width: 100%;
      
 }
 
 .Dimdash{
-  min-height: 8em;
-  min-width: 90%;
-   
+  aspect-ratio : 1 / 1;
+  width: 100%;   
 }
 
 /* .bigdash{
@@ -193,17 +200,19 @@ img{
 
 #dashFooter{
     bottom: 68px;
-    padding: 1%;
+    padding: 0 2.5em;
 }
 
 #imagesGrid{
-  margin-top: 6rem !important;
-  margin: auto;
-  padding: 10%;
+  margin-top: 11rem;
   flex-direction: column;
-    
+  padding: 0 2.5em;
     
 }
+
+.myBtn{
+min-height: 3.5rem;
+padding: 0.7em!important;}
 
 #imgBtn{
     background: white!important;
@@ -404,13 +413,13 @@ padding-top: 3ex;
 }
 
   
-  #tutorial1{
+  #tutorial1, #tutorialA{
     display: block;
 }
-  #tutorial2{
+  #tutorial2, #tutorialB{
     display: none;
 }
-#tutorial3{
+#tutorial3, #tutorialC{
   display: none;
 }
 /* 
@@ -431,15 +440,7 @@ padding-top: 3ex;
     display: none;
 } */
 
-#tutorialA{
-  top: 30%;
-  left: 5%;
-  right: 78%;
-  display: block;
-  min-width: 55%;
-  max-height: 40%;
-    
-}
+/* #tutoria
 
 #tutorialB{
   width: 30%;
@@ -457,7 +458,7 @@ padding-top: 3ex;
   display: none;
   max-height: 40%;
   min-width: 55%;
-}
+} */
 
 
 form section{
@@ -780,13 +781,31 @@ margin-bottom: 5%;
   }
 
   #pin{
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.294)!important;
     padding: 3px;
-    width: 1.7em;
-    height: 2rem;
+    width: 2em;
+    aspect-ratio: 1 / 1;
     text-align: center;
-    padding-top: 0.2;
   }
+
+  #pin:hover{
+    background-color: rgba(255, 255, 255, 0.9)!important;
+  }
+
+  .btn-success:hover{
+    color: rgba(255, 255, 255)!important;
+  }
+
+  #imgBtnlike:hover{
+    background-color: rgb(129, 236, 172);
+
+  }
+
+  #imgBtndislike:hover{
+    background-color: rgb(255, 134, 134);
+
+  }
+
 
 
   .myDiv .pincontainer{
@@ -820,7 +839,6 @@ margin-bottom: 5%;
     border-radius: 50%;
     display: inline-block;
     text-decoration: none;
-    margin-right: 2em;
  }
 
  #navcontainer{
@@ -838,12 +856,7 @@ margin-bottom: 5%;
     animation-iteration-count: infinite
  }
 
- @keyframes example {
-    25%   {background-color: #00FFC1; }
-    50%  {background-color: #252525;}
-    75%  {background-color: #252525;}
-    100% {background-color: #252525;}
-  }
+
 
   #animateexample1{
     animation-name: example1;
@@ -851,36 +864,19 @@ margin-bottom: 5%;
     animation-iteration-count: infinite
  }
 
-  @keyframes example1 {
-    25%   {background-color: #252525;}
-    50%  {background-color: #00FFC1;}
-    75%  {background-color: #252525;}
-    100% {background-color: #252525;}
-  }
   #animateexample2{
     animation-name: example2;
     animation-duration: 4s;
     animation-iteration-count: infinite
  }
-  
- @keyframes example2 {
-    25%   {background-color: #252525;}
-    50%  {background-color: #252525;}
-    75%  {background-color: #00FFC1;}
-    100% {background-color: #252525;}
-  }
+
   #animateexample3{
     animation-name: example3;
     animation-duration: 4s;
     animation-iteration-count: infinite
  }
   
- @keyframes example3 {
-    25%   {background-color: #252525;}
-    50%  {background-color: #252525;}
-    75%  {background-color: #252525;}
-    100% {background-color: #00FFC1;}
-  }
+
 
   
   
@@ -892,11 +888,6 @@ margin-bottom: 5%;
     animation-iteration-count: infinite
   }
 
-  @keyframes noimg {
-    0% {background-color: #e4e5ea;}
-    50%  {background-color: #929fa4;}
-    100% {background-color: #e4e5ea;}
-  }
 
 
 .like_dislike{
@@ -904,6 +895,7 @@ margin-bottom: 5%;
     bottom: 0px;
     right: 0px;
     left: 0px;
+    height: 3rem;
 
 }
 
@@ -917,7 +909,6 @@ margin-bottom: 5%;
 }
 
 .img-to-like{
-    margin-bottom: 1rem;
     z-index: -1;
 }
 
@@ -1175,7 +1166,6 @@ margin-bottom: 5%;
 
 
 .fit-img{
-  height: 23rem !important;
   object-fit: cover;
 }
 
@@ -1212,10 +1202,12 @@ margin-bottom: 5%;
 }
 
 .smaldashead{
-  width: 23% !important;
+
+  width: 25% !important;
 }
+
 .bigdashead{
-  width: 48% !important;
+  width: 33% !important;
 }
 
 .cross-btn{
@@ -1383,6 +1375,12 @@ margin-bottom: 5%;
   #tutorial {
     left: 200px;
   }
+
+  #imagesGrid{
+    padding-bottom:  0px!important;
+
+   
+  }
 }
 
 
@@ -1394,6 +1392,12 @@ margin-bottom: 5%;
   }
 }
 
+@media screen and (max-width: 850px) {
+
+#DashHeader {
+  font-size: 1.1em;
+}
+}
 @media screen and (max-width: 780px) {
 
   .wrapper{
@@ -1426,11 +1430,12 @@ margin-bottom: 5%;
   #imagesGrid{
     flex-direction: row!important;
     overflow-x: auto;
-    margin-top: 2rem!important;
+    margin-top: 11rem!important;
   }
   #DashHeader{
     width: 100%!important;
   }
+
   #Expand{
     display: none;
   }
@@ -1483,7 +1488,10 @@ margin-bottom: 5%;
   #tutorial{
     right: 300px;
   }
+  #imagesGrid {
+    margin-top: 10rem!important
  
+}
 }
 
 
@@ -1496,4 +1504,39 @@ margin-bottom: 5%;
 @keyframes zoom {
   from {transform:scale(0)} 
   to {transform:scale(1)}
+}
+
+
+@keyframes noimg {
+  0% {background-color: #e4e5ea;}
+  50%  {background-color: #929fa4;}
+  100% {background-color: #e4e5ea;}
+}
+
+
+@keyframes example {
+  25%   {background-color: #00FFC1; }
+  50%  {background-color: #252525;}
+  75%  {background-color: #252525;}
+  100% {background-color: #252525;}
+}
+  @keyframes example1 {
+    25%   {background-color: #252525;}
+    50%  {background-color: #00FFC1;}
+    75%  {background-color: #252525;}
+    100% {background-color: #252525;}
+  }
+    
+ @keyframes example2 {
+  25%   {background-color: #252525;}
+  50%  {background-color: #252525;}
+  75%  {background-color: #00FFC1;}
+  100% {background-color: #252525;}
+}
+
+@keyframes example3 {
+  25%   {background-color: #252525;}
+  50%  {background-color: #252525;}
+  75%  {background-color: #252525;}
+  100% {background-color: #00FFC1;}
 }

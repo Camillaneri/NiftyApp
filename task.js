@@ -184,9 +184,9 @@ function drop(ev) {
 
 function Addtodash(ev){
   //////console.log(ev.target.parentElement.parentElement.children[2])
-  giveid = ev.target.parentElement.parentElement.children[2].id
-  givsrc = ev.target.parentElement.parentElement.children[2].src
-  ev.target.parentElement.parentElement.children[2].classList.add("darken1")
+  giveid = ev.target.parentElement.parentElement.children[1].id
+  givsrc = ev.target.parentElement.parentElement.children[1].src
+  ev.target.parentElement.parentElement.children[1].classList.add("darken1")
   var img = document.createElement('img');
   img.src = givsrc
   img.id = giveid
@@ -243,7 +243,7 @@ function Addtodash(ev){
 
 function ExpandDash() {
     //////console.log("got");
-    document.getElementById("dashboard").classList.toggle("col-6");
+    document.getElementById("dashboard").classList.toggle("col-4");
     document.getElementById("dashboard").classList.toggle("col-3");
     document.getElementById("DashHeader").classList.toggle("smaldashead");
     document.getElementById("DashHeader").classList.toggle("bigdashead");
@@ -258,7 +258,7 @@ function ExpandDash() {
         }
       }
     document.getElementById("imagesGrid").classList.toggle("flex-column");
-    document.getElementById("mainBody").classList.toggle("col-6");
+    document.getElementById("mainBody").classList.toggle("col-8");
     document.getElementById("mainBody").classList.toggle("col-9");
     
     
@@ -290,8 +290,8 @@ function AddLiked_Disliked(event) {
 
     if(event.target.id == 'imgBtnlike'){
 
-        AddMeL = event.target.parentElement.parentElement.children[2].src; 
-        AddidL = event.target.parentElement.parentElement.children[2].id;
+        AddMeL = event.target.parentElement.parentElement.children[1].src; 
+        AddidL = event.target.parentElement.parentElement.children[1].id;
   
         if (num_likd == 0 && num_dslikd == 0){
             
@@ -345,8 +345,8 @@ function AddLiked_Disliked(event) {
     }
     else if(event.target.id == 'imgBtndislike'){
         ////console.log("b")
-        AddMeD = event.target.parentElement.parentElement.children[2].src; 
-        AddidD = event.target.parentElement.parentElement.children[2].id;
+        AddMeD = event.target.parentElement.parentElement.children[1].src; 
+        AddidD = event.target.parentElement.parentElement.children[1].id;
         if (num_likd == 0 && num_dslikd == 0){
             //////console.log("b.1")
             document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 mx-2 p-0 img-contain'><input class='position-absolute cross-btn btn-light p-0 ' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
