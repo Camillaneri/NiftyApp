@@ -95,9 +95,7 @@ label, .vals li{
 
 
 .tall-img{
-    min-height: 8em;
-    
-    width: 100%;
+    aspect-ratio : 1 / 1;
     
 }
 
@@ -108,7 +106,6 @@ label, .vals li{
 }
 
 .Databox1{
-    min-width: 16em;
     max-width: 20%;
 }
 
@@ -506,10 +503,6 @@ form section{
   margin-bottom: 10px;
 }
 
-.myDiv{
-  height: 100%;
-}
-
 
 .seeme{
     display:block !important;
@@ -788,7 +781,7 @@ margin-bottom: 5%;
     text-align: center;
   }
 
-  #pin:hover{
+  #pin:hover, .dot:hover{
     background-color: rgba(255, 255, 255, 0.9)!important;
   }
 
@@ -808,12 +801,16 @@ margin-bottom: 5%;
 
 
 
-  .myDiv .pincontainer{
-    right: 0px;
+ 
+  .text-right .pincontainer{
+    background-color: unset!important;
   }
 
   .simimages .pincontainer{
     right: 0.5rem;
+  }
+ .pincontainer{
+    right: 0px;
     background-color: rgba(255, 255, 255, 0.462)!important;
 
   }

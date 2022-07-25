@@ -85,24 +85,26 @@
         
 
          <!-- header -->
-         <div class="py-4 almostBlack" id="x">
+         <div class="py-4 Headercolor" id="Header">
             <span class="d-flex justify-content-between" id="head">
-                <span class="text-left text-light me-5"> NiftyEValue</span> 
-                <span class="text-right text-light" id="pageName">Task</spandes>
+                <span class="text-left text-light me-5"> <h2>NiftyEValue</h2></span> 
+
+                <span class="text-right"><div class="nav-item  pincontainer">
+                    <a class="dot text-dark text-center p-1"  href="help.html">?</a>
+                </div></span>
             </span>
         </div>
         <!-- Navbar -->
         <div class="container-fluid px-0">
             <div class="row m-0 gray">
+                <div class="col-1"></div>
                 <div class="col-2 nav-item navnolink text-center py-3">Start</div>
                 <div class="col-2 nav-item navnolink text-center py-3">Pre Survey</div>
                 <div class="col-2 nav-item lightgreen text-center py-3">Warm Up</div>
                 <div class="col-2 nav-item navnolink text-center py-3">Task</div>
-                <div class="col-2 nav-item navnolink text-center py-3">End
-                </div>
-                <div class="col-2 nav-item navnolink text-end py-3 pincontainer">
-                    <a class="dot text-dark text-center p-1"  href="help.html">?</a>
-                </div>
+                <div class="col-2 nav-item navnolink text-center py-3">End</div>
+                <div class="col-1"></div>
+                
             </div>
         </div>
         
@@ -150,7 +152,7 @@
                 <div class="p-4 collapse show almostBlack" id="Small">  <!--Small--> 
                     <div class="dropboxes d-flex overflowY almostBlack">
                         <div class="getDatabox1">                     
-                            <div id="getData21" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData21" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #1
@@ -159,7 +161,7 @@
                             </div>        
                         </div>   
                         <div class="getDatabox1">                          
-                            <div id="getData22" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData22" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #2
@@ -168,7 +170,7 @@
                             </div>          
                         </div>        
                         <div class="getDatabox1"> 
-                            <div id="getData23" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData23" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #3
@@ -177,7 +179,7 @@
                             </div>       
                         </div>        
                         <div class="getDatabox1">            
-                            <div id="getData24" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData24" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #4
@@ -186,7 +188,7 @@
                             </div>         
                         </div>        
                         <div class="getDatabox1">     
-                            <div id="getData25" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative myDiv text-center tall-img" >            
+                            <div id="getData25" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #5
@@ -206,14 +208,14 @@
                 <div class="row px-4 d-flex flex-wrap mx-auto overflowY dcenter-item" id="coso">    
                     <div class="col-12 col-md-6  col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox0" draggable="true" ondragstart="drag(event)">
                         <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
-                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                            <i class="fa-solid pt-2 fa-thumbtack" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                        </div>
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">    
                     </div> 
                     
                     <div class="col-12 col-md-6 col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox1" draggable="true" ondragstart="drag(event)">
                         <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
-                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                            <i class="fa-solid pt-2 fa-thumbtack" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                        </div>
                        <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
 
@@ -221,21 +223,21 @@
                     
                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox2" draggable="true" ondragstart="drag(event)">
                         <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
-                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                            <i class="fa-solid pt-2 fa-thumbtack" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                        </div>
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                     </div> 
                     
                     <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox3" draggable="true" ondragstart="drag(event)">
                         <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
-                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                            <i class="fa-solid pt-2 fa-thumbtack" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                        </div>
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">                     
                     </div>
 
                      <div class="col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0"  onclick="display_img(event)"  id="similarBox4" draggable="true" ondragstart="drag(event)">
                         <div class="col-2 position-absolute w-min-content text-left pincontainer" id="" type="button" onclick="pin_WU(event)">
-                            <i class="fa-solid pt-2 fa-thumbtack mt-2" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
+                            <i class="fa-solid pt-2 fa-thumbtack" id="pin" data-toggle="tooltip" title="click on the pin to add the image to the dashboard"></i>
                         </div>
                         <img value="0" src="" draggable="true" class="img max-h-50 w-100 recover similarImg0"  id="">
                     </div>     
