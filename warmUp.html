@@ -152,7 +152,7 @@
                 <div class="p-4 collapse show almostBlack" id="Small">  <!--Small--> 
                     <div class="dropboxes d-flex overflowY almostBlack">
                         <div class="getDatabox1">                     
-                            <div id="getData21" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
+                            <div id="getData21"  class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #1
@@ -161,7 +161,7 @@
                             </div>        
                         </div>   
                         <div class="getDatabox1">                          
-                            <div id="getData22" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
+                            <div id="getData2" class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #2
@@ -170,7 +170,7 @@
                             </div>          
                         </div>        
                         <div class="getDatabox1"> 
-                            <div id="getData23" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
+                            <div id="getData3" class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #3
@@ -179,7 +179,7 @@
                             </div>       
                         </div>        
                         <div class="getDatabox1">            
-                            <div id="getData24" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
+                            <div id="getData4" class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #4
@@ -188,7 +188,7 @@
                             </div>         
                         </div>        
                         <div class="getDatabox1">     
-                            <div id="getData25" ondrop="drop(event)" ondragover="allowDrop(event)" class="position-relative  text-center tall-img" >            
+                            <div id="getData5"class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #5
@@ -363,7 +363,7 @@
 
             console.log('submission', submission)
             await supabase2.from('Warm_up').insert([submission])
-            window.location.href = "Task.html"
+            // window.location.href = "Task.html"
 
         })
       </script>

@@ -151,36 +151,36 @@ jQuery(document).ready(function($) {
 
 
 
-// drop images
-function allowDrop(ev) {
-  //console.log("a")
-    ev.preventDefault();
-  }
+// // drop images
+// function allowDrop(ev) {
+//   //console.log("a")
+//     ev.preventDefault();
+//   }
   
-  function drag(ev) {
-    //console.log("b")
-    //console.log("sourceImg for drag "+ev.parentElement.outerHTML)
-    ev.dataTransfer.setData("text", ev.target.id);
-    ev.target.parentElement.classList.toggle('d-none')
-  }
+//   function drag(ev) {
+//     //console.log("b")
+//     //console.log("sourceImg for drag "+ev.parentElement.outerHTML)
+//     ev.dataTransfer.setData("text", ev.target.id);
+//     ev.target.parentElement.classList.toggle('d-none')
+//   }
   
-  function drop(ev) {
+//   function drop(ev) {
     
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    
-    
-    ev.target.children[2].remove()
+//     ev.preventDefault();
+//     var data = ev.dataTransfer.getData("text");
     
     
-    //document.getElementById(data).draggable = ""
-    ev.target.appendChild(document.getElementById(data));
+//     ev.target.children[2].remove()
     
-    ev.target.children[0].classList.remove('d-none')
+    
+//     //document.getElementById(data).draggable = ""
+//     ev.target.appendChild(document.getElementById(data));
+    
+//     ev.target.children[0].classList.remove('d-none')
    
 
-    ev.target.parentElement.classList.toggle("no-border")
-  }
+//     ev.target.parentElement.classList.toggle("no-border")
+//   }
 
   function clearImg(ev){
 
