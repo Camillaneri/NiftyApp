@@ -13,10 +13,13 @@ var query = {'pos':'','neg':''};
 var LoadedImgsListener = 0
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
-  boxes = document.querySelectorAll('.darken1');
+
+boxes = document.querySelectorAll('.darken1');
+
 boxes.forEach(box => {
-  box.classList.remove('darken1');
-});
+  
+    box.classList.remove('darken1');
+}); 
 
 
   for(let x = 0; x <= 19; x++){
@@ -102,10 +105,39 @@ LoadedImgsListener +=1
     
     ;}
 )  
+
+
+
 }
 
-fill_task_dash();
 
+
+/*  function delete_dark(){
+  console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+  id_List = []
+for(var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++){
+  if(document.getElementsByClassName("getDataboxDash")[i].children.length > 1){
+    id_List.push(document.getElementsByClassName("getDataboxDash")[i].children[1].id)
+  } 
+}
+console.log(id_List)
+boxes = document.querySelectorAll('.darken1');
+boxes.forEach(box => {
+  console.log(box.id)
+  console.log(id_List.includes(box.id))
+if (!id_List.includes(box.id)){
+  box.classList.remove('darken1')
+};
+});
+} 
+
+function fill_task_dash1(myCallback){
+  fill_task_dash()
+ 
+}
+
+
+*/
 
 
 
@@ -408,98 +440,97 @@ function AddLiked_Disliked(event) {
 
 //CLEAR IMGS from fields
 function clearImg(ev){
-    //console.log("ciauxxx "+ev.target.parentNode.children[1].outerHTML)
-    ////console.log("iddd "+ev.target.parentNode.outerHTML)
-    ev.target.parentNode.children[1].classList.remove("img-fit-in")
-    getid = ev.target.parentNode.children[1].id
-    
-    //inizio log removed images 
-    console.log("hey 1")
-    ev.target.parentNode.children[1].remove()
+  //console.log("ciauxxx "+ev.target.parentNode.children[1].outerHTML)
+  ////console.log("iddd "+ev.target.parentNode.outerHTML)
+  ev.target.parentNode.children[1].classList.remove("img-fit-in")
+  getid = ev.target.parentNode.children[1].id
+  
+  //inizio log removed images 
+  console.log("hey 1")
+  ev.target.parentNode.children[1].remove()
 /* 
-     if (document.getElementById(getid) != null && document.getElementById(getid).classList.contains("darken1")){
-      console.log("beccato")
-    document.getElementById(getid).classList.remove("darken1") 
-    } */
-    if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
-      //console.log("A")
-      console.log("hey 2"+document.getElementById(getid).outerHTML)
-      ev.target.parentNode.remove()
+   if (document.getElementById(getid) != null && document.getElementById(getid).classList.contains("darken1")){
+    console.log("beccato")
+  document.getElementById(getid).classList.remove("darken1") 
+  } */
+  if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
+    //console.log("A")
     
+    ev.target.parentNode.remove()
+  
+  
+
+  for(let i = 1; i < 21; i++){
+    console.log(document.getElementById("drag"+i).children[0])
+    if( document.getElementById("drag"+i).children[1].id == getid){
+      if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.contains("green")==true){
+        console.log("boo2")
+        document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.remove("green")
+      }
+      if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.contains("red")==true){
+        document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.remove("red")
+      }
+    }
+  }
+    
+  
+  //console.log("ciauxxx1 "+ev.target.parentNode.outerHTML)
+  
+  ////console.log("iddd "+ev.target.parentNode.outerHTML)
+  
+  
+  } else{
+    //console.log("B")
+    ev.target.classList.toggle("d-none")
+    
+    /* console.log(getid)
+    for(let i = 1; i < 21; i++){
+      console.log(document.getElementById("drag"+i).children[0])
+      if( document.getElementById("drag"+i).children[1].id == getid){
+        console.log("vai")
+        document.getElementById("drag"+i).children[0].classList.add("lightgreencol")
+      }
+    } */
     
 
     for(let i = 1; i < 21; i++){
       console.log(document.getElementById("drag"+i).children[0])
       if( document.getElementById("drag"+i).children[1].id == getid){
-        if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.contains("green")==true){
-          console.log("boo2")
-          document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.remove("green")
-        }
-        if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.contains("red")==true){
-          document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.remove("red")
-        }
+        console.log("vai")
+        document.getElementById("drag"+i).children[1].classList.remove("darken1")
       }
     }
-      
     
-    //console.log("ciauxxx1 "+ev.target.parentNode.outerHTML)
-    
-    ////console.log("iddd "+ev.target.parentNode.outerHTML)
-    
-    
-    } else{
-      //console.log("B")
-      ev.target.classList.toggle("d-none")
-      
-      /* console.log(getid)
-      for(let i = 1; i < 21; i++){
-        console.log(document.getElementById("drag"+i).children[0])
-        if( document.getElementById("drag"+i).children[1].id == getid){
-          console.log("vai")
-          document.getElementById("drag"+i).children[0].classList.add("lightgreencol")
-        }
-      } */
-      
-
-      for(let i = 1; i < 21; i++){
-        console.log(document.getElementById("drag"+i).children[0])
-        if( document.getElementById("drag"+i).children[1].id == getid){
-          console.log("vai")
-          document.getElementById("drag"+i).children[1].classList.remove("darken1")
-        }
-      }
-      
-      ////console.log('inside query:',ev.target.id)
-      let imgId = ev.target.id
-      if(ev.target.parentElement.classList.contains("bigdash")){
-        ev.target.parentElement.classList.add("Dimdash")
-      }
-      
-
-      switch (imgId){
-        case 'clear-liked':
-          var clearedlkd = parseInt(sessionStorage.getItem('clearedLikedImgs'))
-          clearedlkd +=1
-          sessionStorage.setItem('clearedLikedImgs', clearedlkd)
-          ////console.log('liked removed',clearedlkd)
-          break
-        case 'clear-disliked':
-          var cleareddslkd = parseInt(sessionStorage.getItem('clearedDislikedImgs'))
-          cleareddslkd +=1
-          sessionStorage.setItem('clearedDislikedImgs', cleareddslkd)
-          
-          
-          ////console.log('disliked removed', cleareddslkd)
-          break
-      }
-      
-    
+    ////console.log('inside query:',ev.target.id)
+    let imgId = ev.target.id
+    if(ev.target.parentElement.classList.contains("bigdash")){
+      ev.target.parentElement.classList.add("Dimdash")
     }
-    //fine log removed images 
-    myImgsListener(); //log images inserted in query, poi le do in pasto ad apply per riassumrle in una unica value di session storage 
-    //////console.log(ev.target.parentNode.parentNode)
+    
+
+    switch (imgId){
+      case 'clear-liked':
+        var clearedlkd = parseInt(sessionStorage.getItem('clearedLikedImgs'))
+        clearedlkd +=1
+        sessionStorage.setItem('clearedLikedImgs', clearedlkd)
+        ////console.log('liked removed',clearedlkd)
+        break
+      case 'clear-disliked':
+        var cleareddslkd = parseInt(sessionStorage.getItem('clearedDislikedImgs'))
+        cleareddslkd +=1
+        sessionStorage.setItem('clearedDislikedImgs', cleareddslkd)
+        
+        
+        ////console.log('disliked removed', cleareddslkd)
+        break
+    }
+    
+  
+  }
+  //fine log removed images 
+  myImgsListener(); //log images inserted in query, poi le do in pasto ad apply per riassumrle in una unica value di session storage 
+  //////console.log(ev.target.parentNode.parentNode)
 }
-
 
 
 function resetDash(){
@@ -614,6 +645,11 @@ boxes.forEach(box => {
     
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
+
+    if(num_likd == 0 && num_dslikd == 0){
+      console.log("preso")
+      fill_task_dash()
+    }else{
     
 
     var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
@@ -715,10 +751,12 @@ boxes.forEach(box => {
     )
     
 }
+
      
 
     )
 } 
+}
 
 function display_img(ev){
   // inizio log immagine grande
