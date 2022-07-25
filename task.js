@@ -247,6 +247,8 @@ function ExpandDash() {
     document.getElementById("dashboard").classList.toggle("col-3");
     document.getElementById("DashHeader").classList.toggle("smaldashead");
     document.getElementById("DashHeader").classList.toggle("bigdashead");
+    document.getElementById("expa").classList.toggle("d-none");
+    document.getElementById("contra").classList.toggle("d-none");
     for (var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++) {
         document.getElementsByClassName("getDataboxDash")[i].classList.toggle("DataDash")
         document.getElementsByClassName("getDataboxDash")[i].classList.toggle("bigdash")
