@@ -548,9 +548,11 @@ html {
 
 #wrap{
     background-color: #2D3748;
-    padding-top: 0% !important;
 }
 
+.darkblue{
+  background-color: #2D3748;
+}
 .btn-success {
     color: rgb(0, 0, 0) !important;
     background-color: #00FFC1 !important;
