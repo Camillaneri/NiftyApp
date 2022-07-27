@@ -4,6 +4,9 @@ var LoadedImgsListenerWU = 0
 
 var aidict = {}
 var Userdict = {}
+var Refdict = {}
+var Timedict = {}
+
 
 function loadWarmUp(){
   console.log('at round',WUround)
@@ -60,8 +63,23 @@ function loadWarmUp(){
         }
       refimg.src = art_high_res;
       refimg.id = art_id
+      
+      thisRound = sessionStorage.getItem('WUround')
+      oldREFdict = sessionStorage.getItem("WUreference") 
+      console.log(oldREFdict)
+    
 
-      sessionStorage.setItem('WUreference', refimg.id)
+      if (oldREFdict != null){
+        Refdict = JSON.parse(oldREFdict)
+        console.log('parsed json session')
+        Refdict[thisRound]=art_id 
+        sessionStorage.setItem("WUreference", JSON.stringify(Refdict))
+      }else{
+        Refdict[thisRound]=art_id 
+        console.log('first ref', art_id)  
+        sessionStorage.setItem("WUreference", JSON.stringify(Refdict))
+      }
+
       document.getElementById('RefImg').classList.remove('imgsubst')
 
       //console.log(IDnum)
@@ -117,43 +135,20 @@ function loadWarmUp(){
             //console.log("HEIGHT!!!!!")
             
             get_img_element[x].style.height = null;
-            
-            //box = document.getElementsByClassName("position-relative col-lg-4 col-md-6");
-            /*for(let x = 0; x < box.length ; x++){
-              box[x].style.height = "";
-            }
-            */
             get_img_element[x].src = art_url;
-            
             get_img_element[x].id = art_id;
-
             document.getElementsByClassName("simimages")[x].classList.remove("imgsubst")
-
-            //qua log che  registra quando sono compilate le src di tutto
 
             LoadedImgsListenerWU += 1
             AIorder.push(art_id)
            
             switch(LoadedImgsListenerWU){
               case 5:
-                // console.log('all loaded', LoadedImgsListenerWU )
-                const startWU = new Date().getTime()
                 boxes = document.querySelectorAll('.similarImg0')
                 console.log(boxes.src)
-                sessionStorage.setItem('startWU' , startWU)
                 console.log(sessionStorage)
             default: break
             }
-
-            // if(LoadedImgsListenerWU < 5){
-              // const taskStarts = new Date().getTime()
-              // sessionStorage.setItem('taskStarts'+n_queries , taskStarts)
-              // console.log('taskStarts'+n_queries , sessionStorage.getItem('taskStarts'+n_queries )) //returns time in milliseconds since the ECMAScript epoch, which is defined as January 1, 1970, UTC (equivalent to the UNIX epoch).
-              // LoadedImgsListener = 0
-              // console.log('all loaded', LoadedImgsListenerWU )
-            // }
-
-        
             }
         else{
             get_img_element[x].src = "images/wooops1.jpg";
@@ -175,12 +170,16 @@ function loadWarmUp(){
           sessionStorage.setItem("AIorder", JSON.stringify(aidict))
           document.getElementById("repeat-btn").disabled = false;
           document.getElementById("end-btn").disabled = false;
+          startingT = new Date().getTime()
+          console.log("starting time", startingT)
           }else{
             aidict[thisRound]=AIorder 
           // console.log(aidict)  
           sessionStorage.setItem("AIorder", JSON.stringify(aidict))
           document.getElementById("repeat-btn").disabled = false;
           document.getElementById("end-btn").disabled = false;
+          startingT = new Date().getTime()
+          console.log("starting time", startingT)
           }
           
         })})})
@@ -190,66 +189,7 @@ function loadWarmUp(){
  loadWarmUp(); 
 
 
- function findbuttons(){
-  const whereisit = document.getElementById("buttons2")  
-    const {  
-            top: t,    
-          } = whereisit.getBoundingClientRect();  
-    return(t)
- }
-      
- function reveal() {
-  console.log('hi')
-  var reveals = document.querySelectorAll(".reveal");
-  x = document.getElementById("introwarmup");
-
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    elementVisible = 100;
-    
-    if (reveals[i].id == "goonbutton"){
-      
-      elementVisible = 5;
-      
-    }
-    if (elementTop < windowHeight - elementVisible) {
-      
-      
-      reveals[i].classList.add("active");
-      x.style.display = "none";
-      
-      //console.log(document.getElementById("bod").classList)
-      //console.log(document.getElementById("task").classList[2])
-      //console.log(document.getElementById("tutorial3").style)
-      if((document.getElementById("task").classList[2] == "zindex") && (document.getElementById("refimgcontainer").classList.contains("zindex")== false)){
-        // console.log("eccoci")
-        // console.log("doesn't have zindex "+document.getElementById("refimgcontainer").outerHTML)
-        // console.log((document.getElementById("refimgcontainer").classList.contains("zindex")))
-        window.scrollTo(0, 0);
-         
-      }  else if ((document.getElementById("task").classList[2] == "zindex") && document.getElementById("refimgcontainer").classList.contains("zindex")){
-        // console.log("preso")
-        let pos = sessionStorage.getItem("wherebuttons");
-        console.log("retrievedjavascript "+pos)
-        // console.log("position "+(pos-500))
-        window.scrollTo(0, pos-600);
-      } 
-      
-      //window.scrollBy(0, 100)
-
-    } else {
-     
-      reveals[i].classList.remove("active");
-      x.style.display = "block";
-      
-    }
-  }
-}
-
-window.addEventListener("scroll", reveal);
-
-
+// DA RICONTROLLARE
 
 function arrowDown(){
   
@@ -303,51 +243,124 @@ function arrowUp(){
 
 }
 
+
 function repeatask(){
 
-  document.getElementsByClassName("REF")[0].src=""
-  document.getElementById("RefImg").classList.add("imgsubst")
-  oldAIord = sessionStorage.getItem("AIorder")
-  // console.log('old AI order',JSON.parse(oldAIord))
+  // gather number of actual round 
+  WUround = sessionStorage.getItem('WUround')
+  WUround = parseInt(WUround)
+  thisRound = WUround
+
+  //get milliseconds of end 
+  endingingT = new Date().getTime()
+  console.log("ending time", endingingT)
+  // get total time 
+  tot_time = endingingT - startingT
+  console.log("tot time", tot_time)
+
+  oldTIMEdict = sessionStorage.getItem("TimeXround") 
+
+
+  if (oldTIMEdict != null){
+    Timedict = JSON.parse(oldTIMEdict)
+    console.log('parsed json session')
+    Timedict[thisRound]=tot_time 
+    sessionStorage.setItem("TimeXround", JSON.stringify(Timedict))
+  }else{
+    Timedict[thisRound]=tot_time 
+    // console.log(aidict)  
+    sessionStorage.setItem("TimeXround", JSON.stringify(Timedict))
+  }
+
+
+  //MANAGE ORDER GIVEN BY THE USER
+  oldUSERdict = sessionStorage.getItem("userOrder") 
+  console.log(oldUSERdict)
+
+  // create array with images ordered by user
   support = document.getElementById('Small').children[0].children
-  // console.log('support',support[0].children[0].children[2])
   img1 = support[0].children[0].children[2].id
   img2 = support[1].children[0].children[2].id
   img3 = support[2].children[0].children[2].id
   img4 = support[3].children[0].children[2].id
   img5 = support[4].children[0].children[2].id
-  Userdict[WUround]= [img1, img2, img3, img4, img5]
-  // console.log('dict',Userdict)
-  console.log(sessionStorage)
-  WUround = sessionStorage.getItem('WUround')
-  WUround = parseInt(WUround)
+  UserOrder= [img1, img2, img3, img4, img5]
+  console.log('User order', UserOrder)
+
+  // this if-else condition  parses and sets in session storage the json cpontaining the order given by the algorithm  
+  if (oldUSERdict != null){
+    Userdict = JSON.parse(oldUSERdict)
+    console.log('parsed json session')
+    Userdict[thisRound]=UserOrder 
+    sessionStorage.setItem("userOrder", JSON.stringify(Userdict))
+  }else{
+    Userdict[thisRound]=UserOrder 
+    // console.log(aidict)  
+    sessionStorage.setItem("userOrder", JSON.stringify(Userdict))
+  }
+
+
   WUround+=1
   sessionStorage.setItem('WUround', WUround)
   
   location.reload()
 
-    // document.getElementById("clumnN2").innerHTML="<div class='p-4 collapse show almostBlack' id='Small'>  <!--Small--> <div class='dropboxes d-flex overflowY almostBlack'><div class='getDatabox1'>                     <div id='getData21' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#1</div> <img id='WUimg1' class='img-fit' src=''></div>  </div>   <div class='getDatabox1'>     <div id='getData22' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#2</div> <img id='WUimg2' class='img-fit' src=''></div>          </div>        <div class='getDatabox1'> <div id='getData23' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >             <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'> #3</div> <img id='WUimg3' class='img-fit' src=''></div>       </div>        <div class='getDatabox1'>            <div id='getData24' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#4</div> <img id='WUimg4' class='img-fit' src=''></div>         </div>        <div class='getDatabox1'>     <div id='getData25' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#5</div> <img id='WUimg5' class='img-fit' src=''></div>        </div>  </div>       </div>  <div class='flex-grow-1 text-center justify-content-center' id='linguetta'><button type='button' class='almostBlack text-center' onclick='arrowDown()' id='arrowDownButton'><i class='fa-solid fa-chevron-down'></i></button><button type='button' class='almostBlack text-center collapse' onclick='arrowUp()' id='arrowUpButton'><i class='fa-solid fa-chevron-up'></i></button></div><div class='row px-4 d-flex flex-wrap mx-auto overflowY dcenter-item' id='coso'>    <div class='col-12 col-md-6  col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox0' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''>    </div> <div class='col-12 col-md-6 col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox1' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div>  <div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox2' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div> <div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox3' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''>                     </div><div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox4' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div>     </div> </div>"
-
-
-  /* for(let x = 0; x < 5 ; x++){
-    a = document.getElementsByClassName("simimages")
-    if(a[x].children.length > 0){
-      a[x].children[0].src=""
-    }
-    document.getElementsByClassName("simimages")[x].classList.add("imgsubst")
-  } */
-
-  
-   loadWarmUp();
-
-
-
 } 
 
 
 function endTask(){
-  const endWU = new Date().getTime()
-  sessionStorage.setItem('endWU'+n_round , endWU)
+
+
+  WUround = sessionStorage.getItem('WUround')
+  WUround = parseInt(WUround)
+  thisRound = WUround
+  //get milliseconds of end 
+  endingingT = new Date().getTime()
+  console.log("ending time", endingingT)
+  // get total time 
+  tot_time = endingingT - startingT
+  console.log("tot time", tot_time)
+
+  oldTIMEdict = sessionStorage.getItem("TimeXround") 
+
+  if (oldTIMEdict != null){
+    Timedict = JSON.parse(oldTIMEdict)
+    console.log('parsed json session')
+    Timedict[thisRound]=tot_time 
+    sessionStorage.setItem("TimeXround", JSON.stringify(Timedict))
+  }else{
+    Timedict[thisRound]=tot_time 
+    // console.log(aidict)  
+    sessionStorage.setItem("TimeXround", JSON.stringify(Timedict))
+  }
+
+  oldUSERdict = sessionStorage.getItem("userOrder") 
+  console.log(oldUSERdict)
+
+  // create array with images ordered by user
+  support = document.getElementById('Small').children[0].children
+  img1 = support[0].children[0].children[2].id
+  img2 = support[1].children[0].children[2].id
+  img3 = support[2].children[0].children[2].id
+  img4 = support[3].children[0].children[2].id
+  img5 = support[4].children[0].children[2].id
+  UserOrder= [img1, img2, img3, img4, img5]
+  console.log('User order', UserOrder)
+
+  // this if-else condition  parses and sets in session storage the json cpontaining the order given by the algorithm
+  
+  if (oldUSERdict != null){
+    Userdict = JSON.parse(oldUSERdict)
+    console.log('parsed json session')
+    Userdict[thisRound]=UserOrder 
+    sessionStorage.setItem("userOrder", JSON.stringify(Userdict))
+  }else{
+    Userdict[thisRound]=UserOrder 
+    // console.log(aidict)  
+    sessionStorage.setItem("userOrder", JSON.stringify(Userdict))
+  }
+
+  
   // sessionStorage.setItem("AIorder", JSON.stringify(aidict))
   sessionStorage.setItem("userOrder", JSON.stringify(Userdict))
   console.log(sessionStorage)
@@ -355,6 +368,3 @@ function endTask(){
 
 }
 
-function resetWU(){
-
-}

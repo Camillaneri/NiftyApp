@@ -336,9 +336,8 @@
         console.log('Supabase Instance: ', supabase2)
         let myId = sessionStorage.getItem('id');
         
-        var refimg = sessionStorage.getItem('WUreference');
-
         console.log(myId)
+
         const form = document.querySelectorAll('#WU-form')
         form[0].addEventListener('submit', async (event) => {
 
@@ -347,8 +346,15 @@
         var AIorder = sessionStorage.getItem('AIorder');
         AIorder = JSON.parse(AIorder)
         var Uorder = sessionStorage.getItem('userOrder');
+        Uorder = JSON.parse(Uorder)
+                var time = sessionStorage.getItem('TimeXround');
+        time = JSON.parse(time)
 
-        var submission = {'user':myId, 'refID':refimg, 'AIorder ':AIorder, 'UserOrder':Uorder}
+        var refimg = sessionStorage.getItem('WUreference');
+        refimg = JSON.parse(refimg)
+
+
+        var submission = {'user':myId, 'refID':refimg, 'AIorder ':AIorder, 'UserOrder':Uorder, 'TimeXround':time}
             const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked, input[name = Comments]')
             
             // scrivere qui gli altri log 
