@@ -271,7 +271,6 @@ function pin_WU(ev){
   ev.target.parentElement.parentElement.children[1].remove()
   free = document.getElementsByClassName('img-fit')
   free[0].id = givid
-  console.log(free[0].value)
   free[0].parentElement.children[0].classList.remove('d-none')
   free[0].parentElement.parentElement.classList.toggle("no-border")
   
@@ -280,4 +279,29 @@ function pin_WU(ev){
   free[0].classList = "img max-h-50 w-100 recover similarImg0"
   ev.target.parentElement.classList.toggle('d-none')
   
+}
+
+// APPOSTO
+
+function arrowDown(){
+    
+  for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){
+  document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1")//tolgo getDatabox1
+  document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox") //aggiungo  getDatabox
+  document.getElementById("Small").children[0].children[i].children[0].children[2].classList.toggle("img-fit")
+  
+  }
+  document.getElementById("arrowDownButton").classList.toggle("d-none");//tolgo arrowDown
+  document.getElementById("arrowUpButton").classList.toggle("d-none");
+}
+
+function arrowUp(){
+      for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){ 
+        document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1") //tolgo getDatabox1
+        document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox") //aggiungo  getDatabox
+        document.getElementById("Small").children[0].children[i].children[0].children[2].classList.toggle("img-fit")
+      }
+      document.getElementById("arrowDownButton").classList.toggle("d-none");//tolgo arrowDown
+      document.getElementById("arrowUpButton").classList.toggle("d-none");
+
 }
