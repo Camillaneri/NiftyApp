@@ -132,7 +132,7 @@
                 </div> 
                 <div class="mt-3 d-flex" id="buttons2"> <!-- buttons -->
                     <div class="col-6 p-1"> 
-                        <button class="w-100 col-6 btn btn-success py-2 px-4"  type="button"  onclick="repeatask()" >
+                        <button class="w-100 col-6 btn btn-success py-2 px-4"  type="button"  onclick="repeatask()" id="repeat-btn" disabled>
                         Repeat task
                         </button>    
                 
@@ -140,7 +140,7 @@
                          
                     </div>
                     <div class="col-6 p-1">
-                        <button class="w-100 col-6 btn btn-success py-2 px-4" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="endTask()"> 
+                        <button class="w-100 col-6 btn btn-success py-2 px-4" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="endTask()" id="end-btn" disabled> 
                         End task
                         </button>  
                     </div>                 
@@ -152,12 +152,12 @@
                 <div class="p-4 collapse show almostBlack" id="Small">  <!--Small--> 
                     <div class="dropboxes d-flex overflowY almostBlack">
                         <div class="getDatabox1">                     
-                            <div id="getData21"  class="position-relative  text-center tall-img" >            
+                            <div id="getData1"  class="position-relative  text-center tall-img" >            
                                 <button class="position-absolute cross-btn btn-dark align-self-end d-none pincontainer" onclick="clearImg(event)">x</button> 
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #1
                                 </div> 
-                                <img id="WUimg1" class="img-fit" src="">
+                                <img id="WUimg1" class="img-fit" value="" src="">
                             </div>        
                         </div>   
                         <div class="getDatabox1">                          
@@ -166,7 +166,7 @@
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #2
                                 </div> 
-                                <img id="WUimg2" class="img-fit" src="">
+                                <img id="WUimg2" class="img-fit" value="" src="">
                             </div>          
                         </div>        
                         <div class="getDatabox1"> 
@@ -175,7 +175,7 @@
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #3
                                 </div> 
-                                <img id="WUimg3" class="img-fit" src="">
+                                <img id="WUimg3" class="img-fit" value="" src="">
                             </div>       
                         </div>        
                         <div class="getDatabox1">            
@@ -184,7 +184,7 @@
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #4
                                 </div> 
-                                <img id="WUimg4" class="img-fit" src="">
+                                <img id="WUimg4" class="img-fit" value="" src="">
                             </div>         
                         </div>        
                         <div class="getDatabox1">     
@@ -193,7 +193,7 @@
                                 <div class="position-absolute m-1 z-1 border-dot">
                                     #5
                                 </div> 
-                                <img id="WUimg5" class="img-fit" src="">
+                                <img id="WUimg5" class="img-fit" value="" src="">
                             </div>        
                         </div>  
                     </div>       
@@ -345,6 +345,7 @@
             event.preventDefault()
 
         var AIorder = sessionStorage.getItem('AIorder');
+        AIorder = JSON.parse(AIorder)
         var Uorder = sessionStorage.getItem('userOrder');
 
         var submission = {'user':myId, 'refID':refimg, 'AIorder ':AIorder, 'UserOrder':Uorder}

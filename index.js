@@ -1,4 +1,6 @@
 sessionStorage.clear();
+var WUround = 0
+sessionStorage.setItem('WUround', WUround)
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
   
@@ -8,10 +10,10 @@ function reveal() {
       
       elementVisible = 150;
       //console.log("reveals[i] "+reveals[i].outerHTML)
-      console.log("elementTop "+elementTop)
-      console.log("windowHeight "+windowHeight)
-      console.log("elementVisible "+elementVisible)
-      console.log("windowHeight - elementVisible "+(windowHeight - elementVisible))
+      // console.log("elementTop "+elementTop)
+      // console.log("windowHeight "+windowHeight)
+      // console.log("elementVisible "+elementVisible)
+      // console.log("windowHeight - elementVisible "+(windowHeight - elementVisible))
       
 
       if (reveals[i].id == "goonbutton"){

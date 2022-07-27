@@ -267,13 +267,16 @@ function closeimg(){
 
 function pin_WU(ev){
   givsrc = ev.target.parentElement.parentElement.children[1].src
+  givid = ev.target.parentElement.parentElement.children[1].id
   ev.target.parentElement.parentElement.children[1].remove()
-  console.log(givsrc)
   free = document.getElementsByClassName('img-fit')
-  console.log(free[0].parentElement.children[0])
+  free[0].id = givid
+  console.log(free[0].value)
   free[0].parentElement.children[0].classList.remove('d-none')
   free[0].parentElement.parentElement.classList.toggle("no-border")
+  
   free[0].src = givsrc
+  
   free[0].classList = "img max-h-50 w-100 recover similarImg0"
   ev.target.parentElement.classList.toggle('d-none')
   

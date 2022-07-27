@@ -1,14 +1,15 @@
-var WUround = 0
+WUround = sessionStorage.getItem('WUround')
 var LoadedImgsListenerWU = 0
-var n_round = 0
+
 
 var aidict = {}
 var Userdict = {}
 
 function loadWarmUp(){
+  console.log('at round',WUround)
   var AIorder = []
   IDnum = Math.floor(Math.random() * 50000)
-  console.log(" a "+IDnum)
+  // console.log(" a "+IDnum)
   //console.log(IDnum) //first image
     Refquery =  `
     {
@@ -139,7 +140,7 @@ function loadWarmUp(){
                 const startWU = new Date().getTime()
                 boxes = document.querySelectorAll('.similarImg0')
                 console.log(boxes.src)
-                sessionStorage.setItem('startWU'+n_round , startWU)
+                sessionStorage.setItem('startWU' , startWU)
                 console.log(sessionStorage)
             default: break
             }
@@ -161,8 +162,27 @@ function loadWarmUp(){
       
        
           }
-          aidict[WUround]=AIorder 
-          console.log(aidict)  
+          
+          // tis id-else condition  parses and sets in session storage the json cpontaining the order given by the algorithm
+          oldAIdict = sessionStorage.getItem("AIorder") 
+          console.log(oldAIdict)
+          thisRound = sessionStorage.getItem('WUround')
+          
+          if (oldAIdict != null){
+          aidict = JSON.parse(oldAIdict)
+          console.log('parsed json session')
+          aidict[thisRound]=AIorder 
+          sessionStorage.setItem("AIorder", JSON.stringify(aidict))
+          document.getElementById("repeat-btn").disabled = false;
+          document.getElementById("end-btn").disabled = false;
+          }else{
+            aidict[thisRound]=AIorder 
+          // console.log(aidict)  
+          sessionStorage.setItem("AIorder", JSON.stringify(aidict))
+          document.getElementById("repeat-btn").disabled = false;
+          document.getElementById("end-btn").disabled = false;
+          }
+          
         })})})
 
         }
@@ -284,13 +304,29 @@ function arrowUp(){
 }
 
 function repeatask(){
-   WUround += 1;
-   sessionStorage.setItem('WUround', WUround);
-   console.log('round', WUround);
 
-   document.getElementsByClassName("REF")[0].src=""
-   document.getElementById("RefImg").classList.add("imgsubst")
-    document.getElementById("clumnN2").innerHTML="<div class='p-4 collapse show almostBlack' id='Small'>  <!--Small--> <div class='dropboxes d-flex overflowY almostBlack'><div class='getDatabox1'>                     <div id='getData21' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#1</div> <img id='WUimg1' class='img-fit' src=''></div>  </div>   <div class='getDatabox1'>     <div id='getData22' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#2</div> <img id='WUimg2' class='img-fit' src=''></div>          </div>        <div class='getDatabox1'> <div id='getData23' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >             <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'> #3</div> <img id='WUimg3' class='img-fit' src=''></div>       </div>        <div class='getDatabox1'>            <div id='getData24' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#4</div> <img id='WUimg4' class='img-fit' src=''></div>         </div>        <div class='getDatabox1'>     <div id='getData25' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#5</div> <img id='WUimg5' class='img-fit' src=''></div>        </div>  </div>       </div>  <div class='flex-grow-1 text-center justify-content-center' id='linguetta'><button type='button' class='almostBlack text-center' onclick='arrowDown()' id='arrowDownButton'><i class='fa-solid fa-chevron-down'></i></button><button type='button' class='almostBlack text-center collapse' onclick='arrowUp()' id='arrowUpButton'><i class='fa-solid fa-chevron-up'></i></button></div><div class='row px-4 d-flex flex-wrap mx-auto overflowY dcenter-item' id='coso'>    <div class='col-12 col-md-6  col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox0' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''>    </div> <div class='col-12 col-md-6 col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox1' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div>  <div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox2' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div> <div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox3' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''>                     </div><div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox4' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div>     </div> </div>"
+  document.getElementsByClassName("REF")[0].src=""
+  document.getElementById("RefImg").classList.add("imgsubst")
+  oldAIord = sessionStorage.getItem("AIorder")
+  // console.log('old AI order',JSON.parse(oldAIord))
+  support = document.getElementById('Small').children[0].children
+  // console.log('support',support[0].children[0].children[2])
+  img1 = support[0].children[0].children[2].id
+  img2 = support[1].children[0].children[2].id
+  img3 = support[2].children[0].children[2].id
+  img4 = support[3].children[0].children[2].id
+  img5 = support[4].children[0].children[2].id
+  Userdict[WUround]= [img1, img2, img3, img4, img5]
+  // console.log('dict',Userdict)
+  console.log(sessionStorage)
+  WUround = sessionStorage.getItem('WUround')
+  WUround = parseInt(WUround)
+  WUround+=1
+  sessionStorage.setItem('WUround', WUround)
+  
+  location.reload()
+
+    // document.getElementById("clumnN2").innerHTML="<div class='p-4 collapse show almostBlack' id='Small'>  <!--Small--> <div class='dropboxes d-flex overflowY almostBlack'><div class='getDatabox1'>                     <div id='getData21' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#1</div> <img id='WUimg1' class='img-fit' src=''></div>  </div>   <div class='getDatabox1'>     <div id='getData22' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#2</div> <img id='WUimg2' class='img-fit' src=''></div>          </div>        <div class='getDatabox1'> <div id='getData23' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >             <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'> #3</div> <img id='WUimg3' class='img-fit' src=''></div>       </div>        <div class='getDatabox1'>            <div id='getData24' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#4</div> <img id='WUimg4' class='img-fit' src=''></div>         </div>        <div class='getDatabox1'>     <div id='getData25' ondrop='drop(event)' ondragover='allowDrop(event)' class='position-relative myDiv text-center tall-img' >            <button class='position-absolute cross-btn btn-dark align-self-end d-none pincontainer' onclick='clearImg(event)'>x</button> <div class='position-absolute m-1 z-1 border-dot'>#5</div> <img id='WUimg5' class='img-fit' src=''></div>        </div>  </div>       </div>  <div class='flex-grow-1 text-center justify-content-center' id='linguetta'><button type='button' class='almostBlack text-center' onclick='arrowDown()' id='arrowDownButton'><i class='fa-solid fa-chevron-down'></i></button><button type='button' class='almostBlack text-center collapse' onclick='arrowUp()' id='arrowUpButton'><i class='fa-solid fa-chevron-up'></i></button></div><div class='row px-4 d-flex flex-wrap mx-auto overflowY dcenter-item' id='coso'>    <div class='col-12 col-md-6  col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox0' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''>    </div> <div class='col-12 col-md-6 col-lg-4 position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox1' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div>  <div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox2' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div> <div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox3' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''>                     </div><div class='col-12 col-md-6 col-lg-4  position-relative simimages imgsubst mb-3 px-2 p-0'  onclick='display_img(event)'  id='similarBox4' draggable='true' ondragstart='drag(event)'><div class='col-2 position-absolute w-min-content text-left pincontainer' id='' type='button' onclick='pin_WU(event)'><i class='fa-solid pt-2 fa-thumbtack mt-2' id='pin' data-toggle='tooltip' title='click on the pin to add the image to the dashboard'></i></div><img value='0' src='' draggable='true' class='img max-h-50 w-100 recover similarImg0'  id=''></div>     </div> </div>"
 
 
   /* for(let x = 0; x < 5 ; x++){
@@ -312,17 +348,10 @@ function repeatask(){
 function endTask(){
   const endWU = new Date().getTime()
   sessionStorage.setItem('endWU'+n_round , endWU)
-  sessionStorage.setItem("AIorder", JSON.stringify(aidict))
+  // sessionStorage.setItem("AIorder", JSON.stringify(aidict))
+  sessionStorage.setItem("userOrder", JSON.stringify(Userdict))
   console.log(sessionStorage)
  
-  support = document.getElementById('Small').children[0].childNodes
-  img1 = support[1].children[0].children[2].id
-  img2 = support[3].children[0].children[2].id
-  img3 = support[5].children[0].children[2].id
-  img4 = support[7].children[0].children[2].id
-  img5 = support[9].children[0].children[2].id
-
-  sessionStorage.setItem('userOrder', [img1, img2, img3, img4, img5])
 
 }
 
