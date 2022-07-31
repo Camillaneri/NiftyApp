@@ -4,19 +4,20 @@
 jQuery(document).ready(function($) {
    
     console.log("hi i'm jquery")
-    
+    window.scrollTo(0, 0)
+
     //$("body").css("overflow", "hidden")
+    $( "#warmstart" ).click(function() {
+      $('#introwarm').css("display","none")
+      $('#tutorials').css("display","block")
     $('#tutorials').css("z-index", "13")
     $('#RefImg').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
     $('#RefImg').css("z-index", "9")
-    
     $('#task').css("z-index", "11")
-    
+  });
+
     //console.log($("#tutorials").hasClass("active"))
-    
-    
-    
-    //
+ 
   
     $( "#toTut1" ).click(function() {
       console.log("1") //when you click back from 2

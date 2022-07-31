@@ -27,7 +27,7 @@
         
         <script src="TaskTutorial.js"></script>   
     </head>
-    <body id="bd1" class="d-flex flex-column darkGreen overflow-hidden" onload="fill_task_dash()">
+    <body id="bd1" class="d-flex flex-column lightgray overflow-hidden" onload="fill_task_dash()">
 
          <!-- tutorial -->
          <div class="row fixed-bottom bgdark50" id="tutorials">
@@ -76,6 +76,30 @@
         </div>
 
 
+<!-- introduction page -->
+<div class="col darkGreen" id="introtask">
+          <div class="py-4 Headercolor" id="Header1">
+            <span class="d-flex justify-content-between" id="head1">
+                <span class="text-left text-light me-5"> <h2>NiftyEValue</h2></span> 
+
+                <span class="text-right"><div class="nav-item  pincontainer">
+                    <a class="dot text-dark text-center p-1"  href="help.html">?</a>
+                </div></span>
+            </span>
+        </div>
+
+  
+        <div class="container py-5 px-5 rounded-3 text-center" id="centralBox">
+            <h1 class="display-3 pb-3 " id="headerTitle2">Main Task</h1>
+                <p>You have a chance to try out our application, test our recommendation algorithm and tell us what you think.</p>
+                    <p>The rule is to have fun!</p>
+                    <p>Explore the gallery, find art that you like and use it to search for more.</p>
+                    <button type="button" class="btn btn-success darkGreen text-light py-2 px-5 mt-3" id="taskstart">Start!</button>
+          </div>
+</div>
+  <!-- introduction page -->
+
+
          <!-- header -->
          <div class="py-4 Headercolor" id="Header">
             <span class="d-flex justify-content-between" id="head">
@@ -86,6 +110,10 @@
                 </div></span>
             </span>
         </div>
+        
+          
+
+       
         <!-- Navbar -->
         <div class="container-fluid px-0">
             <div class="row m-0 gray">
@@ -93,7 +121,7 @@
                 <div class="col-2 nav-item navnolink text-center py-3">Start</div>
                 <div class="col-2 nav-item navnolink text-center py-3">Pre Survey</div>
                 <div class="col-2 nav-item navnolink text-center py-3">Warm Up</div>
-                <div class="col-2 nav-item lightgreen text-center py-3">Task</div>
+                <div class="col-2 nav-item lightgreen text-dark text-center py-3">Task</div>
                 <div class="col-2 nav-item navnolink text-center py-3">End</div>
                 <div class="col-1"></div>
                 
@@ -123,8 +151,9 @@
     <img class="dimimg" id="img01">
 </div>
   </div>-->
-  
-       
+
+
+
 
         <!-- Main body -->
         <div class=" wrapper p-0  zindex" id="task2">
@@ -615,7 +644,7 @@
 
             console.log('final submission', submission)
             await supabase3.from('Main_task').insert([submission])
-            // window.location.href = "help.html"
+            window.location.href = "end.html"
 
         })
     </script>

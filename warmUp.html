@@ -20,7 +20,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/bc67555ac1.js" crossorigin="anonymous"></script>
     </head>
-    <body  class="overflow-hidden darkGreen" id="bod"> <!-- class="d-flex flex-column"  onload="placeholders()"-->
+    <body  class="overflow-hidden lightgray" id="bod"> <!-- class="d-flex flex-column"  onload="placeholders()"-->
 
           <!-- tutorial -->
         
@@ -81,7 +81,30 @@
                 <img id="displayed" src="" class="w-15" alt="...">
             </div>
         </div>
-           
+
+           <!-- introduction page -->
+
+<div class="col darkGreen" id="introwarm">
+    <div class="py-4 Headercolor" id="Header1">
+      <span class="d-flex justify-content-between" id="head1">
+          <span class="text-left text-light me-5"> <h2>NiftyEValue</h2></span> 
+
+          <span class="text-right"><div class="nav-item  pincontainer">
+              <a class="dot text-dark text-center p-1"  href="help.html">?</a>
+          </div></span>
+      </span>
+  </div>
+
+
+<div class="container px-5 py-5 rounded-3 text-center" id="centralBox">
+    <h1 class="display-3 pb-3 " id="headerTitle2">Warm-up Task</h1>
+    <p>Help us evaluate how effective our retrieval algorithm is.</p>
+        <p>You will be asked to rank a series of artworks based on their similarity to a reference image.</p>
+          <button type="button" class="btn btn-success darkGreen text-light py-2 px-5 mt-3" id="warmstart">Start!</button>
+</div>
+</div>
+
+<!-- introduction page -->
         
 
          <!-- header -->
@@ -100,7 +123,7 @@
                 <div class="col-1"></div>
                 <div class="col-2 nav-item navnolink text-center py-3">Start</div>
                 <div class="col-2 nav-item navnolink text-center py-3">Pre Survey</div>
-                <div class="col-2 nav-item lightgreen text-center py-3">Warm Up</div>
+                <div class="col-2 nav-item lightgreen text-dark text-center py-3">Warm Up</div>
                 <div class="col-2 nav-item navnolink text-center py-3">Task</div>
                 <div class="col-2 nav-item navnolink text-center py-3">End</div>
                 <div class="col-1"></div>
@@ -119,7 +142,7 @@
                 </div> -->       
                 <div class="px-0 " id="refimgcont1">  <!--img--> 
                     <div class="aclass" id="refimgcontainer">            
-                        <div id="RefImg" class="position-relative text-center imgsubst bg-white p-2"> 
+                        <div id="RefImg" class="position-relative text-center almostBlack imgsubst pb-3"> 
     
                             <img id="reference" class="REF" src=""> 
                         </div>     

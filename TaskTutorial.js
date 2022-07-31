@@ -2,14 +2,25 @@
 
 jQuery(document).ready(function($) { // the good one
     console.log("hi i'm jquery")
+    window.scrollTo(0, 0)
+   /*  
+    $('#tutorialA').css("display","none");
     $('#tutorialB').css("display","none")
-    $('#tutorialC').css("display","none")
+    $('#tutorialC').css("display","none") */
+
+
+    $( "#taskstart" ).click(function() {
+      console.log("yo")
+      $('#introtask').css("display","none")
+      $('#tutorials').css("display","block")
+    $('#tutorialA').css("display","block");
     $('#mainBody').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
     $('#mainBody').css("z-index", "9")
 
     $('#task2').css("z-index", "9")
     $('#tutorials').css("z-index", "10")
-  
+  });
+
     $( "#toTutA" ).click(function() {
       console.log("a")//indietro da b
       $('#tutorialB').css("display","none")

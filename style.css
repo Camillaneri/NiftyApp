@@ -15,6 +15,11 @@ body {
   
 }
 
+a{
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
 label, .vals li{
   font-size: 0.8em;
 }
@@ -38,10 +43,7 @@ label, .vals li{
 
     padding:  5ex 0px;
 }
-#centralBox{
-    background-color: #00FFC1;
-    height: 60vh;
-}
+
 
 .mainBox{
     padding: 150px 0;
@@ -515,7 +517,8 @@ form section{
 #tutorials{
    position: fixed;
    z-index: 1;
-   
+
+   display: none;
 }
 
 html {
@@ -570,8 +573,13 @@ html {
 
 
 #centralBox{
-margin-top: 5%;
-margin-bottom: 5%;
+  
+  width: 70%;
+margin-top: 10vh;
+margin-bottom: 30vh;
+  background-color: #00FFC1;
+  height: 60vh;
+
 }
 
 #refimg{
@@ -652,12 +660,12 @@ margin-bottom: 5%;
     background-color: #1A202C !important;
 }
 .lightgray{
-  background-color: #E2E8F0 !important;
+  background-color: #eef4fa !important;
 }
 
-/* .darkGreen{
+.darkGreen{
     background-color: #2D3748 !important;
-} */
+} 
 
 .lightgreen{
     background-color: #00FFC1 !important;
@@ -904,11 +912,12 @@ margin-bottom: 5%;
 
 #imgBtnlike{
     border: none !important;
-    
+    background-color: #dbe2eb;
 }
 
 #imgBtndislike{
     border: none !important;
+    background-color: #dbe2eb;
 }
 
 .img-to-like{
@@ -1306,6 +1315,10 @@ margin-bottom: 5%;
   margin-left: 2.25rem;
   margin-right: 3rem;
 }
+#head1{
+  margin-left: 2.25rem;
+  margin-right: 3rem;
+}
 
 .noundrln{
   text-decoration: none !important;
@@ -1376,9 +1389,10 @@ margin-bottom: 5%;
     left: 0px;
   }
   #tutorial {
+    
     left: 200px;
   }
-
+ 
   #imagesGrid{
     padding-bottom:  0px!important;
 
@@ -1460,6 +1474,17 @@ margin-bottom: 5%;
   }
 
 }
+
+#introwarm{
+ height: 100vh;
+
+}
+
+#introtask{
+  height: 100vh;
+}
+
+
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
