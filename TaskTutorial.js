@@ -94,35 +94,3 @@ function display(ev) {
 
 
 
-// $(document).ready(function(){
-//     console.log("hey")
-    
-//     $("img").click(function(){
-//         console.log($this)
-//         var a = ($this).attr("src") 
-//         console.log("boh")
-//         $('#displayimg').css("display","block");
-//         $('#displayed').attr(a);
-//       });
-    
-    
-//         // jQuery methods go here...
-      
-//       });
-
-// $(document).ready(function() {
-//     $("img").click(function() {
-//           var id = $('img', this).attr('class');
-//           console.log(id);
-//         });
-//       });
-
-
-      
-// $(document).ready(function() {
-//     $('.w-10').click(function () {
-//         alert($(this).find('img').attr('class'));
-//           console.log(id);
-//         });
-//       });
-

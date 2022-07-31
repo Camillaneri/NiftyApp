@@ -5,12 +5,13 @@ var n_queries = 0;
 sessionStorage.setItem('n_queries', n_queries);
 sessionStorage.setItem('clearedLikedImgs', 0);
 sessionStorage.setItem('clearedDislikedImgs', 0);
-sessionStorage.setItem('dispolayedImgs', 0);
 sessionStorage.setItem('displayedImgs', 0);
 sessionStorage.setItem('queryImgsClrd', '');
 var query = {'pos':'','neg':''};
 
 var LoadedImgsListener = 0
+
+
 //GET SIMILAR IMAGES 
 function fill_task_dash(){
 
@@ -64,7 +65,7 @@ boxes.forEach(box => {
     newStr01 = dict_path1.replace('"', '');
     img_id = newStr01.replace('"', '');//get id
 
- 
+      
    
     get_img = document.getElementsByClassName('img-to-like')[i]
     
@@ -79,68 +80,42 @@ boxes.forEach(box => {
     else{
         get_img.src = "images/wooops.jpg";
     }
+
+
+
     //for the reset button
     if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
-     ////console.log("preso")
+     console.log("preso")
         document.getElementById('LikesBox').innerHTML = "";
         document.getElementById('DislikesBox').innerHTML = "";
 
         boxes = document.querySelectorAll('.green');
-boxes.forEach(box => {
-  box.classList.remove('green');
-});
+        boxes.forEach(box => {
+          box.classList.remove('green');
+        });
 
-boxes = document.querySelectorAll('.red');
-boxes.forEach(box => {
-  box.classList.remove('red');
-});
-LoadedImgsListener +=1
-        ////console.log(LoadedImgsListener)
+        boxes = document.querySelectorAll('.red');
+        boxes.forEach(box => {
+          box.classList.remove('red');
+        });
+        LoadedImgsListener +=1
+
+
         
     } 
     
-}
-
-////console.log('start task')
     
-    ;}
+}
+
+    }
 )  
+startingT = new Date().getTime()    
+sessionStorage.setItem('Task_start', startingT)
+console.log("starting time", startingT) 
 
 
 
 }
-
-
-
-/*  function delete_dark(){
-  console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-  id_List = []
-for(var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++){
-  if(document.getElementsByClassName("getDataboxDash")[i].children.length > 1){
-    id_List.push(document.getElementsByClassName("getDataboxDash")[i].children[1].id)
-  } 
-}
-console.log(id_List)
-boxes = document.querySelectorAll('.darken1');
-boxes.forEach(box => {
-  console.log(box.id)
-  console.log(id_List.includes(box.id))
-if (!id_List.includes(box.id)){
-  box.classList.remove('darken1')
-};
-});
-} 
-
-function fill_task_dash1(myCallback){
-  fill_task_dash()
- 
-}
-
-
-*/
-
-
-
 
 // IMAGE DRAG AND COPYDRAG
 
@@ -480,19 +455,9 @@ function clearImg(ev){
   
   
   } else{
-    //console.log("B")
+    
     ev.target.classList.toggle("d-none")
     
-    /* console.log(getid)
-    for(let i = 1; i < 21; i++){
-      console.log(document.getElementById("drag"+i).children[0])
-      if( document.getElementById("drag"+i).children[1].id == getid){
-        console.log("vai")
-        document.getElementById("drag"+i).children[0].classList.add("lightgreencol")
-      }
-    } */
-    
-
     for(let i = 1; i < 21; i++){
       console.log(document.getElementById("drag"+i).children[0])
       if( document.getElementById("drag"+i).children[1].id == getid){
@@ -501,7 +466,6 @@ function clearImg(ev){
       }
     }
     
-    ////console.log('inside query:',ev.target.id)
     let imgId = ev.target.id
     if(ev.target.parentElement.classList.contains("bigdash")){
       ev.target.parentElement.classList.add("Dimdash")
@@ -534,6 +498,7 @@ function clearImg(ev){
 
 
 function resetDash(){
+  
     a = document.getElementsByClassName("getDataboxDash")
     for(let i = 0; i < a.length; i++){
       if(a[i].children.length > 1){
@@ -553,6 +518,25 @@ function resetDash(){
 }
 
 function repeatTask(){
+  endingingT = new Date().getTime()
+  console.log("ending time", endingingT)
+  // get total time 
+  tot_time = endingingT - startingT
+  console.log("tot time", tot_time)
+
+  oldTIMEdict = sessionStorage.getItem("TimeXquery") 
+  Timedict = {}
+
+  if (oldTIMEdict != null){
+    Timedict = JSON.parse(oldTIMEdict)
+    console.log('parsed json session')
+    Timedict[n_queries]=tot_time 
+    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+  }else{
+    Timedict[n_queries]=tot_time 
+    // console.log(aidict)  
+    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+  }
   resetDash()
   fill_task_dash()
 }
@@ -607,7 +591,25 @@ boxes.forEach(box => {
   // riporta i count delle immagini (liked e disliked) e rimossi a zero per il count della prossima query
   sessionStorage.setItem('clearedLikedImgs', 0);
   sessionStorage.setItem('clearedDislikedImgs', 0);
+  endingingT = new Date().getTime()
+  console.log("ending time", endingingT)
+  // get total time 
+  tot_time = endingingT - startingT
+  console.log("tot time", tot_time)
 
+  oldTIMEdict = sessionStorage.getItem("TimeXquery") 
+  Timedict = {}
+
+  if (oldTIMEdict != null){
+    Timedict = JSON.parse(oldTIMEdict)
+    console.log('parsed json session')
+    Timedict[n_queries]=tot_time 
+    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+  }else{
+    Timedict[n_queries]=tot_time 
+    // console.log(aidict)  
+    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+  }
   n_queries+=1 //incrementa count query dopo aver fatto i log sullo stato attuale
   ////console.log("Query number: ", n_queries);
   
@@ -743,19 +745,20 @@ boxes.forEach(box => {
             get_img_element.src = "images/wooops1.jpg";
         
         }
+        
     }
-      
+     
         
       }
       
     )
     
+} )
+
 }
-
-     
-
-    )
-} 
+startingT = new Date().getTime()    
+sessionStorage.setItem('Task_start', startingT)
+console.log("starting time", startingT) 
 }
 
 function display_img(ev){
@@ -882,3 +885,26 @@ function myImgsListener(){
 }
 
 myImgsListener();
+
+
+function resetTask(){
+  endingingT = new Date().getTime()
+  console.log("ending time", endingingT)
+  // get total time 
+  tot_time = endingingT - startingT
+  console.log("tot time", tot_time)
+  oldTIMEdict = sessionStorage.getItem("TimeXquery") 
+  Timedict = {}
+
+  if (oldTIMEdict != null){
+    Timedict = JSON.parse(oldTIMEdict)
+    console.log('parsed json session')
+    Timedict[n_queries]=tot_time 
+    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+  }else{
+    Timedict[n_queries]=tot_time 
+    // console.log(aidict)  
+    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+  }
+  fill_task_dash();
+}

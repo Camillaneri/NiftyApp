@@ -218,7 +218,7 @@
                         <button class="mx-1 col btn btn-success w-100 py-2" type="button" onclick="Apply_like_dislike()">
                             Apply
                         </button>   
-                        <button class="mx-1 col btn btn-success w-100 py-2" type="button" onClick="fill_task_dash()"> <!-- removeQuery()-->
+                        <button class="mx-1 col btn btn-success w-100 py-2" type="button" onClick="resetTask()"> <!-- removeQuery()-->
                             Reset
                         </button> 
                     </div>
@@ -565,7 +565,7 @@
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
         const supabase3 = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
       
-        
+        console.log(sessionStorage)
         let myId = sessionStorage.getItem('id');
         
         var refimg = sessionStorage.getItem('WUreference');
@@ -581,6 +581,8 @@
         var myGallery_count = sessionStorage.getItem('myGallery_count');
         var queryImgsClrd = sessionStorage.getItem('queryImgsClrd');
         var displayedImgs = sessionStorage.getItem('displayedImgs');
+        var TimeXquery = sessionStorage.getItem("TimeXquery")
+        TimeXquery = JSON.parse(TimeXquery)
         console.log('images',myImgIds,myGallery_count)
         var queries = sessionStorage.getItem('n_queries');
         var toAdd = {};
@@ -591,7 +593,7 @@
             
         }
         var queriesIds = JSON.stringify(toAdd)
-        var submission = {'user':myId, 'n_queries':queries, 'queries_ids':queriesIds, 'myImgIds':myImgIds, 'myGallery_count':myGallery_count, 'queryImgsClrd':queryImgsClrd, 'displayedImgs':displayedImgs}
+        var submission = {'user':myId, 'n_queries':queries, 'queries_ids':queriesIds, 'myImgIds':myImgIds, 'myGallery_count':myGallery_count, 'displayedImgs':displayedImgs, 'TimeXquery':TimeXquery}
         console.log(myId, queries)
         console.log('final array', JSON.stringify(toAdd))
         
@@ -613,7 +615,7 @@
 
             console.log('final submission', submission)
             await supabase3.from('Main_task').insert([submission])
-            window.location.href = "help.html"
+            // window.location.href = "help.html"
 
         })
     </script>

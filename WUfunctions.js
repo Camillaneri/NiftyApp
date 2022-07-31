@@ -202,6 +202,7 @@ jQuery(document).ready(function($) {
         ev.target.parentElement.children[0].classList.add('d-none')
         console.log(document.getElementById("coso").children[x].children[0])
         document.getElementById("coso").children[x].children[0].classList.remove('d-none')
+        
         break
         
       }
@@ -268,6 +269,9 @@ function closeimg(){
 function pin_WU(ev){
   givsrc = ev.target.parentElement.parentElement.children[1].src
   givid = ev.target.parentElement.parentElement.children[1].id
+  ev.target.parentElement.parentElement.classList.toggle('noWidth')
+  ev.target.parentElement.parentElement.classList.toggle('px-2')
+  console.log(ev.target.parentElement.parentElement)
   ev.target.parentElement.parentElement.children[1].remove()
   free = document.getElementsByClassName('img-fit')
   free[0].id = givid
