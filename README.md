@@ -12,12 +12,9 @@ We developed an application made for evaluating the algorithm used by NiftyEvalu
 
 ### Sate of the art & Research
 
+The first phase of our project consisted in the research of previous literature and case studies of a recommending system evaluation. 
 
-
-##### State of the Art
-The first phase of our project consisted in the research of previous literature and case studie ao a recommending system evaluation. 
-
-we 
+We followed Avazpour et. al study's classification of the dimensions used for evaluating a recommending algorithm and choose to study ours under a **user-centric** point of view. By using this dimension 
 
 
 
