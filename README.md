@@ -13,8 +13,10 @@ We developed an application made for evaluating the user experience while intera
 
 The first phase of our project consisted in the research of previous literature and case studies of   recommending system evaluation. 
 
-We followed Avazpour et. al study's classification of the dimensions used for evaluating a recommending system and chose to study ours under an **user-centric** point of view.\\
-**Why?**\\
+We followed Avazpour et. al study's classification of the dimensions used for evaluating a recommending system and chose to study ours under an **user-centric** point of view.
+
+**Why?**
+
 By using this dimension we were able to measure quantitatively dimensions suche as utility, serendipity and novelty.
 
 We detected in this field's landscape two possible a taxonomy and a framework as the base for our study:
