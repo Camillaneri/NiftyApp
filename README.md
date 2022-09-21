@@ -19,17 +19,18 @@ Additionally we detected two tools that came helpful in designing our evaluation
 
 * **ResQue's taxonomy**: by Pu et al., is an holistic study on user’s perceptions and
 impressions while interacting with a system;
-* **Knjnenbrg's framework**: by Kinjensburg et al., expands ResQue’s framework to context character-
-istics by means of personal characteristics of a user and the situational ones,
-in which the system is used.4 This framework uses specific terms as experience
+* **Knijnensburg's framework**: by Knijensburg et al., expands ResQue’s framework to context characteristics by means of personal characteristics of a user and the situational ones,
+in which the system is used. This framework uses specific terms as experience
 and interaction, to distinguish between attitude and behaviour.
 
-### Design 
-As proposed by the latter work, we decided to design our study as the triangulation of three main typologies of gathered data:
+For a deeper iunsight on our research please refeer to our [State of the Art document]()
 
-1. **User chatacteristics**: survey 
-2. **Subjective experience**: survey
-3. **Behaviural data**: log-data
+### Design 
+As proposed by Knijnensburg, we decided to design our study as the triangulation of three main typologies of gathered data:
+
+1. **User chatacteristics**: gathered form surveis
+2. **Subjective experience**: gathered form surveis
+3. **Behavioral data**: gathered form log-data
 
 
 
