@@ -23,14 +23,17 @@ impressions while interacting with a system;
 in which the system is used. This framework uses specific terms as experience
 and interaction, to distinguish between attitude and behaviour.
 
-For a deeper iunsight on our research please refeer to our [State of the Art document]()
+For a deeper insight on our research please refeer to our [State of the Art document]()
 
 ### Design 
-As proposed by Knijnensburg, we decided to design our study as the triangulation of three main typologies of gathered data:
+
+As proposed by Knijnensburg, we decided to design our study as the triangulation of three main typologies of data:
 
 1. **User chatacteristics**: gathered form surveis
 2. **Subjective experience**: gathered form surveis
 3. **Behavioral data**: gathered form log-data
+
+**User characteristics** represent the novelty item proposed by Knonijensburg et al. in their framework and it is important for us as we had to consider the ethrogrneity of people approacing NiftyEvalue and the diffrences in their education and attitude towards arts and Blockchain. 
 
 
 
