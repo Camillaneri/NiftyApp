@@ -27,13 +27,17 @@ For a deeper insight on our research please refeer to our [State of the Art docu
 
 ### Design 
 
-As proposed by Knijnensburg, we decided to design our study as the triangulation of three main typologies of data:
+Following Knijnensburg, we decided to design our study as the triangulation of three main typologies of data:
 
-1. **User chatacteristics**: gathered form surveis
-2. **Subjective experience**: gathered form surveis
-3. **Behavioral data**: gathered form log-data
+1. **User chatacteristics**: gathered from surveis
+2. **Subjective experience**: gathered from surveis
+3. **Behavioural data**: gathered from log-data
 
-**User characteristics** represent the novelty item proposed by Knonijensburg et al. in their framework and it is important for us as we had to consider the ethrogrneity of people approacing NiftyEvalue and the diffrences in their education and attitude towards arts and Blockchain. 
+**User characteristics** represent the novelty item proposed by Knijnensburg et al. in their framework and it is important for us as we had to consider the ethrogrneity of people approaching NiftyEvalue and the diffrences in their education and attitude towards arts and Blockchain. 
+
+**Subjective experience** refers to the opinion of the users on their interaction with NiftyEvalue and is the part of the experiment from which we expect to gather direct information on the user experience with the evaluated algorithm. 
+
+**Behavioural data** consists in all that data automatically collected by the application, the user is not able to controll the recording of this data and it will consistently collect all valuable actions performed by our users as they interact with the system. 
 
 
 
