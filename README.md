@@ -29,8 +29,8 @@ For a deeper insight on our research please refeer to our [State of the Art docu
 
 Following Knijnensburg, we decided to design our study as the triangulation of three main typologies of data:
 
-1. **User chatacteristics**: gathered from surveis
-2. **Subjective experience**: gathered from surveis
+1. **User chatacteristics**: gathered from surveys
+2. **Subjective experience**: gathered from surveys
 3. **Behavioural data**: gathered from log-data
 
 **User characteristics** represent the novelty item proposed by Knijnensburg et al. in their framework and it is important for us as we had to consider the ethrogrneity of people approaching NiftyEvalue and the diffrences in their education and attitude towards arts and Blockchain. 
@@ -40,6 +40,19 @@ Following Knijnensburg, we decided to design our study as the triangulation of t
 **Behavioural data** consists in all that data automatically collected by the application, the user is not able to controll the recording of this data and it will consistently collect all valuable actions performed by our users as they interact with the system. 
 
 For collecting survey data we designed a first survey aiming at recordering user characteristics before the experiment starts, then at the end of each task the user will submit their opinion on their experience through some additional forms with questions concerning the tasks. 
+
+#### Surveys 
+
+The first survey aims at collecting user's characteristics, here what we are concerned about the education and experience with art, finance, and technology. The table below shows the question we have selected. 
+
+| Question      | Answer typology | Focus |
+| ----------- | ----------- | ----------- |
+| Do you work or have you worked in the traditional art world? | Multiple choiche checklist | Experience in the art world |
+| Do you work or have worked with NFTs? | Multiple choiche checklist | Experience with NFTs |
+| Do you work or have worked in finance and have experience with blockchain technologies? | Multiple choiche checklist | Experience in the finance world |
+| How often do you use Multimedia Applications? | 5-points Likert scale | Experience with multimedia applications |
+| How often do you use Multimedia Applications? | 5-points Likert scale | Experience with multimedia applications |
+
 
 
 
