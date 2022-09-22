@@ -64,7 +64,7 @@ The other surveys are submitted to the user after each task, as soon as she/he f
 | Have you encountered one of the following issues?| Multiple choiche checklist | Issues with the algorithm |
 | Do you have any additional comment? | Text | User's impressions |
 
-As one can notice, in this phase we have better drfined which dimension we were more interested in during our evaluation, i.e., the user *satisfaction* with their experience. Also, we have choosen to account for algorithm's misbehaviour asking about possible issues with the loaded images and left some space for personal comment by the user. 
+As one can notice, in this phase we have better drfined which dimension we were more interested in during our evaluation, i.e., the user *satisfaction* with their experience. Also, we have choosen to account for algorithm's misbehaviour asking about possible issues with the loaded images and left some space for personal comment by the user, which might be investigated  through a sentiment analysis (we advice Syuzhet, an R library trained on the english vocaulary, easy to learn  and used for performing the sentiment analysis on blogs' comments). 
 
 
 
