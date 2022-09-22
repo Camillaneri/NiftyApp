@@ -45,15 +45,24 @@ For collecting survey data we designed a first survey aiming at recordering user
 
 The first survey aims at collecting user's characteristics, here what we are concerned about the education and experience with art, finance, and technology. The table below shows the question we have selected. 
 
-| Question      | Answer typology | Focus |
+| Question      | Answer input | Focus |
 | ----------- | ----------- | ----------- |
 | Do you work or have you worked in the traditional art world? | Multiple choiche checklist | Experience in the art world |
 | Do you work or have worked with NFTs? | Multiple choiche checklist | Experience with NFTs |
 | Do you work or have worked in finance and have experience with blockchain technologies? | Multiple choiche checklist | Experience in the finance world |
-| How often do you use Multimedia Applications? | 5-points Likert scale | Experience with multimedia applications |
-| How often do you use Multimedia Applications? | 5-points Likert scale | Experience with multimedia applications |
+| How often do you use Multimedia Applications? | 5-points Likert scale (from "very often" to "never") | Experience with multimedia applications |
+| It is hard for me to make plans. | 5-points Likert scale (from "strongly disagree to strongly agree) | Personal attitudes |
+| I easily get bored. | 5-points Likert scale (from "strongly disagree" to "strongly agree") | Personal attitudes |
+| I consider myself a curious person. | 5-points Likert scale (from "strongly disagree" to "strongly agree") | Personal attitudes |
 
 
+The second survey has to be submitted after *Warm up* and we decided to keep it as brief as possible with just 3 questions 
+
+| Question      | Answer input | Focus |
+| ----------- | ----------- | ----------- |
+| On a scale from 1 to 5 how much satisfied are you after this task? |5-points Likert scale | User satisfaction |
+| Have you encountered one of the following issues?| Multiple choiche checklist | Issues with the algorithm |
+| Do you have any additional comment? | Text | User's impressions |
 
 
 ### Development
