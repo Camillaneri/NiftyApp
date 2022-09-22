@@ -39,9 +39,16 @@ Following Knijnensburg, we decided to design our study as the triangulation of t
 
 **Behavioural data** consists in all that data automatically collected by the application, the user is not able to controll the recording of this data and it will consistently collect all valuable actions performed by our users as they interact with the system. 
 
-For collecting survey data we designed a first survey aiming at recordering user characteristics before the experiment starts, then at the end of each task the user will submit their opinion on their experience through some additional forms with questions concerning the tasks. 
+
+#### Tasks
+
+Two tasks have been designed for the user to interact with NiftyValue's recommending system.
+
+The first one, made for the user to get accostumed with our application is *Warm Up*. This first brief task consists in a set of 5 images to be ordered form the most to the last similar, with respect to a reference image.
 
 #### Surveys 
+
+For collecting survey data we designed a first survey aiming at recordering user characteristics before the experiment starts, then at the end of each task the user will submit their opinion on their experience through some additional forms with questions concerning the tasks. 
 
 The first survey aims at collecting user's characteristics, here what we are concerned about the education and experience with art, finance, and technology. The table below shows the question we have selected. 
 
@@ -64,7 +71,7 @@ The other surveys are submitted to the user after each task, as soon as she/he f
 | Have you encountered one of the following issues?| Multiple choiche checklist | Issues with the algorithm |
 | Do you have any additional comment? | Text | User's impressions |
 
-As one can notice, in this phase we have better drfined which dimension we were more interested in during our evaluation, i.e., the user *satisfaction* with their experience. Also, we have choosen to account for algorithm's misbehaviour asking about possible issues with the loaded images and left some space for personal comment by the user, which might be investigated  through a sentiment analysis (we advice Syuzhet, an R library trained on the english vocaulary, easy to learn  and used for performing the sentiment analysis on blogs' comments). 
+In this phase we have better defined which dimension was thre most interesting in our evaluation, i.e., the user *satisfaction* with their experience. Also, we have choosen to account for algorithm's misbehaviour asking about possible issues with the loaded images and left some space for personal comment by the user, which might be investigated  through a sentiment analysis (we advice Syuzhet, an R library trained on the english vocaulary, easy to learn  and used for performing sentiment analysis on blogs' comments). 
 
 
 
