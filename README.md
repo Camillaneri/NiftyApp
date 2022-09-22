@@ -56,13 +56,16 @@ The first survey aims at collecting user's characteristics, here what we are con
 | I consider myself a curious person. | 5-points Likert scale (from "strongly disagree" to "strongly agree") | Personal attitudes |
 
 
-The second survey has to be submitted after *Warm up* and we decided to keep it as brief as possible with just 3 questions 
+The other surveys are submitted to the user after each task, as soon as she/he finishes it. We decided keep them as brief as possible with just 3 essential questions as listed below.
 
 | Question      | Answer input | Focus |
 | ----------- | ----------- | ----------- |
 | On a scale from 1 to 5 how much satisfied are you after this task? |5-points Likert scale | User satisfaction |
 | Have you encountered one of the following issues?| Multiple choiche checklist | Issues with the algorithm |
 | Do you have any additional comment? | Text | User's impressions |
+
+As one can notice, in this phase we have better drfined which dimension we were more interested in during our evaluation, i.e., the user *satisfaction* with their experience. Also, we have choosen to account for algorithm's misbehaviour asking about possible issues with the loaded images and left some space for personal comment by the user. 
+
 
 
 ### Development
