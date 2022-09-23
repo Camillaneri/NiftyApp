@@ -84,8 +84,13 @@ This section illustrates the development process.
 #### Website
 The website is structured in 5 main pages representing all the steps one has to follow to complete the experiment, plus an help page with links leading to NiftyValue's project website and the beta version of their application.
 
+Header and navbar are not clickable as we do not want the use to freely browse our content, as it could mess up the experiment. Thus, **header** is composed by the the application name and a butto linking to the help page, while **navbar** works like breadcrumbs as t inform the user on their position in the application. 
+
 ##### Hompeage
-The homepage file is **[index.html]()**
+The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, provifding information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data. 
+
+In this file one will also fin a script at the very ottom in which a unique identifier is assigned to that user's session. >THe identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number randomly chosen between 0 and 200. The final form is: DDMMYYYYN. 
+
 #### Api Queries
 
 #### esults
