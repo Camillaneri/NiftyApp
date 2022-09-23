@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>NiftyEValue</title>
+        <title>NiftyEValue - Home</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
-
         <!-- Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <!-- Optional JavaScript; choose one of the two! -->
-        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <!-- Script linking the app to supabase TO BE CHECKED -->
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- Javasript develooped by us -->
         <script src="index.js"></script> 
     </head>
-    <body class="darkblue">   <!--class="d-flex flex-column vh-100 -->
 
-        <!-- header -->
+    <body class="darkblue">
+        <!-- Header -->
         <div class="py-4 Headercolor" id="Header">
             <span class="d-flex justify-content-between" id="head">
-                <span class="text-left text-light me-5"> <h2>NiftyEValue</h2></span> 
+                <span class="text-left text-light me-5"> <h2>NiftyEvalue</h2></span> 
 
                 <span class="text-right"><div class="nav-item  pincontainer">
-                    <a class="dot text-dark text-center p-1"  href="help.html">?</a>
+                    <a class="dot text-dark text-center p-1"  href="website_pages/help.html">?</a>
                 </div></span>
             </span>
         </div>
@@ -43,16 +41,16 @@
                 <div class="col-1"></div>
             </div>
         </div>
-    
-
 
         <!-- Main body -->
         <div class="col wrapper vcenter-item" id="wrap">
+            <!-- First section -->
             <div class="container py-5 px-5 rounded-3 text-center" id="centralBox">
-                <h1 class="display-3 pb-3 " id="headerTitle">Welcome on NiftyEValue</h1>
+                <h1 class="display-3 pb-3 " id="headerTitle">Welcome on NiftyEvalue</h1>
                 <p>Help us improve an NFTs art application!</p>
                 <p>Scroll down to start</p>
             </div>
+            <!-- Second section -->
             <div class="container mt-3 px-5  py-5 bg-light rounded-3 text-center reveal">
                 <h3 class="py-3">What is NiftyValue</h3>
                 <p><strong><a href="https://app.niftyvalue.com">Nifty Value</a></strong> is an application created to help people navigate the universe of cripto art and support them in the discovery and collection of NFTs. </p>
@@ -62,81 +60,51 @@
                     <li> Assess the current and predict the future market value of artworks or entire collections</li>
                     <li>Find promising investment opportunities according to different risk profiles</li>
                 </ul>  
-
+                <!-- Button linking to help page -->
                 <div class="container py-3 px-0" id="Box2">  
-                    <!-- Bottone che porta all'help -->
                     <button class="btn btn-success p-4">
-                        <a href="help.html">Click here to know more about NiftyValue.</a>
+                        <a href="website_pages/help.html">Click here to know more about NiftyValue.</a>
                     </button> 
                 </div>
-               
                 <h3 class="py-3">What do we do</h3>
                 <p>NiftyEValue aims at testing the discovery algorithm of NiftyValue to improve the service.</p>
                 <p> We will ask you to complete tasks, answer some questions and express your opinion.</p>
                 <p> The information will be used to improve Nifty Value.</p>  
-                
-                    
                 <h3 class="py-3">How long will it take?</h3>
-
-                <!-- <nav class="navbar-expand-sm navcolor navbar-dark" >
-                      <ul class="navbar-nav">
-                        
-                        <li class="nav-item flex-fill">
-                          <a class="nav-link py-3" id="animateexample" href="#">Pre survey</a>
-                        </li>
-                        <li class="nav-item flex-fill">
-                          <a class="nav-link py-3" id="animateexample1" href="#">First Task</a>
-                        </li>
-                        <li class="nav-item flex-fill">
-                          <a class="nav-link py-3" id="animateexample2" href="#">Second Task</a>
-                        </li>
-                        <li class="nav-item flex-fill">
-                          <a class="nav-link py-3" href="#" id="animateexample3">Post survey</a>
-                        </li>
-                      </ul>
-                    
-                  </nav> -->
- 
-                    <p>The test you are about to start comprises:</p>
-                    <p>A short survey, to get to know you a little. </p>
-                    <p>The warm-up task, where you will test our recommendation algorithm. </p>
-                    <p>The main task, where you just need to navigate and discover new artworks. </p>
-                    <p>Two  final questions, to collect your overall opinion on the application.</p>
- 
+                <p>The test you are about to start comprises:</p>
+                <p>A short survey, to get to know you a little. </p>
+                <p>The warm-up task, where you will test our recommendation algorithm. </p>
+                <p>The main task, where you just need to navigate and discover new artworks. </p>
+                <p>Two  final questions, to collect your overall opinion on the application.</p>
                 <p>Completing the test should take you about 10 minutes, or more if you like it and decide to test it a while longer, Indeed,  you are very welcome to spend more time exploring the app along the way. </p>
-                
-               
             </div>
+            <!-- Third section -->
             <div class="container mt-3 px-5  py-5 bg-light rounded-3 text-center reveal" id="Box3">
                 <h3>What about you data?</h3>
-                <p>
-                    During your interaction with NiftyEValue, we will collect anonymous data from the survey questions and from your interaction with the app itself. This data helps us to understand what worked and what can instead be improved.  
-                </p>
-                <div>
-                    All data will be stored in on a secure Supabase server and will not be shared outside of the NiftyValue team. <br> 
-                    <strong>By proceeding you accept these conditions.</strong>
-                 </div>
-             </div>
-            
-             <div class=" container py-3 px-0 reveal"  id="goonbutton"> 
-                <button onclick="location.href='PreSsurvey.html'" type="button"  class="btn btn-success p-4 float-end">
+                <p>During your interaction with NiftyEValue, we will collect anonymous data from the survey questions and from your interaction with the app itself. This data helps us to understand what worked and what can instead be improved.</p>
+                <p>All data will be stored in on a secure Supabase server and will not be shared outside of the NiftyValue team.</p> 
+                <p><strong>By proceeding you accept these conditions.</strong></p>
+            </div>
+            <!-- Button linking to the first survey -->
+            <div class=" container py-3 px-0 reveal"  id="goonbutton"> 
+                <button onclick="location.href='website_pages/PreSsurvey.html'" type="button"  class="btn btn-success p-4 float-end">
                     Let's start!
                 </button> 
             </div>        
-            </div> 
-            </div>
-            
+        </div>
         <!-- Footer -->
         <footer class="mt-5 py-4 almostBlack text-white-50" id="MainFooter">
             <div class="container text-center">
             <small>Copyright &copy; Your Website</small>
             </div>
-      </footer>    
+        </footer>    
     </body>
     <script>
+        // script creating an unique identifier for the user, it will remain the same for all the session
         var random = Math.floor(Math.random()*(0-200 +1)+200);
         var currentDate = new Date()
-        sessionStorage.setItem('access-home', currentDate);
+        // session storage is where all log data  will be saved 
+        sessionStorage.setItem('access-home', currentDate); 
         var day = currentDate.getDate()
         var month = currentDate.getMonth() + 1
         var year = currentDate.getFullYear()

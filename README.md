@@ -69,7 +69,7 @@ The other surveys are submitted to the user after each task, as soon as she/he f
 
 | Question      | Answer input | Focus |
 | ----------- | ----------- | ----------- |
-| On a scale from 1 to 5 how much satisfied are you after this task? |5-points Likert scale | User satisfaction |
+| On a scale from 1 to 5 how much satisfied are you after this task? | 5-points Likert scale | User satisfaction |
 | Have you encountered one of the following issues?| Multiple choiche checklist | Issues with the algorithm |
 | Do you have any additional comment? | Text | User's impressions |
 
@@ -79,8 +79,13 @@ In this phase we have better defined which dimension was thre most interesting i
 
 ### Development
 
-#### Website
+This section illustrates the development process. 
 
+#### Website
+The website is structured in 5 main pages representing all the steps one has to follow to complete the experiment, plus an help page with links leading to NiftyValue's project website and the beta version of their application.
+
+##### Hompeage
+The homepage file is **[index.html]()**
 #### Api Queries
 
 #### esults
