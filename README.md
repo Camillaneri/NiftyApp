@@ -29,7 +29,7 @@ For a deeper insight on our research please refeer to our [State of the Art docu
 
 Following Knijnensburg, we decided to design our study as the triangulation of three main typologies of data:
 
-1. **User chatacteristics**: gathered from surveys
+1. **User characteristics**: gathered from surveys
 2. **Subjective experience**: gathered from surveys
 3. **Behavioural data**: gathered from log-data
 
@@ -44,7 +44,9 @@ Following Knijnensburg, we decided to design our study as the triangulation of t
 
 Two tasks have been designed for the user to interact with NiftyValue's recommending system.
 
-The first one, made for the user to get accostumed with our application is *Warm Up*. This first brief task consists in a set of 5 images to be ordered form the most to the last similar, with respect to a reference image.
+The first one, made for the user to get accostumed with our application is *Warm Up*. This first brief task consists in a set of 5 images to be ordered form the most to the last similar, with respect to a reference image. The task can be repeated as many times as one likes.
+
+The *Main task* in our evaluation consists in mutiple browsing sessions in which the user has to try NiftyValue's elicitation system to like and dislike the showed images. The goal of this task is for the user to find aesthetically pleasing images and save them in the gallery on the left. 
 
 #### Surveys 
 
