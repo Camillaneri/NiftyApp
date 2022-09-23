@@ -1,15 +1,11 @@
-# Documentation 
+# NiftyEvalue Documentation 
 
-## NiftyEvalue
-
-
-
-### Purpose 
+## Purpose 
 
 NiftyEvalue has been developed for evaluating the recommender system made by NiftyValue's team. Their algorithm measures low-level features similarity of the NFTs liked and disliked by the user and returns those images that mostly represent the users preferences. 
 By interacting with the algorithm and answering some short questions about their attitudes and experience, we believe users will provide helpful information in ordert to understand how well the reccomending system works under a human point of view.
 
-### Research
+## Research
 
 The first phase of our project consisted in the research of previous case studies  and literature about the evaluation of recommending systems. Here we tried to find those systems that better represented the functionalities of the one we were going to evaluate, thus we focused on papers about recommending systems based on low-level features similarity and concerning digital objects such as images and music. 
 
@@ -25,7 +21,7 @@ and interaction, to distinguish between attitude and behaviour.
 
 For a deeper insight on our research please refeer to our [State of the Art document]()
 
-### Design 
+## Design 
 
 Following Knijnensburg, we decided to design our study as the triangulation of three main typologies of data:
 
@@ -40,7 +36,7 @@ Following Knijnensburg, we decided to design our study as the triangulation of t
 **Behavioural data** consists in all that data automatically collected by the application, the user is not able to controll the recording of this data and it will consistently collect all valuable actions performed by our users as they interact with the system. 
 
 
-#### Tasks
+### Tasks
 
 Two tasks have been designed for the user to interact with NiftyValue's recommending system.
 
@@ -48,7 +44,7 @@ The first one, made for the user to get accostumed with our application is *Warm
 
 The *Main task* in our evaluation consists in mutiple browsing sessions in which the user has to try NiftyValue's elicitation system to like and dislike the showed images. The goal of this task is for the user to find aesthetically pleasing images and save them in the gallery on the left. 
 
-#### Surveys 
+### Surveys 
 
 For collecting survey data we designed a first survey aiming at recordering user characteristics before the experiment starts, then at the end of each task the user will submit their opinion on their experience through some additional forms with questions concerning the tasks. 
 
@@ -77,16 +73,15 @@ In this phase we have better defined which dimension was thre most interesting i
 
 
 
-### Development
+## Development
 
 This section illustrates the development process. 
 
-#### Website
 The website is structured in 5 main pages representing all the steps one has to follow to complete the experiment, plus an help page with links leading to NiftyValue's project website and the beta version of their application.
 
 Header and navbar are not clickable as we do not want the use to freely browse our content, as it could mess up the experiment. Thus, **header** is composed by the the application name and a butto linking to the help page, while **navbar** works like breadcrumbs as t inform the user on their position in the application. 
 
-##### Hompeage
+#### Homepage
 The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, provifding information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data. 
 
 In this file one will also fin a script at the very ottom in which a unique identifier is assigned to that user's session. >THe identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number randomly chosen between 0 and 200. The final form is: DDMMYYYYN. 
