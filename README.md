@@ -81,31 +81,49 @@ The website is structured in 5 main pages representing all the steps one has to 
 
 Header and navbar are not clickable as we do not want the use to freely browse our content, as it could mess up the experiment. Thus, **header** is composed by the the application name and a butto linking to the help page, while **navbar** works like breadcrumbs as t inform the user on their position in the application. 
 
+#### Api Queries
+To do
+#### Supabase
+To do
+
+
 #### Homepage
+
+**Page description**
 The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, provifding information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data. 
 
-In this file one will also find a script at the very bottom in which a unique identifier is assigned to that user's session. The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
+In this file one can also find a script at the very bottom in which a unique identifier is assigned to that user's session. <br>
+The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
+
+**Javascript description**
+1. scripts.js
 
 #### First survey
 
 **Page description**
+In this file we built the first survey submitted to the user in a *pre-experimanta* phase. <br>
+The page is composed by a form composed by the 7 questions listed in *[Design]()*. 
+Questions from 1 to 3 have as input a multiple-choice checklist, question 4 uses radio-button as input and the las 3 questions consist in sliders for selecting a likert scale value from 1 to 5. 
 
-**Javascript descritpion**
+**Javascript description**
+1. FirstSurvey.js
+2. supa_survey1.js
 
 #### Warm up
 
 **Page description**
 
-**Javascript descritpion**
+**Javascript description**
+1. supa_warmup.js
+2. WUfunctions.js
+3. WUrequests.js
 
 #### Task
 
 **Page description**
 
-**Javascript descritpion**
+**Javascript description**
+1. task.js
+2. TaskTutorial.js
 
 
-
-#### Api Queries
-
-#### Supabase
