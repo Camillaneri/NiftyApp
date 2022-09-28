@@ -1,47 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>NiftyEValue</title>
+        <title>NiftyEValue - First survey</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    
-
+        <link rel="stylesheet" href="../style.css">
         <!-- Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <!-- Optional JavaScript; choose one of the two! -->
-        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <!-- Script to supabase -->
         <script src="https://unpkg.com/@supabase/supabase-js"></script>
         <script src="https://kit.fontawesome.com/bc67555ac1.js" crossorigin="anonymous"></script>
-
-
     </head>
     <body class="d-flex flex-column vh-100">
 
-         <!-- header -->
-       <div class="py-4 Headercolor" id="Header">
-        <span class="d-flex justify-content-between" id="head">
-            <span class="text-left text-light "> NiftyEValue</span> 
-            <span class="text-right text-light" id="pageName">Pre Survey</spandes>
-        </span>
-    </div>
-
-<!-- Modal -->
-    <div id="myModal1" class="modal1">
-
-        
-        <div class="modal-content1">
-          <span class="close1" onclick="closemod()">&times;</span>
-          <p>You need to compile the survey to proceed!</p>
+        <!-- header -->
+        <div class="py-4 Headercolor" id="Header">
+            <span class="d-flex justify-content-between" id="head">
+                <span class="text-left text-light "> NiftyEValue</span> 
+                <span class="text-right text-light" id="pageName">Pre Survey</spandes>
+            </span>
         </div>
-      
-      </div>
- <!-- Navbar -->
-         <!-- Navbar -->
-         <div class="container-fluid px-0">
+        
+        <!-- Navbar -->
+        <div class="container-fluid px-0">
             <div class="row m-0 gray">
                 <div class="col-2 nav-item navnolink text-center py-3">Start</div>
                 <div class="col-2 nav-item lightgreen text-center text-dark py-3">Pre Survey</div>
@@ -54,26 +38,30 @@
                 </div>
             </div>
         </div>
-    
+        <!-- Modal -->
+        <div id="myModal1" class="modal1">
+            <div class="modal-content1">
+            <span class="close1" onclick="closemod()">&times;</span>
+            <p>You need to compile the survey to proceed!</p>
+            </div>  
+        </div>
         
         <!-- Central body -->
         <div class="wrapper vcenter-item" id="wrap2">
+            <!-- green box with title and duration -->
             <div class="pb-3 pt-3 rounded-3 scentralBox mt-0 mb-4 lightgreen" id="ScentralBox"> 
                 <div>
                     <p class="text-center text-dark">(3 minutes)</p>
                     <h1 class="display-3 mx-5 my-5 text-center text-dark" id="headerSTitle">Arts and Blockchain in multimedia applications</h1>
                 </div>
             </div>
-            
-                
-                <form id="pre-form" action="" onchange="onFormUpdate()"> 
-                    <div class="mt-4 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
+            <!-- form begins here -->
+            <form id="pre-form" action="" onchange="onFormUpdate()"> 
+                <!-- First question -->
+                <div class="mt-4 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
                     <section class="py-1">
                         <h2>Art world</h2>
-                        
-
                         <p class="lead">Do you work or have you worked in the traditional art world? </p>
-                        
                         <div class="p-1 entry-field"> 
                             <div class="form-check"> 
                                 <input class="form-check-input" type="checkbox" name="ArtExp" id="ArtExp1" value="artCreator">
@@ -99,14 +87,12 @@
                         </div> 
                         
                     </section>
-                    </div>
-
-                    <div class="mt-2 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
+                </div>
+                <!-- Second question -->
+                <div class="mt-2 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
                     <section class="py-1">
                         <h2>NFTs</h2>
-                        <p>Non-Fungible Tokens (NFTs) are a new technology increasingly used in the art world and art market, questioning traditional views on art media and ownership. 
-
-                            NFTs rely on blockchains to equip digital (or digitized) items with certificates of authorship and ownership. NFTs are programmable and can be used, for example, to guarantee artists a royalty on secondary market sales or engage in the fractional trade of artworks. </p>
+                        <p>Non-Fungible Tokens (NFTs) are a new technology increasingly used in the art world and art market, questioning traditional views on art media and ownership. NFTs rely on blockchains to equip digital (or digitized) items with certificates of authorship and ownership. NFTs are programmable and can be used, for example, to guarantee artists a royalty on secondary market sales or engage in the fractional trade of artworks. </p>
                         <p class="lead">Do you work or have worked with NFTs?</p>
                         <div class="p-1  mb-3 entry-field"> 
                             <div class="form-check"> 
@@ -132,9 +118,9 @@
                         </div>
 
                     </section>
-                    </div>
-
-                    <div class="mt-2 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
+                </div>
+                <!-- Third question -->
+                <div class="mt-2 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
                     <section class="py-1">
                         <h2>Finance and blockchain </h2>
                         <p class="lead"> Do you work or have worked in finance and have experience with blockchain technologies?</p>
@@ -160,43 +146,42 @@
                                 <label class="form-check-label" for="FinBcExp4">None of the above</label>
                             </div>
                         </div>
-
                     </section>
-                    </div>
-
-
-                    <div class="mt-2 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
+                </div>
+                <!-- Fourth Question -->
+                <div class="mt-2 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
                     <section class="py-1">
                         <h2>Now tell us something about you!</h2>
-                        
-                        
                         <p class="lead">How often do you use Multimedia Applications?<span class="myPointer" data-toggle="tooltip" title="Multimedia applications are services providing the user with various kinds of media (images, texts, videos, audios, etc.), examples could be You-Tube, Netflix, Instagram, etc.">*</span></p> 
                         <div class="p-1">
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="radio" name="useMM" id="useMM1" value="veryOften"/> 
-                                    <label class="form-check-label" for="useMM1">Very often (most of the day) </label> 
-                                </div> 
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="radio" name="useMM" id="useMM2" value="Often" />
-                                    <label class="form-check-label" for="useMM2"> Often (many times a day) </label>
-                                </div>    
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="useMM" id="useMM3"  value="Sometimes" />
-                                    <label class="form-check-label" for="useMM3">Sometimes (sometimes during the day) </label>
-                                </div> 
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="radio" name="useMM" id="useMM4"  value="Rarely" />
-                                    <label class="form-check-label" for="useMM4">Rarely (once a day at most)</label> 
-                                </div> 
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="radio" name="useMM" id="useMM5"  value="Never" />
-                                    <label class="form-check-label" for="useMM5">Never</label> 
-                                </div> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="useMM" id="useMM1" value="veryOften"/> 
+                                <label class="form-check-label" for="useMM1">Very often (most of the day) </label> 
+                            </div> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="useMM" id="useMM2" value="Often" />
+                                <label class="form-check-label" for="useMM2"> Often (many times a day) </label>
+                            </div>    
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="useMM" id="useMM3"  value="Sometimes" />
+                                <label class="form-check-label" for="useMM3">Sometimes (sometimes during the day) </label>
+                            </div> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="useMM" id="useMM4"  value="Rarely" />
+                                <label class="form-check-label" for="useMM4">Rarely (once a day at most)</label> 
+                            </div> 
+                            <div class="form-check"> 
+                                <input class="form-check-input" type="radio" name="useMM" id="useMM5"  value="Never" />
+                                <label class="form-check-label" for="useMM5">Never</label> 
+                            </div> 
+                        </div>
                     </section>
-                    </div>
-                    <div class="mt-2 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
+                </div>
+                <!-- Fifth Question -->
+                <div class="mt-2 pb-1 pt-1 bg-light rounded-3 scentralBox"> 
                     <section class="py-1">
                         <h4>Read the statements below and choose in a scale from “Strongly Agree ” to “Strongly Disagree” how much they reflect you. </h4>
+                        <!-- First slider -->
                         <div class="p-1"> 
                             <p for="PresurveyInput5" class="lead form-label" >It is hard for me to make plans.</p>
                             <div class="inline slider text-center">
@@ -211,6 +196,7 @@
                                 </ul>
                             </div>
                         </div> 
+                        <!-- Second slider -->
                         <div class="p-1"> 
                             <p for="PresurveyInput5" class="lead form-label">I easily get bored.</p>
                             <div class="inline slider text-center">
@@ -218,13 +204,13 @@
                                 <ul class="vals">
                                     <li class="text-center">Strongly Disagree</li>
                                     <li class="text-center">Disagree</li>
-
                                     <li class="text-center">I do not know</li>
                                     <li class="text-center">Agree</li>
                                     <li class="text-center">Strongly <br> Agree</li>
                                 </ul>
                             </div>
                         </div> 
+                        <!-- Third slider -->
                         <div class="p-1"> 
                             <p for="PresurveyInput5" class="lead form-label">I consider myself a curious person.</p>
                             <div class="inline slider text-center">
@@ -232,7 +218,6 @@
                                 <ul class="vals">
                                     <li class="text-center">Strongly Disagree</li>
                                     <li class="text-center">Disagree</li>
-
                                     <li class="text-center">I do not know</li>
                                     <li class="text-center">Agree</li>
                                     <li class="text-center">Strongly <br> Agree</li>
@@ -240,21 +225,16 @@
                             </div>
                         </div> 
                     </section> 
-                    </div>
-                    
-
-                    <div class="text-end py-3 scentralBox"> 
-                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Fill the questionnaure before proceeding" onclick="finishsurv()">
+                </div>
+                <!-- Submit button -->
+                <div class="text-end py-3 scentralBox"> 
+                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Fill the questionnaure before proceeding" onclick="finishsurv()">
                         <button type="submit" disabled="disabled" class="btn btn-success p-3 float-end" id="submit">
                             Submit! 
                         </button> 
                     </span>
-                    </div> 
-                </div>  
-                </form>
-            
-            <!-- onclick="location.href='warmUp.html'"  -->
-            
+                </div> 
+            </form>
         </div> 
 
         <!-- Footer -->
@@ -264,44 +244,43 @@
             </div>
         </footer>    
     </body>
+    <!-- Script to JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Script for log-data -->
+    <script type="module">
+    var currentDate = new Date()
+    sessionStorage.setItem('access-warmup', currentDate);
 
-       <script type="module">
-        var currentDate = new Date()
-        sessionStorage.setItem('access-warmup', currentDate);
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+    const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
+    
+    console.log('Supabase Instance: ', supabase)
+    let myId = sessionStorage.getItem('id');
 
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-        const supabase = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
-      
-        console.log('Supabase Instance: ', supabase)
-        let myId = sessionStorage.getItem('id');
+    console.log(myId)
+    const form = document.querySelectorAll('#pre-form')
+    form[0].addEventListener('submit', async (event) => {
 
-        console.log(myId)
-        const form = document.querySelectorAll('#pre-form')
-        form[0].addEventListener('submit', async (event) => {
+        event.preventDefault()
+        const formInputs = form[0].querySelectorAll('input[name = ArtExp]:checked, input[name = NftExp]:checked, input[name = FinBcExp]:checked, input[name = useMM]:checked, input[name = Decision], input[name = Bore], input[name = Curios]')
+        let submission = {'id':myId}
+        formInputs.forEach( element =>{
+            const { value, name } = element
+            if (value) {
 
-            event.preventDefault()
-            const formInputs = form[0].querySelectorAll('input[name = ArtExp]:checked, input[name = NftExp]:checked, input[name = FinBcExp]:checked, input[name = useMM]:checked, input[name = Decision], input[name = Bore], input[name = Curios]')
-            let submission = {'id':myId}
-            formInputs.forEach( element =>{
-                const { value, name } = element
-                if (value) {
-
-                    if (submission[name] != undefined){
-                    submission[name]=submission[name]+', '+value}else{submission[name]=value}
-                
-                }
-            })
-
-            console.log(submission)
-            await supabase.from('First_survey').insert([submission])
-            window.location.href = "warmUp.html"
-
+                if (submission[name] != undefined){
+                submission[name]=submission[name]+', '+value}else{submission[name]=value}
+            
+            }
         })
-      </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script src="./presurvey.js"></script>
-      
+
+        console.log(submission)
+        await supabase.from('First_survey').insert([submission])
+        window.location.href = "warmUp.html"
+
+    })
+    </script>
+    <script src="../js_app/FirstSurvey.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
