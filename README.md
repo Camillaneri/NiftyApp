@@ -84,7 +84,27 @@ Header and navbar are not clickable as we do not want the use to freely browse o
 #### Homepage
 The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, provifding information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data. 
 
-In this file one will also fin a script at the very ottom in which a unique identifier is assigned to that user's session. The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
+In this file one will also find a script at the very bottom in which a unique identifier is assigned to that user's session. The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
+
+#### First survey
+
+**Page description**
+
+**Javascript descritpion**
+
+#### Warm up
+
+**Page description**
+
+**Javascript descritpion**
+
+#### Task
+
+**Page description**
+
+**Javascript descritpion**
+
+
 
 #### Api Queries
 
