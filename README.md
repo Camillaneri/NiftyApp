@@ -73,7 +73,7 @@ In this phase we have better defined which dimension was thre most interesting i
 
 
 
-## Development
+### Development
 
 This section illustrates the development process. 
 
@@ -108,4 +108,4 @@ In this file one will also find a script at the very bottom in which a unique id
 
 #### Api Queries
 
-#### esults
+#### Supabase
