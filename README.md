@@ -106,6 +106,9 @@ We created tables on Supabase web interface
 
 ![image info](/images/create_table.png)
 
+Tables columns may be created and modified by clicking on their names as showed below. 
+
+![image info](/images/modify_column.png)
 
 For example `warmUp.html`'s survey results and log-data are managed by ``
 
