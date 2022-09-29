@@ -96,12 +96,9 @@ to retrieve them click on your project and go on the settings as showed below
 ![image info](/images/settings_page.png)
 
 Next step consists in prepaing the connection on the html through a .js file.
-First we copies Supabase's CND in the &lt;head> tag of `FirstSurvey.html`, `warmUp.html` and  `Task.html`.
-
- `<!-- Script to supabase -->`
- 
- `<script src="https://unpkg.com/@supabase/supabase-js"></script>`
-
+First we copies Supabase's CND 
+ `<script src="https://unpkg.com/@supabase/supabase-js"></script>` in the &lt;head> tag of `FirstSurvey.html`, `warmUp.html` and  `Task.html`.
+Each one of the listed html file is connected to a JSON file linking to the right table that we want to fill with the correspective data.
 
 
 
