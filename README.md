@@ -87,13 +87,14 @@ To do
 To set up the connection to supabase one needs to create an account on their [website](https://supabase.com/) and sign-up, git hub can be easily used for accessing it for the first time.
 
 Then go on the project page and start  new project. 
-![image info](/images/settings_page.png)
+![image info](/images/create_project.png)
 
 After following all the steps for creating your project you will be provided the address of your project and the anon key for connecting to it. 
 
 to retrieve them click on your project and go on the settings as showed below
 
-![image info](/images/create_project.png)
+![image info](/images/settings_page.png)
+
 
 
 
