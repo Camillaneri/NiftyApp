@@ -139,6 +139,18 @@ The table on Supabase related to the first survey is composed as follows:
 **Supabase data**
 The table on Supabase related to the Warm Up page is composed as follows:
 
+| Column name   | Data type | Description |
+| ----------- | ----------- | ----------- |
+| Id          | int8        | User's unique identifier |
+| refID       | json        | json containing round numbers as key and the id of the reference image as values |
+| AIorder     | json        | json containing the number of round as key and the images’ ids ordered by similarity by the algorithm  as value |
+| UserOrder   | json        | json containing the number of round as key and the images’ ids ordered by similarity by by the user as values |
+| TimeXround | json         | json keeping track of the time in (ms) needed for each round |
+| Satisfaction| int8        | value of satisfaction level given by users |
+| Issues      | text        | list of possible issues with the algorithm |
+| Comments    | text        | additional comments by user |
+
+
 ### Task
 
 **Page description**
@@ -148,4 +160,4 @@ The table on Supabase related to the Warm Up page is composed as follows:
 2. TaskTutorial.js
 3. supa_task.js
 
-
+### End page

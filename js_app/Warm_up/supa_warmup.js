@@ -23,7 +23,7 @@
         refimg = JSON.parse(refimg)
 
 
-        var submission = {'user':myId, 'refID':refimg, 'AIorder ':AIorder, 'UserOrder':Uorder, 'TimeXround':time}
+        var submission = {'Id':myId, 'refID':refimg, 'AIorder ':AIorder, 'UserOrder':Uorder, 'TimeXround':time}
             const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked, input[name = Comments]')
             
             // scrivere qui gli altri log 
