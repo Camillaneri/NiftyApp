@@ -50,6 +50,6 @@
 
         // console.log('final submission', submission)
         await supabase3.from('Main_task').insert([submission])
-        // window.location.href = "end.html"
+        window.location.href = "end.html"
 
     })

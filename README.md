@@ -110,9 +110,15 @@ Tables columns may be created and modified by clicking on their names as showed 
 
 ![image info](/images/modify_column.png)
 
-For example `warmUp.html`'s survey results and log-data are managed by ``
+For example `warmUp.html`'s survey results and log-data are managed by `supa_warmup.js`, in which, at line 3 we find this chunk of code:
 
+`const supabase2 = createClient('project url', 'public anon key')`
 
+The table in which the data is subitted is here specified at the end of the code, at line 42:
+
+`await supabase2.from('Warm_up').insert([submission])`
+
+      
 
 
 ### Homepage
