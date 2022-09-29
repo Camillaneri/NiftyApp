@@ -98,8 +98,8 @@ to retrieve them click on your project and go on the settings as showed below
 Next step consists in prepaing the connection on the html through a .js file.
 First we copies Supabase's CND in the &lt;head> tag of `FirstSurvey.html`, `warmUp.html` and  `Task.html`.
 
- ` <!-- Script to supabase --> <br>
-        <script src="https://unpkg.com/@supabase/supabase-js"></script>`
+ `<!-- Script to supabase -->`
+ `<script src="https://unpkg.com/@supabase/supabase-js"></script>`
 
 
 
