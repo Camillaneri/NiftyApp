@@ -154,10 +154,14 @@ The table on Supabase related to the Warm Up page is composed as follows:
 ### Task
 
 **Page description**
+*[to do]*
 
 **Javascript description**
-1. task.js
-2. TaskTutorial.js
-3. supa_task.js
+1. **task.js** *[to describe]*
+2. **TaskTutorial.js** *[to describe]*
+3. **supa_task.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of the main task.
 
 ### End page
+
+**Page description**
+*[to do]*
