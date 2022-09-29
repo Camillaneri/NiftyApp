@@ -87,6 +87,7 @@ To do
 To set up the connection to supabase one needs to create an account on their [website](https://supabase.com/) and sign-up, git hub can be easily used for accessing it for the first time.
 
 Then go on the project page and start  new project. 
+
 ![image info](/images/create_project.png)
 
 After following all the steps for creating your project you will be provided the address of your project and the anon key for connecting to it. 
@@ -96,9 +97,17 @@ to retrieve them click on your project and go on the settings as showed below
 ![image info](/images/settings_page.png)
 
 Next step consists in prepaing the connection on the html through a .js file.
-First we copies Supabase's CND 
+First we copied Supabase's CND 
  `<script src="https://unpkg.com/@supabase/supabase-js"></script>` in the &lt;head> tag of `FirstSurvey.html`, `warmUp.html` and  `Task.html`.
-Each one of the listed html file is connected to a JSON file linking to the right table that we want to fill with the correspective data.
+
+Each one of the listed HTML pages is connected to a JSON file linking it to the right table that we want to fill with the correspective data.
+
+We created tables on Supabase web interface
+
+![image info](/images/create_table.png)
+
+
+For example `warmUp.html`'s survey results and log-data are managed by ``
 
 
 
@@ -111,7 +120,7 @@ The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob
 
 
 **Javascript description**
-1. scripts.js
+1. **scripts.js**
 In this file one can  find a script in which a unique identifier is assigned to that user's session. <br>
 The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
 
