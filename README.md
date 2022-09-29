@@ -118,15 +118,14 @@ The table in which the data is subitted is here specified at the end of the code
 
 `await supabase2.from('Warm_up').insert([submission])`
 
+This is our standerd procedure for adding data to supabase, please feel free to modify it or connect the pages to your new project. 
       
 
 
 ### Homepage
 
 **Page description**
-The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, provifding information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data. 
-
-
+The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, provifding information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data.
 
 **Javascript description**
 1. **scripts.js**
