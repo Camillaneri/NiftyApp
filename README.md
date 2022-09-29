@@ -119,8 +119,14 @@ The table on supabase related to the first survey is composed as follows:
 
 | Column name   | Data type | Description |
 | ----------- | ----------- | ----------- |
-| Id          | int8        | User's unique identifier|
-
+| Id          | int8        | User's unique identifier |
+| ArtExp      | text        | User's experience in arts? |
+| NftExp      | text        | User's experience with Non-Fungible Tokens |
+| FinBcExp    | text        | User's experience in finance and with blockchain |
+| useMM       | text        | How much time does the user spend on multimedia applications |
+| Decision    | int8        | How indecisive is the user |
+| Bore        | int8        | Hoe easily gets the user bored |
+| Curios      | int8        | How curious is the user |
 
 
 
