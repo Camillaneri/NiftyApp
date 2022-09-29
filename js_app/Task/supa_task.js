@@ -16,42 +16,40 @@
         var myId = sessionStorage.getItem('id');
         var myImgIds = sessionStorage.getItem('myImgIds');
         var myGallery_count = sessionStorage.getItem('myGallery_count');
-        var queryImgsClrd = sessionStorage.getItem('queryImgsClrd');
         var displayedImgs = sessionStorage.getItem('displayedImgs');
         var TimeXquery = sessionStorage.getItem("TimeXquery")
         TimeXquery = JSON.parse(TimeXquery)
         console.log('images',myImgIds,myGallery_count)
         var queries = sessionStorage.getItem('n_queries');
         var toAdd = {};
-        for(var i = 0; i <= queries; ++i){
+        for(var i = 1; i <= queries; ++i){
             var query = sessionStorage.getItem('query'+i);
-            console.log((JSON.stringify(query)));
-            toAdd[i]=query;
+            query = query.split("\\")
+            console.log('CHECK'+i, query)
+            
+            toAdd[i]=JSON.parse(query);
             
         }
-        var queriesIds = JSON.stringify(toAdd)
+        console.log('toAdd', toAdd)
+        var queriesIds = toAdd
         var submission = {'user':myId, 'n_queries':queries, 'queries_ids':queriesIds, 'myImgIds':myImgIds, 'myGallery_count':myGallery_count, 'displayedImgs':displayedImgs, 'TimeXquery':TimeXquery}
-        console.log(myId, queries)
-        console.log('final array', JSON.stringify(toAdd))
-        
-        
-        console.log('only logs',submission)
 
-            const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked, input[name = Comments]')
+
+        const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked, input[name = Comments]')
             
-            // scrivere qui gli altri log 
-            formInputs.forEach( element =>{
-                const { value, name } = element
-                if (value) {
+        // scrivere qui gli altri log 
+        formInputs.forEach( element =>{
+            const { value, name } = element
+            if (value) {
 
-                    if (submission[name] != undefined){
-                    submission[name]=submission[name]+', '+value}else{submission[name]=value}
-                
-                }
-            })
-
-            console.log('final submission', submission)
-            await supabase3.from('Main_task').insert([submission])
-            window.location.href = "end.html"
-
+                if (submission[name] != undefined){
+                submission[name]=submission[name]+', '+value}else{submission[name]=value}
+            
+            }
         })
+
+        // console.log('final submission', submission)
+        await supabase3.from('Main_task').insert([submission])
+        // window.location.href = "end.html"
+
+    })

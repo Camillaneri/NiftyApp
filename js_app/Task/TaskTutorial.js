@@ -1,7 +1,6 @@
 // TOOLTIPS
 
 jQuery(document).ready(function($) { // the good one
-    console.log("hi i'm jquery")
     window.scrollTo(0, 0)
    /*  
     $('#tutorialA').css("display","none");

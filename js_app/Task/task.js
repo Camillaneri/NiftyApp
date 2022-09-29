@@ -472,22 +472,6 @@ function clearImg(ev){
     }
     
 
-    switch (imgId){
-      case 'clear-liked':
-        var clearedlkd = parseInt(sessionStorage.getItem('clearedLikedImgs'))
-        clearedlkd +=1
-        sessionStorage.setItem('clearedLikedImgs', clearedlkd)
-        ////console.log('liked removed',clearedlkd)
-        break
-      case 'clear-disliked':
-        var cleareddslkd = parseInt(sessionStorage.getItem('clearedDislikedImgs'))
-        cleareddslkd +=1
-        sessionStorage.setItem('clearedDislikedImgs', cleareddslkd)
-        
-        
-        ////console.log('disliked removed', cleareddslkd)
-        break
-    }
     
   
   }
@@ -638,8 +622,6 @@ boxes.forEach(box => {
   var dict = {'pos':positives, 'neg':negatives}
   ////console.log('dict:',JSON.stringify(dict))
   sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
-  ////console.log('print session storage:', sessionStorage)
-  // sessionStorage.setItem()
   // fine parte log apply
 
 
