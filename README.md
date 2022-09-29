@@ -161,6 +161,23 @@ The table on Supabase related to the Warm Up page is composed as follows:
 2. **TaskTutorial.js** *[to describe]*
 3. **supa_task.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of the main task.
 
+**Supabase data**
+The table on Supabase related to the main task page is composed as follows:
+
+| Column name   | Data type | Description |
+| ----------- | ----------- | ----------- |
+| Id          | int8        | User's unique identifier |
+| n_queries       | int8        | Total number of queries performed by the user |
+| queries_ids     | json        | Positive and negative inputs for each query sent by the user |
+| myImgIds   | json        | String containing the ids of the images saved in the gallery at the end of the main task |
+| myGallery_count   | json        | Count of total images in the personal gallery at the end of main task |
+| displayedImgs   | json        | Count of enlarged images |
+| TimeXquery | json         | json keeping track of the time in (ms) needed for each query |
+| Satisfaction| int8        | value of satisfaction level given by users |
+| Issues      | text        | List of possible issues with the algorithm |
+| Comments    | text        | additional comments by user |
+
+
 ### End page
 
 **Page description**
