@@ -92,22 +92,33 @@ To do
 **Page description**
 The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, provifding information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data. 
 
-In this file one can also find a script at the very bottom in which a unique identifier is assigned to that user's session. <br>
-The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
+
 
 **Javascript description**
 1. scripts.js
+In this file one can  find a script in which a unique identifier is assigned to that user's session. <br>
+The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
+
+*[write about reeal function]*
 
 #### First survey
 
 **Page description**
 In this file we built the first survey submitted to the user in a *pre-experimanta* phase. <br>
 The page is composed by a form composed by the 7 questions listed in *[Design]()*. 
-Questions from 1 to 3 have as input a multiple-choice checklist, question 4 uses radio-button as input and the las 3 questions consist in sliders for selecting a likert scale value from 1 to 5. 
+Questions from 1 to 3 have as input a multiple-choice checklist, question 4 uses radio-button as input and the last 3 questions consist in sliders for selecting a likert scale value from 1 to 5. 
 
 **Javascript description**
 1. FirstSurvey.js
+This one contains jQuery code for the survey form, e.g., some code to block the submit button, untill the check-lists' and radio-button's input gropus have not been filled. 
 2. supa_survey1.js
+this script is devolved to posting on the respective table on Supabase, the answers given by the user in this second page.
+
+**Supabase data**
+The table on supabase related to the first survey is composed as follows:
+
+
+
 
 #### Warm up
 

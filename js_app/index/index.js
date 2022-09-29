@@ -1,8 +1,15 @@
 // clear old session storage if user restarts
 sessionStorage.clear();
 
-var WUround = 0
-sessionStorage.setItem('WUround', WUround)
+// script creating an unique identifier for the user, it will remain the same for all the session
+var random = Math.floor(Math.random()*(0-200 +1)+200);
+var currentDate = new Date()
+var day = currentDate.getDate()
+var month = currentDate.getMonth() + 1
+var year = currentDate.getFullYear()
+var id =  day +''+ month + '' + year + ''+random
+// set id in session storage 
+sessionStorage.setItem('id', id);
 
 // function for class reveal in HTML files 
 // MAGARI DA COMMENTARE CHE FA 
