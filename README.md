@@ -84,7 +84,11 @@ Header and navbar are not clickable as we do not want the use to freely browse o
 ### Api Queries
 To do
 ### Supabase
-To do
+To set up the connection to supabase one needs to create an account on their [website](https://supabase.com/) and sign-up, git hub can be easily used for accessing it for the first time.
+
+Then go on the project page and start  new project. 
+![image info](/images/create_project.png)
+
 
 
 ### Homepage
