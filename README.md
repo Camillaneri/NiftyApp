@@ -118,7 +118,7 @@ The table in which the data is subitted is here specified at the end of the code
 
 `await supabase2.from('Warm_up').insert([submission])`
 
-This is our standerd procedure for adding data to supabase, please feel free to modify it or connect the pages to your new project. 
+This is our standard procedure for adding data to Supabase, please feel free to modify it or connect the pages to your new project. 
       
 
 
