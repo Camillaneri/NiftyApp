@@ -117,6 +117,11 @@ this script is devolved to posting on the respective table on Supabase, the answ
 **Supabase data**
 The table on supabase related to the first survey is composed as follows:
 
+| Column name   | Data type | Description |
+| ----------- | ----------- | ----------- |
+| Id          | int8        | User's unique identifier|
+
+
 
 
 
