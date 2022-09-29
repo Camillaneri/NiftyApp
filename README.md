@@ -99,7 +99,7 @@ The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob
 In this file one can  find a script in which a unique identifier is assigned to that user's session. <br>
 The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
 
-*[write about reeal function]*
+*[write about reveal function]*
 
 ### First survey
 
@@ -113,7 +113,7 @@ Questions from 1 to 3 have as input a multiple-choice checklist, question 4 uses
 2. **supa_survey1.js** is devolved to posting on the respective table on Supabase, the answers given by the user in this second page.
 
 **Supabase data**
-The table on supabase related to the first survey is composed as follows:
+The table on Supabase related to the first survey is composed as follows:
 
 | Column name   | Data type | Description |
 | ----------- | ----------- | ----------- |
@@ -126,19 +126,20 @@ The table on supabase related to the first survey is composed as follows:
 | Bore        | int8        | Hoe easily gets the user bored |
 | Curios      | int8        | How curious is the user |
 
-
-
-
 ### Warm up
 
 **Page description**
+*[to do]*
 
 **Javascript description**
-1. supa_warmup.js
-2. WUfunctions.js
-3. WUrequests.js
+1. **WUfunctions.js** *[to describe]*
+2. **WUrequests.js** *[to describe]*
+3. **supa_warmup.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of Warm Up.
 
-#### Task
+**Supabase data**
+The table on Supabase related to the Warm Up page is composed as follows:
+
+### Task
 
 **Page description**
 
