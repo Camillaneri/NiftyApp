@@ -62,6 +62,8 @@ function loadWarmUp(){
       refimg.src = art_high_res;
       refimg.id = art_id
       
+
+//log dqata
       thisRound = sessionStorage.getItem('WUround')
       oldREFdict = sessionStorage.getItem("WUreference") 
       console.log(oldREFdict)
@@ -75,8 +77,10 @@ function loadWarmUp(){
         Refdict[thisRound]=art_id 
         sessionStorage.setItem("WUreference", JSON.stringify(Refdict))
       }
+//log dqata end
 
       document.getElementById('RefImg').classList.remove('imgsubst')
+      // i get 100 id of sim images
       request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+IDnum+"&artworks_neg=''"; //if its more than one they have to be numbers separated by comma without spaces
       ids = fetch(request)
 
@@ -85,6 +89,7 @@ function loadWarmUp(){
         biglist = responseJSON['recs']
         biglist_str = biglist.join();
         
+        // get the json for every id
         Refquery1 =  `
         {
           artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_in: [`+biglist_str+ `] }}) {
@@ -115,12 +120,13 @@ function loadWarmUp(){
         art_id = dict['artwork_id']
         art_url = dict['preview']
         get_img_element = document.getElementsByClassName('similarImg0') //put them into the image elements
-        // questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio  
-        if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){
+        // (art_url != null && art_url != "" && )questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio  
+        if (art_id !="" && art_id != null && art_url.includes("https://") ){
             get_img_element[x].style.height = null;
             get_img_element[x].src = art_url;
             get_img_element[x].id = art_id;
             document.getElementsByClassName("simimages")[x].classList.remove("imgsubst")
+            
             // log data da guardare Chiara
             LoadedImgsListenerWU += 1
             AIorder.push(art_id)
@@ -131,16 +137,20 @@ function loadWarmUp(){
                 console.log(sessionStorage)
             default: break
             }
+
+             // log data da guardare Chiara
+
             }
-        else{
-            get_img_element[x].src = "images/wooops1.jpg";
+       // else{
+           // get_img_element[x].src = "images/wooops1.jpg";
         
-        }
+        //}
       
        
       }
-        
-        // this if-else condition  parses and sets in session storage the json cpontaining the order given by the algorithm
+
+        // log data
+
         oldAIdict = sessionStorage.getItem("AIorder") 
         console.log(oldAIdict)
         thisRound = sessionStorage.getItem('WUround')
@@ -163,6 +173,8 @@ function loadWarmUp(){
           console.log("starting time", startingT)
         }
           
+          // log data end
+
         })})})
 
         }
@@ -172,6 +184,7 @@ function loadWarmUp(){
 
 
 
+ // log data 
 
 
 
@@ -299,3 +312,4 @@ function endTask(){
 
 }
 
+ // log data end
