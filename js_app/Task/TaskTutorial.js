@@ -1,25 +1,21 @@
 // This function displays the tutorials 
-// the tutorials are html element, this functions modifies their dispaly property to disply or hide them
+// the tutorials are html element, this functions modifies their dom dispaly property to display or hide them
 
 jQuery(document).ready(function($) { 
-    window.scrollTo(0, 0)// scroll to the top of the page
-
-
+    window.scrollTo(0, 0)// scroll to the top of the page, the scroll property of body is disabled
+    //  initially only the Task page banner is displayed, by clicking on the button(#warmstart) on the banner the Task page and the first tutorial window are displayed
 
     $( "#taskstart" ).click(function() {
-  
       $('#introtask').css("display","none")
       $('#tutorials').css("display","block")
-    $('#tutorialA').css("display","block");
-    $('#mainBody').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
-    $('#mainBody').css("z-index", "9")
-
-    $('#task2').css("z-index", "9")
-    $('#tutorials').css("z-index", "10")
-  });
-
+      $('#tutorialA').css("display","block");
+      $('#mainBody').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
+      $('#mainBody').css("z-index", "9")
+      $('#task2').css("z-index", "9")
+      $('#tutorials').css("z-index", "10")
+    });
+    //all tutorial windows contains buttons to dispaly the next tutorial window(#toTut2a) or the previous(#toTutA)
     $( "#toTutA" ).click(function() {
-      console.log("a")//indietro da b
       $('#tutorialB').css("display","none")
       $('#tutorialA').css("display","block");
       $('#id_dict').css("box-shadow", "unset")
@@ -27,78 +23,45 @@ jQuery(document).ready(function($) {
     });
 
     $( "#toTut2a" ).click(function() {
-      console.log("b")
       $('#tutorialA').css("display","none")
       $('#tutorialB').css("display","block");
-
       $('#dashboard').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
       $('#dashboard').css("z-index", "9")
-      
-      
       $('#mainBody').css("box-shadow", "unset")
-    $('#mainBody').css("z-index", "0")
+      $('#mainBody').css("z-index", "0")
       
     });
   
     $( "#toTutC" ).click(function() {
-      console.log("c")
       $('#tutorialB').css("display","none")
       $('#tutorialC').css("display","block");
-
-     /*  $('#dashboard').css("box-shadow", "unset")
-      $('#dashboard').css("z-index", "0") */
-
       $('#dashFooter').css("box-shadow", "0px 0px 10px 3900px rgb(0 0 0 / 60%)")
       $('#dashFooter').css("z-index", "9")
-
       $('#dashboard').toggleClass("check")
-
-      const whereisit = document.getElementById("dashFooter")
-      console.log("c")
-      const {  
-        top: t,  
-        left: l  
-      } = whereisit.getBoundingClientRect();  
-      // console.log("stored "+ t, l)
-      sessionStorage.setItem("wherebuttons1", t);
-   
     });
     
     $( "#toTut2b" ).click(function() {
-      console.log("d")//indietro da c
       $('#tutorialC').css("display","none")
       $('#tutorialB').css("display","block");
       $('.dropboxes').css("box-shadow", "unset")
       $('#id_dict').css("box-shadow", "0 0 30px #198753")
     });
-  
+    //#FinishTut button closes the last tutorial windows 
     $( "#FinishTut" ).click(function() {
-      console.log("e")
       $('#dashboard').toggleClass("check")
       $('.dropboxes').css("box-shadow", "unset")
       $('#tutorials').css("display","none")
       $('#task2').toggleClass("zindex")
-
       $('#dashboard').css("box-shadow", "unset")
       $('#dashboard').css("z-index", "0")
       $('#dashFooter').css("box-shadow", "unset")
       $('#dashFooter').css("z-index", "0")
-
-
       $('#task2').css("z-index", "0")
       $('#tutorials').css("z-index", "0")
+       // scrolling is enabled
       $("#bd1").removeClass("overflow-hidden")
     });
-   
-    // $(".botpage a").tipTip({ content: "This is an anchor tag!"});
-    // $(".botpage a").tipTip('show');
+
     });
-
-function display(ev) {
-    // console.log(ev.target)
-   
-    $('#reference').css("box-shadow", "0 0 30px #198753")
-      }
-
 
 

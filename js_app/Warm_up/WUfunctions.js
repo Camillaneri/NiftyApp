@@ -2,7 +2,7 @@
 // this jquery function dispalys the tutorial windows
 jQuery(document).ready(function($) {
   //  initially only the Warm Up banner is displayed, by clicking on the button(#warmstart) on the banner the Warm-Up page and the first tutorial window are displayed
-  window.scrollTo(0, 0)// while thwe tutorial are visible the scroll is diasabled and ther page is scrolled to the top
+  window.scrollTo(0, 0)// while the tutorial are visible the scroll is diasabled and ther page is scrolled to the top
   $( "#warmstart" ).click(function() {
       $('#introwarm').css("display","none")
       $('#tutorials').css("display","block")
