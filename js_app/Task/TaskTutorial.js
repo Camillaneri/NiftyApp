@@ -1,15 +1,13 @@
-// TOOLTIPS
+// This function displays the tutorials 
+// the tutorials are html element, this functions modifies their dispaly property to disply or hide them
 
-jQuery(document).ready(function($) { // the good one
-    window.scrollTo(0, 0)
-   /*  
-    $('#tutorialA').css("display","none");
-    $('#tutorialB').css("display","none")
-    $('#tutorialC').css("display","none") */
+jQuery(document).ready(function($) { 
+    window.scrollTo(0, 0)// scroll to the top of the page
+
 
 
     $( "#taskstart" ).click(function() {
-      console.log("yo")
+  
       $('#introtask').css("display","none")
       $('#tutorials').css("display","block")
     $('#tutorialA').css("display","block");
