@@ -12,8 +12,11 @@ var id =  day +''+ month + '' + year + ''+random
 sessionStorage.setItem('id', id);
 
 // function for class reveal in HTML files 
-// MAGARI DA COMMENTARE CHE FA 
+
+
+//This functions create the effect of elements appering on the page while the user scrolls down
 function reveal() {
+  //it makes elements visible to the user when they reach a certain height on the visible screen
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
