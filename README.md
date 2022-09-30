@@ -33,15 +33,15 @@ Following Knijnensburg, we decided to design our study as the triangulation of t
 
 Two tasks have been designed for the user to interact with NiftyValue's recommending system.
 
-The first one, made for the user to get accostumed with our application is *Warm Up*. This first brief task consists in a set of 5 images to be ordered form the most to the last similar, with respect to a reference image. The task can be repeated as many times as one likes.
+The first one, made for the user to get accustomed to our application is *Warm Up*. This first brief task consists of a set of 5 images that must be ordered from the most to the last similar, concerning the reference image. The main task is repeated as many times as one likes.
 
-The *Main task* in our evaluation consists in mutiple browsing sessions in which the user has to try NiftyValue's elicitation system to like and dislike the showed images. The goal of this task is for the user to find aesthetically pleasing images and save them in the gallery on the left. 
+The *Main task* in our evaluation consists of multiple browsing sessions in which the user has to try NiftyValue's elicitation system to like and dislike the displayed images. The goal of this task is for the user to find aesthetically pleasing art-works and save them in the gallery on the left. 
 
 ### Surveys [Cami deve rivedere, se torna il discorso]
 
-For collecting survey data we designed a first survey aiming at recordering user characteristics before the experiment starts, then at the end of each task the user will submit their opinion on their experience through some additional forms with questions concerning the tasks. 
+For collecting personal data we designed a first survey to gather user characteristics before starting the experiment. At the end of each task, the user will submit their opinion on the experience through some additional forms. 
 
-The first survey aims at collecting user's characteristics, here what we are concerned about the education and experience with art, finance, and technology. The table below shows the question we have selected. 
+The first survey aims at collecting user's characteristics. Here we are concerned with the education and experience with art, finance, and technology. The table below shows the questions we have selected. 
 
 | Question      | Answer input | Focus |
 | ----------- | ----------- | ----------- |
@@ -62,81 +62,77 @@ The other surveys are submitted to the user after each task, as soon as she/he f
 | Have you encountered one of the following issues?| Multiple choiche checklist | Issues with the algorithm |
 | Do you have any additional comment? | Text | User's impressions |
 
-In this phase we have better defined which dimension was thre most interesting in our evaluation, i.e., the user *satisfaction* with their experience. Also, we have choosen to account for algorithm's misbehaviour asking about possible issues with the loaded images and left some space for personal comment by the user, which might be investigated  through a sentiment analysis (we advice Syuzhet, an R library trained on the english vocaulary, easy to learn  and used for performing sentiment analysis on blogs' comments). 
-
+In this phase, we have better defined the most gripping dimension for our evaluation, i.e., the user *satisfaction* with their experience. We take into account the algorithm's misbehaviours, focusing on issues with the loaded images. Also, users' comments, might be investigated through sentiment analysis (we advise Syuzhet, an R library trained in the English vocabulary, easy to learn and used for performing sentiment analysis on blogs' comments). 
 
 
 ## Development
 
 This section illustrates the development process. 
 
-The website is structured in 5 main pages representing all the steps one has to follow to complete the experiment, plus an help page with links leading to NiftyValue's project website and the beta version of their application.
+The website is structured into five main pages representing all the steps one has to follow to complete the experiment, plus a help page with links leading to NiftyValue's project website and the beta version of their application.
 
-Header and navbar are not clickable as we do not want the use to freely browse our content, as it could mess up the experiment. Thus, **header** is composed by the the application name and a butto linking to the help page, while **navbar** works like breadcrumbs as t inform the user on their position in the application. 
+The header and navbar are not clickable as we do not want the user to freely browse our content, as it could mess up the experiment. Thus, **header** is composed by the application name and a button linking to the help page, while **navbar** works like breadcrumbs as t inform the user of their position in the application. 
 
 ### Api Queries [Cami deve rivedere]
 To do
-### Supabase [Chiara deve rivedere]
-To set up the connection to supabase one needs to create an account on their [website](https://supabase.com/) and sign-up, git hub can be easily used for accessing it for the first time.
 
-Then go on the project page and start  new project. 
+### Supabase [Chiara deve rivedere]
+To set up the connection to Supabase, you need to create an account on their [website](https://supabase.com/) and sign-up. GitHub can be used for accessing it for the first time.
+
+Then go on the project page and start a new project. 
 
 ![image info](/images/create_project.png)
 
-After following all the steps for creating your project you will be provided the address of your project and the anon key for connecting to it. 
+After following all the steps for creating your project, you are provided with the url address of your project and the anon key for accessing it. 
 
-to retrieve them click on your project and go on the settings as showed below
+To retrieve them click on your project and go to the settings as shown below.
 
 ![image info](/images/settings_page.png)
 
-Next step consists in prepaing the connection on the html through a .js file.
-First we copied Supabase's CND 
+The next step consists in preparing the connection on the HTML through a .js file.
+First, we copied Supabase's CND 
  `<script src="https://unpkg.com/@supabase/supabase-js"></script>` in the &lt;head> tag of `FirstSurvey.html`, `warmUp.html` and  `Task.html`.
 
 Each one of the listed HTML pages is connected to a JSON file linking it to the right table that we want to fill with the correspective data.
 
 We created tables on Supabase web interface
-
 ![image info](/images/create_table.png)
 
-Tables columns may be created and modified by clicking on their names as showed below. 
+Tables columns may be created and modified by clicking on their names as shown below. 
 
 ![image info](/images/modify_column.png)
-
-For example `warmUp.html`'s survey results and log-data are managed by `supa_warmup.js`, in which, at line 3 we find this chunk of code:
+For example, `warmUp.html`'s survey results and log-data are managed by `supa_warmup.js`, in which, at line 3 we find this chunk of code:
 
 `const supabase2 = createClient('project url', 'public anon key')`
 
-The table in which the data is subitted is here specified at the end of the code, at line 42:
+The table in which the data is submitted, is here specified at the end of the code, at line 42:
 
 `await supabase2.from('Warm_up').insert([submission])`
 
 This is our standard procedure for adding data to Supabase, please feel free to modify it or connect the pages to your new project. 
       
 
-
 ### Homepage
 
 **Page description**
-The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, provifding information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data.
+The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob/main/index.html)** here we present the application, providing information on NiftyValue, our experiment, how long it will keep to be finished and what will happen to the gathered data.
 
 **Javascript description**
 1. **scripts.js**
-In this file one can  find a script in which a unique identifier is assigned to that user's session. <br>
-The identifier is a string composed as follow: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is: *DDMMYYYYN*. 
+In this file, one can find a script in which a unique identifier is assigned to that user's session. <br>
+The identifier is a string composed as follows: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is *DDMMYYYYN*. 
 
 *[write about reveal function]*
 
 ### First survey
-
 **Page description**
-In this file we built the first survey submitted to the user in a *pre-experimanta* phase. <br>
-The page is composed by a form composed by the 7 questions listed in *[Design]()*. 
-Questions from 1 to 3 have as input a multiple-choice checklist, question 4 uses radio-button as input and the last 3 questions consist in sliders for selecting a likert scale value from 1 to 5. 
+In this file, we built the first survey submitted to the user in a *pre-experimental* phase. <br>
+The page is composed of a form contatining the questions listed in *[Design]()*. 
+Questions from 1 to 3 have a check-list input, question 4 utilises a radio-button as input, and the last three questions consist of sliders for selecting a Likert scale value from 1 to 5. 
 
 **Javascript description**
-1. **FirstSurvey.js** contains jQuery code for the survey form, e.g., some code to block the submit button, untill the check-lists' and radio-button's input gropus have not been filled. 
-2. **supa_survey1.js** is devolved to posting on the respective table on Supabase, the answers given by the user in this second page.
+1. **FirstSurvey.js** contains jQuery code for the survey form, e.g., some code to block the submit button until all the check-lists and radio-buttons input groups have not been filled-up. 
+2. **supa_survey1.js** is devolved to posting on the respective table on Supabase, the answers given by the user on this second page.
 
 **Supabase data**
 The table on Supabase related to the first survey is composed as follows:
