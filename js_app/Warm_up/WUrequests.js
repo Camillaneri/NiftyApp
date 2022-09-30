@@ -15,22 +15,22 @@ function loadWarmUp(){
 //the id is randomly generated then an api request is sent
   IDnum = Math.floor(Math.random() * 50000) 
 
-    Refquery =  `
-    {
-      artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+IDnum+` }}) {
-        url
+  Refquery =  `
+  {
+    artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+IDnum+` }}) {
+      url
         artwork_id
-      }
     }
+  }
         
-    ` 
+  ` 
 
-    const controller = new AbortController()
+  const controller = new AbortController()
     
-    const timeoutId = setTimeout(() => controller.abort(), 5000)
+  const timeoutId = setTimeout(() => controller.abort(), 5000)
 
-    fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
-      method: 'POST',
+  fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
+    method: 'POST',
       headers: {
         'Content-Type': 'text/json',
       },
