@@ -55,8 +55,9 @@ function loadWarmUp(){
       }else{
         art_high_res = dict['url']
       }
+     // questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
       //art_high_res != null && art_high_res != "" && 
-      if ( art_id !="" && art_id != null && art_high_res.includes("https://") ){
+     if ( art_id !="" && art_id != null && art_high_res.includes("https://") ){
         
       refimg.src = art_high_res;}else{
             get_img_element.src = "images/wooops1.jpg";
