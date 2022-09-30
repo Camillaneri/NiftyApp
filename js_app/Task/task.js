@@ -1,6 +1,6 @@
 
 
-
+//log data
 var n_queries = 0;
 sessionStorage.setItem('n_queries', n_queries);
 sessionStorage.setItem('clearedLikedImgs', 0);
@@ -10,26 +10,27 @@ sessionStorage.setItem('queryImgsClrd', '');
 var query = {'pos':'','neg':''};
 
 var LoadedImgsListener = 0
+//log data end
 
-
-//GET SIMILAR IMAGES 
+//GET 20 IMAGES 
 function fill_task_dash(){
 
 boxes = document.querySelectorAll('.darken1');
+// controlla cos'è
 
 boxes.forEach(box => {
   
     box.classList.remove('darken1');
 }); 
 
-
+// controlla cos'è
   for(let x = 0; x <= 19; x++){
     img_element = document.getElementsByClassName('img-to-like')[x].src = ""
   if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
     document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
   }
 }
-  
+  // fetch 20 img
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
     method: 'POST',
     headers: {
@@ -69,7 +70,7 @@ boxes.forEach(box => {
    
     get_img = document.getElementsByClassName('img-to-like')[i]
     
-    if (img_url.includes("https://") && img_url != "" && img_id !="" && img_url != null){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+    if (img_url.includes("https://")){// (&& img_url != "" && img_id !="" && img_url != null)questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
         get_img.src = img_url;
         get_img.id = img_id;
 
@@ -83,7 +84,7 @@ boxes.forEach(box => {
 
 
 
-    //for the reset button
+    // reset button
     if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
      console.log("preso")
         document.getElementById('LikesBox').innerHTML = "";
@@ -109,15 +110,18 @@ boxes.forEach(box => {
 
     }
 )  
+
+// log data
 startingT = new Date().getTime()    
 sessionStorage.setItem('Task_start', startingT)
 console.log("starting time", startingT) 
-
+// log data end
 
 
 }
 
-// IMAGE DRAG AND COPYDRAG
+/*
+// IMAGE DRAG 
 
 function allowDrop(ev) {
     
@@ -154,14 +158,17 @@ function drop(ev) {
     }
       //console.log( id_List)
 
-    //console.log(ev.target.outerHTML)
+    // a seconda che sia draggato qundo i rettangoli sono compressi o no
+    // check che le immagini non siano già aggiunte
+
+  // a seconda che sia draggato qundo i rettangoli sono compressi o no
     if(id_List.includes(original.id)==false){
       if(ev.target.classList.contains("bigdash")){
         ev.target.classList.remove("Dimdash")
         ev.target.appendChild(copyimg);
         ev.target.children[1].classList.toggle("img-to-like");
         ev.target.children[1].classList.toggle("clear-dash");
-        myImgsListener(); //@chiara è tuo questo?
+        myImgsListener(); //log data
         ev.target.children[0].classList.toggle("d-none")
         //original.classList.add("imggreen")
       }else{
@@ -172,7 +179,7 @@ function drop(ev) {
     ev.target.children[1].classList.add("img-fit-into");
     ev.target.children[1].classList.add("fit-img");
     ev.target.children[1].classList.toggle("clear-dash");
-    myImgsListener();//@chiara è tuo questo? perchè l'ho duplicato
+    myImgsListener();//log data
     ev.target.children[0].classList.toggle("d-none")
     original.classList.add("darken1")
     //original.classList.add("imggreen")
@@ -184,7 +191,7 @@ function drop(ev) {
   
     
 };  
-
+ */
 
 
 //PIN TO DASH
@@ -270,11 +277,6 @@ function ExpandDash() {
     document.getElementById("imagesGrid").classList.toggle("flex-column");
     document.getElementById("mainBody").classList.toggle("col-8");
     document.getElementById("mainBody").classList.toggle("col-9");
-    
-    
-    
-    
-
 };
 
 
@@ -282,10 +284,8 @@ function ExpandDash() {
 
 
 
-//ADD IMAGES TO QUERY
-//////console.log("")
+//ADD IMAGES TO QUERY  -- click like or dislike the image is added to like or diislike box, if you click again is deleted, + check for repetitions or adding same image in both boxes
 
-////console.log(query)
 function AddLiked_Disliked(event) {
   
   
@@ -413,7 +413,7 @@ function AddLiked_Disliked(event) {
 
 
 
-//CLEAR IMGS from fields
+//CLEAR IMGS from fields delete image from box
 function clearImg(ev){
   //console.log("ciauxxx "+ev.target.parentNode.children[1].outerHTML)
   ////console.log("iddd "+ev.target.parentNode.outerHTML)
@@ -481,6 +481,8 @@ function clearImg(ev){
 }
 
 
+// click on reset button
+
 function resetDash(){
   
     a = document.getElementsByClassName("getDataboxDash")
@@ -500,6 +502,9 @@ function resetDash(){
   }
   myImgsListener();
 }
+
+
+// log data
 
 function repeatTask(){
   endingingT = new Date().getTime()
@@ -525,6 +530,12 @@ function repeatTask(){
   fill_task_dash()
 }
 
+//log data end
+
+
+
+// apply like dislike DA CONTROLLARE
+
 function Apply_like_dislike(){ //start 
 
   for(let x = 0; x <= 19; x++){
@@ -549,6 +560,7 @@ boxes.forEach(box => {
   box.classList.remove('darken1');
 }); 
 
+//log data
   // inizio parte log apply
 
   //riassumiamo le immagini cancellate da like e dislike in un unico item di storage Session
@@ -625,7 +637,7 @@ boxes.forEach(box => {
   // fine parte log apply
 
 
-
+//log data end
     
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
@@ -667,7 +679,7 @@ boxes.forEach(box => {
     
     disliked_ids = d_ids.join(); //string of disliked to put in request
   
-    
+    //function to retrieve sim images
     
     request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+liked_ids+"&artworks_neg="+disliked_ids+""; //if its more than one they have to be numbers separated by comma without spaces
    
@@ -714,7 +726,7 @@ boxes.forEach(box => {
        
         
     
-        if (art_url != null && art_url != "" && art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+        if ( art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
             
             get_img_element.src = art_url;
             
@@ -738,11 +750,16 @@ boxes.forEach(box => {
 } )
 
 }
+//log data
 startingT = new Date().getTime()    
 sessionStorage.setItem('Task_start', startingT)
 console.log("starting time", startingT) 
+//log data end
 }
 
+
+
+// display hd image
 function display_img(ev){
   // inizio log immagine grande
   var count = parseInt(sessionStorage.getItem('displayedImgs'));
@@ -800,6 +817,8 @@ function closeimg(){
 }
 
 
+// animation of the page elements
+
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     x = document.getElementById("introwarmup");
@@ -844,7 +863,7 @@ function closeimg(){
   
   window.addEventListener("scroll", reveal);
 
-
+// log data
 
 // retrieve dash images ids and count 
 
@@ -868,7 +887,11 @@ function myImgsListener(){
 
 myImgsListener();
 
+// log data end
 
+
+
+// log data
 function resetTask(){
   endingingT = new Date().getTime()
   console.log("ending time", endingingT)
@@ -890,3 +913,5 @@ function resetTask(){
   }
   fill_task_dash();
 }
+
+// log data end
