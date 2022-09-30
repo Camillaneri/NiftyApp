@@ -1,6 +1,8 @@
+
+// this jquery function dispalys the tutorial windows
 jQuery(document).ready(function($) {
-  //  display Warm Up banner
-  window.scrollTo(0, 0)
+  //  initially only the Warm Up banner is displayed, by clicking on the button(#warmstart) on the banner the Warm-Up page and the first tutorial window are displayed
+  window.scrollTo(0, 0)// while thwe tutorial are visible the scroll is diasabled and ther page is scrolled to the top
   $( "#warmstart" ).click(function() {
       $('#introwarm').css("display","none")
       $('#tutorials').css("display","block")
@@ -9,8 +11,7 @@ jQuery(document).ready(function($) {
       $('#RefImg').css("z-index", "9")
       $('#task').css("z-index", "11")
   });
-
-  // Tutorials
+    //all tutorial windows contains buttons to dispaly the next tutorial window(#toTut2a) or the previous(#toTut1)
     $( "#toTut1" ).click(function() {
       $('#tutorial2').css("display","none")
       $('#tutorial1').css("display", "block");
@@ -55,7 +56,7 @@ jQuery(document).ready(function($) {
       window.scrollTo(0, 0);
       
     });
-  
+    //#FinishTut button closes the last tutorial windows 
     $( "#FinishTut" ).click(function() {
       $('#tutorials').css("display","none")
       $('#tutorials').css("z-index", "0")
@@ -66,6 +67,7 @@ jQuery(document).ready(function($) {
       $('#buttons2').css("box-shadow", "unset")
       $('#refimgcontainer').toggleClass("zindex")
       $('#refimg').css("z-index", "0")
+      // scrolling is enabled
       $("#bod").removeClass("overflow-hidden")
 
     });
@@ -73,7 +75,8 @@ jQuery(document).ready(function($) {
     });
 
 
-  // function deletes images from numbered boxes
+
+  // This function deletes images displyed inside the numbered slots
   function clearImg(ev){
     for(let x = 0; x < document.getElementById("coso").children.length ; x++){
       if(document.getElementById("coso").children[x].children.length < 2){
@@ -90,9 +93,10 @@ jQuery(document).ready(function($) {
     }
   }
   
-// display high res big images when clicking on normal ones (we need hd imgs)
+// This function displays a bigger, high resolution version of an image when the user click on it
 function display_img(ev){
   hid = ev.target.id
+  // an api request is necessary to fetch high resolution image (the ones already displayed are low resolution)
   Refquery =  `
   {
     artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+hid+` }}) {
@@ -102,7 +106,6 @@ function display_img(ev){
   }
       
   ` 
-//fetch url and mediatype for every artwork
 fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   method: 'POST',
   headers: {
@@ -129,13 +132,13 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
 
 }
 
-// close enlarged picture
+// This function closes the view of the high resolution image
 function closeimg(){
     document.getElementById("shadow").classList.remove("seeme");
     document.getElementById("bod").classList.remove("noscroll")
 }
 
-// puts image in the first free box for reordering 
+//When an user click on the pin icon beside an image the same image is displayed in the first empty numbered slot
 function pin_WU(ev){
   givsrc = ev.target.parentElement.parentElement.children[1].src
   givid = ev.target.parentElement.parentElement.children[1].id
@@ -152,24 +155,24 @@ function pin_WU(ev){
   
 }
 
-// Enlarge the numbered boxes 
+// Enlarge the numbered slots.
 function arrowDown(){
   for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){
-    document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1")//tolgo getDatabox1
-    document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox") //aggiungo  getDatabox
+    document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1")
+    document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox") 
     document.getElementById("Small").children[0].children[i].children[0].children[2].classList.toggle("img-fit")
   }
-  document.getElementById("arrowDownButton").classList.toggle("d-none");//tolgo arrowDown
+  document.getElementById("arrowDownButton").classList.toggle("d-none");
   document.getElementById("arrowUpButton").classList.toggle("d-none");
 }
 
-// Diminish size of the numbered boxes 
+// Compress the numbered slots.
 function arrowUp(){
       for (var i = 0; i < document.getElementById("Small").children[0].children.length; i++){ 
-        document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1") //tolgo getDatabox1
-        document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox") //aggiungo  getDatabox
+        document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox1") 
+        document.getElementById("Small").children[0].children[i].classList.toggle("getDatabox") 
         document.getElementById("Small").children[0].children[i].children[0].children[2].classList.toggle("img-fit")
       }
-      document.getElementById("arrowDownButton").classList.toggle("d-none");//tolgo arrowDown
+      document.getElementById("arrowDownButton").classList.toggle("d-none");
       document.getElementById("arrowUpButton").classList.toggle("d-none");
 }
