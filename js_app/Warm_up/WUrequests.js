@@ -8,11 +8,12 @@ var Userdict = {}
 var Refdict = {}
 var Timedict = {}
 
-// prende la ref image e le 5 simili
+// this function fetch a random image and 5 similar image for the warm-up task
 function loadWarmUp(){
   console.log('at round',WUround)
   var AIorder = []
-  IDnum = Math.floor(Math.random() * 50000)
+//the id is randomly generated then an api request is sent
+  IDnum = Math.floor(Math.random() * 50000) 
 
     Refquery =  `
     {
@@ -25,7 +26,7 @@ function loadWarmUp(){
     ` 
 
     const controller = new AbortController()
-    // questa sotto non viene riutilizzata
+    
     const timeoutId = setTimeout(() => controller.abort(), 5000)
 
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
@@ -45,6 +46,8 @@ function loadWarmUp(){
       refimg = document.getElementsByClassName("REF")[0]
       
       dict = result['data']['artwork_metrics'][0]
+
+      // if the result6 of the request is null or it doesn't contains the url, the function is called again
       if(dict == null){
         loadWarmUp()
       }
@@ -55,15 +58,12 @@ function loadWarmUp(){
       }else{
         art_high_res = dict['url']
       }
-     // questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
-      //art_high_res != null && art_high_res != "" && 
-    //  if ( art_id !="" && art_id != null && art_high_res.includes("https://") ){
-    //   refimg.src = art_high_res;}else{get_img_element.src = "images/wooops1.jpg";}
+    // the reference image is displayed
       refimg.src = art_high_res;
       refimg.id = art_id
       
 
-//log dqata
+//log data
       thisRound = sessionStorage.getItem('WUround')
       oldREFdict = sessionStorage.getItem("WUreference") 
       console.log(oldREFdict)
@@ -77,10 +77,10 @@ function loadWarmUp(){
         Refdict[thisRound]=art_id 
         sessionStorage.setItem("WUreference", JSON.stringify(Refdict))
       }
-//log dqata end
+//log data end
 
       document.getElementById('RefImg').classList.remove('imgsubst')
-      // i get 100 id of sim images
+      // another request is sent to fetch a string containing the ids of similar images
       request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+IDnum+"&artworks_neg=''"; //if its more than one they have to be numbers separated by comma without spaces
       ids = fetch(request)
 
@@ -89,7 +89,7 @@ function loadWarmUp(){
         biglist = responseJSON['recs']
         biglist_str = biglist.join();
         
-        // get the json for every id
+        //another rewquest is sent to fetch the url for every image id
         Refquery1 =  `
         {
           artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_in: [`+biglist_str+ `] }}) {
@@ -111,16 +111,16 @@ function loadWarmUp(){
         .then((res) => res.json())
         .then((result) =>{ 
           dict1 = result['data']['artwork_metrics'];
+          // if the iamge retrieved are less than 5 the function is called again
           if(dict1.length < 5){
             loadWarmUp()
           }
-          
+      //the 5 similar images are displayed    
       for(let x = 0; x < 5 ; x++){
         dict = result['data']['artwork_metrics'][x]
         art_id = dict['artwork_id']
         art_url = dict['preview']
-        get_img_element = document.getElementsByClassName('similarImg0') //put them into the image elements
-        // (art_url != null && art_url != "" && )questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio  
+        get_img_element = document.getElementsByClassName('similarImg0') 
         if (art_id !="" && art_id != null && art_url.includes("https://") ){
             get_img_element[x].style.height = null;
             get_img_element[x].src = art_url;
@@ -141,10 +141,7 @@ function loadWarmUp(){
              // log data da guardare Chiara
 
             }
-       // else{
-           // get_img_element[x].src = "images/wooops1.jpg";
-        
-        //}
+   
       
        
       }
