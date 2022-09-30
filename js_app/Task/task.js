@@ -12,25 +12,23 @@ var query = {'pos':'','neg':''};
 var LoadedImgsListener = 0
 //log data end
 
-//GET 20 IMAGES 
+//This function fetches 20 images to fill the Gallery of the Main task
 function fill_task_dash(){
-
+// this function is activated also by clicking on the repeat task button, if that's the case we must bring the DOM back to its original state 
+//remove classes applied by other functions (darken1 lower the brightness of images selected with the pin icon)
 boxes = document.querySelectorAll('.darken1');
-// controlla cos'è
-
 boxes.forEach(box => {
-  
     box.classList.remove('darken1');
 }); 
-
-// controlla cos'è
-  for(let x = 0; x <= 19; x++){
+//reinstate the css animation(imgsubst) that replace missing images and is removed below when images are dispalyed 
+for(let x = 0; x <= 19; x++){
     img_element = document.getElementsByClassName('img-to-like')[x].src = ""
-  if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
+if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
     document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
-  }
 }
-  // fetch 20 img
+}
+
+//Api request to fetch url and id of 20 images
     fetch('https://staging.gql.api.niftyvalue.com/v1/graphql', {
     method: 'POST',
     headers: {
@@ -52,31 +50,22 @@ boxes.forEach(box => {
 .then((result) =>{  
     const myJSON = JSON.stringify(result);
     r_json = JSON.parse(myJSON);
-    
+  
     for(let i = 0; i <= 20; i++){
-
     dict_path = JSON.stringify(r_json['data']['artwork_metrics'][i]['preview']);
-
-
     newStr0 = dict_path.replace('"', '');
-    img_url = newStr0.replace('"', '');//get url
-
-
+    img_url = newStr0.replace('"', '');
     dict_path1 = JSON.stringify(r_json['data']['artwork_metrics'][i]['artwork_id']);
     newStr01 = dict_path1.replace('"', '');
-    img_id = newStr01.replace('"', '');//get id
-
-      
-   
+    img_id = newStr01.replace('"', '');
     get_img = document.getElementsByClassName('img-to-like')[i]
-    
-    if (img_url.includes("https://")){// (&& img_url != "" && img_id !="" && img_url != null)questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
+
+    //display retrieved images if the url is in the correct format
+    if (img_url.includes("https://")){
         get_img.src = img_url;
         get_img.id = img_id;
-
-        
+        //remove the css animation that replace missing images
         document.getElementsByClassName("no-img")[i].classList.remove("imgsubst")
-        
         }
     else{
         get_img.src = "images/wooops.jpg";
@@ -84,9 +73,9 @@ boxes.forEach(box => {
 
 
 
-    // reset button
+    // in the case this function is activated by clicking repeat task button, bring the DOM back to its original state 
     if (document.getElementById('LikesBox').children.length != 0 || document.getElementById('DislikesBox').children.length != 0){
-     console.log("preso")
+
         document.getElementById('LikesBox').innerHTML = "";
         document.getElementById('DislikesBox').innerHTML = "";
 
@@ -120,84 +109,9 @@ console.log("starting time", startingT)
 
 }
 
-/*
-// IMAGE DRAG 
 
-function allowDrop(ev) {
-    
-    ev.preventDefault();
-};
-
-function drag(ev) {
-    ev.dataTransfer.setData("Text", ev.target.id);
-    
-};  
-
-function drop(ev) {
-    ev.preventDefault();
-    id_List =[]
-    var data = ev.dataTransfer.getData("Text");
-    ////console.log("target"+ ev.target.outerHTML)
-    //ev.target.appendChild(document.getElementById(data));
-    var copyimg = document.createElement("img");
-    var original = document.getElementById(data);
-    
-    ////console.log("SOURCE"+copyimg.src)
-    ////console.log("ORIG-SOURCE"+original.src)
-    copyimg.src = original.src;
-    copyimg.classList = original.classList;
-    copyimg.id = original.id
-    copyimg.name = 'query'+n_queries
-
-    
-
-    for(var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++){
-      if(document.getElementsByClassName("getDataboxDash")[i].children.length > 1){
-        id_List.push(document.getElementsByClassName("getDataboxDash")[i].children[1].id)
-      } 
-    }
-      //console.log( id_List)
-
-    // a seconda che sia draggato qundo i rettangoli sono compressi o no
-    // check che le immagini non siano già aggiunte
-
-  // a seconda che sia draggato qundo i rettangoli sono compressi o no
-    if(id_List.includes(original.id)==false){
-      if(ev.target.classList.contains("bigdash")){
-        ev.target.classList.remove("Dimdash")
-        ev.target.appendChild(copyimg);
-        ev.target.children[1].classList.toggle("img-to-like");
-        ev.target.children[1].classList.toggle("clear-dash");
-        myImgsListener(); //log data
-        ev.target.children[0].classList.toggle("d-none")
-        //original.classList.add("imggreen")
-      }else{
-    //ev.target.classList.toggle("DataDash")
-    ev.target.classList.remove("Dimdash")
-    ev.target.appendChild(copyimg);
-    ev.target.children[1].classList.toggle("img-to-like");
-    ev.target.children[1].classList.add("img-fit-into");
-    ev.target.children[1].classList.add("fit-img");
-    ev.target.children[1].classList.toggle("clear-dash");
-    myImgsListener();//log data
-    ev.target.children[0].classList.toggle("d-none")
-    original.classList.add("darken1")
-    //original.classList.add("imggreen")
-  }
-  }
-    else{
-      alert("you already added this image")
-    }
-  
-    
-};  
- */
-
-
-//PIN TO DASH
-
+//If the user clicks on the pin icon beside an image this function displays the image on the first empty slot in the dasboard 
 function Addtodash(ev){
-  //////console.log(ev.target.parentElement.parentElement.children[2])
   giveid = ev.target.parentElement.parentElement.children[1].id
   givsrc = ev.target.parentElement.parentElement.children[1].src
   ev.target.parentElement.parentElement.children[1].classList.add("darken1")
@@ -210,42 +124,32 @@ function Addtodash(ev){
   img.classList.add('clear-dash') 
   id_List =[]
 
-  idilist = []
-  //console.log(giveid)
-
+  //make a list of the ids of images already displayed on the dashboard
   for(var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++){
     if(document.getElementsByClassName("getDataboxDash")[i].children.length > 1){
       id_List.push(document.getElementsByClassName("getDataboxDash")[i].children[1].id)
     } 
-    //console.log( id_List)
-    ////console.log(document.getElementsByClassName("DataDash")[i])
-    /* if(document.getElementsByClassName("DataDash")[i].children.length > 1 && document.getElementsByClassName("DataDash")[i].children[1].id == giveid ){
-      alert("you already added this image")
-    }  */
-      
   } 
+
   for(var i = 0; i < document.getElementsByClassName("getDataboxDash").length; i++){
     if(document.getElementsByClassName("getDataboxDash")[i].children.length < 2){
+      // if the image is not already on the dashboard display it on the first empty slot
       if (id_List.includes(giveid)==false){
-      //console.log(id_List.includes(giveid)==false)
-    //ev.target.parentElement.classList.remove("lightgreencol")
-    document.getElementsByClassName("getDataboxDash")[i].appendChild(img)
-    document.getElementsByClassName("getDataboxDash")[i].children[0].classList.toggle("d-none")
-    if(document.getElementsByClassName("getDataboxDash")[i].classList.contains("bigdash")==false){
-      document.getElementsByClassName("getDataboxDash")[i].children[1].classList.add("img-fit-into")
-      document.getElementsByClassName("getDataboxDash")[i].children[1].classList.add("fit-img")
-    }
-    if( document.getElementsByClassName("getDataboxDash")[i].classList.contains("bigdash")){
-      document.getElementsByClassName("getDataboxDash")[i].children[0].classList.remove("Dimdash")
-    }
-    id_List.push(document.getElementsByClassName("getDataboxDash")[i].children[1].id)
-    //////console.log("heyyyyyyyyyyyy "+ev.target.parentElement.parentElement.children[2].outerHTML)
-    break
-  
-    }else{
-      alert("you already added this image")
-      break
-    }
+        document.getElementsByClassName("getDataboxDash")[i].appendChild(img)
+        document.getElementsByClassName("getDataboxDash")[i].children[0].classList.toggle("d-none")
+        if(document.getElementsByClassName("getDataboxDash")[i].classList.contains("bigdash")==false){
+          document.getElementsByClassName("getDataboxDash")[i].children[1].classList.add("img-fit-into")
+          document.getElementsByClassName("getDataboxDash")[i].children[1].classList.add("fit-img")
+        }
+        if( document.getElementsByClassName("getDataboxDash")[i].classList.contains("bigdash")){
+          document.getElementsByClassName("getDataboxDash")[i].children[0].classList.remove("Dimdash")
+        }
+        id_List.push(document.getElementsByClassName("getDataboxDash")[i].children[1].id)
+        break
+      }else{
+        alert("you already added this image")
+        break
+      }
   }
   } 
   myImgsListener();
@@ -254,10 +158,10 @@ function Addtodash(ev){
 
 
 
-// DASHBOARD EXPAND-CONTRACT 
+// Expand the dashboard
 
 function ExpandDash() {
-    //////console.log("got");
+  
     document.getElementById("dashboard").classList.toggle("col-4");
     document.getElementById("dashboard").classList.toggle("col-3");
     document.getElementById("DashHeader").classList.toggle("smaldashead");
@@ -284,189 +188,138 @@ function ExpandDash() {
 
 
 
-//ADD IMAGES TO QUERY  -- click like or dislike the image is added to like or diislike box, if you click again is deleted, + check for repetitions or adding same image in both boxes
 
+
+//This function manages the addition of liked and disliked images in the right box
 function AddLiked_Disliked(event) {
-  
-  
-   
-    ////console.log('session:', sessionStorage)
-    
 
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
-    ////console.log("liked "+num_likd)
-    ////console.log("disliked "+num_dslikd)
 
-    if(event.target.id == 'imgBtnlike'){
-
+    // the user clicked on the "like" button
+    // if the user "likes" again the same image delete it from the box
+    // if they "like" and "dislike" the same image display an error message
+    // if they like more than 3 images display an error message
+    // in any other case add the image in the "liked images" box 
+    if(event.target.id == 'imgBtnlike'){ 
         AddMeL = event.target.parentElement.parentElement.children[1].src; 
         AddidL = event.target.parentElement.parentElement.children[1].id;
-  
-        if (num_likd == 0 && num_dslikd == 0){
-            
-            //////console.log("a.1")
+        if (num_likd == 0 && num_dslikd == 0){  
             document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 p-0 mx-2 img-contain'><input class='position-absolute cross-btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail img-fit-in'></div>"
             event.target.classList.add("green")
           }
         if((num_likd > 0 && num_likd < 3) || (num_likd == 0 && num_dslikd > 0 && num_dslikd <= 3 )){
-            ////console.log("a.2")
             likd_ids = []
             dislikd_ids =[];
             for(let i = 0; i < num_likd; i++){   
-                var img_idL = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
+                var img_idL = document.getElementById("LikesBox").children[i].children[1].id; 
                 likd_ids.push(img_idL)
-                console.log(likd_ids)
             }
             for(let i = 0; i < num_dslikd; i++){
-            var img_idD = document.getElementById("DislikesBox").children[i].children[1].id; //id of liked elements
+            var img_idD = document.getElementById("DislikesBox").children[i].children[1].id; 
             dislikd_ids.push(img_idD)
             }
             if (likd_ids.includes(AddidL)){
-                //console.log("a.21")
-                //alert('we get that you like this artpiece, maybe add it to dashboard instead of liking it twice ;)')
-                //console.log("ciao"+document.getElementById("LikesBox").children[0].children[1].id)
                 for(let i = 0; i < document.getElementById("LikesBox").children.length; i++){
                   if(document.getElementById("LikesBox").children[i].children[1].id == AddidL){
-                    console.log("ciao")
-                    console.log("ciao"+document.getElementById("LikesBox").children[i].children[1].id)
                     event.target.classList.remove("green")
                     document.getElementById("LikesBox").children[i].remove()
                   }
                 } 
             }
             else if (dislikd_ids.includes(AddidL)){
-                ////console.log("a.22")
-                alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
+                alert("please don't like and dislike the same image")
             }
             else{
-                ////console.log("a.23")
-                
                 document.getElementById("LikesBox").innerHTML += "<div class='position-relative col-3 mx-2 p-0 img-contain'><input class='position-absolute cross-btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-liked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidL+"' src='"+AddMeL+"' class='img-thumbnail  img-fit-in'></div>"
                 event.target.classList.add("green")
               }
-        
         }
         else if ( num_likd == 3){
-            ////console.log("a.3")
             alert('Maximum number of liked images reached')
         }
 
     }
+
+    // the user clicked on the "dislike" button
+
+    // if the user "dislikes" again the same image delete it from the box
+    // if they "like" and "dislike" the same image display an error message
+    // if they "dilike" more than 3 images display an error message
+    // in any other case add the image in the "disliked images" box 
     else if(event.target.id == 'imgBtndislike'){
-        ////console.log("b")
         AddMeD = event.target.parentElement.parentElement.children[1].src; 
         AddidD = event.target.parentElement.parentElement.children[1].id;
         if (num_likd == 0 && num_dslikd == 0){
-            //////console.log("b.1")
             document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 mx-2 p-0 img-contain'><input class='position-absolute cross-btn btn-light p-0 ' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
             event.target.classList.add("red")
           }
         if((num_dslikd > 0 && num_dslikd < 3) || (num_likd > 0 && num_likd <= 3 && num_dslikd < 3)){
-            ////console.log("b.2")
             likd_idsD = []
             dislikd_idsD =[];
             for(let i = 0; i < num_likd; i++){  
-                var img_id1 = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
+                var img_id1 = document.getElementById("LikesBox").children[i].children[1].id; 
                 likd_idsD.push(img_id1)
-                
             }
             for(let i = 0; i < num_dslikd; i++){
-            var img_id2 = document.getElementById("DislikesBox").children[i].children[1].id; //id of disliked elements
+            var img_id2 = document.getElementById("DislikesBox").children[i].children[1].id; 
             dislikd_idsD.push(img_id2)
-            console.log(likd_idsD)
+            
             }
             if (likd_idsD.includes(AddidD)){
-                ////console.log("b.21")
                 alert("we get you have conflicting feeling about art but please don't like and dislike the same artpiece:(")
             }
             else if (dislikd_idsD.includes(AddidD)){
-                console.log("b.22")
-                //alert("we get that you don't like this artpiece, but disliking it twice seems a bit excessive :(")
                 for(let i = 0; i < document.getElementById("DislikesBox").children.length; i++){
                   if(document.getElementById("DislikesBox").children[i].children[1].id == AddidD){
-                    console.log("ciao")
-                    console.log("ciao"+document.getElementById("DislikesBox").children[i].children[1].id)
                     event.target.classList.remove("red")
                     document.getElementById("DislikesBox").children[i].remove()
                   }
                 } 
             }
             else{
-                //////console.log("b.23")
                 document.getElementById("DislikesBox").innerHTML += "<div class='position-relative col-3 p-0 mx-2 img-contain'><input class='position-absolute cross-btn btn-light p-0' style='font-family: bootstrap-icons' type='button' id='clear-disliked' onclick='clearImg(event)' value='&#xF62A;'><img id ='"+AddidD+"' src='"+AddMeD+"' class='img-thumbnail img-fit-in'></div>"
                 event.target.classList.add("red")
               }
         
         }
         else if ( num_dslikd == 3){
-            ////console.log("b.3")
             alert('Maximum number of disliked images reached')
         }
 
     }
-    
-  
-        
-    //LIKE
+
 }    
 
 
 
-//CLEAR IMGS from fields delete image from box
+//This function delete image from the likes or dislikes box and from the dashboard
 function clearImg(ev){
-  //console.log("ciauxxx "+ev.target.parentNode.children[1].outerHTML)
-  ////console.log("iddd "+ev.target.parentNode.outerHTML)
   ev.target.parentNode.children[1].classList.remove("img-fit-in")
   getid = ev.target.parentNode.children[1].id
-  
-  //inizio log removed images 
-  console.log("hey 1")
   ev.target.parentNode.children[1].remove()
-/* 
-   if (document.getElementById(getid) != null && document.getElementById(getid).classList.contains("darken1")){
-    console.log("beccato")
-  document.getElementById(getid).classList.remove("darken1") 
-  } */
-  if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
-    //console.log("A")
-    
-    ev.target.parentNode.remove()
-  
-  
 
-  for(let i = 1; i < 21; i++){
-    console.log(document.getElementById("drag"+i).children[0])
-    if( document.getElementById("drag"+i).children[1].id == getid){
-      if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.contains("green")==true){
-        console.log("boo2")
-        document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.remove("green")
-      }
-      if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.contains("red")==true){
-        document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.remove("red")
+  //the image is inside the likes or dislikes box
+  if (ev.target.parentNode.parentNode.id == "LikesBox" || ev.target.parentNode.parentNode.id == "DislikesBox"){
+    ev.target.parentNode.remove()
+    for(let i = 1; i < 21; i++){
+      if( document.getElementById("drag"+i).children[1].id == getid){
+        if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.contains("green")==true){
+          document.getElementById("drag"+i).children[1].parentNode.children[2].children[0].classList.remove("green")
+        }
+        if(document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.contains("red")==true){
+          document.getElementById("drag"+i).children[1].parentNode.children[2].children[1].classList.remove("red")
+        }
       }
     }
-  }
-    
-  
-  //console.log("ciauxxx1 "+ev.target.parentNode.outerHTML)
-  
-  ////console.log("iddd "+ev.target.parentNode.outerHTML)
-  
-  
+  //the image is inside the dashboard
   } else{
-    
     ev.target.classList.toggle("d-none")
-    
     for(let i = 1; i < 21; i++){
-      console.log(document.getElementById("drag"+i).children[0])
       if( document.getElementById("drag"+i).children[1].id == getid){
-        console.log("vai")
         document.getElementById("drag"+i).children[1].classList.remove("darken1")
       }
     }
-    
-    let imgId = ev.target.id
     if(ev.target.parentElement.classList.contains("bigdash")){
       ev.target.parentElement.classList.add("Dimdash")
     }
@@ -475,23 +328,18 @@ function clearImg(ev){
     
   
   }
-  //fine log removed images 
+  //log data
   myImgsListener(); //log images inserted in query, poi le do in pasto ad apply per riassumrle in una unica value di session storage 
-  //////console.log(ev.target.parentNode.parentNode)
+//log data end
 }
 
 
-// click on reset button
-
+// This function cleans the dashboard 
 function resetDash(){
   
     a = document.getElementsByClassName("getDataboxDash")
     for(let i = 0; i < a.length; i++){
       if(a[i].children.length > 1){
-        console.log(a[i])
-        console.log(a[i].classList)
-        console.log(a[i].classList.contains("bigdash") == true)
-        console.log("a " +a[i].children[1].outerHTML)
         a[i].children[1].remove()
         a[i].children[0].classList.add("d-none")
         if(a[i].classList.contains("bigdash") == true){
@@ -534,31 +382,30 @@ function repeatTask(){
 
 
 
-// apply like dislike DA CONTROLLARE
+// This function takes the ids of "liked" and "disliked" images amd fetch the resulting recommended images to fill the gallery
+function Apply_like_dislike(){ 
 
-function Apply_like_dislike(){ //start 
-
+//clean the gallery from the classes added to highlight "liked" or "disliked" images
   for(let x = 0; x <= 19; x++){
     img_element = document.getElementsByClassName('img-to-like')[x].src = ""
     if (document.getElementsByClassName("no-img")[x].classList.contains("imgsubst")== false){
       document.getElementsByClassName("no-img")[x].classList.add("imgsubst")
     }
   }
-
 boxes = document.querySelectorAll('.green');
 boxes.forEach(box => {
   box.classList.remove('green');
 });
-
 boxes = document.querySelectorAll('.red');
 boxes.forEach(box => {
   box.classList.remove('red');
 });
-
 boxes = document.querySelectorAll('.darken1');
 boxes.forEach(box => {
   box.classList.remove('darken1');
 }); 
+
+
 
 //log data
   // inizio parte log apply
@@ -635,60 +482,51 @@ boxes.forEach(box => {
   ////console.log('dict:',JSON.stringify(dict))
   sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
   // fine parte log apply
-
-
 //log data end
     
+
+    //if no image has been "liked" or "disliked" call the function to fetch 20 new images to fill the gallery
     num_likd = document.getElementById('LikesBox').children.length
     num_dslikd = document.getElementById('DislikesBox').children.length
-
     if(num_likd == 0 && num_dslikd == 0){
-      console.log("preso")
       fill_task_dash()
     }else{
-    
 
-    var num_liked = document.getElementById("LikesBox").childElementCount; //n of liked elements
-  
-    
- 
+    //number of liked elements
+    var num_liked = document.getElementById("LikesBox").childElementCount; 
+
+    //list of id of liked elements
     ids = []
-    
     for(let i = 0; i < num_liked; i++){
-    var img_id = document.getElementById("LikesBox").children[i].children[1].id; //id of liked elements
+    var img_id = document.getElementById("LikesBox").children[i].children[1].id; 
     ids.push(img_id)
     }
 
+    //number of disliked elements
+    var num_dsliked = document.getElementById("DislikesBox").childElementCount; 
     
-    
-    var num_dsliked = document.getElementById("DislikesBox").childElementCount; //n of disliked elements
-    
-    
-
+    //list of ids of disliked elements
     d_ids = []
-    
     for(let i = 0; i < num_dsliked; i++){
-        var imgds_id = document.getElementById("DislikesBox").children[i].children[1].id; //id of disliked elements
+        var imgds_id = document.getElementById("DislikesBox").children[i].children[1].id; 
         d_ids.push(imgds_id)
-    
         }
     
-    liked_ids = ids.join(); //string of liked to put in request
+    // transform the list of liked ids into a string
+    liked_ids = ids.join(); 
     
-    
-    
-    disliked_ids = d_ids.join(); //string of disliked to put in request
+    // transform the list of diliked ids into a string
+    disliked_ids = d_ids.join(); 
   
-    //function to retrieve sim images
-    
-    request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+liked_ids+"&artworks_neg="+disliked_ids+""; //if its more than one they have to be numbers separated by comma without spaces
+    //use the strings with the ids of "liked" and "disliked" elements to send an api request and retrieve a list of images that are similar to the "liked" images and different from the "disliked" images
+    request = "https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos="+liked_ids+"&artworks_neg="+disliked_ids+""; 
    
     ids = fetch(request)
     .then((response) => response.json())
     .then((responseJSON) => {
       biglist = responseJSON['recs']
 
-      //list of 100 similar artwoks ids
+      //obtain a list of 100 recommended artwoks ids
       biglist_str = biglist.join();
       
       Refquery =  `
@@ -715,25 +553,17 @@ boxes.forEach(box => {
       .then((result) =>{ 
         dict1 = result['data']['artwork_metrics'];
         
+        //display the recommended images
         for(let x = 0; x <= dict1.length ; x++){
         dict = result['data']['artwork_metrics'][x]
         art_media = dict['media_type']
         art_id = dict['artwork_id']
         art_url = dict['preview']
-        //art_high_res = dict['url']
-        
-        get_img_element = document.getElementsByClassName('img-to-like')[x] //put them into the image elements
-       
-        
-    
-        if ( art_id !="" && art_id != null && art_url.includes("https://") ){// questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
-            
+        get_img_element = document.getElementsByClassName('img-to-like')[x] 
+        if ( art_id !="" && art_id != null && art_url.includes("https://") ){
             get_img_element.src = art_url;
-            
             get_img_element.id = art_id;
             document.getElementsByClassName("no-img")[x].classList.remove("imgsubst")
-            //////console.log(get_img_element.naturalWidth + 'x' + get_img_element.naturalHeight)
-            //////console.log(get_img_element.width + 'x' + get_img_element.height)
             }
         else{
             get_img_element.src = "images/wooops1.jpg";
@@ -759,17 +589,19 @@ console.log("starting time", startingT)
 
 
 
-// display hd image
+// display a bigger, high resolution version of an image clicked by the user
 function display_img(ev){
+  //log data
   // inizio log immagine grande
   var count = parseInt(sessionStorage.getItem('displayedImgs'));
   count +=1
   sessionStorage.setItem('displayedImgs', count);
   // fine log immagine grande
-    //////console.log(ev.target)
+//log data end
 
+
+  // an api request is necessary to obtain an High resolution version of the image
   hid = ev.target.id
-    
   Refquery =  `
   {
     artwork_metrics(where: {media_type: {_in: ["gif", "png", "jpg", "mjpeg"]}, artwork_id: {_eq: `+hid+` }}) {
@@ -779,7 +611,6 @@ function display_img(ev){
   }
       
   ` 
-//fetch url and mediatype for every artwork
 fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   method: 'POST',
   headers: {
@@ -797,71 +628,24 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   dict = result['data']['artwork_metrics'][x]
   art_id = dict['artwork_id']
   art_high_res = dict['url']
-
+  // display a view of the high resolution image
   document.getElementById("shadow").classList.toggle("seeme");
   document.getElementById("displayed").src = art_high_res;
   window.scrollTo(0, 0);
   document.getElementById("bd1").classList.add("noscroll")
   
-
   
   }})
 
 }
 
-
+//close the view of the high resolution image
 function closeimg(){
-    //////console.log(document.getElementById("displayimg").classList)
     document.getElementById("shadow").classList.remove("seeme");
     document.getElementById("bd1").classList.remove("noscroll")
 }
 
 
-// animation of the page elements
-
-  function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    x = document.getElementById("introwarmup");
-  
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      
-      var elementTop = reveals[1].getBoundingClientRect().top;
-      
-      
-      
-      
-      elementVisible = 300;
-      
-      if (reveals[i].id == "goonbutton"){
-        
-        elementVisible = 5;
-        
-      }
-      if (elementTop < windowHeight - elementVisible) {
-        
-        
-        reveals[i].classList.add("active");
-        x.style.display = "none";
-        if((document.getElementById("task2").classList[5] == "zindex")&&(document.getElementById("dashboard").classList.contains("check") == false)){
-          window.scrollTo(0, 0);
-          } else if ((document.getElementById("task2").classList[5] == "zindex") && document.getElementById("dashboard").classList.contains("check")){
-            //console.log("preso")
-            let pos = sessionStorage.getItem("wherebuttons1");
-            //console.log("retrieved "+pos)
-            //console.log("position "+(pos-800))
-            window.scrollTo(0, pos-650);
-          }
-      } else {
-        
-       
-        reveals[i].classList.remove("active");
-        x.style.display = "block";
-      }
-    }
-  }
-  
-  window.addEventListener("scroll", reveal);
 
 // log data
 
