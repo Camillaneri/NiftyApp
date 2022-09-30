@@ -72,6 +72,7 @@ jQuery(document).ready(function($) {
 
     });
 
+
   // function deletes images from numbered boxes
   function clearImg(ev){
     for(let x = 0; x < document.getElementById("coso").children.length ; x++){
@@ -89,7 +90,7 @@ jQuery(document).ready(function($) {
     }
   }
   
-// display high res big images when clicking on normal ones
+// display high res big images when clicking on normal ones (we need hd imgs)
 function display_img(ev){
   hid = ev.target.id
   Refquery =  `
