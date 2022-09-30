@@ -1,13 +1,14 @@
-WUround = sessionStorage.getItem('WUround')
+// log data
+WUround = 1
 var LoadedImgsListenerWU = 0
 
-
+// dictionaries for log data
 var aidict = {}
 var Userdict = {}
 var Refdict = {}
 var Timedict = {}
 
-
+// prende la ref image e le 5 simili
 function loadWarmUp(){
   console.log('at round',WUround)
   var AIorder = []
@@ -54,8 +55,8 @@ function loadWarmUp(){
       }else{
         art_high_res = dict['url']
       }
-     // questo if filtra gli elementi che or ora ci danno problemi, andrà cambiata ma si può comunque usare per cambiare il formato delle gif e dei video per esempio
-      if (art_high_res != null && art_high_res != "" && art_id !="" && art_id != null && art_high_res.includes("https://") ){
+      //art_high_res != null && art_high_res != "" && 
+      if ( art_id !="" && art_id != null && art_high_res.includes("https://") ){
         
       refimg.src = art_high_res;}else{
             get_img_element.src = "images/wooops1.jpg";
@@ -122,10 +123,9 @@ function loadWarmUp(){
             get_img_element[x].src = art_url;
             get_img_element[x].id = art_id;
             document.getElementsByClassName("simimages")[x].classList.remove("imgsubst")
-
+            // log data da guardare Chiara
             LoadedImgsListenerWU += 1
             AIorder.push(art_id)
-           
             switch(LoadedImgsListenerWU){
               case 5:
                 boxes = document.querySelectorAll('.similarImg0')
