@@ -1,5 +1,5 @@
 
-//chiara
+//the script below disables the submit button until all check-lists and the radio-button have been filled.
 
 $(document).ready(() => {
     $("input[type=checkbox]").change(onFormUpdate);
@@ -24,13 +24,11 @@ $(document).ready(() => {
 
 //MODAL
  function finishsurv() {
-  console.log("hey")
   if($("#submit").attr("disabled")==("disabled")){
     $("#myModal1").css("display","block");
   }
  }
 
  function closemod(){
-  console.log("oi")
   $("#myModal1").css("display","none");
  }

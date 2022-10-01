@@ -121,8 +121,7 @@ The homepage file is **[index.html](https://github.com/Camillaneri/NiftyApp/blob
 1. **scripts.js**
 In this file, one can find a script in which a unique identifier is assigned to that user's session. <br>
 The identifier is a string composed as follows: the actual date composed as DD/MM/YYYY concatenated as a string with a number N randomly chosen between 0 and 200. The final form is *DDMMYYYYN*. 
-
-*[write about reveal function]*
+The function reveal() creates the effect of elements appering on the page while the user scrolls down.
 
 ### First survey
 **Page description**
