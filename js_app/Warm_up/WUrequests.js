@@ -63,7 +63,7 @@ function loadWarmUp(){
       refimg.id = art_id
       
 
-//log data
+//log data to get numer f roun and rference image
       thisRound = sessionStorage.getItem('WUround')
       oldREFdict = sessionStorage.getItem("WUreference") 
       console.log(oldREFdict)
@@ -181,10 +181,7 @@ function loadWarmUp(){
 
 
 
- // log data 
-
-
-
+// function gathering log-data 
 function repeatask(){
 
   // gather number of actual round 
@@ -248,7 +245,7 @@ function repeatask(){
 
 } 
 
-
+// function gathering log-data
 function endTask(){
 
 

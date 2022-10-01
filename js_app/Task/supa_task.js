@@ -1,5 +1,7 @@
 
+        //  insert form in supabase
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+       // createClient contain the project's url and public anon key        
         const supabase3 = createClient('https://cgvvgwcioxjnzpgxisbu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNndnZnd2Npb3hqbnpwZ3hpc2J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTM3MzM0MzUsImV4cCI6MTk2OTMwOTQzNX0.Ot2PkSTOWzi4RWs_gIsL3g1heXsDYCzflOyBocR-n5U')
       
         console.log(sessionStorage)
@@ -37,7 +39,7 @@
 
         const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked, input[name = Comments]')
             
-        // scrivere qui gli altri log 
+        // scrivere qui gli altri log  
         formInputs.forEach( element =>{
             const { value, name } = element
             if (value) {
@@ -48,7 +50,7 @@
             }
         })
 
-        // console.log('final submission', submission)
+        // link to table named Main_task
         await supabase3.from('Main_task').insert([submission])
         window.location.href = "end.html"
 

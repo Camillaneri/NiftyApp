@@ -329,7 +329,7 @@ function clearImg(ev){
   
   }
   //log data
-  myImgsListener(); //log images inserted in query, poi le do in pasto ad apply per riassumrle in una unica value di session storage 
+  myImgsListener(); //log images inserted in query,fed to apply in which they are resumed in a value of session storage 
 //log data end
 }
 
@@ -352,8 +352,7 @@ function resetDash(){
 }
 
 
-// log data
-
+// log data to gather tot amount of time for each query
 function repeatTask(){
   endingingT = new Date().getTime()
   console.log("ending time", endingingT)
@@ -371,7 +370,6 @@ function repeatTask(){
     sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
   }else{
     Timedict[n_queries]=tot_time 
-    // console.log(aidict)  
     sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
   }
   resetDash()
@@ -591,12 +589,10 @@ console.log("starting time", startingT)
 
 // display a bigger, high resolution version of an image clicked by the user
 function display_img(ev){
-  //log data
-  // inizio log immagine grande
+  // log counting how may time displayed images is acrivated
   var count = parseInt(sessionStorage.getItem('displayedImgs'));
   count +=1
   sessionStorage.setItem('displayedImgs', count);
-  // fine log immagine grande
 //log data end
 
 

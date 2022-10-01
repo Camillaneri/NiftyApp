@@ -26,7 +26,7 @@ form[0].addEventListener('submit', async (event) => {
     })
 
     console.log(submission)
-    // link to table names First_Survey
+    // link to table named First_Survey
     await supabase.from('First_survey').insert([submission])
     window.location.href = "warmUp.html"
 
