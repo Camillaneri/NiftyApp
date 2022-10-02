@@ -97,6 +97,7 @@ To obtain artworks data we need to send a POST request to the endpoint, we use O
 
 We use this format to send the request in javascript:
 
+```js
 apiquery =  ` <graphQL query JSON> ` 
   fetch('<Artwork data API endpoint url>' , {
     method: 'POST',
@@ -111,9 +112,11 @@ apiquery =  ` <graphQL query JSON> `
     .then((result) =>{ 
 }
 
+```
+
 The “result” variable contains the response in JSON format.
 
-***Image recommendation Endpoint (https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos=11,92&artworks_neg=7152)***
+**Image recommendation Endpoint (https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos=11,92&artworks_neg=7152)**
 
 The recommendation algorithm takes as an input certain images that have been liked and disliked by a user and based on their low-level features selects the images in the database that are more similar to the liked ones and less similar to the disliked ones.
 The second API endpoint access this system through a simple fetch request: in the URL sent to the endpoint the id of the liked images come separated by a comma after the string “artworks_pos=” while the ids of disliked images come after “artworks_neg=”, in this example 11 and 92 are liked images, while 7 and 153 are disliked images:
@@ -121,12 +124,15 @@ https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos=11,92&ar
 
 We use this format to send the request in javascript:
 
-request = " Second Api endpoint url "; 
+```js
+request = " Second API endpoint URL "; 
       ids = fetch(request)
 
       .then((response) => response.json())
       .then((result) => {
 }
+
+```
 
 The “result” variable contains a list of 100 ids of images selected by the recommendation algorithm.
 
@@ -202,14 +208,26 @@ The table on Supabase related to the first survey is composed as follows:
 | Curios      | int8        | How curious is the user |
 
 ### Warm up
+The Warmup Task page is composed by:
+1.	A reference image, is a randomly picked artwork in the upper left area of the page
+2.	Five similar images, displayed in the lower right area of the page are images selected by the recommendation algorithm to be similar to the reference image
+3.	Five numbered slots on the upper area of the page where the user should position the images following their subjective opinion on which are more or less similar to the reference image
+4.	The Repeat Task button,  when clicked on start anew the task with new images
+5.	The End Task button ends the tasks
+** Warmup Task Functions**
+Here are described only the main functions of the Warmup Task page:
+1.** WUrequests.js** Contains the jQuery function to display the tutorial when the page is loaded.
+2.** loadWarmUp ** this function fetch a random image and 5 similar images for the Warmup task.
+repeatask() 
+3.** repeatask** is called by the Repeat Task button
 
-**Page description** [Chiara, Cami deve rivedere]
-*[to do]*
-
-**Javascript description**
-1. **WUfunctions.js** *[to describe]* [Cami deve rivedere]
-2. **WUrequests.js** *[to describe]* [Cami deve rivedere]
-3. **supa_warmup.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of Warm Up.
+**Warmup Task Functions**
+Here are described only the main functions of the Warmup Task page:
+1. **WUrequests.js** Contains the jQuery function to display the tutorial when the page is loaded.
+2. **loadWarmUp** this function fetch a random image and 5 similar images for the Warmup task.
+repeatask() 
+3. **repeatask** is called by the Repeat Task button
+4. **supa_warmup.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of Warm Up.
 
 **Supabase data**
 The table on Supabase related to the Warm Up page is composed as follows:
@@ -228,13 +246,27 @@ The table on Supabase related to the Warm Up page is composed as follows:
 
 ### Task
 
-**Page description** [Chiara, Cami deve rivedere]
-*[to do]*
+**Page description** 
+**Main task** 
+The Main Task page is composed by:
+1.	The Gallery, the central part of the page, it displays 20 random artworks.
+2.	The Likes Box and Dislikes Box are two sections on the upper part of the page, when users click on the like or the dislike icon beside every image, the relative artworks are displayed there.
+3.	The Dashboard is a section on the left of the page that contains 5 slots where users can put artwork, they like by clicking on the pin icon beside the images.
+4.	The Apply button positioned under the Likes Box and Dislikes Box, when clicked on displays 20 new images in the dashboard based on the images liked and disliked by the user
+5.	The Reset button is positioned under the Likes Box and Dislikes Box, when clicked on cleans the Likes Box and Dislikes Box.
+6.	The Repeat Task button is positioned on the upper part of the dashboard, when clicked on reset the gallery and clean the dashboard
+7.	The End Task button is positioned on the upper part of the dashboard, when clicked on ends the task.
 
-**Javascript description**
-1. **task.js** *[to describe]* [Cami deve rivedere]
-2. **TaskTutorial.js** *[to describe]* [Cami deve rivedere]
-3. **supa_task.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of the main task.
+
+**Main Task Functions**
+Here are described only the main functions of the Main Task page:
+1.	**TaskTutorial.js** Contains the jQuery function to display the tutorial when the page is loaded.
+2.	**fill_task_dash** This function is called when the main task page is opened but also by the Repeat Task and End Task button, it cleans the Gallery, the Likes Box, Dislikes Box, and the Dashboard and fetches 20 random images to fill the Gallery.
+3.	**AddLiked_Disliked**This function manages the addition of liked and disliked images in the right box when the like or dislike icons beside images are clicked on
+4.	**Apply_like_dislike**This function takes the ids of liked and disliked images and fetches the resulting recommended images to fill the gallery
+5.	**Addtodash** If the user clicks on the pin icon beside an image this function displays the image on the first empty slot in the Dashboard.
+6.	**repeatTask** is called by the Repeat Task button
+7. **supa_task.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of the main task.
 
 **Supabase data**
 The table on Supabase related to the main task page is composed as follows:
@@ -256,4 +288,4 @@ The table on Supabase related to the main task page is composed as follows:
 ### End page
 
 **Page description**
-*[to do]*
+A simple pages that thanks the users for their contribution.
