@@ -1,7 +1,7 @@
 # NiftyEvalue Documentation 
 https://www.niftyvalue.com/team
-## Purpose [Cami deve rivedere]
-NiftyEvalue has been developed for evaluating the recommender system made by [NiftyValue's team](https://www.niftyvalue.com/team). Their [algorithm](https://www.niftyvalue.com/method) measures low-level features similarity of the NFTs liked and disliked by the user and returns those images that mostly represent the users' preferences. 
+## Purpose 
+NiftyEvalue has been developed for evaluating the recommender system made by [NiftyValue's team](https://www.niftyvalue.com/team). Their recommendation [algorithm](https://www.niftyvalue.com/method) measures low-level features similarity of images and returns NFTs artworks that represent users' preferences based on the ones they previously liked or disliked.
 By interacting with the algorithm and answering some short questions about their attitudes and experience, we believe users will provide helpful information to understand how well the recommending system works from a human point of view.
 
 ## Research [Cami deve rivedere]
@@ -29,13 +29,17 @@ Following Knijnensburg, we decided to design our study as the triangulation of t
 **Behavioural data** consists of all that data automatically collected by the application. The user can not control the recording of this data. The application will consistently collect all valuable interactions of the user with the system. 
 
 
-### Tasks [Cami deve rivedere]
+### Tasks
 
-Two tasks have been designed for the user to interact with NiftyValue's recommending system.
+Two tasks have been designed for the user to interact with NiftyValue’s recommending system.
 
-The first one, made for the user to get accustomed to our application is *Warm Up*. This first brief task consists of a set of 5 images that must be ordered from the most to the last similar, concerning the reference image. The main task is repeated as many times as one likes.
+The purpose of the first one, the *Warm Up task*, is to test the accuracy of the recommendation system, as well as familiarizing the users with our application. 
+In the Warm Up task, the user is presented with a randomly selected reference image, and five images deemed similar by NiftyValue’s recommendation algorithm.
+The user is asked to order the five images from the most similar to the less similar to the reference image, the results will help us understand how well the recommendation algorithm predicts human choices. 
 
-The *Main task* in our evaluation consists of multiple browsing sessions in which the user has to try NiftyValue's elicitation system to like and dislike the displayed images. The goal of this task is for the user to find aesthetically pleasing art-works and save them in the gallery on the left. 
+The *Main task* consists of multiple browsing sessions in which the user can try out NiftyValue's elicitation system.
+The user can like and dislike the displayed images and use the elicitation system to find new artworks based on their choices, once they find aesthetically pleasing artworks they can place them in a dedicated space, the “dashboard”.
+These activities in addition to the users’ feedback will allow us to gather data on the way the users interact with the elicitation system and their degree of satisfaction and enjoyment while using the application.
 
 ### Surveys [Cami deve rivedere, se torna il discorso]
 
@@ -73,8 +77,58 @@ The website is structured into five main pages representing all the steps one ha
 
 The header and navbar are not clickable as we do not want the user to freely browse our content, as it could mess up the experiment. Thus, **header** is composed by the application name and a button linking to the help page, while **navbar** works like breadcrumbs as t inform the user of their position in the application. 
 
-### Api Queries [Cami deve rivedere]
-To do
+### Api Queries 
+
+To be able to display images and use the recommendation system we have to send several HTTP requests and manipulate the responses.
+This is done via two different **API endpoint**: 
+1.	We the first to access a GraphQL  database that contains data about artworks and the URLs of the images.
+2.	The second is connected to the recommendation algorithm and we use it to obtain artworks identificatory numbers based on user preferences.
+
+**Artwork data Endpoint (https://staging.gql.api.niftyvalue.com/v1/graphql)**
+
+This API endpoint uses GraphQL [website](https://graphql.org/), an open-source data query and manipulation language for APIs to access the database where URLs and information about artworks are stored.
+To obtain artworks data we need to send a POST request to the endpoint, we use Online GraphiQL [website](https://cloud.hasura.io/public/graphiql) a tool that allows us to explore the database structure and build a request in JSON format.
+
+1.	We insert the API endpoint
+2.	In the Explorer section, we can get an understanding of the structure of the database and the “fields” we can query
+3.	We can use the Documentation Explorer to know the types and values that are allowed on the query fields.
+4.	A Grapql query in JSON format is built automatically, we can send it to see the response.
+5.	The Grapql query can be directly used in the javascript HTTP request.
+
+We use this format to send the request in javascript:
+
+apiquery =  ` <graphQL query JSON> ` 
+  fetch('<Artwork data API endpoint url>' , {
+    method: 'POST',
+      headers: {
+        'Content-Type': 'text/json',
+      },
+      body: JSON.stringify({
+        query: apiquery
+      }),
+    })
+    .then((res) => res.json())
+    .then((result) =>{ 
+}
+
+The “result” variable contains the response in JSON format.
+
+***Image recommendation Endpoint (https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos=11,92&artworks_neg=7152)***
+
+The recommendation algorithm takes as an input certain images that have been liked and disliked by a user and based on their low-level features selects the images in the database that are more similar to the liked ones and less similar to the disliked ones.
+The second API endpoint access this system through a simple fetch request: in the URL sent to the endpoint the id of the liked images come separated by a comma after the string “artworks_pos=” while the ids of disliked images come after “artworks_neg=”, in this example 11 and 92 are liked images, while 7 and 153 are disliked images:
+https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos=11,92&artworks_neg=7152
+
+We use this format to send the request in javascript:
+
+request = " Second Api endpoint url "; 
+      ids = fetch(request)
+
+      .then((response) => response.json())
+      .then((result) => {
+}
+
+The “result” variable contains a list of 100 ids of images selected by the recommendation algorithm.
 
 ### Supabase [Chiara deve rivedere]
 To set up the connection to Supabase, you need to create an account on their [website](https://supabase.com/) and sign-up. GitHub can be used for accessing it for the first time.
