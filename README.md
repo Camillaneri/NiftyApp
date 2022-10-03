@@ -96,8 +96,8 @@ To obtain artworks data we need to send a POST request to the endpoint, we use O
 ![image info](images/schema.jpg)
 4.	A GraphQL query in JSON format is built automatically, we can send it to see the response.
 ![image info](images/query.jpg)
-5.	The GraphQL query can be directly used in the JavaScript HTTP request.
 ![image info](images/response.jpg)
+5.	The GraphQL query can be directly used in the JavaScript HTTP request.
 We use this format to send the request in javascript:
 
 ```js
