@@ -213,12 +213,12 @@ The table on Supabase related to the first survey is composed as follows:
 The Warmup Task page is composed by a reference image in the upper left area of the page, that is randomly picked artwork. Th Five similar images are selected by the algorithm and displayed in the lower right area of the page are images selected by the recommendation algorithm to be similar to the reference image. These are the ones the user must rank by similiarity, following their subjective opinion. This action will be performed by inserting images in the five numbered slots on the upper area of the page.
 
 The Repeat Task button,  when clicked starts anew the task with new images, while thehe End Task button ends the tasks
-** Warmup Task Functions**
+**Warmup Task Functions**
 Here are described only the main functions of the Warmup Task page:
-1.** WUrequests.js** Contains the jQuery function to display the tutorial when the page is loaded.
-2.** loadWarmUp ** this function fetch a random image and 5 similar images for the Warmup task.
+1. **WUrequests.js** Contains the jQuery function to display the tutorial when the page is loaded.
+2. **loadWarmUp** this function fetch a random image and 5 similar images for the Warmup task.
 repeatask() 
-3.** repeatask** is called by the Repeat Task button
+3. **repeatask** is called by the Repeat Task button
 
 **Warmup Task Functions**
 Here are described only the main functions of the Warmup Task page:
