@@ -91,11 +91,12 @@ This is done via two different **API endpoint**:
 This API endpoint uses GraphQL [website](https://graphql.org/), an open-source data query and manipulation language for APIs to access the database where URLs and information about artworks are stored.
 To obtain artworks data we need to send a POST request to the endpoint, we use Online GraphiQL [website](https://cloud.hasura.io/public/graphiql) a tool that allows us to explore the database structure and build a request in JSON format.
 
+
 1.	We insert the API endpoint
 2.	In the Explorer section, we can get an understanding of the structure of the database and the “fields” we can query
 3.	We can use the Documentation Explorer to know the types and values that are allowed on the query fields.
-4.	A Grapql query in JSON format is built automatically, we can send it to see the response.
-5.	The Grapql query can be directly used in the javascript HTTP request.
+4.	A GraphQL query in JSON format is built automatically, we can send it to see the response.
+5.	The GraphQL query can be directly used in the JavaScript HTTP request.
 
 We use this format to send the request in javascript:
 
@@ -121,13 +122,14 @@ The “result” variable contains the response in JSON format.
 **Image recommendation Endpoint (https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos=11,92&artworks_neg=7152)**
 
 The recommendation algorithm takes as an input certain images that have been liked and disliked by a user and based on their low-level features selects the images in the database that are more similar to the liked ones and less similar to the disliked ones.
-The second API endpoint access this system through a simple fetch request: in the URL sent to the endpoint the id of the liked images come separated by a comma after the string “artworks_pos=” while the ids of disliked images come after “artworks_neg=”, in this example 11 and 92 are liked images, while 7 and 153 are disliked images:
-https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos=11,92&artworks_neg=7152
+The second API endpoint access this system through a simple fetch request: in the URL sent to the endpoint the id of the liked images comes separated by a comma after the string “artworks_pos=” while the ids of disliked images come after “artworks_neg=”, in this example 11 and 92 are liked images, while 7 and 153 are disliked images:
+
+```https://artdiscovery.api.niftyvalue.com/recs/api/v1.0/recs?artworks_pos=11,92&artworks_neg=7152```
 
 We use this format to send the request in javascript:
 
 ```js
-request = " Second API endpoint URL "; 
+request = "<Second API endpoint URL>"; 
       ids = fetch(request)
 
       .then((response) => response.json())
