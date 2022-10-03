@@ -4,32 +4,26 @@ https://www.niftyvalue.com/team
 NiftyEvalue has been developed for evaluating the recommender system made by [NiftyValue's team](https://www.niftyvalue.com/team). Their recommendation [algorithm](https://www.niftyvalue.com/method) measures low-level features similarity of images and returns NFTs artworks that represent users' preferences based on the ones they previously liked or disliked.
 By interacting with the algorithm and answering some short questions about their attitudes and experience, we believe users will provide helpful information to understand how well the recommending system works from a human point of view.
 
-## Research [Cami deve rivedere]
-The first phase of our project consisted in the literarature research of previous case studies and evaluation of recommending systems. Here we tried to find those systems that better resembled the functionalities of the one we were going to evaluate; thus, we focused on papers describing recommending systems based on low-level features similarity, recommening digital objects like images and music. 
-
-We followed Avazpour [et al.] study's classification of the dimensions used to evaluate a recommending system. We decided to focus our evaluation under a **user-centric** point of view, as many studies in the field have started to recognise the beneficial effects of end-users involvement to measure dimensions such as novelty, serendipity, and utility. 
+## Research 
+The first phase of our project consisted of literature research of previous case studies and evaluation of recommending systems. We tried to find systems that had similar functionalities to the one we were going to evaluate; thus, we focused on papers describing recommending systems based on low-level features similarity and centered on digital objects like images and music. 
+We followed Avazpour [et al.] study's classification of the different dimensions used to evaluate a recommending system and we decided to focus our evaluation on a **user-centric** point of view.
+Many studies in the field have started to recognize the beneficial effects of end-users involvement to measure dimensions related to the user's subjective perception of a system such as novelty, serendipity, and utility. 
 Additionally, we detected two tools that were helpful in designing our evaluation:
-
 * **ResQue's taxonomy**: by Pu et al., is a holistic study on user’s perceptions and impressions while interacting with a system;
-* **Knijnensburg's framework**: Knijensburg et al. expand ResQue’s framework with context characteristics, employing personal and situational characteristics. This framework uses specific terms such as experience and interaction: to distinguish between attitude and behaviour.
-
+* **Knijnensburg's framework**: Knijensburg et al. expand ResQue’s framework with context characteristics, employing personal and situational characteristics. This framework studies the objective qualities of the system, and the observable user behavior, under the light of the user’s subjective perception of the system.
 For a deeper insight on our research please refeer to our [State of the Art document]()
-
 ## Design 
+
 Following Knijnensburg, we decided to design our study as the triangulation of three main typologies of data:
 
 1. **User characteristics**: gathered from surveys
 2. **Subjective experience**: gathered from surveys
-3. **Behavioural data**: gathered from log-data
+3. **Behavioral data**: gathered from log-data
 
-**User characteristics**, the novelty item proposed by Knijnensburg et al. in their framework, are meaningful to us, as we had to consider the heterogeneity of people approaching NiftyEvalue and the differences in their education and attitude towards arts and Blockchain. 
-
-**Subjective experience** refers to the opinion of the users on their interaction with NiftyEvalue and is the part of the experiment from which we expect to gather direct information on the user experience with the evaluated algorithm. 
-
-**Behavioural data** consists of all that data automatically collected by the application. The user can not control the recording of this data. The application will consistently collect all valuable interactions of the user with the system. 
-
-This data can be later analysed therough a Structural Equation Model (SEM) analysis, providing a broader understanding of the variables involved in the study and their relationships. 
-
+**User characteristics**, the analysis of contextual characteristics introduced by Knijnensburg et al. in their framework, helped us consider the heterogeneity of people approaching NiftyEvalue and the differences in their education and attitude towards art and Blockchain. 
+**Subjective experience** refers to the opinion of the users on their interaction with NiftyEvalue, we expect to gather information on the user experience by collecting their answers to the surveys. 
+**Behavioral data** consists of the data automatically collected by the application, the user produces this data simply by interacting with the system. This information will be used to understand how the user actually behaves when using the system. 
+This data can be later analyzed through a Structural Equation Model (SEM) analysis, this model allows us to quantify the relationships between variables in a system, and can give us a broader understanding of the various factors at play in our study.
 
 ### Tasks
 
@@ -43,7 +37,7 @@ The *Main task* consists of multiple browsing sessions in which the user can try
 The user can like and dislike the displayed images and use this kind of elicitation system to find new artworks based on their choices, once they find aesthetically pleasing artworks they can place them in a dedicated space, the “dashboard”.
 These activities in addition to the users’ feedback will allow us to gather data on the way the users interact with the elicitation system and their degree of satisfaction and enjoyment while using the application.
 
-### Surveys [Cami deve rivedere, se torna il discorso]
+### Surveys 
 
 For collecting personal data we designed a first survey to gather user characteristics before starting the experiment. At the end of each task, the user will submit their opinion on the experience through some additional forms. 
 
