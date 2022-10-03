@@ -3,10 +3,7 @@
 //log data
 var n_queries = 0;
 sessionStorage.setItem('n_queries', n_queries);
-sessionStorage.setItem('clearedLikedImgs', 0);
-sessionStorage.setItem('clearedDislikedImgs', 0);
 sessionStorage.setItem('displayedImgs', 0);
-sessionStorage.setItem('queryImgsClrd', '');
 var query = {'pos':'','neg':''};
 
 var LoadedImgsListener = 0
@@ -355,22 +352,19 @@ function resetDash(){
 // log data to gather tot amount of time for each query
 function repeatTask(){
   endingingT = new Date().getTime()
-  console.log("ending time", endingingT)
   // get total time 
   tot_time = endingingT - startingT
-  console.log("tot time", tot_time)
 
-  oldTIMEdict = sessionStorage.getItem("TimeXquery") 
+  oldTIMEdict = sessionStorage.getItem("TimeXround") 
   Timedict = {}
 
   if (oldTIMEdict != null){
     Timedict = JSON.parse(oldTIMEdict)
-    console.log('parsed json session')
     Timedict[n_queries]=tot_time 
-    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+    sessionStorage.setItem("TimeXround", JSON.stringify(Timedict))
   }else{
     Timedict[n_queries]=tot_time 
-    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+    sessionStorage.setItem("TimeXround", JSON.stringify(Timedict))
   }
   resetDash()
   fill_task_dash()
@@ -407,79 +401,37 @@ boxes.forEach(box => {
 
 //log data
   // inizio parte log apply
-
-  //riassumiamo le immagini cancellate da like e dislike in un unico item di storage Session
-  let removedLiked = sessionStorage.getItem('clearedLikedImgs')
-  let removedDisiked = sessionStorage.getItem('clearedDislikedImgs')
-  ////console.log(n_queries, removedLiked, removedDisiked)
-  // creaiamo una string con numero di query e dati da poi mettere in session storage
-  var clearedforSession = +n_queries+': {removedLiked: '+removedLiked+', removedDisiked: '+removedDisiked+'}'
-  ////console.log('clearedforSession', clearedforSession)
-
-  var queryImgsClrd = sessionStorage.getItem('queryImgsClrd'); //riprendi value attuale in session storage
-  
-  switch (queryImgsClrd){
-    case '':
-      queryImgsClrd = clearedforSession;
-      break
-    default:
-      queryImgsClrd = queryImgsClrd+', '+clearedforSession;
-      break
-  }
-  sessionStorage.setItem('queryImgsClrd', queryImgsClrd)
-  ////console.log('queryImgsClrd', queryImgsClrd)
-
-  // riporta i count delle immagini (liked e disliked) e rimossi a zero per il count della prossima query
-  sessionStorage.setItem('clearedLikedImgs', 0);
-  sessionStorage.setItem('clearedDislikedImgs', 0);
   endingingT = new Date().getTime()
   console.log("ending time", endingingT)
   // get total time 
   tot_time = endingingT - startingT
   console.log("tot time", tot_time)
-
   oldTIMEdict = sessionStorage.getItem("TimeXquery") 
   Timedict = {}
 
   if (oldTIMEdict != null){
     Timedict = JSON.parse(oldTIMEdict)
-    console.log('parsed json session')
     Timedict[n_queries]=tot_time 
     sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
   }else{
     Timedict[n_queries]=tot_time 
-    // console.log(aidict)  
     sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
   }
   n_queries+=1 //incrementa count query dopo aver fatto i log sullo stato attuale
-  ////console.log("Query number: ", n_queries);
-  
-  ////console.log("Add query");
   sessionStorage.setItem('n_queries', n_queries);
-  ////console.log('n_queries =', n_queries)
-
   //log ids nella query
   var imgs_p =  document.getElementById('LikesBox').querySelectorAll('img')
-
   var positives = []
   for(var i = 0, n = imgs_p.length; i < n; ++i){
-    ////console.log('img =', imgs_p[i].id)
     positives.push(imgs_p[i].id)
   }
-  ////console.log('array pos=', positives)
-
   var imgs_n =  document.getElementById('DislikesBox').querySelectorAll('img')
   var negatives = []
   for(var i = 0, n = imgs_n.length; i < n; ++i){
-    ////console.log('img =', imgs_n[i].id)
     negatives.push(imgs_n[i].id)
   }
-  ////console.log('array neg=', negatives)
-  ////console.log('quries number',n_queries)
   var dict = {'pos':positives, 'neg':negatives}
-  ////console.log('dict:',JSON.stringify(dict))
   sessionStorage.setItem('query'+n_queries, JSON.stringify(dict))
-  // fine parte log apply
 //log data end
     
 
@@ -593,9 +545,7 @@ function display_img(ev){
   var count = parseInt(sessionStorage.getItem('displayedImgs'));
   count +=1
   sessionStorage.setItem('displayedImgs', count);
-//log data end
-
-
+  //log data end
   // an api request is necessary to obtain an High resolution version of the image
   hid = ev.target.id
   Refquery =  `
@@ -604,8 +554,7 @@ function display_img(ev){
       url
       artwork_id
     }
-  }
-      
+  }      
   ` 
 fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   method: 'POST',
@@ -630,11 +579,10 @@ fetch('https://staging.gql.api.niftyvalue.com/v1/graphql' , {
   window.scrollTo(0, 0);
   document.getElementById("bd1").classList.add("noscroll")
   
-  
-  }})
+  }
+})
 
 }
-
 //close the view of the high resolution image
 function closeimg(){
     document.getElementById("shadow").classList.remove("seeme");
@@ -645,24 +593,17 @@ function closeimg(){
 
 // log data
 
-// retrieve dash images ids and count 
-
+// retrieve My Gallery images ids and count 
 function myImgsListener(){
   var myImgIds = []
   const gallery = document.getElementById('imagesGrid')
-  ////console.log(gallery)
-  
   const imgs = gallery.querySelectorAll('img')
   sessionStorage.setItem('myGallery_count', imgs.length)
-  ////console.log('imgs',imgs.length)
   for(var i = 0; i < imgs.length; i++){
     myImg = imgs[i]
     myImgIds.push('{ '+myImg.name+': '+myImg.id+'}')
-    ////console.log('i=', myImg.id)
   }
-  ////console.log('array :', myImgIds)
   sessionStorage.setItem('myImgIds', myImgIds)
-  ////console.log(sessionStorage.getItem('myImgIds'))
 }
 
 myImgsListener();
@@ -678,18 +619,18 @@ function resetTask(){
   // get total time 
   tot_time = endingingT - startingT
   console.log("tot time", tot_time)
-  oldTIMEdict = sessionStorage.getItem("TimeXquery") 
+  oldTIMEdict = sessionStorage.getItem("TimeXround") 
   Timedict = {}
 
   if (oldTIMEdict != null){
     Timedict = JSON.parse(oldTIMEdict)
     console.log('parsed json session')
     Timedict[n_queries]=tot_time 
-    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+    sessionStorage.setItem("TimeXround", JSON.stringify(Timedict))
   }else{
     Timedict[n_queries]=tot_time 
     // console.log(aidict)  
-    sessionStorage.setItem("TimeXquery", JSON.stringify(Timedict))
+    sessionStorage.setItem("TimeXround", JSON.stringify(Timedict))
   }
   fill_task_dash();
 }

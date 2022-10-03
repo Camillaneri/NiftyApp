@@ -219,7 +219,6 @@ Here are described only the main functions of the Warmup Task page:
 1. **WUfunctions.js** contains the jQuery function to display the tutorial when the page is loaded.
 2. **WUrequests.js** contains functions connecting to NiftyValue's API, for filling the application, and for creating log data.
   * **loadWarmUp()** this function fetch a random image and 5 similar images for the Warmup task. It also contains some strings of code for creating counts and disctionaries, namely the log data for keeping track of reference image and similar images' ids loaded at each round 
-repeatask() 
   * **repeatask()** and **repeatask()** register the total amount of time needed to complete a round and the dictionaries containing the order of images decided by the user
 3. **supa_warmup.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of Warm Up.
 
@@ -249,11 +248,13 @@ The Repeat Task button is positioned on the upper part of the dashboard, when cl
 Here are described only the main functions of the Main Task page:
 1.	**TaskTutorial.js** Contains the jQuery function to display the tutorial when the page is loaded.
 2. **task.js** contains functions connecting to NiftyValue's API, for filling the application, and for creating log data.
-  *	**fill_task_dash()** This function is called when the main task page is opened but also by the Repeat Task and End Task button, it cleans the Gallery, the Likes Box, Dislikes Box, and the Dashboard and fetches 20 random images to fill the Gallery.
-  *	**AddLiked_Disliked()**This function manages the addition of liked and disliked images in the right box when the like or dislike icons beside images are clicked on
-  *	**Apply_like_dislike()**This function takes the ids of liked and disliked images and fetches the resulting recommended images to fill the gallery
+  *	**fill_task_dash()** This function is called when the main task page is opened but also by the Repeat Task and End Task button, it cleans the Gallery, the Likes Box, Dislikes Box, and the Dashboard and fetches 20 random images to fill the Gallery. It contains code for registering task's starting time and image added t the gallery.
+  *	**AddLiked_Disliked()**This function manages the addition of liked and disliked images in the right box when the like or dislike icons beside images are clicked on. 
+  *	**Apply_like_dislike()**This function takes the ids of liked and disliked images and fetches the resulting recommended images to fill the gallery. It contains log-data on time keept to send a query after images are loaded, updated the number of queries, registers negative and positive images of that query.
+  * **display_img()** gathers high_quality version of the selected image and updates displayed imsges count in the log data.
+  * **myImgsListener()** retrieves My Gallery images ids and counts. 
   *	**Addtodash()** If the user clicks on the pin icon beside an image this function displays the image on the first empty slot in the Dashboard.
-  *	**repeatTask()** is called by the Repeat Task button
+  *	**repeaTask()** and **resetTask()** register the total amount of time from the begiinning of the task and when the clicked button is repeated.
 3. **supa_task.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of the main task.
 
 **Supabase data**
@@ -267,6 +268,7 @@ The table on Supabase related to the main task page is composed as follows:
 | myImgIds   | json        | String containing the ids of the images saved in the gallery at the end of the main task |
 | myGallery_count   | json        | Count of total images in the personal gallery at the end of main task |
 | displayedImgs   | json        | Count of enlarged images |
+| TimeXround | json         | json keeping track of the time in (ms) needed for each round (when repeat button is clicked) |
 | TimeXquery | json         | json keeping track of the time in (ms) needed for each query |
 | Satisfaction| int8        | value of satisfaction level given by users |
 | Issues      | text        | List of possible issues with the algorithm |
@@ -277,3 +279,4 @@ The table on Supabase related to the main task page is composed as follows:
 
 **Page description**
 A simple pages that thanks the users for their contribution.
+It provides links to the official website of NiftyValue and to the beta version of the official application.

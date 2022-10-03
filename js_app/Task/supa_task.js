@@ -21,7 +21,8 @@
         var displayedImgs = sessionStorage.getItem('displayedImgs');
         var TimeXquery = sessionStorage.getItem("TimeXquery")
         TimeXquery = JSON.parse(TimeXquery)
-        console.log('images',myImgIds,myGallery_count)
+        var TimeXround = sessionStorage.getItem("TimeXround")
+        TimeXround = JSON.parse(TimeXroundy)
         var queries = sessionStorage.getItem('n_queries');
         var toAdd = {};
         for(var i = 1; i <= queries; ++i){
@@ -34,7 +35,7 @@
         }
         console.log('toAdd', toAdd)
         var queriesIds = toAdd
-        var submission = {'user':myId, 'n_queries':queries, 'queries_ids':queriesIds, 'myImgIds':myImgIds, 'myGallery_count':myGallery_count, 'displayedImgs':displayedImgs, 'TimeXquery':TimeXquery}
+        var submission = {'user':myId, 'n_queries':queries, 'queries_ids':queriesIds, 'myImgIds':myImgIds, 'myGallery_count':myGallery_count, 'displayedImgs':displayedImgs, 'TimeXround':TimeXround, "TimeXquery":TimeXquery}
 
 
         const formInputs = form[0].querySelectorAll('input[name = Satisfaction], input[name = Issues]:checked, input[name = Comments]')
