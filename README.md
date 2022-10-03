@@ -62,22 +62,23 @@ The other surveys are submitted to the user after each task, as soon as she/he f
 | Have you encountered one of the following issues?| Multiple choiche checklist | Issues with the algorithm |
 | Do you have any additional comment? | Text | User's impressions |
 
-In this phase, we have better defined the most gripping dimension for our evaluation, i.e., the user *satisfaction* with their experience. We take into account the algorithm's misbehaviours, focusing on issues with the loaded images. Also, users' comments, might be investigated through sentiment analysis (we advise Syuzhet, an R library trained in the English vocabulary, easy to learn and used for performing sentiment analysis on blogs' comments). 
-
-
+In this phase, we have already defined the most important dimension for our evaluation, i.e., the user *satisfaction* with their experience. 
+Users’ comments might be investigated through sentiment analysis (we advise Syuzhet, an R library trained in the English vocabulary, easy to learn and used for performing sentiment analysis on blogs' comments).
+We also need to take into account the algorithm's misbehaviors, especially issues with the recommending algorithm (i.e. Recommending several instances of the same image). 
+ 
 ## Development
 
 This section illustrates the development process. 
 
 The website is structured into five main pages representing all the steps one has to follow to complete the experiment, plus a help page with links leading to NiftyValue's project website and the beta version of their application.
 
-The header and navbar are not clickable as we do not want the user to freely browse our content, as it could mess up the experiment. Thus, **header** is composed by the application name and a button linking to the help page, while **navbar** works like breadcrumbs as t inform the user of their position in the application. 
+The header and navbar are not clickable as we do not want the user to freely browse our content, as it could compromise the experiment. Thus, **header** is composed by the application name and a button linking to the help page, while **navbar** works like breadcrumbs as to inform the user of their position in the application. 
 
 ### Api Queries 
 
 To be able to display images and use the recommendation system we have to send several HTTP requests and manipulate the responses.
 This is done via two different **API endpoint**: 
-1.	We the first to access a GraphQL  database that contains data about artworks and the URLs of the images.
+1.	The first to access a GraphQL database that contains data about artworks and the URLs of the images.
 2.	The second is connected to the recommendation algorithm and we use it to obtain artworks identificatory numbers based on user preferences.
 
 **Artwork data Endpoint (https://staging.gql.api.niftyvalue.com/v1/graphql)**
@@ -87,11 +88,16 @@ To obtain artworks data we need to send a POST request to the endpoint, we use O
 
 
 1.	We insert the API endpoint
+![image info](images/insertEnpoint.jpg)
 2.	In the Explorer section, we can get an understanding of the structure of the database and the “fields” we can query
+![image info](images/explorer.jpg)
 3.	We can use the Documentation Explorer to know the types and values that are allowed on the query fields.
+![image info](images/docs.jpg)
+![image info](images/schema.jpg)
 4.	A GraphQL query in JSON format is built automatically, we can send it to see the response.
+![image info](images/query.jpg)
 5.	The GraphQL query can be directly used in the JavaScript HTTP request.
-
+![image info](images/response.jpg)
 We use this format to send the request in javascript:
 
 ```js
