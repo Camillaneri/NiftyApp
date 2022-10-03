@@ -221,7 +221,7 @@ Here are described only the main functions of the Warmup Task page:
   * **loadWarmUp** this function fetch a random image and 5 similar images for the Warmup task.
 repeatask() 
   * **repeatask** is called by the Repeat Task button
-4. **supa_warmup.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of Warm Up.
+3. **supa_warmup.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of Warm Up.
 
 **Supabase data**
 The table on Supabase related to the Warm Up page is composed as follows:
@@ -242,14 +242,9 @@ The table on Supabase related to the Warm Up page is composed as follows:
 
 **Page description** 
 **Main task** 
-The Main Task page is composed by:
-1.	The Gallery, the central part of the page, it displays 20 random artworks.
-2.	The Likes Box and Dislikes Box are two sections on the upper part of the page, when users click on the like or the dislike icon beside every image, the relative artworks are displayed there.
-3.	The Dashboard is a section on the left of the page that contains 5 slots where users can put artwork, they like by clicking on the pin icon beside the images.
-4.	The Apply button positioned under the Likes Box and Dislikes Box, when clicked on displays 20 new images in the dashboard based on the images liked and disliked by the user
-5.	The Reset button is positioned under the Likes Box and Dislikes Box, when clicked on cleans the Likes Box and Dislikes Box.
-6.	The Repeat Task button is positioned on the upper part of the dashboard, when clicked on reset the gallery and clean the dashboard
-7.	The End Task button is positioned on the upper part of the dashboard, when clicked on ends the task.
+The Main Task page is primarly composed by the Gallery, the central part of the page, it displays 20 random artworks.  Likes Box and Dislikes Box are the two sections above, when users click on the like or the dislike icon below every image, the artworks are displayed there. The Apply button positioned under the Likes Box and Dislikes Box, when clicked on displays 20 new images in the Gallery. The images are choosen basing on the images liked and disliked by the user in that elicitation session. The Reset button is positioned under the Likes Box and Dislikes Box, when clicked on cleans the Likes Box and Dislikes Box.
+The Dashboard is a section on the left side of the window; it contains five slots where users can pin artworks they like, by clicking on the pin icon on the upper part of each image.
+The Repeat Task button is positioned on the upper part of the dashboard, when clicked on reset the gallery and clean the dashboard. Finally, next to it there is the End Task button is positioned on the upper part of the dashboard, when clicked on ends the task.
 
 
 **Main Task Functions**
