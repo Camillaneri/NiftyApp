@@ -22,7 +22,7 @@
         var TimeXquery = sessionStorage.getItem("TimeXquery")
         TimeXquery = JSON.parse(TimeXquery)
         var TimeXround = sessionStorage.getItem("TimeXround")
-        TimeXround = JSON.parse(TimeXroundy)
+        TimeXround = JSON.parse(TimeXround)
         var queries = sessionStorage.getItem('n_queries');
         var toAdd = {};
         for(var i = 1; i <= queries; ++i){
