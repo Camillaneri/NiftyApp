@@ -216,11 +216,11 @@ The Repeat Task button, when clicked restarts the task with new images, while th
 
 **Warmup Task Functions**
 Here are described only the main functions of the Warmup Task page:
-1. **WUfunctions.js** Contains the jQuery function to display the tutorial when the page is loaded.
+1. **WUfunctions.js** contains the jQuery function to display the tutorial when the page is loaded.
 2. **WUrequests.js** contains functions connecting to NiftyValue's API, for filling the application, and for creating log data.
-  * **loadWarmUp** this function fetch a random image and 5 similar images for the Warmup task.
+  * **loadWarmUp()** this function fetch a random image and 5 similar images for the Warmup task. It also contains some strings of code for creating counts and disctionaries, namely the log data for keeping track of reference image and similar images' ids loaded at each round 
 repeatask() 
-  * **repeatask** is called by the Repeat Task button
+  * **repeatask()** and **repeatask()** register the total amount of time needed to complete a round and the dictionaries containing the order of images decided by the user
 3. **supa_warmup.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of Warm Up.
 
 **Supabase data**
@@ -240,8 +240,6 @@ The table on Supabase related to the Warm Up page is composed as follows:
 
 ### Task
 
-**Page description** 
-**Main task** 
 The Main Task page is primarly composed by the Gallery, the central part of the page, it displays 20 random artworks.  Likes Box and Dislikes Box are the two sections above, when users click on the like or the dislike icon below every image, the artworks are displayed there. The Apply button positioned under the Likes Box and Dislikes Box, when clicked on displays 20 new images in the Gallery. The images are choosen basing on the images liked and disliked by the user in that elicitation session. The Reset button is positioned under the Likes Box and Dislikes Box, when clicked on cleans the Likes Box and Dislikes Box.
 The Dashboard is a section on the left side of the window; it contains five slots where users can pin artworks they like, by clicking on the pin icon on the upper part of each image.
 The Repeat Task button is positioned on the upper part of the dashboard, when clicked on reset the gallery and clean the dashboard. Finally, next to it there is the End Task button is positioned on the upper part of the dashboard, when clicked on ends the task.
@@ -250,12 +248,13 @@ The Repeat Task button is positioned on the upper part of the dashboard, when cl
 **Main Task Functions**
 Here are described only the main functions of the Main Task page:
 1.	**TaskTutorial.js** Contains the jQuery function to display the tutorial when the page is loaded.
-2.	**fill_task_dash** This function is called when the main task page is opened but also by the Repeat Task and End Task button, it cleans the Gallery, the Likes Box, Dislikes Box, and the Dashboard and fetches 20 random images to fill the Gallery.
-3.	**AddLiked_Disliked**This function manages the addition of liked and disliked images in the right box when the like or dislike icons beside images are clicked on
-4.	**Apply_like_dislike**This function takes the ids of liked and disliked images and fetches the resulting recommended images to fill the gallery
-5.	**Addtodash** If the user clicks on the pin icon beside an image this function displays the image on the first empty slot in the Dashboard.
-6.	**repeatTask** is called by the Repeat Task button
-7. **supa_task.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of the main task.
+2. **task.js** contains functions connecting to NiftyValue's API, for filling the application, and for creating log data.
+  *	**fill_task_dash()** This function is called when the main task page is opened but also by the Repeat Task and End Task button, it cleans the Gallery, the Likes Box, Dislikes Box, and the Dashboard and fetches 20 random images to fill the Gallery.
+  *	**AddLiked_Disliked()**This function manages the addition of liked and disliked images in the right box when the like or dislike icons beside images are clicked on
+  *	**Apply_like_dislike()**This function takes the ids of liked and disliked images and fetches the resulting recommended images to fill the gallery
+  *	**Addtodash()** If the user clicks on the pin icon beside an image this function displays the image on the first empty slot in the Dashboard.
+  *	**repeatTask()** is called by the Repeat Task button
+3. **supa_task.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of the main task.
 
 **Supabase data**
 The table on Supabase related to the main task page is composed as follows:

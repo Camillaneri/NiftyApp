@@ -127,7 +127,7 @@ function loadWarmUp(){
             get_img_element[x].id = art_id;
             document.getElementsByClassName("simimages")[x].classList.remove("imgsubst")
             
-            // log data da guardare Chiara
+            // log data da 
             LoadedImgsListenerWU += 1
             AIorder.push(art_id)
             switch(LoadedImgsListenerWU){
