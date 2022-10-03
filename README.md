@@ -11,7 +11,7 @@ Many studies in the field have started to recognize the beneficial effects of en
 Additionally, we detected two tools that were helpful in designing our evaluation:
 * **ResQue's taxonomy**: by Pu et al., is a holistic study on user’s perceptions and impressions while interacting with a system;
 * **Knijnensburg's framework**: Knijensburg et al. expand ResQue’s framework with context characteristics, employing personal and situational characteristics. This framework studies the objective qualities of the system, and the observable user behavior, under the light of the user’s subjective perception of the system.
-For a deeper insight on our research please refeer to our [State of the Art document]()
+For a deeper insight on our research please refeer to our [State of the Art document](docs/state_of_the_art.pdf)
 ## Design 
 
 Following Knijnensburg, we decided to design our study as the triangulation of three main typologies of data:
@@ -83,8 +83,8 @@ This is done via two different **API endpoint**:
 
 **Artwork data Endpoint (https://staging.gql.api.niftyvalue.com/v1/graphql)**
 
-This API endpoint uses GraphQL [website](https://graphql.org/), an open-source data query and manipulation language for APIs to access the database where URLs and information about artworks are stored.
-To obtain artworks data we need to send a POST request to the endpoint, we use Online GraphiQL [website](https://cloud.hasura.io/public/graphiql) a tool that allows us to explore the database structure and build a request in JSON format.
+This API endpoint uses [GraphQL](https://graphql.org/), an open-source data query and manipulation language for APIs to access the database where URLs and information about artworks are stored.
+To obtain artworks data we need to send a POST request to the endpoint, we use [Online GraphiQL](https://cloud.hasura.io/public/graphiql) a tool that allows us to explore the database structure and build a request in JSON format.
 
 
 1.	We insert the API endpoint
