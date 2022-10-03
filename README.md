@@ -28,6 +28,8 @@ Following Knijnensburg, we decided to design our study as the triangulation of t
 
 **Behavioural data** consists of all that data automatically collected by the application. The user can not control the recording of this data. The application will consistently collect all valuable interactions of the user with the system. 
 
+This data can be later analysed therough a Structural Equation Model (SEM) analysis, providing a broader understanding of the variables involved in the study and their relationships. 
+
 
 ### Tasks
 
@@ -38,7 +40,7 @@ In the Warm Up task, the user is presented with a randomly selected reference im
 The user is asked to order the five images from the most similar to the less similar to the reference image, the results will help us understand how well the recommendation algorithm predicts human choices. 
 
 The *Main task* consists of multiple browsing sessions in which the user can try out NiftyValue's elicitation system.
-The user can like and dislike the displayed images and use the elicitation system to find new artworks based on their choices, once they find aesthetically pleasing artworks they can place them in a dedicated space, the “dashboard”.
+The user can like and dislike the displayed images and use this kind of elicitation system to find new artworks based on their choices, once they find aesthetically pleasing artworks they can place them in a dedicated space, the “dashboard”.
 These activities in addition to the users’ feedback will allow us to gather data on the way the users interact with the elicitation system and their degree of satisfaction and enjoyment while using the application.
 
 ### Surveys [Cami deve rivedere, se torna il discorso]
@@ -208,12 +210,9 @@ The table on Supabase related to the first survey is composed as follows:
 | Curios      | int8        | How curious is the user |
 
 ### Warm up
-The Warmup Task page is composed by:
-1.	A reference image, is a randomly picked artwork in the upper left area of the page
-2.	Five similar images, displayed in the lower right area of the page are images selected by the recommendation algorithm to be similar to the reference image
-3.	Five numbered slots on the upper area of the page where the user should position the images following their subjective opinion on which are more or less similar to the reference image
-4.	The Repeat Task button,  when clicked on start anew the task with new images
-5.	The End Task button ends the tasks
+The Warmup Task page is composed by a reference image in the upper left area of the page, that is randomly picked artwork. Th Five similar images are selected by the algorithm and displayed in the lower right area of the page are images selected by the recommendation algorithm to be similar to the reference image. These are the ones the user must rank by similiarity, following their subjective opinion. This action will be performed by inserting images in the five numbered slots on the upper area of the page.
+
+The Repeat Task button,  when clicked starts anew the task with new images, while thehe End Task button ends the tasks
 ** Warmup Task Functions**
 Here are described only the main functions of the Warmup Task page:
 1.** WUrequests.js** Contains the jQuery function to display the tutorial when the page is loaded.
