@@ -15,6 +15,22 @@ body {
   
 }
 
+#big_bod{
+  height: 100vh;
+}
+
+.h41{
+  height: 41%;
+}
+.h47{
+  height: 47%;
+}
+.h-18{
+ height: 18vh;
+}
+.no-mt{
+  margin-top: 0px !important; 
+}
 a{
   color: #000000 !important;
   text-decoration: none !important;
