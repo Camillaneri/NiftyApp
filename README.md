@@ -210,22 +210,17 @@ The table on Supabase related to the first survey is composed as follows:
 | Curios      | int8        | How curious is the user |
 
 ### Warm up
-The Warmup Task page is composed by a reference image in the upper left area of the page, that is randomly picked artwork. Th Five similar images are selected by the algorithm and displayed in the lower right area of the page are images selected by the recommendation algorithm to be similar to the reference image. These are the ones the user must rank by similiarity, following their subjective opinion. This action will be performed by inserting images in the five numbered slots on the upper area of the page.
+The Warmup Task page is composed by a reference image in the upper left area of the page, that is randomly picked artwork. Th Five similar images are selected by the algorithm and displayed in the lower right area of the page are images selected by the recommendation algorithm to be similar to the reference image. These are the ones the user must rank by similiarity. This action will be performed by This action will be performed by inserting images in the five numbered slots on the upper area of the page.
 
-The Repeat Task button,  when clicked starts anew the task with new images, while thehe End Task button ends the tasks
-**Warmup Task Functions**
-Here are described only the main functions of the Warmup Task page:
-1. **WUrequests.js** Contains the jQuery function to display the tutorial when the page is loaded.
-2. **loadWarmUp** this function fetch a random image and 5 similar images for the Warmup task.
-repeatask() 
-3. **repeatask** is called by the Repeat Task button
+The Repeat Task button, when clicked restarts the task with new images, while the End Task button ends the tasks Warmup Task Functions definitely.
 
 **Warmup Task Functions**
 Here are described only the main functions of the Warmup Task page:
-1. **WUrequests.js** Contains the jQuery function to display the tutorial when the page is loaded.
-2. **loadWarmUp** this function fetch a random image and 5 similar images for the Warmup task.
+1. **WUfunctions.js** Contains the jQuery function to display the tutorial when the page is loaded.
+2. **WUrequests.js** contains functions connecting to NiftyValue's API, for filling the application, and for creating log data.
+  * **loadWarmUp** this function fetch a random image and 5 similar images for the Warmup task.
 repeatask() 
-3. **repeatask** is called by the Repeat Task button
+  * **repeatask** is called by the Repeat Task button
 4. **supa_warmup.js** is devolved to posting on the respective table on Supabase, the log data and answers given by the user in the survey at the end of Warm Up.
 
 **Supabase data**
